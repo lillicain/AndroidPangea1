@@ -1,0 +1,95 @@
+[versions]
+# Core
+core = "1.12.0"
+
+# Lifecycle
+lifecycle = "2.7.0"
+activity-compose = "1.8.2"
+viewmodel-compose = "2.7.0"
+
+# Compose
+compose-bom = "2024.02.00"
+compose-destinations = "1.10.0"
+compose-coil = "2.4.0"
+
+# Serialization
+serialization = "1.6.0"
+
+# Plugins
+android-kotlin = "1.9.10"
+android-application = "8.2.2"
+ksp = "1.9.10-1.0.13"
+kapt = "1.9.10"
+
+# Testing
+junit = "4.13.2"
+junit-android = "1.1.5"
+espresso = "3.5.1"
+
+# Database
+room = "2.6.1"
+
+# Dependency Injection
+hilt = "2.47"
+hilt-navigation-compose = "1.2.0"
+play-services-location = "21.2.0"
+appcompat = "1.6.1"
+camera-view = "1.3.3"
+browser = "1.8.0"
+
+[libraries]
+
+# Core
+core = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+
+# Lifecycle
+lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle"}
+lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle"}
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref ="viewmodel-compose"}
+
+# Compose
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-destinations = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "compose-destinations"}
+compose-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref ="compose-destinations"}
+compose-destinations-animation = { group = "io.github.raamcosta.compose-destinations", name ="animations-core", version.ref ="compose-destinations"}
+compose-extended-icons = { group = "androidx.compose.material", name = "material-icons-extended"}
+compose-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "compose-coil"}
+
+# Serialization
+serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization"}
+
+# Database
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room"}
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room"}
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
+
+# Dependency Injection
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt"}
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose"}
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit-android = { group = "androidx.test.ext", name = "junit", version.ref = "junit-android" }
+espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-services-location" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera-view" }
+browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "android-application" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "android-kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt"}
+
