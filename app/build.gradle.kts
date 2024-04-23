@@ -102,6 +102,9 @@ dependencies {
 
     implementation("com.google.accompanist:accompanist-permissions:0.31.3-beta")
 
+    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
+
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.maps.android:maps-compose:2.9.0")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
@@ -114,5 +117,8 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:1.0.2")
     implementation("androidx.camera:camera-view:1.2.0-alpha02")
     implementation("androidx.camera:camera-extensions:1.2.0-alpha02")
+
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 
 }
