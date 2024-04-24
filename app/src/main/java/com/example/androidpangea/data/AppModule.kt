@@ -12,6 +12,7 @@ import com.example.androidpangea.data.CustomCameraRepo
 import com.example.androidpangea.data.CustomCameraRepoImpl
 import com.example.androidpangea.data.ILocationService
 import com.example.androidpangea.data.LocationService
+import com.example.androidpangea.data.service.MyApi
 import com.google.android.gms.location.LocationServices
 import dagger.Module
 import dagger.Provides
@@ -20,14 +21,13 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
-
     @Singleton
     @Provides
     fun provideLocationClient(
@@ -36,6 +36,26 @@ object AppModule {
         context,
         LocationServices.getFusedLocationProviderClient(context)
     )
+
+    @Provides
+    @Singleton
+    fun provideMyApi(): MyApi {
+        return Retrofit.Builder()
+            .baseUrl("https://test.com")
+            .build()
+            .create(MyApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    @Named("hello1")
+    fun provideString1() = "Hello 1"
+
+    @Provides
+    @Singleton
+    @Named("hello2")
+    fun provideString2() = "Hello 2"
+
 //    @Provides
 //    @Singleton
 //    fun provideCameraSelector(): CameraSelector {

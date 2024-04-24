@@ -111,6 +111,7 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
 
     implementation("androidx.camera:camera-core:1.0.2")
     implementation("androidx.camera:camera-camera2:1.0.2")
