@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidpangea.data.BaseState
 import com.example.androidpangea.data.Failure
+import com.example.androidpangea.data.service.MyRepository
+import com.example.androidpangea.data.service.MyRepositoryImpl
 import com.example.androidpangea.models.Post
 import com.example.androidpangea.models.User
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,7 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val homeRepo: HomeRepo): ViewModel() {
+class HomeViewModel @Inject constructor(private val homeRepo: MyRepository): ViewModel() {
 
 
     private val _users = MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)

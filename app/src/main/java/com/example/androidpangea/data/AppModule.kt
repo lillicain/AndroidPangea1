@@ -14,6 +14,7 @@ import com.example.androidpangea.data.ILocationService
 import com.example.androidpangea.data.LocationService
 import com.example.androidpangea.data.service.MyApi
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +29,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideFireStoreInstance(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
+    }
+
     @Singleton
     @Provides
     fun provideLocationClient(

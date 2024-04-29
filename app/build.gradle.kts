@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -76,6 +77,7 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.camera.view)
     implementation(libs.browser)
+    implementation(libs.firebase.firestore.ktx)
     ksp(libs.compose.ksp)
     implementation(libs.compose.extended.icons)
     implementation(libs.compose.coil)
@@ -121,5 +123,12 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.6.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+
+
+    implementation("com.google.firebase:firebase-firestore:24.1.2")
+
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
 
 }

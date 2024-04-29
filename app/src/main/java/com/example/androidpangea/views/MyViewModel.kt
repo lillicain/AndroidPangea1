@@ -11,6 +11,6 @@ class MyViewModel @Inject constructor(
 ): ViewModel() {
 
     init {
-        repository.get()
+//        repository.get()
     }
 }
