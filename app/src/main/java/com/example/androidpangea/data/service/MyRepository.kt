@@ -32,7 +32,7 @@ class MyRepositoryImpl @Inject constructor(
 ): MyRepository {
 
     init {
-        val appName = appContext.getString(R.string.app_name)
+        val appName = "Pangea"
         println("Hello from the repository. The app name is $appName")
     }
 
@@ -41,7 +41,7 @@ class MyRepositoryImpl @Inject constructor(
     }
 
     override fun getPosts(result: (UiState<List<Post>>) -> Unit) {
-        database.collection(FireStoreTables.NOTE).get().addOnSuccessListener {
+        database.collection(FireStoreTables.POST).get().addOnSuccessListener {
             val notes = arrayListOf<Post>()
             for (document in it) {
                 val note = document.toObject(Post::class.java)
@@ -75,7 +75,7 @@ class MyRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun updateNote(post: Post, result: (UiState<String>) -> Unit) {
+    override fun updatePost(post: Post, result: (UiState<String>) -> Unit) {
         val document = database.collection(FireStoreTables.POST).document(post.id)
         document.set(post).addOnSuccessListener {
             result.invoke(
