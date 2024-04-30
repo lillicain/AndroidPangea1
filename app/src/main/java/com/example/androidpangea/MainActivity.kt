@@ -16,6 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import com.example.androidpangea.models.User
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
+import com.example.androidpangea.views.cameraScreen.CameraScreen
+import com.example.androidpangea.views.cameraScreen.CreatePost
+import com.example.androidpangea.views.cameraScreen.LastPhotoPreview
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -61,13 +64,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainScreen(
-//                        user = User(id = "", username = "Username", profileImage = "https://images.app.goo.gl/ZPw89mk4"),
-                        state = viewModel.state.value,
-                        setupClusterManager = viewModel::setupClusterManager,
-                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-
-                    )
+                 CreatePost()
+//                    MainScreen(
+//                        state = viewModel.state.value,
+//                        setupClusterManager = viewModel::setupClusterManager,
+//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+//                    )
                 }
             }
         }
