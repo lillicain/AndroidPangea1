@@ -4,19 +4,31 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.androidpangea.models.User
 import com.example.androidpangea.views.mapScreen.MapItemManager
 import com.example.androidpangea.views.mapScreen.MapState
+import com.example.androidpangea.views.subviews.CircularImage
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -33,10 +45,19 @@ import kotlinx.coroutines.launch
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "PotentialBehaviorOverride")
 @Composable
 fun MainScreen(
+//    user: User?,
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,
+//    viewModel: MainViewModel = hiltViewModel()
 ) {
+
+//    val userState = viewModel.users.collectAsState()
+//    val postsState = viewModel.posts.collectAsState()
+//    val bottomSheet = rememberModalBottomSheetState()
+    var isBottomSheetOpened by remember {
+        mutableStateOf(false)
+    }
 
     val mapProperties = MapProperties(isMyLocationEnabled = state.lastKnownLocation != null)
     val cameraPositionState = rememberCameraPositionState()
@@ -46,11 +67,22 @@ fun MainScreen(
 
 
         ) {
+Column(
+    modifier = Modifier
+        .fillMaxSize(),
+    horizontalAlignment = Alignment.CenterHorizontally,
+    verticalArrangement = Arrangement.Top
+) {
+//    CircularImage(imageUrl = user?.profileImage ?: "")
+}
+//        Text(text = user?.username ?: "")
 
-        Text(text = "User")
 
         Box(
-            modifier = Modifier.fillMaxSize().padding(50.dp).padding(top = 200.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(50.dp)
+                .padding(top = 200.dp)
         ) {
             GoogleMap(
                 modifier = Modifier.fillMaxSize(),
