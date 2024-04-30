@@ -5,4 +5,4 @@ import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @HiltAndroidApp
-class MainApplication: Application() {}
+class MainApplication: Application()
