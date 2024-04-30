@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -93,25 +94,16 @@ fun MainScreen(
             }
         }
 
-        //    // Center camera to include all the Zones.
-        //    LaunchedEffect(state.clusterItems) {
-        //        if (state.clusterItems.isNotEmpty()) {
-        //            cameraPositionState.animate(
-        //                update = CameraUpdateFactory.newLatLngBounds(
-        //                    calculateZoneViewCenter(),
-        //                    0
-        //                ),
-        //            )
-        //        }
-        //    }
+        LaunchedEffect(state.mapItems) {
+            if (state.mapItems.isNotEmpty()) {
+                cameraPositionState.animate(
+                    update = CameraUpdateFactory.newLatLngBounds(
+                        calculateZoneViewCenter(),
+                        0
+                    ),
+                )
+            }
+        }
     }
-
 }
 
-    suspend fun CameraPositionState.centerOnLocation(
-        location: Location
-    ) = animate(
-        update = CameraUpdateFactory.newLatLngZoom(
-            LatLng(location.latitude, location.longitude), 15f
-        ),
-    )

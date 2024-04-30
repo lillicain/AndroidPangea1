@@ -12,8 +12,6 @@ data class MapItem(
 ) : ClusterItem {
 
     override fun getSnippet() = snippet
-
     override fun getTitle() = title
-
     override fun getPosition() = polygonOptions.points.getCenterOfPolygon().center
 }

@@ -26,26 +26,38 @@ class MapViewModel @Inject constructor(): ViewModel() {
             lastKnownLocation = null,
             mapItems = listOf(
                 MapItem(
-                    id = "zone-1",
-                    title = "Zone 1",
+                    id = "1",
+                    title = "School",
                     snippet = "This is Zone 1.",
                     polygonOptions = polygonOptions {
-                        add(LatLng(49.105, -122.524))
-                        add(LatLng(49.101, -122.529))
-                        add(LatLng(49.092, -122.501))
-                        add(LatLng(49.1, -122.506))
+//                        add(LatLng(37.09, 113.57))
+//                        add(LatLng(37.098, 113.58))
+//                        add(LatLng(37.094, 113.591))
+//                        add(LatLng(37.01, 113.59))
+
+                        add(LatLng(39.105, -122.524))
+                        add(LatLng(39.101, -122.529))
+                        add(LatLng(39.092, -122.501))
+                        add(LatLng(39.1, -122.506))
+
                         fillColor(POLYGON_FILL_COLOR)
                     }
                 ),
                 MapItem(
-                    id = "zone-2",
-                    title = "Zone 2",
-                    snippet = "This is Zone 2.",
+                    id = "2",
+                    title = "Test",
+                    snippet = "This is a test area.",
                     polygonOptions = polygonOptions {
-                        add(LatLng(49.110, -122.554))
-                        add(LatLng(49.107, -122.559))
-                        add(LatLng(49.103, -122.551))
-                        add(LatLng(49.112, -122.549))
+
+                        add(LatLng(39.105, -122.524))
+                        add(LatLng(39.101, -122.529))
+                        add(LatLng(39.092, -122.501))
+                        add(LatLng(39.1, -122.506))
+
+//                        add(LatLng(37.11, 113.36))
+//                        add(LatLng(37.123, 113.373))
+//                        add(LatLng(37.111, 113.37))
+
                         fillColor(POLYGON_FILL_COLOR)
                     }
                 )
@@ -85,7 +97,6 @@ class MapViewModel @Inject constructor(): ViewModel() {
             .map { it.points.map { LatLng(it.latitude, it.longitude) } }.flatten()
         return latLngs.calculateCameraViewPoints().getCenterOfPolygon()
     }
-
 
 
     companion object {
