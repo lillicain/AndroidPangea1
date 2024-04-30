@@ -101,7 +101,7 @@ fun PostItem(
                 )
             }
         }
-        PostImage(imageUrl = post.postImage)
+//        PostImage(imageUrl = post.postImage)
         Spacer(modifier = Modifier.height(4.dp))
         Row(
             horizontalArrangement = Arrangement.SpaceEvenly,

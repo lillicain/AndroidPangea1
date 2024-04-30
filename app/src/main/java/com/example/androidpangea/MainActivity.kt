@@ -64,12 +64,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                 CreatePost()
-//                    MainScreen(
-//                        state = viewModel.state.value,
-//                        setupClusterManager = viewModel::setupClusterManager,
-//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-//                    )
+//                 CreatePost()
+                    MainScreen(
+                        state = viewModel.state.value,
+                        setupClusterManager = viewModel::setupClusterManager,
+                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+                    )
                 }
             }
         }
