@@ -35,7 +35,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun AndroidPangeaTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(), // Dynamic color is available on Android 12+
+    darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true, content: @Composable () -> Unit
 ) {
     val colorScheme = when {

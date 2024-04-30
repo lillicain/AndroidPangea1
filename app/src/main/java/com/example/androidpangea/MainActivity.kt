@@ -31,20 +31,14 @@ class MainActivity : ComponentActivity() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val viewModel: MapViewModel by viewModels()
 
-    private val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
                 viewModel.getDeviceLocation(fusedLocationProviderClient)
             }
         }
 
     private fun askPermissions() = when {
-        ContextCompat.checkSelfPermission(
-            this,
-            ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED -> {
+        ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
             viewModel.getDeviceLocation(fusedLocationProviderClient)
         }
         else -> {
@@ -64,7 +58,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-//                 CreatePost()
+
                     MainScreen(
                         state = viewModel.state.value,
                         setupClusterManager = viewModel::setupClusterManager,
