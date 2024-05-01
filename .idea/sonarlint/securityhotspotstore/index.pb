@@ -61,3 +61,7 @@ Japp/src/main/java/com/example/androidpangea/views/userScreen/UserScreen.kt,d/4
 Wapp/src/main/java/com/example/androidpangea/views/subviews/SavePhotoToGalleryUseCase.kt,9/d/9d2f2a08fcd805d436b2ec5b8f21c9f9137fff87
 }
 Mapp/src/main/java/com/example/androidpangea/views/userScreen/UserViewModel.kt,3/8/38b13cdc5cb1a73f89a2487ecb5c8417078b7b9a
+z
+Japp/src/main/java/com/example/androidpangea/views/postScreen/PostScreen.kt,2/9/294fa5993bd11cf281f3080a8fa5a54faa33ab3b
+n
+>app/src/main/java/com/example/androidpangea/MainApplication.kt,6/5/65edb1f3807a1e720540d525d9feece3e9a3ddb0
