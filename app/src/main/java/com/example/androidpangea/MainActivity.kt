@@ -7,6 +7,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -16,6 +18,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import com.example.androidpangea.models.User
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
+import com.example.androidpangea.views.authentication.AuthScreen
+import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CreatePost
 import com.example.androidpangea.views.cameraScreen.LastPhotoPreview
@@ -24,6 +28,7 @@ import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -31,6 +36,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val viewModel: MapViewModel by viewModels()
 
+    private val authViewModel: AuthViewModel by viewModels()
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
                 viewModel.getDeviceLocation(fusedLocationProviderClient)
@@ -46,6 +52,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class,
+        ExperimentalCoroutinesApi::class
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,11 +68,14 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    MainScreen(
-                        state = viewModel.state.value,
-                        setupClusterManager = viewModel::setupClusterManager,
-                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-                    )
+
+                    AuthScreen(authViewModel)
+
+//                    MainScreen(
+//                        state = viewModel.state.value,
+//                        setupClusterManager = viewModel::setupClusterManager,
+//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+//                    )
                 }
             }
         }

@@ -41,3 +41,17 @@ w
 Gapp/src/main/java/com/example/androidpangea/utils/AuthResultContract.kt,5/8/584073311238803f5af59a9ef1d942667cfe6412
 w
 Gapp/src/main/java/com/example/androidpangea/utils/GoogleSignInClient.kt,f/0/f0532720af6e38a93e1c7172e475aed60763b948
+~
+Napp/src/main/java/com/example/androidpangea/views/authentication/AuthScreen.kt,e/c/ecb64760d68522f2358357353928652ca551b12a
+€
+Papp/src/main/java/com/example/androidpangea/views/authentication/SignInButton.kt,f/2/f2fcc62bb19070a1bc4669fe1bf581bba8005c4c
+m
+=app/src/main/java/com/example/androidpangea/ui/theme/Shape.kt,5/1/51d35d37813bfbbfa5ff9950c8ccdfe5ec229fd4
+l
+<app/src/main/java/com/example/androidpangea/ui/theme/Type.kt,f/8/f8347f6cabc3f02d1a863ab02a0382dc21bf50bf
+m
+=app/src/main/java/com/example/androidpangea/ui/theme/Theme.kt,a/d/ad4d99dc61efedde9fcbd96581dddc6de4ee6cee
+m
+=app/src/main/java/com/example/androidpangea/ui/theme/Color.kt,5/2/527bca51929bb455f3ab90836c4ec7c561b67e1e
+
+Qapp/src/main/java/com/example/androidpangea/views/authentication/AuthViewModel.kt,0/0/0011af211e7e7c0a639e185cbb03b3239320c650
