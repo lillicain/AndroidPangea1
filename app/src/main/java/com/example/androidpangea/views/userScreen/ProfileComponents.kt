@@ -286,9 +286,9 @@ fun PostSection(
                         color = MaterialTheme.colorScheme.background
                     )
                     .clickable {
-                        navController.navigate(
-                            "${NavigationItem.ViewPost.route}/${it.dp}"
-                        )
+//                        navController.navigate(
+//                            "${NavigationItem.ViewPost.route}/${it.dp}"
+//                        )
                     }
             )
         }

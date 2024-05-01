@@ -34,48 +34,5 @@ fun BottomNavigationBar(
     }
 }
 
-//@Composable
-//fun BottomNavigationBar(
-//    items: List<BottomNavItem>,
-//    navController: NavController,
-//    modifier: Modifier = Modifier,
-//    onItemClick: (BottomNavItem) -> Unit,
-//) {
-//    val backStackEntry = navController.currentBackStackEntryAsState()
-//    BottomNavigation(
-//        modifier = modifier,
-//        backgroundColor = MaterialTheme.colorScheme.background,
-//    ) {
-//        val inactiveColor = Color.Gray
-//        items.forEach { item ->
-//            val selected = item.route == backStackEntry.value?.destination?.route
-//            BottomNavigationItem(
-//                modifier = modifier.animateContentSize(
-//                    animationSpec =  tween(5000)
-//                ),
-//                selected = selected,
-//                onClick = { onItemClick(item) },
-//                selectedContentColor = MaterialTheme.colorScheme.onBackground,
-//                unselectedContentColor = inactiveColor,
-//                icon = {
-//                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-//                        if (item.badgeCount > 0) {
-//                            BadgedBox(badge = {
-//                                Text(text = item.badgeCount.toString())
-//                            }) {
-//                                Icon(
-//                                    painter = item.icon,
-//                                    contentDescription = item.name
-//                                )
-//                            }
-//                        } else {
-//                            Icon(
-//                                painter = item.icon,
-//                                contentDescription = item.name
-//                            )
-//                        }
-//                    }
-//                })
-//        }
-//    }
-//}
+
+

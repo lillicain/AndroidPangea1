@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
+//    id("com.android.application")
+//    id("com.google.gms.google-services")
 }
 
 android {
@@ -101,6 +103,14 @@ dependencies {
 
 
     implementation("com.google.accompanist:accompanist-permissions:0.31.3-beta")
+
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:21.1.0")
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+//    implementation("com.facebook.android:facebook-android-sdk:8.x")
+
 
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.maps.android:maps-compose:2.9.0")

@@ -19,3 +19,25 @@ Happ/src/main/java/com/example/androidpangea/navigation/NavigationItem.kt,3/3/3
 Kapp/src/main/java/com/example/androidpangea/views/subviews/CIrcularImage.kt,7/4/746c91ff0bd6334a24d46c6292a3c95b723adc86
 ~
 Napp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraScreen.kt,6/4/6456614cd55cdfb4c943e53aefc13eceacb1b96f
+t
+Dapp/src/main/java/com/example/androidpangea/navigation/BottomIcon.kt,c/7/c7a2aa8e2b79f967e9250708917423dde1ebc2b6
+}
+Mapp/src/main/java/com/example/androidpangea/navigation/BottomNavigationBar.kt,7/5/75983ce817937ce1ad6d85ca2ac5f3a6ba054ddf
+w
+Gapp/src/main/java/com/example/androidpangea/navigation/BottomNavItem.kt,4/2/42e9b01aec52b26a1e933e200b7386556ce035ac
+z
+Japp/src/main/java/com/example/androidpangea/views/mainScreen/MainScreen.kt,4/4/440a5890d05b706265979480c7bf4c14602341b2
+k
+;app/src/main/java/com/example/androidpangea/MainActivity.kt,3/c/3cfaafd305a4f9f7b6ef6768253cae10a8bf1a9c
+}
+Mapp/src/main/java/com/example/androidpangea/views/mainScreen/MainViewModel.kt,4/4/44925637b3b40840ae9a3ef261ff5b5b81f5815a
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+@
+build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
+Å
+Qapp/src/main/java/com/example/androidpangea/views/authentication/AuthVuewModel.kt,8/e/8e1ffda57b7b3ff8d62f9df0e68e7142b7ab25a6
+w
+Gapp/src/main/java/com/example/androidpangea/utils/AuthResultContract.kt,5/8/584073311238803f5af59a9ef1d942667cfe6412
+w
+Gapp/src/main/java/com/example/androidpangea/utils/GoogleSignInClient.kt,f/0/f0532720af6e38a93e1c7172e475aed60763b948
