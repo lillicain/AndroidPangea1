@@ -49,7 +49,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    user: User,
+//    user: User,
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,

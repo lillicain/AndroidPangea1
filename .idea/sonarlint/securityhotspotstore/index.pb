@@ -55,3 +55,9 @@ m
 =app/src/main/java/com/example/androidpangea/ui/theme/Color.kt,5/2/527bca51929bb455f3ab90836c4ec7c561b67e1e
 Å
 Qapp/src/main/java/com/example/androidpangea/views/authentication/AuthViewModel.kt,0/0/0011af211e7e7c0a639e185cbb03b3239320c650
+z
+Japp/src/main/java/com/example/androidpangea/views/userScreen/UserScreen.kt,d/4/d425a0b914738e11b68abe8f60280770e5299ea8
+á
+Wapp/src/main/java/com/example/androidpangea/views/subviews/SavePhotoToGalleryUseCase.kt,9/d/9d2f2a08fcd805d436b2ec5b8f21c9f9137fff87
+}
+Mapp/src/main/java/com/example/androidpangea/views/userScreen/UserViewModel.kt,3/8/38b13cdc5cb1a73f89a2487ecb5c8417078b7b9a

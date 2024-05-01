@@ -69,13 +69,13 @@ class MainActivity : ComponentActivity() {
                 ) {
 
 
-                    AuthScreen(authViewModel)
+//                    AuthScreen(authViewModel)
 
-//                    MainScreen(
-//                        state = viewModel.state.value,
-//                        setupClusterManager = viewModel::setupClusterManager,
-//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-//                    )
+                    MainScreen(
+                        state = viewModel.state.value,
+                        setupClusterManager = viewModel::setupClusterManager,
+                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+                    )
                 }
             }
         }
