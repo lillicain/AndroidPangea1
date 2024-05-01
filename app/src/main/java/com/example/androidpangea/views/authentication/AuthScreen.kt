@@ -1,7 +1,11 @@
 package com.example.androidpangea.views.authentication
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -22,11 +26,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import com.example.androidpangea.R
 import com.example.androidpangea.utils.AuthResultContract
+import com.example.androidpangea.views.mainScreen.MainScreen
+import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
+import com.example.androidpangea.views.mainScreen.MainScreen
+import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi
@@ -35,6 +46,8 @@ import kotlinx.coroutines.launch
 fun AuthScreen(
     authViewModel: AuthViewModel
 ) {
+
+
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
     val user by remember(authViewModel) { authViewModel.user }.collectAsState()
@@ -52,13 +65,32 @@ fun AuthScreen(
                             email = account.email,
                             displayName = account.displayName,
 
-                        )
+                            )
                     }
                 }
             } catch (e: ApiException) {
                 text = "Google sign in failed"
             }
         }
+
+
+
+//    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+//        if (isGranted) {
+//            viewModel.getDeviceLocation(fusedLocationProviderClient)
+//        }
+//    }
+//
+//    fun askPermissions() = when {
+//        ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
+//            viewModel.getDeviceLocation(fusedLocationProviderClient)
+//        }
+//        else -> {
+//            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+//        }
+//    }
+
+
 
     AuthView(
         errorText = text,
@@ -69,7 +101,22 @@ fun AuthScreen(
     )
 
     user?.let {
-//        MainScreen(user = it)
+
+        val mapViewModel = MapViewModel()
+
+//        val mapViewModel: MapViewModel by viewModels()
+
+//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+//        askPermissions()
+
+        //        MainScreen(user = it)
+
+        MainScreen(
+            user = it,
+            state = mapViewModel.state.value,
+            setupClusterManager = mapViewModel::setupClusterManager,
+            calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
+        )
     }
 }
 
