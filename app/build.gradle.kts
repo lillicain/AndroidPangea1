@@ -78,6 +78,8 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.camera.view)
     implementation(libs.browser)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore.ktx)
     ksp(libs.compose.ksp)
     implementation(libs.compose.extended.icons)
     implementation(libs.compose.coil)

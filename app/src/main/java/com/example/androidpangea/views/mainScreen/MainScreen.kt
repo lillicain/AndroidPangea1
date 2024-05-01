@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -45,22 +46,23 @@ import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "PotentialBehaviorOverride")
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    user: User,
+    user: User = User("", "", ""),
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,
 
-//        viewModel: MainViewModel,
-//    navController: NavController,
+        viewModel: MainViewModel,
+    navController: NavController,
 ) {
 
-//    val userState = viewModel.users.collectAsState()
-//    val postsState = viewModel.posts.collectAsState()
-//    val bottomSheet = rememberModalBottomSheetState()
+    val userState = viewModel.users.collectAsState()
+    val postsState = viewModel.posts.collectAsState()
+    val bottomSheet = rememberModalBottomSheetState()
     var isBottomSheetOpened by remember {
         mutableStateOf(false)
     }
@@ -79,9 +81,9 @@ Column(
     horizontalAlignment = Alignment.CenterHorizontally,
     verticalArrangement = Arrangement.Top
 ) {
-//    CircularImage(imageUrl = user?.profileImage ?: "")
+    CircularImage(imageUrl = user?.profileImage ?: "")
 }
-//        Text(text = user?.username ?: "")
+        Text(text = user?.username ?: "")
 
 
         Box(

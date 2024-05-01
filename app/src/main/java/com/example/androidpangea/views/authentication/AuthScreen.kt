@@ -1,11 +1,7 @@
 package com.example.androidpangea.views.authentication
 
-import android.Manifest
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -26,18 +22,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import com.example.androidpangea.R
 import com.example.androidpangea.utils.AuthResultContract
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
-import com.example.androidpangea.views.mainScreen.MainScreen
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.androidpangea.views.userScreen.UserScreen
 
 @ExperimentalAnimationApi
 @ExperimentalFoundationApi
@@ -46,7 +38,6 @@ import dagger.hilt.android.AndroidEntryPoint
 fun AuthScreen(
     authViewModel: AuthViewModel
 ) {
-
 
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
@@ -61,11 +52,15 @@ fun AuthScreen(
                     text = "Google sign in failed"
                 } else {
                     coroutineScope.launch {
-                        authViewModel.signIn(
-                            email = account.email,
-                            displayName = account.displayName,
+                        account.email?.let {
+                            account.displayName?.let { it1 ->
+                                authViewModel.signIn(
+                                    email = it,
+                                    username = it1,
 
-                            )
+                                    )
+                            }
+                        }
                     }
                 }
             } catch (e: ApiException) {
@@ -104,12 +99,10 @@ fun AuthScreen(
 
         val mapViewModel = MapViewModel()
 
-//        val mapViewModel: MapViewModel by viewModels()
-
 //        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 //        askPermissions()
 
-        //        MainScreen(user = it)
+
 
         MainScreen(
             user = it,

@@ -35,33 +35,33 @@ class MainActivity : ComponentActivity() {
 
     private val authViewModel: AuthViewModel by viewModels()
 
-//    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-//    private val viewModel: MapViewModel by viewModels()
-//
-//
-//    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-//            if (isGranted) {
-//                viewModel.getDeviceLocation(fusedLocationProviderClient)
-//            }
-//        }
-//
-//    private fun askPermissions() = when {
-//        ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
-//            viewModel.getDeviceLocation(fusedLocationProviderClient)
-//        }
-//        else -> {
-//            requestPermissionLauncher.launch(ACCESS_FINE_LOCATION)
-//        }
-//    }
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private val viewModel: MapViewModel by viewModels()
+
+
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                viewModel.getDeviceLocation(fusedLocationProviderClient)
+            }
+        }
+
+    private fun askPermissions() = when {
+        ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
+            viewModel.getDeviceLocation(fusedLocationProviderClient)
+        }
+        else -> {
+            requestPermissionLauncher.launch(ACCESS_FINE_LOCATION)
+        }
+    }
 
     @OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class,
         ExperimentalCoroutinesApi::class
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//
-//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-//        askPermissions()
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        askPermissions()
 
         setContent {
             AndroidPangeaTheme {
@@ -71,13 +71,13 @@ class MainActivity : ComponentActivity() {
                 ) {
 
 
-                    AuthScreen(authViewModel)
+//                    AuthScreen(authViewModel)
 
-//                    MainScreen(
-//                        state = viewModel.state.value,
-//                        setupClusterManager = viewModel::setupClusterManager,
-//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-//                    )
+                    MainScreen(
+                        state = viewModel.state.value,
+                        setupClusterManager = viewModel::setupClusterManager,
+                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+                    )
                 }
             }
         }
