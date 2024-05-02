@@ -9,9 +9,17 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,6 +31,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -61,6 +70,7 @@ fun MainScreen(
 //    val userState = viewModel.users.collectAsState()
 //    val postsState = viewModel.posts.collectAsState()
 //    val bottomSheet = rememberModalBottomSheetState()
+
     var isBottomSheetOpened by remember {
         mutableStateOf(false)
     }
@@ -70,6 +80,16 @@ fun MainScreen(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+//        topBar = {
+//            TopAppBar(title = { Text(text = "Profile") }, colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary), actions =  {
+//                IconButton(onClick = { navigator.navigateUp() }) {
+//                    Icon(imageVector = Icons.AutoMirrored.Outlined.ArrowBack
+//
+//                    )
+//                }
+//            })
+//        }
+
 
 
         ) {

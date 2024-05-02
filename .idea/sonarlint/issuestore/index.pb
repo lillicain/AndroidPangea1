@@ -35,8 +35,6 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
 build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
-
-Qapp/src/main/java/com/example/androidpangea/views/authentication/AuthVuewModel.kt,8/e/8e1ffda57b7b3ff8d62f9df0e68e7142b7ab25a6
 w
 Gapp/src/main/java/com/example/androidpangea/utils/AuthResultContract.kt,5/8/584073311238803f5af59a9ef1d942667cfe6412
 w
@@ -65,3 +63,15 @@ z
 Japp/src/main/java/com/example/androidpangea/views/postScreen/PostScreen.kt,2/9/294fa5993bd11cf281f3080a8fa5a54faa33ab3b
 n
 >app/src/main/java/com/example/androidpangea/MainApplication.kt,6/5/65edb1f3807a1e720540d525d9feece3e9a3ddb0
+}
+Mapp/src/main/java/com/example/androidpangea/views/mapScreen/MapItemManager.kt,2/e/2e55d57d430fa9ded5061dfed3a1e01cc2d63541
+w
+Gapp/src/main/java/com/example/androidpangea/views/mapScreen/MapState.kt,7/a/7a7f208cbee987e9ca4b8eb31a435bfbc96ce9a1
+{
+Kapp/src/main/java/com/example/androidpangea/views/mapScreen/MapViewModel.kt,7/e/7e09df303309624d577653271ac2e4bf0381c978
+v
+Fapp/src/main/java/com/example/androidpangea/navigation/BottomAppBar.kt,2/8/28528c7b83ad11039b57129d38b16a41ce096830
+s
+Capp/src/main/java/com/example/androidpangea/navigation/BottomBar.kt,4/f/4f1883435d0306a23dce48f569bec299722b93de
+|
+Lapp/src/main/java/com/example/androidpangea/navigation/BottomBarViewModel.kt,1/8/184b84c6ce9b1192031b74d45a1eee52e3482c71

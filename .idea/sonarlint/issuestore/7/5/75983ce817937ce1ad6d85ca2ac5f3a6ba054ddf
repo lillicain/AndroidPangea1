@@ -1,11 +1,13 @@
 
-rkotlin:S1172"4Remove this unused function parameter "onItemClick".(©ê•ÊJ$45f86d87-c4ef-45b5-8655-fe53c304ea95
-pkotlin:S1481"-Remove this unused "selected" local variable.(ÃÍŠ‹øÿÿÿÿJ$9fd75fc3-93aa-4506-a46a-ca638ad50081
-ukotlin:S1481"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿJ$6a63d66e-55ba-4b90-9bf6-3cb00633c1a8
->kotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8½À ó1
->kotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8½À ó1
->kotlin:S1128"Remove this unused import.(û¢ËÓùÿÿÿÿ8¾À ó1
->kotlin:S1128"Remove this unused import.(€ñÉ©úÿÿÿÿ8¾À ó1
-9kotlin:S1128"Remove this unused import.(Äåì¾8¾À ó1
->kotlin:S1128	"Remove this unused import.(½…Ò¦ıÿÿÿÿ8¾À ó1
->kotlin:S1128"Remove this unused import.(ÏõÁŞşÿÿÿÿ8¾À ó1
+rkotlin:S1172"4Remove this unused function parameter "onItemClick".(©ê•ÊJ$a00b273e-9df3-4dc6-8d21-611dd5307f7c
+Vkotlin:S1172"7Use "_" instead of this unused lambda parameter "item".(¿å×8½“˜×ó1
+Bkotlin:S125"Remove this commented out code.(¯¤¿ôÿÿÿÿÿ8Â“˜×ó1
+ukotlin:S1481"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿJ$9efd9cca-e1bf-43b2-8c29-70da20bab02b
+Wkotlin:S1481"3Remove this unused "backStackEntry" local variable.(‡™­âıÿÿÿÿ8Å“˜×ó1
+dkotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8½À ó1J$f36a0fb5-6e19-40d2-9bb2-55369b7c047f
+dkotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8½À ó1J$800024e9-5448-4dd9-bb7d-564b84e15087
+dkotlin:S1128"Remove this unused import.(û¢ËÓùÿÿÿÿ8¾À ó1J$6612ddbb-9a5e-432e-af57-1bbdeb47a0f7
+dkotlin:S1128"Remove this unused import.(€ñÉ©úÿÿÿÿ8¾À ó1J$deeff352-2046-4828-baa6-32c0170585d4
+_kotlin:S1128"Remove this unused import.(Äåì¾8¾À ó1J$47a82aff-3ea1-4223-96a6-441b6484cf67
+dkotlin:S1128	"Remove this unused import.(½…Ò¦ıÿÿÿÿ8¾À ó1J$64c26625-0756-42cb-bd56-eb5cb75d0dbb
+dkotlin:S1128"Remove this unused import.(ÏõÁŞşÿÿÿÿ8¾À ó1J$5fecf9bd-c6a2-4e46-bd7b-73ecd5ff9b17

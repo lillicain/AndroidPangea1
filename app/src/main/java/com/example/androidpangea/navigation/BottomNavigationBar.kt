@@ -28,7 +28,7 @@ fun BottomNavigationBar(
     ) {
         val inactiveColor = Color.Gray
         items.forEach { item ->
-            val selected = item.route == backStackEntry.value?.destination?.route
+//            val selected = item.route == backStackEntry.value?.destination?.route
 
         }
     }

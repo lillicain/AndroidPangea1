@@ -1,8 +1,10 @@
 package com.example.androidpangea.views.mapScreen
 
 import com.example.androidpangea.extensions.getCenterOfPolygon
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.PolygonOptions
 import com.google.maps.android.clustering.ClusterItem
+import com.google.maps.android.ktx.model.circleOptions
 
 data class MapItem(
     val id: String,
