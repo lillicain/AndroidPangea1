@@ -73,11 +73,14 @@ class MainActivity : ComponentActivity() {
 //FirstScreen(authViewModel = authViewModel)
 
 
-                    MainScreen(
-                        state = viewModel.state.value,
-                        setupClusterManager = viewModel::setupClusterManager,
-                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-                    )
+                    SignUpScreen(onNavToHomePage = {  }) {                     
+                    }
+//                    MainScreen(
+//                        state = viewModel.state.value,
+//                        setupClusterManager = viewModel::setupClusterManager,
+//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+//                    )
+
                 }
             }
         }

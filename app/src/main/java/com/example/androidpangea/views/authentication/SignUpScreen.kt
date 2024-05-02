@@ -72,7 +72,9 @@ fun SignUpScreen(
                 Text(text = "Email")
             },
             isError = isError
+
         )
+
         OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
