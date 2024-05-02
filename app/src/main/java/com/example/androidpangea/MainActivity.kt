@@ -20,6 +20,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androidpangea.models.User
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
 import com.example.androidpangea.views.authentication.AuthViewModel
+import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CreatePost
 import com.example.androidpangea.views.cameraScreen.LastPhotoPreview
@@ -70,6 +71,7 @@ class MainActivity : ComponentActivity() {
                 ) {
 
 //FirstScreen(authViewModel = authViewModel)
+
 
                     MainScreen(
                         state = viewModel.state.value,

@@ -91,3 +91,5 @@ Kapp/src/main/java/com/example/androidpangea/views/mainScreen/FirstScreen.kt,2/
 Napp/src/main/java/com/example/androidpangea/views/authentication/Navigation.kt,5/3/539a8662fb2ebf8841dfa7a0106e514da923db69
 t
 Dapp/src/main/java/com/example/androidpangea/navigation/Navigation.kt,7/d/7dca68a96d51d24569360734b0122d703d0faee1
+€
+Papp/src/main/java/com/example/androidpangea/views/authentication/SignInScreen.kt,4/8/48d5e0cee8f284efa1b9f20d54b67607270db491

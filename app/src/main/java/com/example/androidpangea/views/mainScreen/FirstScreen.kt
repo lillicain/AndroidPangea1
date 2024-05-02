@@ -44,13 +44,13 @@ fun FirstScreen(navController: NavHostController = rememberNavController(), auth
             }
         }
         composable(HomeRoutes.Main.name) {
-            CameraScreen()
-//            UserScreen(userViewModel = UserViewModel(), navController = navController.navigate(HomeRoutes.Main.name))
-//            navController.navigate(HomeRoutes.Main.name) {
-//                popUpTo(HomeRoutes.Main.name) {
-//                    inclusive = true
-//                }
-//            }
+//
+////            UserScreen(userViewModel = UserViewModel(), navController = navController.navigate(HomeRoutes.Main.name))
+////            navController.navigate(HomeRoutes.Main.name) {
+////                popUpTo(HomeRoutes.Main.name) {
+////                    inclusive = true
+////                }
+////            }
         }
     }
 }
@@ -61,7 +61,7 @@ enum class LoginRoutes {
 }
 enum class HomeRoutes {
     Main,
-    User
+//    User
 
 
 }
