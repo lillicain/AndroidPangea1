@@ -87,3 +87,7 @@ Papp/src/main/java/com/example/androidpangea/views/authentication/SignUpScreen.k
 Kapp/src/main/java/com/example/androidpangea/views/mainScreen/firstScreen.kt,3/d/3d9491f9befd4f590df08a51ad3fe1809aa38862
 {
 Kapp/src/main/java/com/example/androidpangea/views/mainScreen/FirstScreen.kt,2/2/2251a82d6be4cde5427a578499f53e9e45af1d7d
+~
+Napp/src/main/java/com/example/androidpangea/views/authentication/Navigation.kt,5/3/539a8662fb2ebf8841dfa7a0106e514da923db69
+t
+Dapp/src/main/java/com/example/androidpangea/navigation/Navigation.kt,7/d/7dca68a96d51d24569360734b0122d703d0faee1

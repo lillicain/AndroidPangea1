@@ -69,10 +69,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-
-//                    AuthScreen(authViewModel)
-
-//FirstScreen(authViewModel = authViewModel, viewModel = viewModel)
+//FirstScreen(authViewModel = authViewModel)
 
                     MainScreen(
                         state = viewModel.state.value,

@@ -1,8 +1,6 @@
 package com.example.androidpangea.views.mainScreen
 
-import android.util.Log
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -10,10 +8,13 @@ import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.authentication.LoginScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
+import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mapScreen.MapViewModel
+import com.example.androidpangea.views.userScreen.UserScreen
+import com.example.androidpangea.views.userScreen.UserViewModel
 
 @Composable
-fun FirstScreen(navController: NavHostController = rememberNavController(), authViewModel: AuthViewModel, viewModel: MapViewModel) {
+fun FirstScreen(navController: NavHostController = rememberNavController(), authViewModel: AuthViewModel) {
     NavHost(navController = navController, startDestination = LoginRoutes.SignIn.name) {
         composable(LoginRoutes.SignIn.name) {
             LoginScreen(onNavToHomePage = {
@@ -43,13 +44,13 @@ fun FirstScreen(navController: NavHostController = rememberNavController(), auth
             }
         }
         composable(HomeRoutes.Main.name) {
-
-            MainScreen(state = viewModel.state.value, setupClusterManager = viewModel::setupClusterManager, calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds)
-            navController.navigate(HomeRoutes.Main.name) {
-                popUpTo(HomeRoutes.Main.name) {
-                    inclusive = true
-                }
-            }
+            CameraScreen()
+//            UserScreen(userViewModel = UserViewModel(), navController = navController.navigate(HomeRoutes.Main.name))
+//            navController.navigate(HomeRoutes.Main.name) {
+//                popUpTo(HomeRoutes.Main.name) {
+//                    inclusive = true
+//                }
+//            }
         }
     }
 }
@@ -60,5 +61,7 @@ enum class LoginRoutes {
 }
 enum class HomeRoutes {
     Main,
-    Detail
+    User
+
+
 }

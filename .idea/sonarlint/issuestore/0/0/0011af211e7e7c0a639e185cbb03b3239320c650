@@ -1,9 +1,9 @@
 
-ckotlin:S125"Remove this commented out code.(ÚßÀ8ßƒÙó1J$6ffab590-073f-47b1-a308-5b649d4166bc
-µkotlin:S6532:"kReplace this if expression with require(validateSignUpForm()) { "Username and Password cannot be empty." }.(ÙÏîçıÿÿÿÿ8ÿ¿…Ùó1J$8eee9ab3-dfb6-4b5c-9486-67f3b431316e
-Ôkotlin:S6532>"‰Replace this if expression with require(loginUiState.passwordSignUp == loginUiState.confirmPasswordSignUp) { "Password does not match" }.(Ş°èíúÿÿÿÿ8ÿ¿…Ùó1J$1f0f494e-28d4-46ea-be3b-bdeac02db5e4
-´kotlin:S6532\"jReplace this if expression with require(validateLoginForm()) { "Username and Password cannot be empty." }.(²Ôì ùÿÿÿÿ8Íš†Ùó1J$9bb12476-3363-4b70-b2be-6ec5c0c43c49
-_kotlin:S1128"Remove this unused import.(à’ğ8çƒÙó1J$974c3c5b-056e-4bd2-80f0-092ffc6c00de
-dkotlin:S1128"Remove this unused import.(Ó¸Ñÿÿÿÿÿ8çƒÙó1J$83b14d31-0153-4ea6-99b9-6dba2626ecc5
-dkotlin:S1128"Remove this unused import.(Ş°‚³üÿÿÿÿ8çƒÙó1J$6a98d061-a76c-4c77-8137-8b376718bdcc
-_kotlin:S1128"Remove this unused import.(“µ…”8çƒÙó1J$1b3526de-bb0d-4d2e-a0a6-a8e6030ffa45
+ckotlin:S125"Remove this commented out code.(ÚßÀ8ßƒÙó1J$8dd0e5cb-5fc5-4e27-bae2-cd9c5ad0f456
+µkotlin:S6532:"kReplace this if expression with require(validateSignUpForm()) { "Username and Password cannot be empty." }.(ÙÏîçıÿÿÿÿ8ÿ¿…Ùó1J$b9ed08da-f3bd-4b7b-93ae-9fc2a84ee052
+Ôkotlin:S6532>"‰Replace this if expression with require(loginUiState.passwordSignUp == loginUiState.confirmPasswordSignUp) { "Password does not match" }.(Ş°èíúÿÿÿÿ8ÿ¿…Ùó1J$d9124ab0-7d85-4ae8-9eaf-9562258cc49f
+´kotlin:S6532\"jReplace this if expression with require(validateLoginForm()) { "Username and Password cannot be empty." }.(²Ôì ùÿÿÿÿ8Íš†Ùó1J$b6dbf487-3b25-4b62-ab21-23cff227167e
+_kotlin:S1128"Remove this unused import.(à’ğ8çƒÙó1J$079d7d6e-face-439c-92b4-e7d87bbd42ff
+dkotlin:S1128"Remove this unused import.(Ó¸Ñÿÿÿÿÿ8çƒÙó1J$ed56117b-9dc1-4408-99dc-327bafede19a
+dkotlin:S1128"Remove this unused import.(Ş°‚³üÿÿÿÿ8çƒÙó1J$0e0e63cb-3fa4-49fc-8ba5-7a69ddfece70
+_kotlin:S1128"Remove this unused import.(“µ…”8çƒÙó1J$fa0b7f84-7101-45ad-a0f0-cf91facbd6b4
