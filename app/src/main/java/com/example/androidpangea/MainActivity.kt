@@ -16,13 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androidpangea.models.User
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
-import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CreatePost
 import com.example.androidpangea.views.cameraScreen.LastPhotoPreview
+import com.example.androidpangea.views.mainScreen.FirstScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -70,6 +71,8 @@ class MainActivity : ComponentActivity() {
 
 
 //                    AuthScreen(authViewModel)
+
+//FirstScreen(authViewModel = authViewModel, viewModel = viewModel)
 
                     MainScreen(
                         state = viewModel.state.value,
