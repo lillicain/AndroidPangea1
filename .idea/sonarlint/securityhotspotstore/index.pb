@@ -69,8 +69,6 @@ w
 Gapp/src/main/java/com/example/androidpangea/views/mapScreen/MapState.kt,7/a/7a7f208cbee987e9ca4b8eb31a435bfbc96ce9a1
 {
 Kapp/src/main/java/com/example/androidpangea/views/mapScreen/MapViewModel.kt,7/e/7e09df303309624d577653271ac2e4bf0381c978
-v
-Fapp/src/main/java/com/example/androidpangea/navigation/BottomAppBar.kt,2/8/28528c7b83ad11039b57129d38b16a41ce096830
 s
 Capp/src/main/java/com/example/androidpangea/navigation/BottomBar.kt,4/f/4f1883435d0306a23dce48f569bec299722b93de
 |
