@@ -73,8 +73,9 @@ class MainActivity : ComponentActivity() {
 //FirstScreen(authViewModel = authViewModel)
 
 
-                    SignUpScreen(onNavToHomePage = {  }) {                     
+                    SignUpScreen(onNavToHomePage = {  }) {
                     }
+
 //                    MainScreen(
 //                        state = viewModel.state.value,
 //                        setupClusterManager = viewModel::setupClusterManager,

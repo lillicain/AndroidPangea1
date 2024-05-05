@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.views.authentication.AuthViewModel
-import com.example.androidpangea.views.authentication.LoginScreen
+import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mapScreen.MapViewModel
@@ -17,7 +17,7 @@ import com.example.androidpangea.views.userScreen.UserViewModel
 fun FirstScreen(navController: NavHostController = rememberNavController(), authViewModel: AuthViewModel) {
     NavHost(navController = navController, startDestination = LoginRoutes.SignIn.name) {
         composable(LoginRoutes.SignIn.name) {
-            LoginScreen(onNavToHomePage = {
+            SignInScreen(onNavToHomePage = {
                 navController.navigate(HomeRoutes.Main.name) {
                     launchSingleTop = true
                     popUpTo(LoginRoutes.SignIn.name) {

@@ -91,3 +91,20 @@ fun SignInButton(
     }
 }
 
+@Composable
+fun GoToLogin(
+    modifier: Modifier = Modifier,
+    onNavigateToLogin: () -> Unit
+) {
+    Row(
+        modifier = modifier, horizontalArrangement = Arrangement.SpaceAround
+    ) {
+        Text(text = "Have already an account?", style = MaterialTheme.typography.headlineSmall)
+        Text(
+            text = "Login",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = modifier.clickable { onNavigateToLogin() }
+        )
+    }
+}

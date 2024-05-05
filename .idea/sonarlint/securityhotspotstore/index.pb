@@ -83,3 +83,5 @@ Kapp/src/main/java/com/example/androidpangea/views/mainScreen/firstScreen.kt,3/
 Kapp/src/main/java/com/example/androidpangea/views/mainScreen/FirstScreen.kt,2/2/2251a82d6be4cde5427a578499f53e9e45af1d7d
 €
 Papp/src/main/java/com/example/androidpangea/views/authentication/SignInScreen.kt,4/8/48d5e0cee8f284efa1b9f20d54b67607270db491
+}
+Mapp/src/main/java/com/example/androidpangea/views/subviews/CustomTextField.kt,4/3/439e061447651adae1875ce29ad1d84899fb5f35

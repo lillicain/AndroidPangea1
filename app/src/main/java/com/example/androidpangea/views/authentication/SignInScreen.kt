@@ -1,6 +1,7 @@
 package com.example.androidpangea.views.authentication
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
@@ -29,7 +32,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun LoginScreen(
+fun SignInScreen(
     loginViewModel: AuthViewModel? = null,
     onNavToHomePage: () -> Unit,
     onNavToSignUpPage: () -> Unit,
@@ -38,79 +41,92 @@ fun LoginScreen(
     val isError = loginUiState?.loginError != null
     val context = LocalContext.current
 
-    Column(
-        modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text("Log in", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black, color = MaterialTheme.colorScheme.primary)
-
-        if (isError) {
-            Text(text = loginUiState?.loginError ?: "Unknown Error", color = Color.Red)
-        }
-        OutlinedTextField(
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            value = loginUiState?.username ?: "",
-            onValueChange = {loginViewModel?.onUsernameChange(it)},
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Person,
-                    contentDescription = null,
-                )
-            },
-            label = {
-                Text(text = "Email")
-            },
-            isError = isError
-        )
-        OutlinedTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            value = loginUiState?.password ?: "",
-            onValueChange = { loginViewModel?.onPasswordChange(it) },
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Lock,
-                    contentDescription = null,
-                )
-            },
-            label = {
-                Text(text = "Password")
-            },
-            visualTransformation = PasswordVisualTransformation(),
-            isError = isError
-        )
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(10.dp)
+                .padding(top = 10.dp),
 
-        Button(onClick = { loginViewModel?.loginUser(context) }) {
-            Text(text = "Sign In")
-        }
-        Spacer(modifier = Modifier.size(16.dp))
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(10.dp)
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
+
         ) {
-            Text(text = "Don't have an Account?")
-            Spacer(modifier = Modifier.size(8.dp))
-            TextButton(onClick = { onNavToSignUpPage.invoke() }) {
-                Text(text = "SignUp")
+            Text(
+                "Log in",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Black,
+                color = MaterialTheme.colorScheme.primary
+            )
+
+            if (isError) {
+                Text(text = loginUiState?.loginError ?: "Unknown Error", color = Color.Red)
+            }
+            OutlinedTextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                value = loginUiState?.username ?: "",
+                onValueChange = { loginViewModel?.onUsernameChange(it) },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = null,
+                    )
+                },
+                label = {
+                    Text(text = "Username")
+                },
+                isError = isError
+            )
+            OutlinedTextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                value = loginUiState?.password ?: "",
+                onValueChange = { loginViewModel?.onPasswordChange(it) },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Lock,
+                        contentDescription = null,
+                    )
+                } ,
+                label = {
+                    Text(text = "Password")
+                },
+                visualTransformation = PasswordVisualTransformation(),
+                isError = isError,
+            )
+
+            Button(onClick = { loginViewModel?.loginUser(context) }) {
+                Text(text = "Sign In")
+            }
+            Spacer(modifier = Modifier.size(16.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                Text(text = "Don't have an Account?")
+                Spacer(modifier = Modifier.size(8.dp))
+                TextButton(onClick = { onNavToSignUpPage.invoke() }) {
+                    Text(text = "Sign Up")
+                }
+
             }
 
-
-        }
-
-        if (loginUiState?.isLoading == true){
-            CircularProgressIndicator()
-        }
-
-        LaunchedEffect(key1 = loginViewModel?.hasUser){
-            if (loginViewModel?.hasUser == true){
-                onNavToHomePage.invoke()
+            if (loginUiState?.isLoading == true) {
+                CircularProgressIndicator()
             }
-        }
 
+            LaunchedEffect(key1 = loginViewModel?.hasUser) {
+                if (loginViewModel?.hasUser == true) {
+                    onNavToHomePage.invoke()
+                }
+            }
+
+        }
     }
-
-
 }
