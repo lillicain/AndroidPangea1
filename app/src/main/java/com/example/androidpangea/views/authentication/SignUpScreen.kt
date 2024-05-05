@@ -29,12 +29,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.androidpangea.views.subviews.CustomTextField
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 fun SignUpScreen(
     loginViewModel: AuthViewModel? = null,
     onNavToHomePage:() -> Unit,
-    onNavToLoginPage:() -> Unit,
+    onNavToLoginPage:() -> Unit
 ) {
     val loginUiState = loginViewModel?.loginUiState
     val isError = loginUiState?.signUpError != null

@@ -85,3 +85,7 @@ Kapp/src/main/java/com/example/androidpangea/views/mainScreen/FirstScreen.kt,2/
 Papp/src/main/java/com/example/androidpangea/views/authentication/SignInScreen.kt,4/8/48d5e0cee8f284efa1b9f20d54b67607270db491
 }
 Mapp/src/main/java/com/example/androidpangea/views/subviews/CustomTextField.kt,4/3/439e061447651adae1875ce29ad1d84899fb5f35
+y
+Iapp/src/main/java/com/example/androidpangea/views/subviews/CircleImahe.kt,e/3/e3edd267c1c29d2ebadeaa82e5daf67fbcb8ed1a
+y
+Iapp/src/main/java/com/example/androidpangea/views/subviews/CircleImage.kt,4/8/48b9d525425e074ff9fc2236298db489f9fc9c3d
