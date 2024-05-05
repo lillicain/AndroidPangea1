@@ -1,6 +1,7 @@
 package com.example.androidpangea.views.authentication
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -38,6 +39,7 @@ fun SignUpScreen(
     val isError = loginUiState?.signUpError != null
     val context = LocalContext.current
 
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -49,7 +51,7 @@ fun SignUpScreen(
             color = MaterialTheme.colorScheme.primary
         )
 
-        if (isError){
+        if (isError) {
             Text(
                 text = loginUiState?.signUpError ?: "unknown error",
                 color = Color.Red,
@@ -57,11 +59,9 @@ fun SignUpScreen(
         }
 
         OutlinedTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             value = loginUiState?.usernameSignUp ?: "",
-            onValueChange = {loginViewModel?.onUsernameChangeSignUp(it)},
+            onValueChange = { loginViewModel?.onUsernameChangeSignUp(it) },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Person,
@@ -76,9 +76,7 @@ fun SignUpScreen(
         )
 
         OutlinedTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             value = loginUiState?.passwordSignUp ?: "",
             onValueChange = { loginViewModel?.onPasswordChangeSignUp(it) },
             leadingIcon = {
@@ -94,9 +92,7 @@ fun SignUpScreen(
             isError = isError
         )
         OutlinedTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             value = loginUiState?.confirmPasswordSignUp ?: "",
             onValueChange = { loginViewModel?.onConfirmPasswordChange(it) },
             leadingIcon = {
@@ -128,16 +124,16 @@ fun SignUpScreen(
 
         }
 
-        if (loginUiState?.isLoading == true){
+        if (loginUiState?.isLoading == true) {
             CircularProgressIndicator()
         }
 
-        LaunchedEffect(key1 = loginViewModel?.hasUser){
-            if (loginViewModel?.hasUser == true){
+        LaunchedEffect(key1 = loginViewModel?.hasUser) {
+            if (loginViewModel?.hasUser == true) {
                 onNavToHomePage.invoke()
             }
         }
-
+    }
     }
 
 }

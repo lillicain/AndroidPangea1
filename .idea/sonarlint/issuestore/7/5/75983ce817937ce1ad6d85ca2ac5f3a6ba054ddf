@@ -1,13 +1,13 @@
 
-rkotlin:S1172"4Remove this unused function parameter "onItemClick".(©ê•ÊJ$b8173fe5-13ad-4359-b1ab-1821c455fd5c
-Vkotlin:S1172"7Use "_" instead of this unused lambda parameter "item".(¿å×8çÕÛó1
-Bkotlin:S125"Remove this commented out code.(¯¤¿ôÿÿÿÿÿ8çÕÛó1
-ukotlin:S1481"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿJ$a08c9ca1-7a49-416f-b52f-5d67728528de
-Wkotlin:S1481"3Remove this unused "backStackEntry" local variable.(‡™­âıÿÿÿÿ8’çÕÛó1
-dkotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8½À ó1J$21758ba8-2c7b-4de4-bdb0-707853d64a28
-dkotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8½À ó1J$bf5cf05f-b30f-43dc-9906-ca36d6f06640
-dkotlin:S1128"Remove this unused import.(û¢ËÓùÿÿÿÿ8¾À ó1J$a5ab3a95-6c31-4d0c-9a29-c2be5d3ef8c7
-dkotlin:S1128"Remove this unused import.(€ñÉ©úÿÿÿÿ8¾À ó1J$624539cf-9521-408b-89e6-8e17ca9ad906
-_kotlin:S1128"Remove this unused import.(Äåì¾8¾À ó1J$af8790ce-e77b-4ff8-a951-072de87a4039
-dkotlin:S1128	"Remove this unused import.(½…Ò¦ıÿÿÿÿ8¾À ó1J$afbf1093-503e-4b08-b065-f967e9d435c3
-dkotlin:S1128"Remove this unused import.(ÏõÁŞşÿÿÿÿ8¾À ó1J$f55bcd24-eaa8-44a5-aebd-70a37d8b242c
+rkotlin:S1172"4Remove this unused function parameter "onItemClick".(©ê•ÊJ$17bce406-6aef-495c-837c-b2ae2669d8d2
+|kotlin:S1172"7Use "_" instead of this unused lambda parameter "item".(¿å×8çÕÛó1J$4b9f8e44-d562-4235-b4ff-5c94266ecdcb
+hkotlin:S125"Remove this commented out code.(¯¤¿ôÿÿÿÿÿ8çÕÛó1J$3adc360f-8e5b-422b-a6e8-cd0040dc0aa0
+ukotlin:S1481"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿJ$8aacbf65-f236-4952-8663-ad18ccad7015
+}kotlin:S1481"3Remove this unused "backStackEntry" local variable.(‡™­âıÿÿÿÿ8’çÕÛó1J$6168fde8-370b-4c41-9bdc-9d074796e9c4
+dkotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8½À ó1J$6cd99d9b-98aa-49d2-9ac5-64df45754e05
+dkotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8½À ó1J$a41e9045-cb86-4bc7-b4ae-a34f00086de9
+dkotlin:S1128"Remove this unused import.(û¢ËÓùÿÿÿÿ8¾À ó1J$7402cae6-391d-49b4-a338-e31ab577b867
+dkotlin:S1128"Remove this unused import.(€ñÉ©úÿÿÿÿ8¾À ó1J$92ddf2bf-accc-4def-8d77-b5009b41d8ec
+_kotlin:S1128"Remove this unused import.(Äåì¾8¾À ó1J$7a28eb2e-7f1f-4923-a660-afe41b714408
+dkotlin:S1128	"Remove this unused import.(½…Ò¦ıÿÿÿÿ8¾À ó1J$d20ca38a-e281-4b49-8065-bd37520a7922
+dkotlin:S1128"Remove this unused import.(ÏõÁŞşÿÿÿÿ8¾À ó1J$ed7fd785-b75f-4505-bd29-29e661f75a76
