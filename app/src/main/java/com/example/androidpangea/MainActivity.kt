@@ -41,6 +41,8 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
+import com.example.androidpangea.views.authentication.AuthRepository
+import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
@@ -58,7 +60,7 @@ class MainActivity : ComponentActivity() {
     private val viewModel: MapViewModel by viewModels()
     private val mainViewModel: MainViewModel by viewModels()
     private val cameraViewModel: CameraViewModel by viewModels()
-    private val authViewModel: AuthViewModel by viewModels()
+//    private val authViewModel: AuthViewModel by viewModels()
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
@@ -79,6 +81,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
+    @OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -94,6 +97,9 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     val screens = listOf(
                         NavigationItem.Main.route,
+                        NavigationItem.Auth.route,
+                        NavigationItem.SignUp.route,
+                        NavigationItem.SignIn.route,
                         NavigationItem.User.route,
                         NavigationItem.Camera.route,
                         NavigationItem.Explore.route,
@@ -154,10 +160,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(it)
                         )
 
-                        SignInScreen(
-                            onNavToHomePage = { /*TODO*/ },
-                            onNavToSignUpPage = { /*TODO*/ },
-                        )
+
                     }
                 }
             }

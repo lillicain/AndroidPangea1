@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 @Composable
 fun AuthScreen(
-    authViewModel: AuthViewModel,
+    authViewModel: AuthViewModel? = null,
     authRepository: AuthRepository
 ) {
     val coroutineScope = rememberCoroutineScope()

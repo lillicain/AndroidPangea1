@@ -1,5 +1,7 @@
 package com.example.androidpangea.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -12,6 +14,11 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.androidpangea.views.authentication.AuthRepository
+import com.example.androidpangea.views.authentication.AuthScreen
+import com.example.androidpangea.views.authentication.AuthViewModel
+import com.example.androidpangea.views.authentication.SignInScreen
+import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
@@ -19,6 +26,7 @@ import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
 
+@OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun AppNavHost(
     viewModel: MainViewModel = hiltViewModel(),
@@ -32,10 +40,10 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = if(isSplashScreenFinished){
-            NavigationItem.Main.route
+        startDestination = if (viewModel.hasUser) {
+            NavigationItem.SignIn.route
         } else {
-            NavigationItem.Main.route
+            NavigationItem.SignIn.route
         }
     ) {
 
@@ -49,27 +57,37 @@ fun AppNavHost(
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )
         }
-        composable(
-            "${NavigationItem.User.route}/{userid}",
-            arguments = listOf(
-                navArgument("userid") {
-                    type = NavType.StringType
-                }
-            )) {
+        composable("${NavigationItem.User.route}/{userid}",
+            arguments = listOf(navArgument("userid") {
+                type = NavType.StringType
+            })) {
             val userId = it.arguments?.getString("userid")
             UserScreen(
                 navController = navController
             )
-        }
-//        composable(NavigationItem.User.route) {
-//            UserScreen(navController = navController)
-//        }
+        } //        composable(NavigationItem.User.route) {
+        //            UserScreen(navController = navController)
+        //        }
         composable(NavigationItem.Camera.route) {
             CameraScreen(navController = navController)
         }
         composable(NavigationItem.Explore.route) {
             ExploreScreen(viewModel = viewModel, navController = navController)
         }
+
+        composable(NavigationItem.SignIn.route) {
+            SignInScreen(onNavToHomePage = { /*TODO*/ }) {}
+        }
+        composable(NavigationItem.SignUp.route) {
+            SignUpScreen(onNavToHomePage = { /*TODO*/ },
+                onNavToLoginPage = { /*TODO*/ },
+                navController = navController
+            )
+    }
+        composable(NavigationItem.Auth.route) {
+          AuthScreen(authRepository = AuthRepository())
+        }
+
 
 
         //        composable("${NavigationItem.ViewPost.route}/{postId}",

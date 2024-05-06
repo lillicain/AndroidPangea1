@@ -1,5 +1,7 @@
 package com.example.androidpangea.navigation
 
+import com.google.android.gms.auth.api.Auth
+
 enum class Screen {
 //    HOME,
 //    PROFILE,
@@ -15,6 +17,7 @@ enum class Screen {
 
     SIGNIN,
     SIGNUP,
+    AUTH
 
 }
 
@@ -29,6 +32,8 @@ sealed class NavigationItem(val route: String) {
 
     object SignIn: NavigationItem(Screen.SIGNIN.name)
     object SignUp: NavigationItem(Screen.SIGNUP.name)
+
+    object Auth: NavigationItem(Screen.AUTH.name)
 
 //    object Home : NavigationItem(Screen.HOME.name)
 //    object Profile : NavigationItem(Screen.PROFILE.name)

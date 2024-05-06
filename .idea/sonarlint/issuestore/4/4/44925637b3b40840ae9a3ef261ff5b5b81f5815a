@@ -1,2 +1,5 @@
 
-bkotlin:S125"Remove this commented out code.(…©ΓE8τ ϊτ1J$003fc9bc-059b-4e64-ac99-22beb79c4e53
+bkotlin:S125%"Remove this commented out code.(…©ΓE8Ϋφ–ώτ1J$16f214ab-c476-42d3-8393-88a30a932482
+µkotlin:S6532["kReplace this if expression with require(validateSignUpForm()) { "Username and Password cannot be empty." }.(ΩΟξηύÿÿÿÿ8αφ–ώτ1J$857e1b19-a0e4-4b18-8430-328e25b8f29d
+Τkotlin:S6532_"‰Replace this if expression with require(loginUiState.passwordSignUp == loginUiState.confirmPasswordSignUp) { "Password does not match" }.(ή°θνϊÿÿÿÿ8αφ–ώτ1J$71759f6c-4bdc-4756-92f2-4faa833e7284
+΄kotlin:S6532}"jReplace this if expression with require(validateLoginForm()) { "Username and Password cannot be empty." }.(²Τμ ωÿÿÿÿ8αφ–ώτ1J$a09d7828-d264-42a5-b952-8b5f25d8ac48
