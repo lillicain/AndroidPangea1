@@ -93,3 +93,5 @@ m
 =app/src/main/java/com/example/androidpangea/data/AppModule.kt,7/b/7bb714d8112fe371bb19fe7adac853b62de01423
 t
 Dapp/src/main/java/com/example/androidpangea/navigation/AppNavHost.kt,2/2/2280ec78fe140e8dcabb28d935930ace8c4c0e53
+‡
+Wapp/src/main/java/com/example/androidpangea/views/subviews/CenterCircularProgressBar.kt,3/d/3d735ea41cb881951c81af3e5eba26977f19d6d5

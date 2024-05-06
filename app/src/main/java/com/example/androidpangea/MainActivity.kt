@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
@@ -54,6 +55,7 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val viewModel: MapViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
     private val cameraViewModel: CameraViewModel by viewModels()
     private val authViewModel: AuthViewModel by viewModels()
     private val requestPermissionLauncher =
@@ -75,11 +77,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @OptIn(
-        ExperimentalAnimationApi::class,
-        ExperimentalFoundationApi::class,
-        ExperimentalCoroutinesApi::class
-    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -100,8 +98,7 @@ class MainActivity : ComponentActivity() {
                         NavigationItem.Explore.route,
                         "${NavigationItem.User.route}/{userid}"
                     )
-                    val showBottomBar =
-                        navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+                    val showBottomBar = navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
                     Scaffold(bottomBar = {
                         AnimatedVisibility(
                             visible = showBottomBar,
@@ -110,7 +107,8 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Row(
                                 horizontalArrangement = Arrangement.SpaceEvenly,
-                                modifier = Modifier.background(MaterialTheme.colorScheme.background)
+                                modifier = Modifier
+                                    .background(MaterialTheme.colorScheme.background)
                                     .fillMaxWidth()
                             ) {
                                 BottomNavigationBar(items = listOf(
@@ -132,7 +130,7 @@ class MainActivity : ComponentActivity() {
                                     BottomNavItem(
                                         NavigationItem.Explore.route,
                                         Screen.EXPLORE.name,
-                                        icon = painterResource(id = R.drawable.ic_profile)
+                                        icon = rememberVectorPainter(image = Icons.Default.Explore)
                                     ),
                                     BottomNavItem(
                                         NavigationItem.User.route,
@@ -142,7 +140,7 @@ class MainActivity : ComponentActivity() {
                                 ), navController = navController, onItemClick = {
                                     if (it.route == NavigationItem.User.route) {
 //                                        navController.navigate(
-//                                            "${NavigationItem.User.route}/$MY_USER_ID"
+//                                            "${NavigationItem.User.route}/$USER_ID"
 //                                        )
                                     } else {
                                         navController.navigate(it.route)
@@ -152,25 +150,13 @@ class MainActivity : ComponentActivity() {
                         }
                     }) {
                         AppNavHost(
-                            viewModel = MainViewModel(),
+                            viewModel = mainViewModel,
                             navController = navController,
                             modifier = Modifier.padding(it)
                         )
-                    } //FirstScreen(authViewModel = authViewModel)
+                    }
 
 
-                    //                    SignUpScreen(onNavToHomePage = {  }) {
-                    //                    }
-
-                    //val navController = rememberNavController()
-                    //
-                    //                    MainScreen(
-                    //                        navController = navController,
-                    //                        state = viewModel.state.value,
-                    //                        setupClusterManager = viewModel::setupClusterManager,
-                    //                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-                    //                    )
-                    //
                 }
             }
         }

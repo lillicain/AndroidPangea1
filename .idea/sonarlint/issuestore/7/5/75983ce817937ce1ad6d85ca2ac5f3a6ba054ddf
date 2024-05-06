@@ -1,13 +1,8 @@
 
-rkotlin:S1172"4Remove this unused function parameter "onItemClick".(©ê•ÊJ$17bce406-6aef-495c-837c-b2ae2669d8d2
-|kotlin:S1172"7Use "_" instead of this unused lambda parameter "item".(¿å×8çÕÛó1J$4b9f8e44-d562-4235-b4ff-5c94266ecdcb
-hkotlin:S125"Remove this commented out code.(¯¤¿ôÿÿÿÿÿ8çÕÛó1J$3adc360f-8e5b-422b-a6e8-cd0040dc0aa0
-ukotlin:S1481"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿJ$8aacbf65-f236-4952-8663-ad18ccad7015
-}kotlin:S1481"3Remove this unused "backStackEntry" local variable.(‡™­âıÿÿÿÿ8’çÕÛó1J$6168fde8-370b-4c41-9bdc-9d074796e9c4
-dkotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8½À ó1J$6cd99d9b-98aa-49d2-9ac5-64df45754e05
-dkotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8½À ó1J$a41e9045-cb86-4bc7-b4ae-a34f00086de9
-dkotlin:S1128"Remove this unused import.(û¢ËÓùÿÿÿÿ8¾À ó1J$7402cae6-391d-49b4-a338-e31ab577b867
-dkotlin:S1128"Remove this unused import.(€ñÉ©úÿÿÿÿ8¾À ó1J$92ddf2bf-accc-4def-8d77-b5009b41d8ec
-_kotlin:S1128"Remove this unused import.(Äåì¾8¾À ó1J$7a28eb2e-7f1f-4923-a660-afe41b714408
-dkotlin:S1128	"Remove this unused import.(½…Ò¦ıÿÿÿÿ8¾À ó1J$d20ca38a-e281-4b49-8065-bd37520a7922
-dkotlin:S1128"Remove this unused import.(ÏõÁŞşÿÿÿÿ8¾À ó1J$ed7fd785-b75f-4505-bd29-29e661f75a76
+mkotlin:S1172Z"(Remove these unused function parameters.(ÕÍºÎ8Ú‚§÷ô1J$b0f62c33-f893-46b3-a6c6-14dae6db7925
+hkotlin:S1258"Remove this commented out code.(ùüøÿÿÿÿÿ8ùó¤÷ô1J$b46c4473-198e-4138-b335-94d0fe144eea
+‹kotlin:S107Y"GThis function has 9 parameters, which is greater than the 7 authorized.(âß™¯8Ş‚§÷ô1J$36e52083-83a2-441e-b9cc-08806d5d3e7f
+|kotlin:S1481!"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿ8üó¤÷ô1J$763bc211-458a-4e50-a7fc-5d940ff9b7df
+dkotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8ıó¤÷ô1J$8b4f0caf-4956-4781-adf3-73b98a3802af
+dkotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8şó¤÷ô1J$b68e6007-9a36-4bd0-8a89-e22083dd7dc4
+¤kotlin:S1186c"ZAdd a nested comment explaining why this function is empty or complete the implementation.(­£˜…şÿÿÿÿ8â‚§÷ô1J$cd63ced3-fc33-4a37-9716-3d1330e2733a
