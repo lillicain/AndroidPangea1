@@ -95,3 +95,5 @@ t
 Dapp/src/main/java/com/example/androidpangea/navigation/AppNavHost.kt,2/2/2280ec78fe140e8dcabb28d935930ace8c4c0e53
 ‡
 Wapp/src/main/java/com/example/androidpangea/views/subviews/CenterCircularProgressBar.kt,3/d/3d735ea41cb881951c81af3e5eba26977f19d6d5
+}
+Mapp/src/main/java/com/example/androidpangea/views/postScreen/ExploreScreen.kt,6/2/6237d1bf185c8e44e22d08370eac8b12fee06819

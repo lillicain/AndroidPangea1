@@ -139,21 +139,6 @@ fun MainScreen(
         }
     }
 
-//    when (val state = userState.value) {
-//        is BaseState.Failed -> {
-//            when (state.error) {
-//                is Failure.Unknown -> {
-//                    Button(onClick = {
-//                        homeViewModel.getUsers()
-//                        homeViewModel.getPosts()
-//                        homeViewModel.getStories()
-//                    }) {
-//                        Text("${state.error.error}\nRetry")
-//                    }
-//                }
-//            }
-//        }
-
 
 
             Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
@@ -168,7 +153,7 @@ fun MainScreen(
 
                     IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
                         Icon(
-                            painterResource(id = R.drawable.ic_profile),
+                            painterResource(id = R.drawable.ic_camera),
                             contentDescription = null,
                             Modifier.padding(8.dp)
                         )
@@ -181,10 +166,6 @@ fun MainScreen(
                             Modifier.padding(8.dp)
                         )
                     }
-
-                    //              IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
-                    //                  Icon(imageVector = Icons.Filled.Image, contentDescription = "Camera")
-                    //              }
                 }
             }
 

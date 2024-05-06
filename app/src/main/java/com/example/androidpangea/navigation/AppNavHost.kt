@@ -1,13 +1,12 @@
 package com.example.androidpangea.navigation
 
-import android.window.SplashScreen
-import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -17,17 +16,16 @@ import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
-import com.example.androidpangea.views.postScreen.PostScreen
+import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
-import com.example.androidpangea.views.userScreen.UserViewModel
 
 @Composable
 fun AppNavHost(
-    viewModel: MainViewModel,
+    viewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    val viewModel = MapViewModel()
+    val mapViewModel = MapViewModel()
     var isSplashScreenFinished by rememberSaveable {
         mutableStateOf(false)
     }
@@ -46,9 +44,9 @@ fun AppNavHost(
 
             MainScreen(
                 navController = navController,
-                state = viewModel.state.value,
-                setupClusterManager = viewModel::setupClusterManager,
-                calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+                state = mapViewModel.state.value,
+                setupClusterManager = mapViewModel::setupClusterManager,
+                calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )
         }
         composable(NavigationItem.User.route) {
@@ -58,7 +56,7 @@ fun AppNavHost(
             CameraScreen(navController = navController)
         }
         composable(NavigationItem.Explore.route) {
-            PostScreen(navController = navController)
+            ExploreScreen(viewModel = viewModel, navController = navController)
         }
 
         //        composable(NavigationItem.CreateTweet.route) {
