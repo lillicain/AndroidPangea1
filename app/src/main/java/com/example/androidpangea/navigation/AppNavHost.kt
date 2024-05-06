@@ -12,6 +12,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
@@ -32,16 +33,14 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = if(isSplashScreenFinished){
-            NavigationItem.Main.route
+        startDestination = if (viewModel.users != null) {
+            NavigationItem.SignUp.route
         } else {
-            NavigationItem.Main.route
+            NavigationItem.SignUp.route
         }
     ) {
 
         composable(NavigationItem.Main.route) {
-
-
             MainScreen(
                 navController = navController,
                 state = mapViewModel.state.value,
@@ -69,6 +68,13 @@ fun AppNavHost(
         }
         composable(NavigationItem.Explore.route) {
             ExploreScreen(viewModel = viewModel, navController = navController)
+        }
+        composable(NavigationItem.SignUp.route) {
+            SignUpScreen(
+                onNavToHomePage = { /*TODO*/ },
+                onNavToLoginPage = { /*TODO*/ },
+                navController = navController
+            )
         }
 
 

@@ -1,4 +1,7 @@
 
-Bkotlin:S125@"Remove this commented out code.(¶Í€öúÿÿÿÿ8Í¾¹ûô1
-ukotlin:S1481;"+Remove this unused "userId" local variable.(Ÿ ¶¹şÿÿÿÿ8öó¸ûô1J$8c910ee2-cd8e-4597-bffb-c5da392ef759
-¥kotlin:S3923#"[Remove this conditional structure or edit its code blocks so that they're not all the same.(‹ÀÁÿÿÿÿÿ8Ì¨ñùô1J$580e7805-ba35-404a-8358-a1742212d650
+hkotlin:S125?"Remove this commented out code.(¶Í€öúÿÿÿÿ8Î¬‘ÿô1J$c5fb49a4-0f86-4432-9b6d-f1d3a482da27
+|kotlin:S1135J"2Complete the task associated to this TODO comment.(É ßøÿÿÿÿ8Ò¬‘ÿô1J$e833d1cc-42a0-4577-b92a-9e98a5d2fb6b
+|kotlin:S1135K"2Complete the task associated to this TODO comment.(ÿŠİ³ÿÿÿÿÿ8Ò¬‘ÿô1J$9b46048e-ca68-436b-8e81-c389dde3b402
+ukotlin:S1481:"+Remove this unused "userId" local variable.(Ÿ ¶¹şÿÿÿÿ8Ó¬‘ÿô1J$d6dbdded-0edf-45f2-9e92-5376fb25104a
+€kotlin:S1481";Remove this unused "isSplashScreenFinished" local variable.(…®ªÿ8¿„”ÿô1J$1e6218cf-2024-440f-b0d9-6ea420f090d5
+kotlin:S3923$"[Remove this conditional structure or edit its code blocks so that they're not all the same.(°ˆàÿÿÿÿÿ8éÀšÿô1

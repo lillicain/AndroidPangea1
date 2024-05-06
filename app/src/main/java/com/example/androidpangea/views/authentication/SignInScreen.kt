@@ -111,7 +111,7 @@ fun SignInScreen(
             ) {
                 Text(text = "Don't have an Account?")
                 Spacer(modifier = Modifier.size(8.dp))
-                TextButton(onClick = { onNavToSignUpPage.invoke() }) {
+                TextButton(onClick = { onNavToSignUpPage() }) {
                     Text(text = "Sign Up")
                 }
 
@@ -123,7 +123,7 @@ fun SignInScreen(
 
             LaunchedEffect(key1 = loginViewModel?.hasUser) {
                 if (loginViewModel?.hasUser == true) {
-                    onNavToHomePage.invoke()
+                    onNavToHomePage()
                 }
             }
 

@@ -154,10 +154,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(it)
                         )
 
-                        SignInScreen(
-                            onNavToHomePage = { /*TODO*/ },
-                            onNavToSignUpPage = { /*TODO*/ },
-                        )
+
                     }
                 }
             }

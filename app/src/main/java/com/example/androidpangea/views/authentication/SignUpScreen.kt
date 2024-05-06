@@ -74,7 +74,7 @@ fun SignUpScreen(
                     )
                 },
                 label = {
-                    Text(text = "Email")
+                    Text(text = "Username")
                 },
                 isError = isError
 
@@ -117,7 +117,8 @@ fun SignUpScreen(
                 isError = isError
             )
 
-            Button(onClick = { loginViewModel?.createUser(context)
+            Button(onClick = { onNavToHomePage()
+                loginViewModel?.createUser(context)
             navController.navigate(NavigationItem.Main.route)
             }) {
                 Text(text = "Sign In")
@@ -130,7 +131,7 @@ fun SignUpScreen(
             ) {
                 Text(text = "Already have an Account?")
                 Spacer(modifier = Modifier.size(8.dp))
-                TextButton(onClick = { onNavToLoginPage.invoke() }) {
+                TextButton(onClick = { onNavToLoginPage() }) {
                     Text(text = "Sign In")
                 }
             }
@@ -148,3 +149,4 @@ fun SignUpScreen(
         }
     }
 }
+
