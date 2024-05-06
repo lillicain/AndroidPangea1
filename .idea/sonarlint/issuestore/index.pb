@@ -86,6 +86,10 @@ Papp/src/main/java/com/example/androidpangea/views/authentication/SignInScreen.k
 }
 Mapp/src/main/java/com/example/androidpangea/views/subviews/CustomTextField.kt,4/3/439e061447651adae1875ce29ad1d84899fb5f35
 y
-Iapp/src/main/java/com/example/androidpangea/views/subviews/CircleImahe.kt,e/3/e3edd267c1c29d2ebadeaa82e5daf67fbcb8ed1a
-y
 Iapp/src/main/java/com/example/androidpangea/views/subviews/CircleImage.kt,4/8/48b9d525425e074ff9fc2236298db489f9fc9c3d
+Å
+Qapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraViewModel.kt,3/e/3ecc88e46c3e0f8a8579189e448750c4729981b7
+m
+=app/src/main/java/com/example/androidpangea/data/AppModule.kt,7/b/7bb714d8112fe371bb19fe7adac853b62de01423
+t
+Dapp/src/main/java/com/example/androidpangea/navigation/AppNavHost.kt,2/2/2280ec78fe140e8dcabb28d935930ace8c4c0e53

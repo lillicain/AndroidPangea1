@@ -11,7 +11,10 @@ enum class Screen {
     USER,
     MAP,
     CAMERA,
-    EXPLORE
+    EXPLORE,
+
+    SIGNIN,
+    SIGNUP,
 
 }
 
@@ -23,6 +26,9 @@ sealed class NavigationItem(val route: String) {
     object Map : NavigationItem(Screen.MAP.name)
     object Camera: NavigationItem(Screen.CAMERA.name)
     object Explore: NavigationItem(Screen.EXPLORE.name)
+
+    object SignIn: NavigationItem(Screen.SIGNIN.name)
+    object SignUp: NavigationItem(Screen.SIGNUP.name)
 
 //    object Home : NavigationItem(Screen.HOME.name)
 //    object Profile : NavigationItem(Screen.PROFILE.name)

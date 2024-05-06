@@ -39,6 +39,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidpangea.models.User
 import com.example.androidpangea.navigation.BottomNavigationBar
+import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.views.mapScreen.MapItemManager
 import com.example.androidpangea.views.mapScreen.MapState
 import com.example.androidpangea.views.subviews.CircularImage
@@ -60,6 +61,7 @@ import kotlinx.coroutines.launch
 fun MainScreen(
     modifier: Modifier = Modifier,
 //    user: User,
+    navController: NavController,
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,
@@ -83,7 +85,7 @@ fun MainScreen(
         modifier = Modifier.fillMaxSize(),
       bottomBar = {
           BottomAppBar {
-              IconButton(onClick = {  }) {
+              IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
                   Icon(imageVector = Icons.Filled.Image, contentDescription = "Camera")
               }
           }

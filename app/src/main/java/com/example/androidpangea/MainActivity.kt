@@ -7,25 +7,42 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.res.painterResource
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.androidpangea.models.User
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.example.androidpangea.navigation.AppNavHost
+import com.example.androidpangea.navigation.BottomNavItem
+import com.example.androidpangea.navigation.BottomNavigationBar
+import com.example.androidpangea.navigation.NavigationItem
+import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
 import com.example.androidpangea.views.authentication.AuthViewModel
-import com.example.androidpangea.views.authentication.SignUpScreen
-import com.example.androidpangea.views.cameraScreen.CameraScreen
-import com.example.androidpangea.views.cameraScreen.CreatePost
-import com.example.androidpangea.views.cameraScreen.LastPhotoPreview
-import com.example.androidpangea.views.mainScreen.FirstScreen
-import com.example.androidpangea.views.mainScreen.MainScreen
+import com.example.androidpangea.views.cameraScreen.CameraViewModel
+import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -37,16 +54,20 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val viewModel: MapViewModel by viewModels()
-
+    private val cameraViewModel: CameraViewModel by viewModels()
     private val authViewModel: AuthViewModel by viewModels()
-    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
                 viewModel.getDeviceLocation(fusedLocationProviderClient)
             }
         }
 
     private fun askPermissions() = when {
-        ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
+        ContextCompat.checkSelfPermission(
+            this,
+            ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED -> {
             viewModel.getDeviceLocation(fusedLocationProviderClient)
         }
         else -> {
@@ -54,7 +75,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class,
+    @OptIn(
+        ExperimentalAnimationApi::class,
+        ExperimentalFoundationApi::class,
         ExperimentalCoroutinesApi::class
     )
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,25 +89,90 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidPangeaTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
 
-//FirstScreen(authViewModel = authViewModel)
+                    val navController = rememberNavController()
+                    val screens = listOf(
+                        NavigationItem.Main.route,
+                        NavigationItem.User.route,
+                        NavigationItem.Camera.route,
+                        NavigationItem.Explore.route,
+                        "${NavigationItem.User.route}/{userid}"
+                    )
+                    val showBottomBar =
+                        navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+                    Scaffold(bottomBar = {
+                        AnimatedVisibility(
+                            visible = showBottomBar,
+                            enter = fadeIn() + scaleIn(),
+                            exit = fadeOut() + scaleOut(),
+                        ) {
+                            Row(
+                                horizontalArrangement = Arrangement.SpaceEvenly,
+                                modifier = Modifier.background(MaterialTheme.colorScheme.background)
+                                    .fillMaxWidth()
+                            ) {
+                                BottomNavigationBar(items = listOf(
+                                    BottomNavItem(
+                                        NavigationItem.Main.route,
+                                        Screen.MAIN.name,
+                                        icon = rememberVectorPainter(image = Icons.Default.Home)
+                                    ),
+                                    BottomNavItem(
+                                        NavigationItem.User.route,
+                                        Screen.USER.name,
+                                        icon = rememberVectorPainter(image = Icons.Default.Search)
+                                    ),
+                                    BottomNavItem(
+                                        NavigationItem.Camera.route,
+                                        Screen.CAMERA.name,
+                                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
+                                    ),
+                                    BottomNavItem(
+                                        NavigationItem.Explore.route,
+                                        Screen.EXPLORE.name,
+                                        icon = painterResource(id = R.drawable.ic_profile)
+                                    ),
+                                    BottomNavItem(
+                                        NavigationItem.User.route,
+                                        Screen.USER.name,
+                                        icon = rememberVectorPainter(image = Icons.Default.Person)
+                                    ),
+                                ), navController = navController, onItemClick = {
+                                    if (it.route == NavigationItem.User.route) {
+//                                        navController.navigate(
+//                                            "${NavigationItem.User.route}/$MY_USER_ID"
+//                                        )
+                                    } else {
+                                        navController.navigate(it.route)
+                                    }
+                                })
+                            }
+                        }
+                    }) {
+                        AppNavHost(
+                            viewModel = MainViewModel(),
+                            navController = navController,
+                            modifier = Modifier.padding(it)
+                        )
+                    } //FirstScreen(authViewModel = authViewModel)
 
 
-                    SignUpScreen(onNavToHomePage = {  }) {
-                    }
+                    //                    SignUpScreen(onNavToHomePage = {  }) {
+                    //                    }
 
-//                    MainScreen(
-//                        state = viewModel.state.value,
-//                        setupClusterManager = viewModel::setupClusterManager,
-//                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
-//                    )
-
+                    //val navController = rememberNavController()
+                    //
+                    //                    MainScreen(
+                    //                        navController = navController,
+                    //                        state = viewModel.state.value,
+                    //                        setupClusterManager = viewModel::setupClusterManager,
+                    //                        calculateZoneViewCenter = viewModel::calculateZoneLatLngBounds,
+                    //                    )
+                    //
                 }
             }
         }
     }
 }
-
