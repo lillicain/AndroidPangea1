@@ -139,9 +139,7 @@ class MainActivity : ComponentActivity() {
                                     ),
                                 ), navController = navController, onItemClick = {
                                     if (it.route == NavigationItem.User.route) {
-//                                        navController.navigate(
-//                                            "${NavigationItem.User.route}/$USER_ID"
-//                                        )
+                                        navController.navigate(NavigationItem.User.route)
                                     } else {
                                         navController.navigate(it.route)
                                     }
@@ -155,8 +153,6 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(it)
                         )
                     }
-
-
                 }
             }
         }

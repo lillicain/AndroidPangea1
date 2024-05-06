@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -53,7 +54,9 @@ import androidx.navigation.NavController
 import com.example.androidpangea.R
 import com.example.androidpangea.extensions.BaseState
 import com.example.androidpangea.models.User
+import com.example.androidpangea.navigation.BottomBar
 import com.example.androidpangea.navigation.BottomNavigationBar
+import com.example.androidpangea.navigation.BottomNavigationItem
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.views.mapScreen.MapItemManager
 import com.example.androidpangea.views.mapScreen.MapState
@@ -82,7 +85,13 @@ fun MainScreen(
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,
 ) {
-
+    val screens = listOf(
+        NavigationItem.Main.route,
+        NavigationItem.User.route,
+        NavigationItem.Camera.route,
+        NavigationItem.Explore.route,
+        "${NavigationItem.User.route}/{userid}"
+    )
     val bottomSheet = rememberModalBottomSheetState()
 
     var isBottomSheetOpened by remember {
@@ -142,31 +151,46 @@ fun MainScreen(
 
 
             Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
-                BottomAppBar {
-                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
-                        Icon(
-                            painterResource(id = R.drawable.ic_profile),
-                            contentDescription = null,
-                            Modifier.padding(8.dp)
-                        )
-                    }
 
-                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
-                        Icon(
-                            painterResource(id = R.drawable.ic_camera),
-                            contentDescription = null,
-                            Modifier.padding(8.dp)
-                        )
-                    }
+//                BottomAppBar {
+//
+//                      screens.forEach { item ->
+//                          val selected = item.route == backStackEntry.value?.destination?.route
+//
+//                          BottomNavigationItem(selected = selected, onClick = { navController.navigate(item) }, icon = {
+//                              Column(horizontalAlignment = Alignment.CenterHorizontally) {
+//
+//
+//                                  }
 
-                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
-                        Icon(
-                            painterResource(id = R.drawable.ic_profile),
-                            contentDescription = null,
-                            Modifier.padding(8.dp)
-                        )
-                    }
-                }
+
+//
+//
+//                    BottomNavigationItem(selected = B, onClick = { navController.navigate(it) }, icon = { /*TODO*/ })
+//                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
+//                        Icon(
+//                            painterResource(id = R.drawable.ic_profile),
+//                            contentDescription = null,
+//                            Modifier.padding(8.dp)
+//                        )
+//                    }
+//
+//                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
+//                        Icon(
+//                            painterResource(id = R.drawable.ic_camera),
+//                            contentDescription = null,
+//                            Modifier.padding(8.dp)
+//                        )
+//                    }
+//
+//                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
+//                        Icon(
+//                            painterResource(id = R.drawable.ic_profile),
+//                            contentDescription = null,
+//                            Modifier.padding(8.dp)
+//                        )
+//                    }
+//                }
             }
 
 
@@ -240,4 +264,5 @@ fun MainScreen(
                 }
             }
         }
+
 

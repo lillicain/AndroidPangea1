@@ -49,54 +49,6 @@ fun AppNavHost(
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )
         }
-        composable(NavigationItem.User.route) {
-            UserScreen(navController = navController)
-        }
-        composable(NavigationItem.Camera.route) {
-            CameraScreen(navController = navController)
-        }
-        composable(NavigationItem.Explore.route) {
-            ExploreScreen(viewModel = viewModel, navController = navController)
-        }
-
-        //        composable(NavigationItem.CreateTweet.route) {
-        //            CreateTweetScreen(homeViewModel = viewModel, navController = navController)
-        //        }
-        //        composable(NavigationItem.Reels.route) {
-        //            ReelsScreen(homeViewModel = viewModel, navController)
-        //        }
-        //        composable(NavigationItem.ChatList.route) {
-        //            ChatListScreen(viewModel, navController = navController)
-        //        }
-        //        composable(
-        //            "${NavigationItem.Followers.route}/{isFollowing}/{userId}",
-        //            arguments = listOf(
-        //                navArgument("isFollowing") {
-        //                    type = NavType.BoolType
-        //                },
-        //                navArgument("userId") {
-        //                    type = NavType.StringType
-        //                },
-        //            )
-        //        ) {
-        //            val isFollower = it.arguments?.getBoolean("isFollowing") ?: false
-        //            val userId = it.arguments?.getString("userId") ?: MY_USER_ID
-        //            UserFollowListScreen(
-        //                homeViewModel = viewModel,
-        //                isFollowing = isFollower,
-        //                userId = userId,
-        //                navController = navController
-        //            )
-        //        }
-        //        composable("${NavigationItem.Chat.route}/{userId}",
-        //            arguments = listOf(
-        //                navArgument("userId") {
-        //                    type = NavType.StringType
-        //                }
-        //            )) {
-        //            val userId = it.arguments?.getString("userId") ?: "userid"
-        //            ChatScreen(userId, homeViewModel = viewModel, navController = navController)
-        //        }
         composable(
             "${NavigationItem.User.route}/{userid}",
             arguments = listOf(
@@ -109,6 +61,17 @@ fun AppNavHost(
                 navController = navController
             )
         }
+//        composable(NavigationItem.User.route) {
+//            UserScreen(navController = navController)
+//        }
+        composable(NavigationItem.Camera.route) {
+            CameraScreen(navController = navController)
+        }
+        composable(NavigationItem.Explore.route) {
+            ExploreScreen(viewModel = viewModel, navController = navController)
+        }
+
+
         //        composable("${NavigationItem.ViewPost.route}/{postId}",
         //            arguments = listOf(
         //                navArgument("postId") {

@@ -35,10 +35,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.androidpangea.R
+import com.example.androidpangea.extensions.BaseState
 import com.example.androidpangea.models.Post
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.subviews.ImagePicker
+import retrofit2.Response
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -48,16 +50,12 @@ fun ExploreScreen(viewModel: MainViewModel, navController: NavController) {
     val postsState by viewModel.posts.collectAsState()
 
 
-    //    when (val state = postsState) {
-    //        is BaseState.Failed -> {
-    //            when (state.error) {
-    //                is Failure.Unknown -> CenterErrorText(msg = state.error.error)
-    //            }
 
     Scaffold {
 
 
         //        ImagePicker()
+
         Box {
             var searchData by rememberSaveable {
                 mutableStateOf(emptyList<Post>())

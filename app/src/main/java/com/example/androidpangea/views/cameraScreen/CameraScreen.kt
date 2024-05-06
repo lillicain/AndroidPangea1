@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.outlined.Camera
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -110,12 +111,8 @@ fun CameraScreen(
                 }
             }) {
 Icon(imageVector = Icons.Outlined.Camera, contentDescription = "")
-//                Icon(painter =
-//                painterResource(id = R.drawable.ic_profile),
-//                    contentDescription = "",
-//                    modifier = Modifier.size(45.dp),
-//                    tint = Color.Magenta
-//                )
+                Icon(imageVector = Icons.Default.Image, contentDescription = "")
+
 
             }
         }
