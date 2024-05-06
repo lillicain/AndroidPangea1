@@ -28,15 +28,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.androidpangea.views.subviews.CustomTextField
-import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import androidx.navigation.NavController
+import com.example.androidpangea.navigation.NavigationItem
 
 @Composable
 fun SignUpScreen(
     loginViewModel: AuthViewModel? = null,
     onNavToHomePage:() -> Unit,
-    onNavToLoginPage:() -> Unit
+    onNavToLoginPage:() -> Unit,
+    navController: NavController
 ) {
     val loginUiState = loginViewModel?.loginUiState
     val isError = loginUiState?.signUpError != null
@@ -117,7 +117,9 @@ fun SignUpScreen(
                 isError = isError
             )
 
-            Button(onClick = { loginViewModel?.createUser(context) }) {
+            Button(onClick = { loginViewModel?.createUser(context)
+            navController.navigate(NavigationItem.Main.route)
+            }) {
                 Text(text = "Sign In")
             }
 
@@ -140,7 +142,7 @@ fun SignUpScreen(
 
             LaunchedEffect(key1 = loginViewModel?.hasUser) {
                 if (loginViewModel?.hasUser == true) {
-                    onNavToHomePage.invoke()
+                    onNavToHomePage()
                 }
             }
         }

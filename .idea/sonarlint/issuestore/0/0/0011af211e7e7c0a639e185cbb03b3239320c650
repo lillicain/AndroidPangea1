@@ -1,9 +1,8 @@
 
-ckotlin:S125"Remove this commented out code.(ÚßÀ8ßƒÙó1J$10150133-b0a9-4fe1-b5cd-6b3c46493746
-µkotlin:S6532:"kReplace this if expression with require(validateSignUpForm()) { "Username and Password cannot be empty." }.(ÙÏîçıÿÿÿÿ8ÿ¿…Ùó1J$09221b37-cb4e-4080-a85f-351c667a0b97
-Ôkotlin:S6532>"‰Replace this if expression with require(loginUiState.passwordSignUp == loginUiState.confirmPasswordSignUp) { "Password does not match" }.(Ş°èíúÿÿÿÿ8ÿ¿…Ùó1J$aa023aae-6896-4a57-82d2-fbc2aabec556
-´kotlin:S6532\"jReplace this if expression with require(validateLoginForm()) { "Username and Password cannot be empty." }.(²Ôì ùÿÿÿÿ8Íš†Ùó1J$649ac075-95e3-4550-8aa0-cb7b4341cb84
-_kotlin:S1128"Remove this unused import.(à’ğ8çƒÙó1J$009cd52f-3b30-47a6-a6fa-e84ce2e8ddfa
-dkotlin:S1128"Remove this unused import.(Ó¸Ñÿÿÿÿÿ8çƒÙó1J$e0381913-de56-4887-8af0-7bebf84ff534
-dkotlin:S1128"Remove this unused import.(Ş°‚³üÿÿÿÿ8çƒÙó1J$803e8fe9-9e71-44df-a515-82664443e61f
-_kotlin:S1128"Remove this unused import.(“µ…”8çƒÙó1J$18b2d51e-b20c-4753-9d8a-d5ca647cb363
+ckotlin:S125"Remove this commented out code.(±í±å8ù½ıô1J$c74179ac-7fb7-4958-84a0-9bd55abdeca1
+µkotlin:S6532<"kReplace this if expression with require(validateSignUpForm()) { "Username and Password cannot be empty." }.(ÙÏîçıÿÿÿÿ8ş½ıô1J$10508302-a2bf-474e-81d1-5bb2f115982c
+Ôkotlin:S6532@"‰Replace this if expression with require(loginUiState.passwordSignUp == loginUiState.confirmPasswordSignUp) { "Password does not match" }.(Ş°èíúÿÿÿÿ8ş½ıô1J$8829ae84-8f34-4011-95fe-d344078e957d
+´kotlin:S6532^"jReplace this if expression with require(validateLoginForm()) { "Username and Password cannot be empty." }.(²Ôì ùÿÿÿÿ8ş½ıô1J$d4d1fee4-cbf2-48cf-a744-fce68228ee12
+_kotlin:S1128"Remove this unused import.(à’ğ8ÿ½ıô1J$ff977e1e-c974-4a97-a57f-b99a0e44479a
+dkotlin:S1128"Remove this unused import.(Ó¸Ñÿÿÿÿÿ8ÿ½ıô1J$93b89ed5-5f27-4530-aa8b-016050ccff85
+_kotlin:S1128"Remove this unused import.(“µ…”8ÿ½ıô1J$1ae9a1d9-5deb-499b-bf3a-4a73390ad8c8

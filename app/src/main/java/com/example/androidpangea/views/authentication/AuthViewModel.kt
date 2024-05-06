@@ -12,17 +12,19 @@ import com.example.androidpangea.models.User
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val repository: AuthRepository = AuthRepository()): ViewModel() {
 
-    //    private val _user: MutableStateFlow<User?> = MutableStateFlow(null)
-    //    val user: StateFlow<User?> = _user
-    //
-    //    suspend fun signIn(email: String?, displayName: String?) {
-    //        delay(2000)
-    //        _user.value = User("", "Username", "")
-    //    }
+    private val _username = MutableStateFlow("")
+    val username = _username.asStateFlow()
+
+
+//        suspend fun signIn(email: String?, displayName: String?) {
+//            delay(2000)
+//            _username.value
+//        }
 
     val currentUser = repository.currentUser
 

@@ -34,11 +34,11 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 @Composable
 fun AuthScreen(
-    authViewModel: AuthViewModel
+    authViewModel: AuthViewModel,
+    authRepository: AuthRepository
 ) {
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
-//    val user by remember(authViewModel) { authViewModel.user }.collectAsState()
     val signInRequestCode = 1
 
     val authResultLauncher =
@@ -50,10 +50,8 @@ fun AuthScreen(
                 } else {
                     coroutineScope.launch {
 //                        authViewModel.createUser()
-////                            email = account.email,
-////                            displayName = account.displayName,
-//
-//                        )
+//                            email = account.email,
+
                     }
                 }
             } catch (e: ApiException) {
