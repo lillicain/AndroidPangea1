@@ -38,9 +38,9 @@ fun AppNavHost(
         modifier = modifier,
         navController = navController,
         startDestination = if (viewModel.users != null) {
-            NavigationItem.SignUp.route
+            NavigationItem.SignIn.route
         } else {
-            NavigationItem.SignUp.route
+            NavigationItem.Main.route
         }
     ) {
 
@@ -64,9 +64,9 @@ fun AppNavHost(
                 navController = navController
             )
         }
-        //        composable(NavigationItem.User.route) {
-        //            UserScreen(navController = navController)
-        //        }
+        composable(NavigationItem.User.route) {
+            UserScreen(navController = navController)
+        }
 
         composable(NavigationItem.Camera.route) {
             CameraScreen(navController = navController)
@@ -76,16 +76,16 @@ fun AppNavHost(
         }
         composable(NavigationItem.SignUp.route) {
             SignUpScreen(
-//                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
-//                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
+                //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
+                //                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
                 navController = navController
             )
         }
 
         composable(NavigationItem.SignIn.route) {
             SignInScreen(
-//                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
-//                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
+                //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
+                //                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
                 navController = navController
             )
         }
