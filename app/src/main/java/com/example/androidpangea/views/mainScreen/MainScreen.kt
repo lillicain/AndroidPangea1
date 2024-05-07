@@ -93,13 +93,82 @@ fun MainScreen(
     val cameraPositionState = rememberCameraPositionState()
 
 
-    if (isBottomSheetOpened) {
-        ModalBottomSheet(
-            sheetState = bottomSheet,
-            onDismissRequest = {
-                isBottomSheetOpened = false
+
+    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
+
+        BottomAppBar {
+            BottomNavigationBar(
+                items = listOf(
+                    BottomNavItem(
+                        NavigationItem.Main.route,
+                        Screen.MAIN.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Home)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.User.route,
+                        Screen.USER.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Search)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.Camera.route,
+                        Screen.CAMERA.name,
+                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.Explore.route,
+                        Screen.EXPLORE.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Explore)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.User.route,
+                        Screen.USER.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Person)
+                    ),
+                ), navController = navController
+            ) {
+                if (it.route == NavigationItem.User.route) {
+                    navController.navigate(NavigationItem.User.route)
+                } else {
+                    navController.navigate(it.route)
+                }
             }
-        ) {
+        }
+
+        //                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
+        //                        Icon(
+        //                            painterResource(id = R.drawable.ic_profile),
+        //                            contentDescription = null,
+        //                            Modifier.padding(8.dp)
+        //                        )
+        //                    }
+        //
+        //                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
+        //                        Icon(
+        //                            painterResource(id = R.drawable.ic_camera),
+        //                            contentDescription = null,
+        //                            Modifier.padding(8.dp)
+        //                        )
+        //                    }
+        //
+        //                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
+        //                        Icon(
+        //                            painterResource(id = R.drawable.ic_profile),
+        //                            contentDescription = null,
+        //                            Modifier.padding(8.dp)
+        //                        )
+        //                    }
+    }
+
+
+
+    ) {
+        if (isBottomSheetOpened) {
+            ModalBottomSheet(
+                sheetState = bottomSheet,
+                onDismissRequest = {
+                    isBottomSheetOpened = false
+                }
+            ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -141,73 +210,7 @@ fun MainScreen(
 
 
 
-    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
 
-        BottomAppBar {
-            BottomNavigationBar(
-                items = listOf(
-                    BottomNavItem(
-                        NavigationItem.Main.route,
-                        Screen.MAIN.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Home)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.User.route,
-                        Screen.USER.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Search)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.Camera.route,
-                        Screen.CAMERA.name,
-                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.Explore.route,
-                        Screen.EXPLORE.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Explore)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.User.route,
-                        Screen.USER.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Person)
-                    ),
-                ), navController = navController
-            ) {
-                if (it.route == NavigationItem.User.route) {
-                    navController.navigate(NavigationItem.User.route)
-                } else {
-                    navController.navigate(it.route)
-                }
-            }
-        }
-        //                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
-        //                        Icon(
-        //                            painterResource(id = R.drawable.ic_profile),
-        //                            contentDescription = null,
-        //                            Modifier.padding(8.dp)
-        //                        )
-        //                    }
-        //
-        //                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
-        //                        Icon(
-        //                            painterResource(id = R.drawable.ic_camera),
-        //                            contentDescription = null,
-        //                            Modifier.padding(8.dp)
-        //                        )
-        //                    }
-        //
-        //                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
-        //                        Icon(
-        //                            painterResource(id = R.drawable.ic_profile),
-        //                            contentDescription = null,
-        //                            Modifier.padding(8.dp)
-        //                        )
-        //                    }
-    }
-
-
-
-    ) {
 
         Column(
             modifier = Modifier.fillMaxSize(),
