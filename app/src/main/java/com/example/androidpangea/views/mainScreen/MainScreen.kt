@@ -2,8 +2,6 @@ package com.example.androidpangea.views.mainScreen
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.location.Location
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,12 +13,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.ArrowBack
-import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.Explore
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,13 +27,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,31 +37,25 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.key.Key.Companion.I
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
-import com.example.androidpangea.extensions.BaseState
-import com.example.androidpangea.models.User
-import com.example.androidpangea.navigation.BottomBar
+import com.example.androidpangea.navigation.BottomNavItem
 import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.BottomNavigationItem
 import com.example.androidpangea.navigation.NavigationItem
+import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.views.mapScreen.MapItemManager
 import com.example.androidpangea.views.mapScreen.MapState
-import com.example.androidpangea.views.subviews.CenterCircularProgressBar
-import com.example.androidpangea.views.subviews.CircularImage
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
-import com.google.maps.android.compose.CameraPositionState
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapEffect
 import com.google.maps.android.compose.MapProperties
@@ -90,7 +79,9 @@ fun MainScreen(
         NavigationItem.User.route,
         NavigationItem.Camera.route,
         NavigationItem.Explore.route,
-        "${NavigationItem.User.route}/{userid}"
+        "${NavigationItem.User.route}/{userid}",
+        NavigationItem.SignUp.route,
+        NavigationItem.SignIn.route
     )
     val bottomSheet = rememberModalBottomSheetState()
 
@@ -150,119 +141,141 @@ fun MainScreen(
 
 
 
-            Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
+    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
 
-//                BottomAppBar {
-//
-//                      screens.forEach { item ->
-//                          val selected = item.route == backStackEntry.value?.destination?.route
-//
-//                          BottomNavigationItem(selected = selected, onClick = { navController.navigate(item) }, icon = {
-//                              Column(horizontalAlignment = Alignment.CenterHorizontally) {
-//
-//
-//                                  }
-
-
-//
-//
-//                    BottomNavigationItem(selected = B, onClick = { navController.navigate(it) }, icon = { /*TODO*/ })
-//                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
-//                        Icon(
-//                            painterResource(id = R.drawable.ic_profile),
-//                            contentDescription = null,
-//                            Modifier.padding(8.dp)
-//                        )
-//                    }
-//
-//                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
-//                        Icon(
-//                            painterResource(id = R.drawable.ic_camera),
-//                            contentDescription = null,
-//                            Modifier.padding(8.dp)
-//                        )
-//                    }
-//
-//                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
-//                        Icon(
-//                            painterResource(id = R.drawable.ic_profile),
-//                            contentDescription = null,
-//                            Modifier.padding(8.dp)
-//                        )
-//                    }
-//                }
-            }
-
-
+        BottomAppBar {
+            BottomNavigationBar(
+                items = listOf(
+                    BottomNavItem(
+                        NavigationItem.Main.route,
+                        Screen.MAIN.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Home)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.User.route,
+                        Screen.USER.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Search)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.Camera.route,
+                        Screen.CAMERA.name,
+                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.Explore.route,
+                        Screen.EXPLORE.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Explore)
+                    ),
+                    BottomNavItem(
+                        NavigationItem.User.route,
+                        Screen.USER.name,
+                        icon = rememberVectorPainter(image = Icons.Default.Person)
+                    ),
+                ), navController = navController
             ) {
-
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Top
-                ) { //    CircularImage(imageUrl = user?.profileImage ?: "")
-                    //        Text(text = user?.username ?: "")
-
-
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(50.dp)
-                            .padding(top = 200.dp)
-                    ) {
-                        GoogleMap(
-                            modifier = Modifier.fillMaxSize(),
-                            properties = mapProperties,
-                            cameraPositionState = cameraPositionState
-                        ) {
-                            val context = LocalContext.current
-                            val scope = rememberCoroutineScope()
-                            MapEffect(state.mapItems) { map ->
-                                if (state.mapItems.isNotEmpty()) {
-                                    val clusterManager = setupClusterManager(context, map)
-                                    map.setOnCameraIdleListener(clusterManager)
-                                    map.setOnMarkerClickListener(clusterManager)
-                                    state.mapItems.forEach { clusterItem ->
-                                        map.addPolygon(clusterItem.polygonOptions)
-                                    }
-                                    map.setOnMapLoadedCallback {
-                                        if (state.mapItems.isNotEmpty()) {
-                                            scope.launch {
-                                                cameraPositionState.animate(
-                                                    update = CameraUpdateFactory.newLatLngBounds(
-                                                        calculateZoneViewCenter(), 0
-                                                    ),
-                                                )
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-
-                            MarkerInfoWindow(
-                                state = rememberMarkerState(position = LatLng(37.09, 113.59)),
-                                snippet = "Some stuff",
-                                onClick = {
-                                    System.out.println("Cannot be clicked")
-                                    true
-                                },
-                                draggable = true
-                            )
-                        }
-                    }
-
-                    LaunchedEffect(state.mapItems) {
-                        if (state.mapItems.isNotEmpty()) {
-                            cameraPositionState.animate(
-                                update = CameraUpdateFactory.newLatLngBounds(
-                                    calculateZoneViewCenter(), 0
-                                ),
-                            )
-                        }
-                    }
+                if (it.route == NavigationItem.User.route) {
+                    navController.navigate(NavigationItem.User.route)
+                } else {
+                    navController.navigate(it.route)
                 }
             }
         }
+        //                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
+        //                        Icon(
+        //                            painterResource(id = R.drawable.ic_profile),
+        //                            contentDescription = null,
+        //                            Modifier.padding(8.dp)
+        //                        )
+        //                    }
+        //
+        //                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
+        //                        Icon(
+        //                            painterResource(id = R.drawable.ic_camera),
+        //                            contentDescription = null,
+        //                            Modifier.padding(8.dp)
+        //                        )
+        //                    }
+        //
+        //                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
+        //                        Icon(
+        //                            painterResource(id = R.drawable.ic_profile),
+        //                            contentDescription = null,
+        //                            Modifier.padding(8.dp)
+        //                        )
+        //                    }
+    }
+
+
+
+    ) {
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
+        ) { //    CircularImage(imageUrl = user?.profileImage ?: "")
+            //        Text(text = user?.username ?: "")
+
+
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(50.dp)
+                    .padding(top = 200.dp)
+            ) {
+                GoogleMap(
+                    modifier = Modifier.fillMaxSize(),
+                    properties = mapProperties,
+                    cameraPositionState = cameraPositionState
+                ) {
+                    val context = LocalContext.current
+                    val scope = rememberCoroutineScope()
+                    MapEffect(state.mapItems) { map ->
+                        if (state.mapItems.isNotEmpty()) {
+                            val clusterManager = setupClusterManager(context, map)
+                            map.setOnCameraIdleListener(clusterManager)
+                            map.setOnMarkerClickListener(clusterManager)
+                            state.mapItems.forEach { clusterItem ->
+                                map.addPolygon(clusterItem.polygonOptions)
+                            }
+                            map.setOnMapLoadedCallback {
+                                if (state.mapItems.isNotEmpty()) {
+                                    scope.launch {
+                                        cameraPositionState.animate(
+                                            update = CameraUpdateFactory.newLatLngBounds(
+                                                calculateZoneViewCenter(), 0
+                                            ),
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                    MarkerInfoWindow(
+                        state = rememberMarkerState(position = LatLng(37.09, 113.59)),
+                        snippet = "Some stuff",
+                        onClick = {
+                            System.out.println("Cannot be clicked")
+                            true
+                        },
+                        draggable = true
+                    )
+                }
+            }
+
+            LaunchedEffect(state.mapItems) {
+                if (state.mapItems.isNotEmpty()) {
+                    cameraPositionState.animate(
+                        update = CameraUpdateFactory.newLatLngBounds(
+                            calculateZoneViewCenter(), 0
+                        ),
+                    )
+                }
+            }
+        }
+    }
+}
 
 

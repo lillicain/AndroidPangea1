@@ -38,7 +38,7 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = NavigationItem.SignIn.route
+        startDestination = NavigationItem.Main.route
     ) {
 
         composable(NavigationItem.Main.route) {

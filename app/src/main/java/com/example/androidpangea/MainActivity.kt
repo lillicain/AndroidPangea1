@@ -8,18 +8,18 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Explore
@@ -31,7 +31,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.res.painterResource
 import androidx.core.content.ContextCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -88,7 +87,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidPangeaTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
+                    modifier = Modifier
+                        .fillMaxSize()
+                    .statusBarsPadding()
+                    .navigationBarsPadding(),
+                color = MaterialTheme.colorScheme.background
                 ) {
 
                     val navController = rememberNavController()
@@ -97,10 +100,14 @@ class MainActivity : ComponentActivity() {
                         NavigationItem.User.route,
                         NavigationItem.Camera.route,
                         NavigationItem.Explore.route,
-//                        "${NavigationItem.User.route}/{userid}"
+                        "${NavigationItem.User.route}/{userid}",
+                        NavigationItem.SignIn.route,
+                        NavigationItem.SignUp.route
                     )
-                    val showBottomBar = navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
-                    Scaffold(bottomBar = {
+                    val showBottomBar = navController
+                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+                    Scaffold(
+                        bottomBar = {
                         AnimatedVisibility(
                             visible = showBottomBar,
                             enter = fadeIn() + scaleIn(),
@@ -112,7 +119,8 @@ class MainActivity : ComponentActivity() {
                                     .background(MaterialTheme.colorScheme.background)
                                     .fillMaxWidth()
                             ) {
-                                BottomNavigationBar(items = listOf(
+                                BottomNavigationBar(
+                                    items = listOf(
                                     BottomNavItem(
                                         NavigationItem.Main.route,
                                         Screen.MAIN.name,
@@ -138,13 +146,14 @@ class MainActivity : ComponentActivity() {
                                         Screen.USER.name,
                                         icon = rememberVectorPainter(image = Icons.Default.Person)
                                     ),
-                                ), navController = navController, onItemClick = {
+                                ), navController = navController
+                                ) {
                                     if (it.route == NavigationItem.User.route) {
                                         navController.navigate(NavigationItem.User.route)
                                     } else {
                                         navController.navigate(it.route)
                                     }
-                                })
+                                }
                             }
                         }
                     }) {
