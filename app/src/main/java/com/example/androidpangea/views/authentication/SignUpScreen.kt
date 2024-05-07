@@ -65,8 +65,7 @@ fun SignUpScreen(
         Surface(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
-                .padding(28.dp)
+                .padding(30.dp)
         ) {
             Column(modifier = Modifier.fillMaxSize()) {
 

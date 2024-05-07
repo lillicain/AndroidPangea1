@@ -115,3 +115,5 @@ Gapp/src/main/java/com/example/androidpangea/extensions/AppComponents.kt,c/9/c9
 Sapp/src/main/java/com/example/androidpangea/views/authentication/SignUpViewModel.kt,d/e/de2fd78837e6e7d2bf2482854d9b4a9fcac1bca9
 s
 Capp/src/main/java/com/example/androidpangea/extensions/BaseState.kt,5/3/535ef5682c54b3ee667c17da3d85d8be669793b7
+…
+Uapp/src/main/java/com/example/androidpangea/views/subviews/SystemBackButtonHandler.kt,4/f/4fd562b873d3bc50668951287f3366c0689105da

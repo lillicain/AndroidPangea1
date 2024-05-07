@@ -32,16 +32,13 @@ fun AppNavHost(
         mutableStateOf(false)
     }
 
+//    viewModel.checkForActiveSession()
 
 
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = if (viewModel.users != null) {
-            NavigationItem.SignIn.route
-        } else {
-            NavigationItem.Main.route
-        }
+        startDestination = NavigationItem.SignIn.route
     ) {
 
         composable(NavigationItem.Main.route) {

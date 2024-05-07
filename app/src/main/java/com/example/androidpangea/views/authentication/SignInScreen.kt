@@ -49,6 +49,7 @@ import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.extensions.UnderLinedTextComponent
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
+import com.example.androidpangea.views.subviews.SystemBackButtonHandler
 
 @Composable
 fun SignInScreen(
@@ -65,8 +66,7 @@ fun SignInScreen(
         Surface(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
-                .padding(28.dp)
+                .padding(30.dp)
         ) {
 
             Column(
