@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidPangea</string>
+    <string name="signIn">\Sign In\</string>
+    <string name="signOut">\Sign Out\</string>
+    <string name="navigation_header">\Header\</string>
+    <string name="forgot_password">\Forgot Password?\</string>
+    <string name="password">\Password\</string>
+    <string name="username">\Username\</string>
+    <string name="welcome">\Welcome\</string>
+    <string name="or">\or\</string>
+    <string name="signUp">\Sign Up\</string>
+    <string name="first_name">\First Name\</string>
+    <string name="last_name">\Last Name\</string>
+    <string name="create_account">\Create Account\</string>
 </resources>

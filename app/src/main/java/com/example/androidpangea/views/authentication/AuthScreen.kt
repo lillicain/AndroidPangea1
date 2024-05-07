@@ -35,7 +35,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun AuthScreen(
     authViewModel: AuthViewModel,
-    authRepository: AuthRepository
+//    authRepository: AuthRepository
 ) {
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }

@@ -6,6 +6,7 @@ import com.example.androidpangea.extensions.BaseState
 import com.example.androidpangea.extensions.Failure
 import com.example.androidpangea.models.Post
 import com.example.androidpangea.models.User
+import com.example.androidpangea.views.authentication.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(): ViewModel() {
-
+// private val repository: AuthRepository
     private val _users =
         MutableStateFlow< BaseState <List<User>, Failure>>(BaseState.Loading)
     val users = _users.asStateFlow()
@@ -30,7 +31,7 @@ class MainViewModel @Inject constructor(): ViewModel() {
                 if (response.toString() == "success_user") {
                     //                    val userList = response.data.
                     //
-                    //                    _users.value = BaseState.Success(userList)
+//                                        _users.value = BaseState.Success(userList)
                 } else {
                     _users.value = BaseState.Failed(Failure.Unknown("Error"))
                 }
@@ -51,58 +52,13 @@ class MainViewModel @Inject constructor(): ViewModel() {
             it.id == postId
         }
     }
-
-}
-//    private val _users =
-//        MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)
-//    val users = _users.asStateFlow()
-//
-//    private val _posts =
-//        MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
-//    val posts = _posts.asStateFlow()
-//
-//    init {
-//        getPosts()
-//        getUsers()
-//    }
-//
-//    fun getUsers() {
-//        viewModelScope.launch {
-//            try {
-//                val response = homeRepo.getUserResponse()
-//                if (response.type == "success_user") {
-//                    val userList = response.data
-//                    _users.value = BaseState.Success(userList)
-//                } else {
-//                    _users.value = BaseState.Failed(Failure.Unknown("Error"))
-//                }
-//            } catch (e: Exception) {
-//                _users.value = BaseState.Failed(Failure.Unknown(e.message.toString()))
-//            }
-//        }
-//    }
-//
-//    fun getUserById(userId: String): User? {
-//        return (_users.value as BaseState.Success).data.find {
-//            it.id == userId
-//        }
-//    }
-//
-//    fun getPostById(postId: String): Post? {
-//        return (_posts.value as BaseState.Success).data.find {
-//            it.id == postId
-//        }
-//    }
-//
-//
-//
-//    fun getPosts() {
-//        viewModelScope.launch {
+    fun getPosts() {
+        viewModelScope.launch {
 //            _posts.value = try {
-//                BaseState.Success(homeRepo.getPosts())
+////                BaseState.Success(repository.getPosts())
 //            } catch (e: Exception) {
 //                BaseState.Failed(Failure.Unknown(e.message.toString()))
 //            }
-//        }
-//    }
-//}
+        }
+    }
+}

@@ -29,6 +29,7 @@ fun BottomBar(items: List<BottomNavigationItem>, currentNavIndex: Int, onClick: 
 }
 
 data class BottomNavigationItem(
+    var id: String,
 var title: String,
 var selectedIcon: ImageVector,
 var unselectedIcon: ImageVector

@@ -1,171 +1,257 @@
 package com.example.androidpangea.views.authentication
 
-import android.content.Context
-import android.widget.Toast
-import androidx.compose.runtime.getValue
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.androidpangea.extensions.BaseState
-import com.example.androidpangea.extensions.Failure
-import com.example.androidpangea.models.Post
-import com.example.androidpangea.models.User
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
+import com.example.androidpangea.navigation.Screen
+import com.google.firebase.auth.FirebaseAuth
 
-class AuthViewModel(private val repository: AuthRepository = AuthRepository()): ViewModel() {
+class AuthViewModel: ViewModel() {
 
 
+    private val TAG = AuthViewModel::class.simpleName
 
-    private val _users =
-        MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)
-    val users = _users.asStateFlow()
+    var loginUIState = mutableStateOf(LoginUIState())
 
-    private val _posts =
-        MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
-    val posts = _posts.asStateFlow()
+    var allValidationsPassed = mutableStateOf(false)
 
-    fun getUsers() {
-        viewModelScope.launch {
-            try {
-                val response = users.value
-                if (response.toString() == "success_user") {
-                    //                    val userList = response.data.
-                    //
-                    //                    _users.value = BaseState.Success(userList)
-                } else {
-                    _users.value = BaseState.Failed(Failure.Unknown("Error"))
-                }
-            } catch (e: Exception) {
-                _users.value = BaseState.Failed(Failure.Unknown(e.message.toString()))
-            }
-        }
-    }
-
-    fun getUserById(userId: String): User? {
-        return (_users.value as BaseState.Success).data.find {
-            it.id == userId
-        }
-    }
-
-    fun getPostById(postId: String): Post? {
-        return (_posts.value as BaseState.Success).data.find {
-            it.id == postId
-        }
-    }
+    var loginInProgress = mutableStateOf(false)
 
 
-
-//        suspend fun signIn(email: String?, displayName: String?) {
-//            delay(2000)
-//            _username.value
-//        }
-
-    val currentUser = repository.currentUser
-
-    val hasUser: Boolean
-        get() = repository.hasUser()
-
-    var loginUiState by mutableStateOf(LoginUiState())
-        private set
-
-    fun onUsernameChange(username: String) {
-        loginUiState = loginUiState.copy(username = username)
-    }
-    fun onPasswordChange(password: String) {
-        loginUiState = loginUiState.copy(password = password)
-    }
-    fun onUsernameChangeSignUp(username: String) {
-        loginUiState = loginUiState.copy(usernameSignUp = username)
-    }
-    fun onPasswordChangeSignUp(password: String) {
-        loginUiState = loginUiState.copy(passwordSignUp = password)
-    }
-    fun onConfirmPasswordChange(password: String) {
-        loginUiState = loginUiState.copy(confirmPasswordSignUp = password)
-    }
-
-    private fun validateLoginForm() = loginUiState.username.isBlank() && loginUiState.password.isNotBlank()
-
-
-    private fun validateSignUpForm() = loginUiState.usernameSignUp.isBlank() && loginUiState.passwordSignUp.isNotBlank() && loginUiState.confirmPasswordSignUp.isNotBlank()
-
-    fun createUser(context: Context) = viewModelScope.launch {
-        try {
-            if (!validateSignUpForm()) {
-                throw IllegalArgumentException("Username and Password cannot be empty.")
-            }
-            loginUiState = loginUiState.copy(isLoading = true)
-            if (loginUiState.passwordSignUp != loginUiState.confirmPasswordSignUp) {
-                throw IllegalArgumentException(
-                    "Password does not match"
+    fun onEvent(event: LoginUIEvent) {
+        when (event) {
+            is LoginUIEvent.EmailChanged -> {
+                loginUIState.value = loginUIState.value.copy(
+                    email = event.email
                 )
             }
-            loginUiState = loginUiState.copy(signUpError = null)
-            repository.createUser(
-                loginUiState.usernameSignUp,
-                loginUiState.passwordSignUp
-            ) { isSuccessful ->
-                if (isSuccessful) {
-                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-                    loginUiState = loginUiState.copy(isSuccessLogin = true)
 
-                } else {
-
-                    Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
-                    loginUiState = loginUiState.copy(isSuccessLogin = false)
-                }
+            is LoginUIEvent.PasswordChanged -> {
+                loginUIState.value = loginUIState.value.copy(
+                    password = event.password
+                )
             }
-        } catch (e: Exception) {
-            loginUiState = loginUiState.copy(signUpError = e.localizedMessage)
-            e.printStackTrace()
-        } finally {
-            loginUiState = loginUiState.copy(isLoading = false)
+
+            is LoginUIEvent.LoginButtonClicked -> {
+                login()
+            }
         }
+        validateLoginUIDataWithRules()
     }
 
-    fun loginUser(context: Context) = viewModelScope.launch {
-        try {
-            if (!validateLoginForm()) {
-                throw IllegalArgumentException("Username and Password cannot be empty.")
-            }
-            loginUiState = loginUiState.copy(isLoading = true)
-            loginUiState = loginUiState.copy(loginError = null)
-            repository.createUser(
-                loginUiState.username,
-                loginUiState.password
-            ) { isSuccessful ->
-                if (isSuccessful) {
-                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-                    loginUiState = loginUiState.copy(isSuccessLogin = true)
+    private fun validateLoginUIDataWithRules() {
+        val emailResult = Validator.validateEmail(
+            email = loginUIState.value.email
+        )
 
-                } else {
 
-                    Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
-                    loginUiState = loginUiState.copy(isSuccessLogin = false)
+        val passwordResult = Validator.validatePassword(
+            password = loginUIState.value.password
+        )
+
+        loginUIState.value = loginUIState.value.copy(
+            emailError = emailResult.status, passwordError = passwordResult.status
+        )
+
+        allValidationsPassed.value = emailResult.status && passwordResult.status
+
+    }
+
+    private fun login() {
+
+        loginInProgress.value = true
+        val email = loginUIState.value.email
+        val password = loginUIState.value.password
+
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                Log.d(TAG, "Inside_login_success")
+                Log.d(TAG, "${it.isSuccessful}")
+
+                if (it.isSuccessful) {
+                    loginInProgress.value = false
+
+                    AppRouter.navigateTo(Screen.MAIN)
                 }
+            }.addOnFailureListener {
+                Log.d(TAG, "Inside_login_failure")
+                Log.d(TAG, "${it.localizedMessage}")
+
+                loginInProgress.value = false
+
             }
-        } catch (e: Exception) {
-            loginUiState = loginUiState.copy(loginError = e.localizedMessage)
-            e.printStackTrace()
-        } finally {
-            loginUiState = loginUiState.copy(isLoading = false)
-        }
+
     }
 }
+//    val repository = PhotifyModule.providesDatabaseRepositoryImpl()
+//
+//    var userName by  mutableStateOf("")
+//
+//    var userAge by mutableStateOf("")
+//
+//    var userOccupation by mutableStateOf("")
 
-data class LoginUiState(
-    val username: String = "",
-    val password: String = "",
-    val usernameSignUp: String = "",
-    val passwordSignUp: String = "",
-    val confirmPasswordSignUp: String = "",
-    val isLoading: Boolean = false,
-    val isSuccessLogin: Boolean = false,
-    val signUpError: String? = null,
-    val loginError: String? = null)
+
+//    private val _users = MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)
+//    val users = _users.asStateFlow()
+//
+//    private val _posts = MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
+//    val posts = _posts.asStateFlow()
+//
+//    //    private var _registerState = MutableStateFlow<RegisterState>(value = RegisterState())
+//    //    val registerState: StateFlow<RegisterState> = _registerState.asStateFlow()
+//    //
+//    //    fun registerUser(email: String, password: String) = viewModelScope.launch {
+//    //        repository.registerUser(email = email, password = password).collectLatest { result ->
+//    //            when(result) {
+//    //                is Resource.Loading -> {
+//    //                    _registerState.update { it.copy(isLoading = true) }
+//    //                }
+//    //
+//    //                is Resource.Success -> {
+//    //                    _registerState.update { it.copy(isSuccess = "Register Successful!") }
+//    //                }
+//    //
+//    //                is Resource.Error -> {
+//    //                    _registerState.update { it.copy(isError = result.message) }
+//    //                }
+//    //            }
+//    //        }
+//    fun getUsers() {
+//        viewModelScope.launch {
+//            try {
+//                val response = users.value
+//                if (response.toString() == "success_user") { //                    val userList = response.data.
+//                    //
+//                    //                    _users.value = BaseState.Success(userList)
+//                } else {
+//                    _users.value = BaseState.Failed(Failure.Unknown("Error"))
+//                }
+//            } catch (e: Exception) {
+//                _users.value = BaseState.Failed(Failure.Unknown(e.message.toString()))
+//            }
+//        }
+//    }
+//
+//    fun getUserById(userId: String): User? {
+//        return (_users.value as BaseState.Success).data.find {
+//            it.id == userId
+//        }
+//    }
+//
+//    fun getPostById(postId: String): Post? {
+//        return (_posts.value as BaseState.Success).data.find {
+//            it.id == postId
+//        }
+//    }
+//}
+//
+//
+////        suspend fun signIn(email: String?, displayName: String?) {
+////            delay(2000)
+////            _username.value
+////        }
+////
+////    val currentUser = repository.currentUser
+////
+////    val hasUser: Boolean
+////        get() = repository.hasUser()
+////
+////    var loginUiState by mutableStateOf(LoginUiState())
+////        private set
+//
+////    fun onUsernameChange(username: String) {
+////        loginUiState = loginUiState.copy(username = username)
+////    }
+////    fun onPasswordChange(password: String) {
+////        loginUiState = loginUiState.copy(password = password)
+////    }
+////    fun onUsernameChangeSignUp(username: String) {
+////        loginUiState = loginUiState.copy(usernameSignUp = username)
+////    }
+////    fun onPasswordChangeSignUp(password: String) {
+////        loginUiState = loginUiState.copy(passwordSignUp = password)
+////    }
+////    fun onConfirmPasswordChange(password: String) {
+////        loginUiState = loginUiState.copy(confirmPasswordSignUp = password)
+////    }
+////
+////    private fun validateLoginForm() = loginUiState.username.isBlank() && loginUiState.password.isNotBlank()
+////
+////
+////    private fun validateSignUpForm() = loginUiState.usernameSignUp.isBlank() && loginUiState.passwordSignUp.isNotBlank() && loginUiState.confirmPasswordSignUp.isNotBlank()
+////
+////    fun createUser(context: Context) = viewModelScope.launch {
+////        try {
+////            if (!validateSignUpForm()) {
+////                throw IllegalArgumentException("Username and Password cannot be empty.")
+////            }
+////            loginUiState = loginUiState.copy(isLoading = true)
+////            if (loginUiState.passwordSignUp != loginUiState.confirmPasswordSignUp) {
+////                throw IllegalArgumentException(
+////                    "Password does not match"
+////                )
+////            }
+////            loginUiState = loginUiState.copy(signUpError = null)
+////            repository.createUser(
+////                loginUiState.usernameSignUp,
+////                loginUiState.passwordSignUp
+////            ) { isSuccessful ->
+////                if (isSuccessful) {
+////                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+////                    loginUiState = loginUiState.copy(isSuccessLogin = true)
+////
+////                } else {
+////
+////                    Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
+////                    loginUiState = loginUiState.copy(isSuccessLogin = false)
+////                }
+////            }
+////        } catch (e: Exception) {
+////            loginUiState = loginUiState.copy(signUpError = e.localizedMessage)
+////            e.printStackTrace()
+////        } finally {
+////            loginUiState = loginUiState.copy(isLoading = false)
+////        }
+////    }
+////
+////    fun loginUser(context: Context) = viewModelScope.launch {
+////        try {
+////            if (!validateLoginForm()) {
+////                throw IllegalArgumentException("Username and Password cannot be empty.")
+////            }
+////            loginUiState = loginUiState.copy(isLoading = true)
+////            loginUiState = loginUiState.copy(loginError = null)
+////            repository.createUser(
+////                loginUiState.username,
+////                loginUiState.password
+////            ) { isSuccessful ->
+////                if (isSuccessful) {
+////                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+////                    loginUiState = loginUiState.copy(isSuccessLogin = true)
+////
+////                } else {
+////
+////                    Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
+////                    loginUiState = loginUiState.copy(isSuccessLogin = false)
+////                }
+////            }
+////        } catch (e: Exception) {
+////            loginUiState = loginUiState.copy(loginError = e.localizedMessage)
+////            e.printStackTrace()
+////        } finally {
+////            loginUiState = loginUiState.copy(isLoading = false)
+////        }
+////    }
+////}
+//
+////data class LoginUiState(
+////    val username: String = "",
+////    val password: String = "",
+////    val usernameSignUp: String = "",
+////    val passwordSignUp: String = "",
+////    val confirmPasswordSignUp: String = "",
+////    val isLoading: Boolean = false,
+////    val isSuccessLogin: Boolean = false,
+////    val signUpError: String? = null,
+////    val loginError: String? = null)

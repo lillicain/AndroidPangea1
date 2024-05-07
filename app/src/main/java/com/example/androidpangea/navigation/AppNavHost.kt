@@ -12,6 +12,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
@@ -30,6 +31,9 @@ fun AppNavHost(
     var isSplashScreenFinished by rememberSaveable {
         mutableStateOf(false)
     }
+
+
+
     NavHost(
         modifier = modifier,
         navController = navController,
@@ -60,9 +64,10 @@ fun AppNavHost(
                 navController = navController
             )
         }
-//        composable(NavigationItem.User.route) {
-//            UserScreen(navController = navController)
-//        }
+        //        composable(NavigationItem.User.route) {
+        //            UserScreen(navController = navController)
+        //        }
+
         composable(NavigationItem.Camera.route) {
             CameraScreen(navController = navController)
         }
@@ -71,45 +76,18 @@ fun AppNavHost(
         }
         composable(NavigationItem.SignUp.route) {
             SignUpScreen(
-                onNavToHomePage = { /*TODO*/ },
-                onNavToLoginPage = { /*TODO*/ },
+//                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
+//                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
                 navController = navController
             )
         }
 
-
-        //        composable("${NavigationItem.ViewPost.route}/{postId}",
-        //            arguments = listOf(
-        //                navArgument("postId") {
-        //                    type = NavType.StringType
-        //                }
-        //            )) {
-        //            val postId = it.arguments?.getString("postId")
-        //            postId?.let { id ->
-        //                ViewPostScreen(id, homeViewModel = homeViewModel, navController = navController)
-        //            }
-        //        }
-        //        composable("${NavigationItem.ViewStory.route}/{storyId}/{userId}",
-        //            arguments = listOf(
-        //                navArgument("storyId") {
-        //                    type = NavType.StringType
-        //                }, navArgument("userId") {
-        //                    type = NavType.StringType
-        //                }
-        //            )) {
-        //            val storyId = it.arguments?.getString("storyId")
-        //            val userId = it.arguments?.getString("userId")
-        ////            if (storyId != null && userId != null) {
-        ////                ViewStory(
-        ////                    storyId,
-        ////                    userId,
-        ////                    homeViewModel = homeViewModel,
-        ////                    navController = navController
-        ////                )
-        ////            }
-        ////        }
-        ////        composable(NavigationItem.Notification.route) {
-        ////            NotificationScreen(homeViewModel = homeViewModel, navController = navController)
-        ////        }
+        composable(NavigationItem.SignUp.route) {
+            SignInScreen(
+//                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
+//                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
+                navController = navController
+            )
+        }
     }
 }

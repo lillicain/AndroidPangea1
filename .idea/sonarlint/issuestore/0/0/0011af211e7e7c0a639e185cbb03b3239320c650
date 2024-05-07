@@ -1,9 +1,2 @@
 
-bkotlin:S125&"Remove this commented out code.(…©ÃE8†¾ÿô1J$c191f189-003c-445d-9e45-b280d486987a
-ckotlin:S125@"Remove this commented out code.(±í±å8‘†¾ÿô1J$0f9a753d-f608-4a06-bf84-85f7c1fe0fdf
-µkotlin:S6532d"kReplace this if expression with require(validateSignUpForm()) { "Username and Password cannot be empty." }.(ÙÏîçıÿÿÿÿ8–†¾ÿô1J$69169f95-1445-467b-a324-39cc6511e1cd
-Ôkotlin:S6532h"‰Replace this if expression with require(loginUiState.passwordSignUp == loginUiState.confirmPasswordSignUp) { "Password does not match" }.(Ş°èíúÿÿÿÿ8–†¾ÿô1J$5219a35f-4c25-429e-85ba-c45f899c1fb9
-µkotlin:S6532†"jReplace this if expression with require(validateLoginForm()) { "Username and Password cannot be empty." }.(²Ôì ùÿÿÿÿ8–†¾ÿô1J$2981eff1-e5fa-42b6-aec5-6f7cd605bf0c
-_kotlin:S1128"Remove this unused import.(à’ğ8—†¾ÿô1J$2f43879d-54ce-47f1-ab8b-1058aa1799cb
-dkotlin:S1128"Remove this unused import.(Ó¸Ñÿÿÿÿÿ8—†¾ÿô1J$9cbfb298-795d-457f-bbc6-a09c1bcfefb5
-_kotlin:S1128"Remove this unused import.(“µ…”8—†¾ÿô1J$afd761a1-12a9-4e37-b296-f87cb8bde381
+ckotlin:S125V"Remove this commented out code.(è”ÿª8ÁŸŸõ1J$1ed7ce15-4352-424d-bf7e-cab76ae50fa6
