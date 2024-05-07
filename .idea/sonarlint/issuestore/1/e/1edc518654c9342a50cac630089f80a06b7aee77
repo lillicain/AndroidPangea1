@@ -1,12 +1,10 @@
 
-hkotlin:S125"Remove this commented out code.(×Æ›ıÿÿÿÿ8Ã‡•€õ1J$75ce97c4-4556-4df0-8e5e-028cf2ce0448
-dkotlin:S1128"Remove this unused import.(ÂÑ•úÿÿÿÿ8Å‡•€õ1J$6af0ed08-fc75-4c01-bca0-41342b2579b1
-_kotlin:S1128"Remove this unused import.(›»„Â8êÛ›€õ1J$52ee781b-2d06-4823-94a2-9c08a94835b2
-dkotlin:S1128"Remove this unused import.(í™Æ³ÿÿÿÿÿ8Å‡•€õ1J$711acd0d-e16a-4fcf-8e48-47fe5dfd861b
-dkotlin:S1128	"Remove this unused import.(¸ƒ¿½øÿÿÿÿ8Å‡•€õ1J$aab896a2-bcff-43cd-9212-c6a2222a0a11
-dkotlin:S1128
-"Remove this unused import.(èãÊõûÿÿÿÿ8Å‡•€õ1J$038f35ea-956b-4c4b-b1a3-58e9bb8d524c
-dkotlin:S1128"Remove this unused import.(Ô±ßàúÿÿÿÿ8êÛ›€õ1J$7f322b7d-1665-46ad-b16a-b063336c8806
-_kotlin:S1128"Remove this unused import.(¯ë¡Ó8êÛ›€õ1J$e9163c16-1107-461f-a6c7-b77cf78d9a61
-dkotlin:S1128"Remove this unused import.(ŞŠ‹Ùüÿÿÿÿ8Å‡•€õ1J$3786edc7-c740-4223-aa75-f2694176d636
-dkotlin:S1128"Remove this unused import.(¢‡Œşÿÿÿÿ8êÛ›€õ1J$c6bd5239-776a-4171-b3cf-bd0cf6437fac
+akotlin:S6310"Avoid hardcoded dispatchers.(´Ä®Î8‰º§õ1J$fcd25844-7eb4-4ece-bb50-cd30e22b3173
+fkotlin:S6310%"Avoid hardcoded dispatchers.(£çåªøÿÿÿÿ8‰º§õ1J$30fcebf2-f6b7-4910-a131-208c5a10e361
+_kotlin:S1128"Remove this unused import.(ï›’8èŒ§õ1J$424e8f58-1ad3-45c1-929f-cede7b8c00fa
+dkotlin:S1128"Remove this unused import.(çÁƒ¬şÿÿÿÿ8èŒ§õ1J$bbd5f73a-8213-45fe-a72f-5f2bc164041f
+_kotlin:S1128"Remove this unused import.(¸Òşş8èŒ§õ1J$fc8f5145-4667-4931-b1cf-b29e97b07b63
+_kotlin:S1128"Remove this unused import.(›»„Â8Šº§õ1J$0fc2e43d-46bf-4c76-8f14-5993fbd88c78
+dkotlin:S1128"Remove this unused import.(¬ñåïÿÿÿÿÿ8èŒ§õ1J$f23e9b0b-9929-4e32-8c11-aa4a7eb8b586
+dkotlin:S1128"Remove this unused import.(Ô±ßàúÿÿÿÿ8Šº§õ1J$46e1683f-f3ac-4bd9-a5e1-c7ca2c0ef293
+dkotlin:S1128"Remove this unused import.(¢‡Œşÿÿÿÿ8Šº§õ1J$99cd9174-2060-4539-91a2-d7d3b2e021ed

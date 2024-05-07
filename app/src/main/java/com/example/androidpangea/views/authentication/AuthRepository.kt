@@ -14,44 +14,45 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-//class AuthRepository {
-//val currentUser: FirebaseUser? = Firebase.auth.currentUser
-//
-//    fun hasUser(): Boolean = Firebase.auth.currentUser != null
-//
-//    fun getUserId():String = Firebase.auth.currentUser?.uid.toString()
-//
-//    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
-//        Firebase.auth
-//            .createUserWithEmailAndPassword(email, password)
-//            .addOnCompleteListener {
-//                if ( it.isSuccessful) {
-//                    onComplete.invoke(true)
-//                } else {
-//                     onComplete.invoke(false)
-//                }
-//            }.await()
-//    }
-//    suspend fun login(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
-//        Firebase.auth
-//            .signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener {
-//                if ( it.isSuccessful) {
-//                    onComplete.invoke(true)
-//                } else {
-//                    onComplete.invoke(false)
-//                }
-//            }.await()
-//    }
-//
-//}
+
 
 interface AuthRepository {
+val currentUser: FirebaseUser?
 
-    @SuppressLint("RestrictedApi")
-    fun loginUser(email: String, password: String): Flow<Resource<AuthResult>>
+    fun hasUser(): Boolean = Firebase.auth.currentUser != null
 
-    @SuppressLint("RestrictedApi")
-    fun registerUser(email: String, password: String): Flow<Resource<AuthResult>>
+    fun getUserId():String = Firebase.auth.currentUser?.uid.toString()
+
+    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+        Firebase.auth
+            .createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if ( it.isSuccessful) {
+                    onComplete.invoke(true)
+                } else {
+                     onComplete.invoke(false)
+                }
+            }.await()
+    }
+    suspend fun login(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+        Firebase.auth
+            .signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if ( it.isSuccessful) {
+                    onComplete.invoke(true)
+                } else {
+                    onComplete.invoke(false)
+                }
+            }.await()
+    }
 
 }
+
+//interface AuthRepository {
+//    @SuppressLint("RestrictedApi")
+//    fun loginUser(email: String, password: String): Flow<Resource<AuthResult>>
+//
+//    @SuppressLint("RestrictedApi")
+//    fun registerUser(email: String, password: String): Flow<Resource<AuthResult>>
+//
+//}
