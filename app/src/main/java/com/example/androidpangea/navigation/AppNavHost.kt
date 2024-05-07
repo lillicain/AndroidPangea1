@@ -6,21 +6,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
-import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.androidpangea.views.authentication.SignInScreen
-import com.example.androidpangea.views.authentication.SignUpScreen
+import com.example.androidpangea.views.authentication.firebase.SignInScreen
+import com.example.androidpangea.views.authentication.firebase.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun AppNavHost(
@@ -85,10 +85,13 @@ fun AppNavHost(
         }
 
         composable(NavigationItem.SignIn.route) {
-            SignInScreen(
+            SignInScreen(onSignInResult = {
+                navController.navigate(NavigationItem.Main.route)
+            }
+
                 //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
                 //                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
-                navController = navController
+//                navController = navController
             )
         }
     }

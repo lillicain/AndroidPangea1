@@ -34,8 +34,7 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 @Composable
 fun AuthScreen(
-    authViewModel: AuthViewModel,
-//    authRepository: AuthRepository
+    authViewModel: AuthViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
@@ -87,16 +86,16 @@ fun AuthView(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            SignInButton(
-                text = "Sign in with Google",
-                loadingText = "Signing in...",
-                isLoading = isLoading,
-                icon = painterResource(id = R.drawable.ic_profile),
-                onClick = {
-                    isLoading = true
-                    onClick()
-                }
-            )
+//            SignInButton(
+//                text = "Sign in with Google",
+//                loadingText = "Signing in...",
+//                isLoading = isLoading,
+//                icon = painterResource(id = R.drawable.ic_profile),
+//                onClick = {
+//                    isLoading = true
+//                    onClick()
+//                }
+//            )
 
             errorText?.let {
                 isLoading = false

@@ -1,4 +1,7 @@
 
-Ukotlin:S1172%"6Remove this unused function parameter "authViewModel".(èíÜ‚8èµ”§õ1
-hkotlin:S125F"Remove this commented out code.(Ë¹«üüÿÿÿÿ8„ëµıô1J$0ad9b3c8-1dc6-48e0-bc72-31775eef0fee
-dkotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8†ëµıô1J$a435af2a-5896-4cb2-a22d-e95751201790
+{kotlin:S1172%"6Remove this unused function parameter "authViewModel".(øˆ°‘8èµ”§õ1J$68d24032-aaff-48c6-bef8-6b923f4118a8
+ukotlin:S1172N"0Remove this unused function parameter "onClick".(ÑıÂŠ8’Âá§õ1J$a2f8fc1d-9f1f-48ba-a88d-42e8bbd8d354
+hkotlin:S125E"Remove this commented out code.(Ë¹«üüÿÿÿÿ8„ëµıô1J$91df30db-1592-4af4-840b-1afae876cd24
+hkotlin:S125Y"Remove this commented out code.(«¦âüÿÿÿÿ8”Âá§õ1J$eab15bbe-d849-4a89-bbe2-5bf9051e7e6f
+dkotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8†ëµıô1J$a228a818-8570-4fe2-ac82-edad42d7a342
+dkotlin:S1128"Remove this unused import.(‚ÅÎùúÿÿÿÿ8–Âá§õ1J$fdaced41-011f-46aa-8ab3-e697c491466f

@@ -2,6 +2,7 @@ package com.example.androidpangea.views.authentication
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 
 sealed class LoginUIEvent {
@@ -25,9 +26,9 @@ sealed class SignupUIEvent {
 
 object AppRouter {
 
-    var currentScreen: MutableState<Screen> = mutableStateOf(Screen.SIGNUP)
+    var currentScreen: MutableState<NavigationItem> = mutableStateOf(NavigationItem.SignUp)
 
-    fun navigateTo(destination : Screen){
+    fun navigateTo(destination: NavigationItem) {
         currentScreen.value = destination
     }
 

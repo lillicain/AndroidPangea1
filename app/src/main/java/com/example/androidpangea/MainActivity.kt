@@ -3,6 +3,7 @@ package com.example.androidpangea
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -41,14 +42,18 @@ import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
 import com.example.androidpangea.views.authentication.AuthViewModel
-import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.getValue
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -78,6 +83,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -94,7 +100,25 @@ class MainActivity : ComponentActivity() {
                 color = MaterialTheme.colorScheme.background
                 ) {
 
-                    val navController = rememberNavController()
+                    val database = Firebase.database
+                    val myRef = database.getReference("message")
+
+
+//                    myRef.addValueEventListener(object : ValueEventListener {
+//                        override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                            val value = dataSnapshot.getValue<String>()
+//                            Log.d("tag", "Value is: $value")
+//                        }
+//
+//                        override fun onCancelled(error: DatabaseError) {
+//                            // Failed to read value
+//                            Log.w("tag", "Failed to read value.", error.toException())
+//                        }
+//                    })
+
+
+
+                val navController = rememberNavController()
                     val screens = listOf(
                         NavigationItem.Main.route,
                         NavigationItem.User.route,
