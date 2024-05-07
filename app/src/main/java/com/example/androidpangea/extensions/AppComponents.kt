@@ -62,6 +62,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.androidpangea.R
 import com.example.androidpangea.navigation.BottomNavigationItem
 import com.example.androidpangea.navigation.NavigationItem
@@ -277,13 +278,15 @@ fun ClickableTextComponent(value: String, onTextSelected: (String) -> Unit) {
 }
 
 @Composable
-fun ButtonComponent(value: String, onButtonClicked: () -> Unit, isEnabled: Boolean = false) {
+fun ButtonComponent(navController: NavController, value: String, onButtonClicked: () -> Unit, isEnabled: Boolean = false) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(48.dp),
         onClick = {
+            navController.navigate(NavigationItem.Main.route)
             onButtonClicked.invoke()
+
         },
         contentPadding = PaddingValues(),
         colors = ButtonDefaults.buttonColors(Color.Transparent),
@@ -306,9 +309,7 @@ fun ButtonComponent(value: String, onButtonClicked: () -> Unit, isEnabled: Boole
                 color = Color.White,
                 fontWeight = FontWeight.Bold
             )
-
         }
-
     }
 }
 

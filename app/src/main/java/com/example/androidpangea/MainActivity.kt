@@ -97,7 +97,7 @@ class MainActivity : ComponentActivity() {
                         NavigationItem.User.route,
                         NavigationItem.Camera.route,
                         NavigationItem.Explore.route,
-                        "${NavigationItem.User.route}/{userid}"
+//                        "${NavigationItem.User.route}/{userid}"
                     )
                     val showBottomBar = navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
                     Scaffold(bottomBar = {
@@ -150,7 +150,7 @@ class MainActivity : ComponentActivity() {
                     }) {
                         AppNavHost(
                             viewModel = mainViewModel,
-                            navController = navController,
+                            navController = rememberNavController(),
                             modifier = Modifier.padding(it)
                         )
 

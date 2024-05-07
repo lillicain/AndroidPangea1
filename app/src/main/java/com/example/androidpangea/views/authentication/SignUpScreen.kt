@@ -35,6 +35,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
 import com.example.androidpangea.extensions.ButtonComponent
 import com.example.androidpangea.extensions.CheckboxComponent
@@ -109,14 +110,14 @@ fun SignUpScreen(
                     errorStatus = signupViewModel.registrationUIState.value.passwordError
                 )
 
-//                CheckboxComponent(value = stringResource(id = R.string.terms_and_conditions),
-//                    onTextSelected = {
-//                        AppRouter.navigateTo(Screen.MAIN)
-//                    },
-//                    onCheckedChange = {
-//                        signupViewModel.onEvent(SignupUIEvent.PrivacyPolicyCheckBoxClicked(it))
-//                    }
-//                )
+                CheckboxComponent(value = stringResource(id = R.string.terms_and_conditions),
+                    onTextSelected = {
+                        AppRouter.navigateTo(Screen.MAIN)
+                    },
+                    onCheckedChange = {
+                        signupViewModel.onEvent(SignupUIEvent.PrivacyPolicyCheckBoxClicked(it))
+                    }
+                )
 
                 Spacer(modifier = Modifier.height(40.dp))
 
@@ -125,7 +126,8 @@ fun SignUpScreen(
                     onButtonClicked = {
                         signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
                     },
-//                    isEnabled = signupViewModel.allValidationsPassed.value
+                    isEnabled = signupViewModel.allValidationsPassed.value,
+                    navController = rememberNavController()
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))

@@ -37,6 +37,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
 import com.example.androidpangea.extensions.ButtonComponent
 import com.example.androidpangea.extensions.ClickableLoginTextComponent
@@ -102,9 +103,12 @@ fun SignInScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.signIn),
                     onButtonClicked = {
+                        navController.navigate(NavigationItem.SignUp.route)
                         loginViewModel.onEvent(LoginUIEvent.LoginButtonClicked)
                     },
-//                    isEnabled = loginViewModel.allValidationsPassed.value
+                    isEnabled = loginViewModel.allValidationsPassed.value,
+                    navController = rememberNavController()
+
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
