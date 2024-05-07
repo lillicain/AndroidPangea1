@@ -76,16 +76,16 @@ fun AppNavHost(
         }
         composable(NavigationItem.SignUp.route) {
             SignUpScreen(
-//                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
-//                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
+                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
+                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
                 navController = navController
             )
         }
 
         composable(NavigationItem.SignUp.route) {
             SignInScreen(
-//                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
-//                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
+                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
+                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
                 navController = navController
             )
         }

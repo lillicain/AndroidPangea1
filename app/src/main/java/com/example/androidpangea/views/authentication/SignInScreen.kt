@@ -1,5 +1,6 @@
 package com.example.androidpangea.views.authentication
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -52,8 +53,8 @@ import com.example.androidpangea.navigation.Screen
 @Composable
 fun SignInScreen(
     loginViewModel: AuthViewModel = viewModel(),
-//    onNavToHomePage: () -> Unit,
-//    onNavToSignUpPage: () -> Unit,
+    onNavToHomePage: () -> Unit,
+    onNavToSignUpPage: () -> Unit,
     navController: NavController
 ) {
     Box(
@@ -99,12 +100,17 @@ fun SignInScreen(
 
                 Spacer(modifier = Modifier.height(40.dp))
 
+                Button(onClick = { loginViewModel.onEvent(LoginUIEvent.LoginButtonClicked)
+                    onNavToHomePage()}) {
+                }
                 ButtonComponent(
                     value = stringResource(id = R.string.signIn),
                     onButtonClicked = {
                         loginViewModel.onEvent(LoginUIEvent.LoginButtonClicked)
+
                     },
-//                    isEnabled = loginViewModel.allValidationsPassed.value
+                    
+                    isEnabled = loginViewModel.allValidationsPassed.value
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -123,7 +129,9 @@ fun SignInScreen(
         }
     }
 
-
+BackHandler {
+    AppRouter.navigateTo(Screen.SIGNUP)
+}
 //    SystemBackButtonHandler {
 //        AppRouter.navigateTo(Screen.SIGNUP)
 //    }

@@ -43,6 +43,7 @@ import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.authentication.SignInScreen
+import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
@@ -153,7 +154,7 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             modifier = Modifier.padding(it)
                         )
-
+SignUpScreen(onNavToHomePage = { navController.navigate(NavigationItem.Main.route) }, onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) }, navController = navController)
 
                     }
                 }

@@ -51,8 +51,8 @@ import com.example.androidpangea.views.authentication.AppRouter.navigateTo
 @Composable
 fun SignUpScreen(
     signupViewModel: SignupViewModel = viewModel(),
-//    onNavToHomePage:() -> Unit,
-//    onNavToLoginPage:() -> Unit,
+    onNavToHomePage:() -> Unit,
+    onNavToLoginPage:() -> Unit,
     navController: NavController
 ) {
 
@@ -124,7 +124,9 @@ fun SignUpScreen(
                     value = stringResource(id = R.string.signUp),
                     onButtonClicked = {
                         signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
+                        onNavToHomePage()
                     },
+                    isEnabled = true
 //                    isEnabled = signupViewModel.allValidationsPassed.value
                 )
 
