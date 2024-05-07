@@ -53,33 +53,33 @@ fun BottomNavigationBar(
                     }
                 }
             })
-//            BottomNavigationItem(
-//                modifier = modifier.animateContentSize(
-//                    animationSpec =  tween(5000)
-//                ),
-//                selected = selected,
-//                onClick = { onItemClick(item) },
-//                selectedContentColor = MaterialTheme.colorScheme.onBackground,
+            BottomNavigationItem(
+                modifier = modifier.animateContentSize(
+                    animationSpec =  tween(5000)
+                ),
+                selected = selected,
+                onClick = { onItemClick(item) },
+                selectedContentColor = MaterialTheme.colorScheme.onBackground,
 //                unselectedContentColor = inactiveColor,
-//                icon = {
-//                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-//                        if (item.badgeCount > 0) {
-//                            BadgedBox(badge = {
-//                                Text(text = item.badgeCount.toString())
-//                            }) {
-//                                Icon(
-//                                    painter = item.icon,
-//                                    contentDescription = item.name
-//                                )
-//                            }
-//                        } else {
-//                            Icon(
-//                                painter = item.icon,
-//                                contentDescription = item.name
-//                            )
-//                        }
-//                    }
-//                })
+                icon = {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        if (item.badgeCount > 0) {
+                            BadgedBox(badge = {
+                                Text(text = item.badgeCount.toString())
+                            }) {
+                                Icon(
+                                    painter = item.icon,
+                                    contentDescription = item.name
+                                )
+                            }
+                        } else {
+                            Icon(
+                                painter = item.icon,
+                                contentDescription = item.name
+                            )
+                        }
+                    }
+                })
         }
     }
 }

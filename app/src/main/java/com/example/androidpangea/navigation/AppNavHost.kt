@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
+import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
@@ -23,7 +24,7 @@ import com.example.androidpangea.views.userScreen.UserScreen
 
 @Composable
 fun AppNavHost(
-    viewModel: MainViewModel = hiltViewModel(),
+    viewModel: MainViewModel,
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
@@ -38,7 +39,11 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = NavigationItem.Main.route
+        startDestination = if (isSplashScreenFinished) {
+            NavigationItem.Main.route
+        } else {
+            NavigationItem.SignUp.route
+        }
     ) {
 
         composable(NavigationItem.Main.route) {

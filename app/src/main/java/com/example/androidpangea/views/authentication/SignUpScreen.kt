@@ -48,6 +48,7 @@ import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.views.authentication.AppRouter.navigateTo
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun SignUpScreen(
