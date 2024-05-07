@@ -70,7 +70,7 @@ fun SignInScreen(
 
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
-    //    val user by remember(authViewModel) { authViewModel.user }.collectAsState()
+
     val signInRequestCode = 1
 
     val authResultLauncher =
@@ -83,6 +83,7 @@ fun SignInScreen(
                     coroutineScope.launch {
                         account.email?.let {
                             account.displayName?.let { it1 ->
+
                                 //                                authView
                                 //                                    email = it,
                                 //                                    username = it1,
@@ -161,6 +162,7 @@ fun SignInScreen(
             AuthView(
                 errorText = text,
                 onClick = {
+                    navController.navigate(NavigationItem.Main.route)
                     text = null
                     authResultLauncher.launch(signInRequestCode)
                 }
