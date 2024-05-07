@@ -82,7 +82,7 @@ fun AppNavHost(
             )
         }
 
-        composable(NavigationItem.SignUp.route) {
+        composable(NavigationItem.SignIn.route) {
             SignInScreen(
 //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
 //                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },

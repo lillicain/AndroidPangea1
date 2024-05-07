@@ -464,10 +464,8 @@ fun NavigationDrawerHeader(value: String?) {
 }
 
 @Composable
-fun NavigationDrawerBody(navigationDrawerItems: List<BottomNavigationItem>,
-                         onNavigationItemClicked:(BottomNavigationItem) -> Unit) {
+fun NavigationDrawerBody(navigationDrawerItems: List<BottomNavigationItem>, onNavigationItemClicked:(BottomNavigationItem) -> Unit) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-
         items(navigationDrawerItems) {
             NavigationItemRow(item = it,onNavigationItemClicked)
         }
@@ -479,7 +477,6 @@ fun NavigationDrawerBody(navigationDrawerItems: List<BottomNavigationItem>,
 fun NavigationItemRow(
     item: BottomNavigationItem,
     onNavigationItemClicked:(BottomNavigationItem) -> Unit) {
-
 
     Row(
         modifier = Modifier

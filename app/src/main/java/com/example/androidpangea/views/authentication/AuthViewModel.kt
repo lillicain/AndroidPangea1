@@ -83,13 +83,6 @@ class AuthViewModel: ViewModel() {
 
     }
 }
-//    val repository = PhotifyModule.providesDatabaseRepositoryImpl()
-//
-//    var userName by  mutableStateOf("")
-//
-//    var userAge by mutableStateOf("")
-//
-//    var userOccupation by mutableStateOf("")
 
 
 //    private val _users = MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)
