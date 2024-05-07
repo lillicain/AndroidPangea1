@@ -1,5 +1,6 @@
 package com.example.androidpangea.views.authentication
 
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,6 +27,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,7 +55,10 @@ import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.extensions.UnderLinedTextComponent
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
+import com.example.androidpangea.utils.AuthResultContract
 import com.example.androidpangea.views.subviews.SystemBackButtonHandler
+import com.google.android.gms.common.api.ApiException
+import kotlinx.coroutines.launch
 
 @Composable
 fun SignInScreen(
@@ -58,6 +67,35 @@ fun SignInScreen(
 //    onNavToSignUpPage: () -> Unit,
     navController: NavController
 ) {
+
+    val coroutineScope = rememberCoroutineScope()
+    var text by remember { mutableStateOf<String?>(null) }
+    //    val user by remember(authViewModel) { authViewModel.user }.collectAsState()
+    val signInRequestCode = 1
+
+    val authResultLauncher =
+        rememberLauncherForActivityResult(contract = AuthResultContract()) { task ->
+            try {
+                val account = task?.getResult(ApiException::class.java)
+                if (account == null) {
+                    text = "Google sign in failed"
+                } else {
+                    coroutineScope.launch {
+                        account.email?.let {
+                            account.displayName?.let { it1 ->
+                                //                                authView
+                                //                                    email = it,
+                                //                                    username = it1,
+                                //
+                                //                                    )
+                            }
+                        }
+                    }
+                }
+            } catch (e: ApiException) {
+                text = "Google sign in failed"
+            }
+        }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -120,6 +158,13 @@ fun SignInScreen(
                     navController.navigate(NavigationItem.SignUp.route)
                 })
             }
+            AuthView(
+                errorText = text,
+                onClick = {
+                    text = null
+                    authResultLauncher.launch(signInRequestCode)
+                }
+            )
         }
 
         if(loginViewModel.loginInProgress.value) {

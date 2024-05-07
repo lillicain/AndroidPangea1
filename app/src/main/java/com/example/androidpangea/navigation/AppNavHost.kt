@@ -42,7 +42,7 @@ fun AppNavHost(
         startDestination = if (isSplashScreenFinished) {
             NavigationItem.Main.route
         } else {
-            NavigationItem.SignUp.route
+            NavigationItem.SignIn.route
         }
     ) {
 
@@ -91,5 +91,10 @@ fun AppNavHost(
                 navController = navController
             )
         }
+        composable(NavigationItem.Auth.route) {
+
+        }
+
+
     }
 }

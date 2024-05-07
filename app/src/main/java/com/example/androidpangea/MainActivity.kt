@@ -40,6 +40,7 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
+import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
@@ -89,8 +90,8 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier
                         .fillMaxSize()
-                    .statusBarsPadding()
-                    .navigationBarsPadding(),
+                        .statusBarsPadding()
+                        .navigationBarsPadding(),
                 color = MaterialTheme.colorScheme.background
                 ) {
 

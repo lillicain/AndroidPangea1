@@ -1,4 +1,10 @@
 
-Ukotlin:S1172%"6Remove this unused function parameter "authViewModel".(èíÜ‚8èµ”§õ1
-hkotlin:S125F"Remove this commented out code.(Ë¹«üüÿÿÿÿ8„ëµıô1J$0ad9b3c8-1dc6-48e0-bc72-31775eef0fee
-dkotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8†ëµıô1J$a435af2a-5896-4cb2-a22d-e95751201790
+Ukotlin:S1172*"6Remove this unused function parameter "authViewModel".(øˆ°‘8¶‡ ©õ1
+Ukotlin:S1172;"6Use "_" instead of this unused lambda parameter "it1".(ô‚Ôø8¶‡ ©õ1
+Bkotlin:S125/"Remove this commented out code.(ŒÙö¼şÿÿÿÿ8·‡ ©õ1
+=kotlin:S125L"Remove this commented out code.(÷€·¿8¸‡ ©õ1
+>kotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8»‡ ©õ1
+>kotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8»‡ ©õ1
+>kotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8»‡ ©õ1
+8kotlin:S1128"Remove this unused import.(±ÿu8»‡ ©õ1
+9kotlin:S1128#"Remove this unused import.(¡ ƒ¿8»‡ ©õ1
