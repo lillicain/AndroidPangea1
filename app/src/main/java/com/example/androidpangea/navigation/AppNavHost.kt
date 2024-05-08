@@ -12,6 +12,7 @@ import androidx.navigation.NavType
 import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.androidpangea.views.authentication.AppContent
 import com.example.androidpangea.views.authentication.AuthScreen
@@ -31,8 +32,8 @@ import com.google.firebase.ktx.Firebase
 
 @Composable
 fun AppNavHost(
-    viewModel: MainViewModel,
-    navController: NavHostController,
+//    viewModel: MainViewModel,
+//    navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
     val mapViewModel = MapViewModel()
@@ -43,7 +44,7 @@ fun AppNavHost(
     val auth: FirebaseAuth by lazy { Firebase.auth }
 //    viewModel.checkForActiveSession()
 
-
+var navController = rememberNavController()
     NavHost(
         modifier = modifier,
         navController = navController,
@@ -83,7 +84,7 @@ fun AppNavHost(
             CameraScreen(navController = navController)
         }
         composable(NavigationItem.Explore.route) {
-            ExploreScreen(viewModel = viewModel, navController = navController)
+            ExploreScreen(navController = navController)
         }
         composable(NavigationItem.SignUp.route) {
             SignUpScreen(

@@ -172,8 +172,8 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
 //                        }
 //                    }) {
                         AppNavHost(
-                            viewModel = mainViewModel,
-                            navController = rememberNavController(),
+//                            viewModel = mainViewModel,
+//                            navController = rememberNavController(),
                             modifier = Modifier
                         )
                     }

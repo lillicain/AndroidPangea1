@@ -47,9 +47,9 @@ import retrofit2.Response
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ExploreScreen(viewModel: MainViewModel, navController: NavController) {
+fun ExploreScreen(navController: NavController) {
 
-    val postsState by viewModel.posts.collectAsState()
+//    val postsState by viewModel.posts.collectAsState()
 
 
 
