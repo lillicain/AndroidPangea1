@@ -53,8 +53,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 @Composable
 fun SignUpScreen(
     signupViewModel: SignupViewModel = viewModel(),
-//    onNavToHomePage:() -> Unit,
-//    onNavToLoginPage:() -> Unit,
+    //    onNavToHomePage:() -> Unit,
+    //    onNavToLoginPage:() -> Unit,
     navController: NavController
 ) {
 
@@ -135,20 +135,20 @@ fun SignUpScreen(
                 DividerTextComponent()
 
                 ClickableLoginTextComponent(tryingToLogin = true, onTextSelected = {
-                    AppRouter.navigateTo(Screen.SIGNIN)
-//                  navContoller.navigateTo(NavigationItem.SignIn.route)
+                    navController.navigate(NavigationItem.SignIn.route)
                 })
             }
-
         }
 
-        if(signupViewModel.signUpInProgress.value) {
-            CircularProgressIndicator()
-        }
     }
 
-
+    if(signupViewModel.signUpInProgress.value) {
+        CircularProgressIndicator()
+    }
 }
+
+
+//}
 
 //    var loginUiState = loginViewModel?.loginUiState
 //    val isError = loginUiState?.signUpError != null
