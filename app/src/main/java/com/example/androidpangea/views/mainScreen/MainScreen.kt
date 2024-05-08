@@ -96,7 +96,7 @@ val navController = rememberNavController()
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
 
-//BottomNavigationBar(navController = navController)
+BottomNavigationBar(navController = navController)
 //        BottomAppBar {
 //            BottomNavigationBar(
 //                items = listOf(

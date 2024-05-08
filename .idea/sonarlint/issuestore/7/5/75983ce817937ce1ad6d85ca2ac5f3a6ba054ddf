@@ -1,6 +1,12 @@
 
-mkotlin:S1172b"(Remove these unused function parameters.(ÕÍºÎ8ÄÎÎõ1J$7e39b45b-71b5-4b57-ad97-99fe492f8e2a
-hkotlin:S125"Remove this commented out code.(–Å¦àÿÿÿÿÿ8ğÑšÎõ1J$16caa99d-b2a0-47f7-b77f-6ff81f45be46
-‹kotlin:S107a"GThis function has 9 parameters, which is greater than the 7 authorized.(âß™¯8ÆÎÎõ1J$a8e7e0b9-c6bd-4ec7-a892-b66b70dfee70
-|kotlin:S1481)"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿ8ÆÎÎõ1J$5e950ae2-7931-4582-b60e-bcb2fb93c39b
-¤kotlin:S1186k"ZAdd a nested comment explaining why this function is empty or complete the implementation.(­£˜…şÿÿÿÿ8ÈÎÎõ1J$77ee98c1-6849-4a8a-bea2-256d49953bea
+nkotlin:S1172"(Remove these unused function parameters.(ÕÍºÎ8‹ö¼Îõ1J$31ac758a-68b1-4571-ab0b-5dc93bfe4ba2
+hkotlin:S125B"Remove this commented out code.(†×–Îùÿÿÿÿ8ö¼Îõ1J$70f388f9-eb81-49e0-bb0e-4488de2c6b53
+Œkotlin:S107"GThis function has 9 parameters, which is greater than the 7 authorized.(âß™¯8ö¼Îõ1J$78658db8-5071-4cb4-86e1-cb626012acc5
+dkotlin:S1128"Remove this unused import.(››Âàøÿÿÿÿ8ö¼Îõ1J$172d97c1-b88e-441e-8136-e3361696910b
+dkotlin:S1128"Remove this unused import.(²Ù™³şÿÿÿÿ8ö¼Îõ1J$65cec551-506f-4fae-9d6b-b0c828e10371
+dkotlin:S1128"Remove this unused import.(û¢ËÓùÿÿÿÿ8ö¼Îõ1J$7956cc56-4eeb-4886-ae89-2ab51d21d668
+dkotlin:S1128"Remove this unused import.(€ñÉ©úÿÿÿÿ8ö¼Îõ1J$d8f6dcf2-8c30-4623-b3cd-b4494c9ce46e
+_kotlin:S1128"Remove this unused import.(† á×8ö¼Îõ1J$a70183d8-48b1-4f5d-b5c5-fe1feae2db77
+dkotlin:S1128"Remove this unused import.(ÏõÁŞşÿÿÿÿ8ö¼Îõ1J$d9d42745-b3af-4fc0-9905-5bc3c3f5c9bc
+_kotlin:S1128"Remove this unused import.(ı±Ë÷8ö¼Îõ1J$05f47684-3116-4dd4-8dde-a6be213055fe
+¥kotlin:S1186˜"ZAdd a nested comment explaining why this function is empty or complete the implementation.(­£˜…şÿÿÿÿ8‘ö¼Îõ1J$ed948822-3cbd-4ac9-87cd-c753c10ca838

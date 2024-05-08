@@ -31,6 +31,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -102,72 +103,72 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
 
 
                     val navController = rememberNavController()
-                    val screens = listOf(
-                        NavigationItem.Main.route,
-                        NavigationItem.User.route,
-                        NavigationItem.Camera.route,
-                        NavigationItem.Explore.route,
-                        "${NavigationItem.User.route}/{userid}",
-                        NavigationItem.SignIn.route,
-                        NavigationItem.SignUp.route
-                    )
-                    val showBottomBar = navController
-                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
-                    Scaffold(
-                        bottomBar = {
-                        AnimatedVisibility(
-                            visible = showBottomBar,
-                            enter = fadeIn() + scaleIn(),
-                            exit = fadeOut() + scaleOut(),
-                        ) {
-                            Row(
-                                horizontalArrangement = Arrangement.SpaceEvenly,
-                                modifier = Modifier
-                                    .background(MaterialTheme.colorScheme.background)
-                                    .fillMaxWidth()
-                            ) {
-                                BottomNavigationBar(
-                                    items = listOf(
-                                    BottomNavItem(
-                                        NavigationItem.Main.route,
-                                        Screen.MAIN.name,
-                                        icon = rememberVectorPainter(image = Icons.Default.Home)
-                                    ),
-                                    BottomNavItem(
-                                        NavigationItem.User.route,
-                                        Screen.USER.name,
-                                        icon = rememberVectorPainter(image = Icons.Default.Search)
-                                    ),
-                                    BottomNavItem(
-                                        NavigationItem.Camera.route,
-                                        Screen.CAMERA.name,
-                                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
-                                    ),
-                                    BottomNavItem(
-                                        NavigationItem.Explore.route,
-                                        Screen.EXPLORE.name,
-                                        icon = rememberVectorPainter(image = Icons.Default.Explore)
-                                    ),
-                                    BottomNavItem(
-                                        NavigationItem.User.route,
-                                        Screen.USER.name,
-                                        icon = rememberVectorPainter(image = Icons.Default.Person)
-                                    ),
-                                ), navController = navController
-                                ) {
-                                    if (it.route == NavigationItem.User.route) {
-                                        navController.navigate(NavigationItem.User.route)
-                                    } else {
-                                        navController.navigate(it.route)
-                                    }
-                                }
-                            }
-                        }
-                    }) {
+//                    val screens = listOf(
+//                        NavigationItem.Main.route,
+//                        NavigationItem.User.route,
+//                        NavigationItem.Camera.route,
+//                        NavigationItem.Explore.route,
+//                        "${NavigationItem.User.route}/{userid}",
+//                        NavigationItem.SignIn.route,
+//                        NavigationItem.SignUp.route
+//                    )
+//                    val showBottomBar = navController
+//                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+//                    Scaffold(
+//                        bottomBar = {
+//                        AnimatedVisibility(
+//                            visible = showBottomBar,
+//                            enter = fadeIn() + scaleIn(),
+//                            exit = fadeOut() + scaleOut(),
+//                        ) {
+//                            Row(
+//                                horizontalArrangement = Arrangement.SpaceEvenly,
+//                                modifier = Modifier
+//                                    .background(MaterialTheme.colorScheme.background)
+//                                    .fillMaxWidth()
+//                            ) {
+//                                BottomNavigationBar(
+//                                    items = listOf(
+//                                    BottomNavItem(
+//                                        NavigationItem.Main.route,
+//                                        Screen.MAIN.name,
+//                                        icon = rememberVectorPainter(image = Icons.Default.Home)
+//                                    ),
+//                                    BottomNavItem(
+//                                        NavigationItem.User.route,
+//                                        Screen.USER.name,
+//                                        icon = rememberVectorPainter(image = Icons.Default.Search)
+//                                    ),
+//                                    BottomNavItem(
+//                                        NavigationItem.Camera.route,
+//                                        Screen.CAMERA.name,
+//                                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
+//                                    ),
+//                                    BottomNavItem(
+//                                        NavigationItem.Explore.route,
+//                                        Screen.EXPLORE.name,
+//                                        icon = rememberVectorPainter(image = Icons.Default.Explore)
+//                                    ),
+//                                    BottomNavItem(
+//                                        NavigationItem.User.route,
+//                                        Screen.USER.name,
+//                                        icon = rememberVectorPainter(image = Icons.Default.Person)
+//                                    ),
+//                                ), navController = navController
+//                                ) {
+//                                    if (it.route == NavigationItem.User.route) {
+//                                        navController.navigate(NavigationItem.User.route)
+//                                    } else {
+//                                        navController.navigate(it.route)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }) {
                         AppNavHost(
                             viewModel = mainViewModel,
                             navController = rememberNavController(),
-                            modifier = Modifier.padding(it)
+                            modifier = Modifier.padding(10.dp)
                         )
                     }
 
@@ -178,4 +179,4 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
             }
         }
     }
-}
+//}
