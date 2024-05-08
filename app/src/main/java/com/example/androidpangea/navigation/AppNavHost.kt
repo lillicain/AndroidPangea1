@@ -6,15 +6,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
+import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
@@ -25,7 +29,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 fun AppNavHost(
-//    viewModel: MainViewModel,
+    viewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController,
 //    navigator: DestinationsNavigator,
     modifier: Modifier = Modifier,
@@ -66,7 +70,8 @@ fun AppNavHost(
 //            )) {
 //            val userId = it.arguments?.getString("userid")
 //            UserScreen(
-////                navController = navController
+//                userId = userId.toString(),
+//                navController = navController
 //            )
 //        }
         composable(NavigationItem.User.route) {
