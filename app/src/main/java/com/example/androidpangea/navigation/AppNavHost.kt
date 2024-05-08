@@ -62,20 +62,21 @@ fun AppNavHost(
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )
         }
-        composable(
-            "${NavigationItem.User.route}/{userid}",
-            arguments = listOf(
-                navArgument("userid") {
-                    type = NavType.StringType
-                }
-            )) {
-            val userId = it.arguments?.getString("userid")
-            UserScreen(
-                navController = navController
-            )
-        }
+//        composable(
+//            "${NavigationItem.User.route}/{userid}",
+//            arguments = listOf(
+//                navArgument("userid") {
+//                    type = NavType.StringType
+//                }
+//            )) {
+//            val userId = it.arguments?.getString("userid")
+//            UserScreen(
+////                navController = navController
+//            )
+//        }
         composable(NavigationItem.User.route) {
-            UserScreen(navController = navController)
+//            UserScreen(navController = navController)
+            UserScreen()
         }
 
         composable(NavigationItem.Camera.route) {

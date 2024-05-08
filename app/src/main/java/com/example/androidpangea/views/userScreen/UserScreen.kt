@@ -10,21 +10,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.subviews.CircularImage
+import com.example.androidpangea.views.subviews.ImagePicker
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun UserScreen(
 //    userId: String,
-    navController: NavController
+//    navController: NavController
 ) {
 
+val navController = rememberNavController()
 
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
-
+ImagePicker()
 
     }
 }
