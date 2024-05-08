@@ -1,28 +1,26 @@
 
-Ukotlin:S1172H"6Remove this unused function parameter "navController".(¬àİâ8Çì›Ïõ1
-Bkotlin:S125b"Remove this commented out code.(ÿ˜õ…úÿÿÿÿ8Ìì›Ïõ1
-Vkotlin:S1481_"2Remove this unused "navController" local variable.(¸„‘±üÿÿÿÿ8Óì›Ïõ1
-\kotlin:S1481X"8Remove this unused "isBottomSheetOpened" local variable.(™²ÿÙûÿÿÿÿ8Óì›Ïõ1
-Tkotlin:S1481V"0Remove this unused "bottomSheet" local variable.(ÄŒÇĞıÿÿÿÿ8Óì›Ïõ1
-Pkotlin:S1481M",Remove this unused "screens" local variable.(úŸßûÿÿÿÿ8Óì›Ïõ1
-9kotlin:S1128"Remove this unused import.(ß¶İñ8Õì›Ïõ1
->kotlin:S1128	"Remove this unused import.(£ØØùÿÿÿÿ8Õì›Ïõ1
->kotlin:S1128"Remove this unused import.(½ùÒ»ÿÿÿÿÿ8Õì›Ïõ1
-9kotlin:S1128"Remove this unused import.(ÔÍÀï8Õì›Ïõ1
-9kotlin:S1128"Remove this unused import.(„ºö8Õì›Ïõ1
-8kotlin:S1128"Remove this unused import.(Ëî>8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(£«§ú8Öì›Ïõ1
-8kotlin:S1128"Remove this unused import.(ÿÈŞ}8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(É‡Ş™8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(çœÏ•8Öì›Ïõ1
->kotlin:S1128"Remove this unused import.(Á¿½ÿÿÿÿÿ8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(³‡Âá8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(Äåì¾8Öì›Ïõ1
->kotlin:S1128"Remove this unused import.(÷à‚Ëûÿÿÿÿ8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(† á×8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(¨±È¤8Öì›Ïõ1
-9kotlin:S1128"Remove this unused import.(€Ğú¬8Öì›Ïõ1
->kotlin:S1128"Remove this unused import.(½…Ò¦ıÿÿÿÿ8Öì›Ïõ1
->kotlin:S1128("Remove this unused import.(²ïØûıÿÿÿÿ8Öì›Ïõ1
->kotlin:S1128*"Remove this unused import.(‚ÅÎùúÿÿÿÿ8×ì›Ïõ1
-9kotlin:S1128+"Remove this unused import.(ôÄ¼ü8×ì›Ïõ1
+Bkotlin:S125b"Remove this commented out code.(ÿ˜õ…úÿÿÿÿ8Ÿ¥’Ğõ1
+\kotlin:S1481X"8Remove this unused "isBottomSheetOpened" local variable.(™²ÿÙûÿÿÿÿ8¨¥’Ğõ1
+Tkotlin:S1481V"0Remove this unused "bottomSheet" local variable.(ÄŒÇĞıÿÿÿÿ8¨¥’Ğõ1
+Pkotlin:S1481M",Remove this unused "screens" local variable.(úŸßûÿÿÿÿ8¨¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(ß¶İñ8ª¥’Ğõ1
+>kotlin:S1128	"Remove this unused import.(£ØØùÿÿÿÿ8ª¥’Ğõ1
+>kotlin:S1128"Remove this unused import.(½ùÒ»ÿÿÿÿÿ8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(ÔÍÀï8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(„ºö8ª¥’Ğõ1
+8kotlin:S1128"Remove this unused import.(Ëî>8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(£«§ú8ª¥’Ğõ1
+8kotlin:S1128"Remove this unused import.(ÿÈŞ}8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(É‡Ş™8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(çœÏ•8ª¥’Ğõ1
+>kotlin:S1128"Remove this unused import.(Á¿½ÿÿÿÿÿ8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(³‡Âá8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(Äåì¾8ª¥’Ğõ1
+>kotlin:S1128"Remove this unused import.(÷à‚Ëûÿÿÿÿ8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(† á×8ª¥’Ğõ1
+9kotlin:S1128"Remove this unused import.(¨±È¤8ª¥’Ğõ1
+>kotlin:S1128"Remove this unused import.(½…Ò¦ıÿÿÿÿ8«¥’Ğõ1
+>kotlin:S1128("Remove this unused import.(²ïØûıÿÿÿÿ8«¥’Ğõ1
+>kotlin:S1128*"Remove this unused import.(‚ÅÎùúÿÿÿÿ8«¥’Ğõ1
+9kotlin:S1128+"Remove this unused import.(ôÄ¼ü8«¥’Ğõ1
+vkotlin:S3776F"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ìøıäüÿÿÿÿ8®¥’Ğõ1

@@ -109,7 +109,7 @@ fun SignInScreen(
                 MyTextFieldComponent(labelValue = stringResource(id = R.string.username),
                     painterResource(id = R.drawable.ic_profile),
                     onTextChanged = {
-
+viewModel::onEmailChange
 //                        viewModel.onEvent(LoginUIEvent.EmailChanged(it))
                     },
 //                    errorStatus = viewModel.loginUIState.value.emailError
@@ -120,6 +120,7 @@ fun SignInScreen(
                     painterResource(id = R.drawable.ic_profile),
                     onTextSelected = {
 //                        viewModel.onEvent(LoginUIEvent.PasswordChanged(it))
+                                     viewModel::allValidationsPassed
                     },
 //                    errorStatus = viewModel.loginUIState.value.passwordError
                 )
@@ -134,13 +135,16 @@ fun SignInScreen(
                     value = stringResource(id = R.string.signIn),
                     onButtonClicked = {
                         navController.navigate(NavigationItem.Main.route)
+                        viewModel::loginInProgress
 //                        viewModel.onEvent(LoginUIEvent.LoginButtonClicked)
                     },
                     isEnabled = viewModel.allValidationsPassed.value,
                     navController = rememberNavController()
 
                 )
-                Button(onClick = { navController.navigate(NavigationItem.Main.route) }) {
+                Button(onClick = { navController.navigate(NavigationItem.Main.route)
+                viewModel::loginInProgress}) {
+                    Text("Sign In")
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))

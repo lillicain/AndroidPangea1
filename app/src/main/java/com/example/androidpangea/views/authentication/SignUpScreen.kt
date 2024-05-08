@@ -128,12 +128,17 @@ fun SignUpScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.signUp),
                     onButtonClicked = {
+//                                      signupViewModel::signUpInProgress
                         navController.navigate(NavigationItem.Main.route)
                         signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
                     },
                     isEnabled = signupViewModel.allValidationsPassed.value,
                     navController = rememberNavController()
                 )
+                Button(onClick = { navController.navigate(NavigationItem.Main.route)
+                    signupViewModel::signUpInProgress}) {
+                    Text("Sign Up")
+                }
 
                 Spacer(modifier = Modifier.height(20.dp))
 

@@ -105,19 +105,19 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
 
 
                     val navController = rememberNavController()
-                    val screens = listOf(
-                        NavigationItem.Main.route,
-                        NavigationItem.User.route,
-                        NavigationItem.Camera.route,
-                        NavigationItem.Explore.route,
-//                        "${NavigationItem.User.route}/{userid}",
-//                        NavigationItem.SignIn.route,
-//                        NavigationItem.SignUp.route
-                    )
-                    val showBottomBar = navController
-                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
-                    Scaffold(
-                        bottomBar = { BottomNavigationBar(navController = navController)} ) {
+//                    val screens = listOf(
+//                        NavigationItem.Main.route,
+//                        NavigationItem.User.route,
+//                        NavigationItem.Camera.route,
+//                        NavigationItem.Explore.route,
+////                        "${NavigationItem.User.route}/{userid}",
+////                        NavigationItem.SignIn.route,
+////                        NavigationItem.SignUp.route
+//                    )
+//                    val showBottomBar = navController
+//                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+//                    Scaffold(
+//                        bottomBar = { BottomNavigationBar(navController = navController)} ) {
 
 
 //                        AnimatedVisibility(
@@ -185,4 +185,4 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
             }
         }
     }
-}
+//}
