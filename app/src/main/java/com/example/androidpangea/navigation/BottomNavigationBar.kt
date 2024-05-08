@@ -20,18 +20,26 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
 fun BottomNavigationBar(
-    items: List<BottomNavItem>,
+    items: List<BottomNavItem>?,
     navController: NavController,
     modifier: Modifier = Modifier,
     onItemClick: (BottomNavItem) -> Unit,
 ) {
+//    val items = List<BottomNavItem>()
+
+
+//        NavigationItem.User,
+//        NavigationItem.Main,
+//        NavigationItem.Camera,
+//        NavigationItem.Explore
+//    )
     val backStackEntry = navController.currentBackStackEntryAsState()
     BottomNavigation(
         modifier = modifier,
         backgroundColor = MaterialTheme.colorScheme.background,
     ) {
         val inactiveColor = Color.Gray
-        items.forEach { item ->
+        items?.forEach { item ->
             val selected = item.route == backStackEntry.value?.destination?.route
 
             BottomNavigationItem(selected = selected, onClick = { onItemClick(item) }, icon = {

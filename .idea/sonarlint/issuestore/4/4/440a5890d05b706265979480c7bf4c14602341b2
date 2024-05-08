@@ -1,7 +1,15 @@
 
-ikotlin:S125‰"Remove this commented out code.(ØÏªÿÿÿÿÿ8—ßÍõ1J$53ac904f-f03b-4183-88be-316ced6475b0
-vkotlin:S1481M",Remove this unused "screens" local variable.(úŸßûÿÿÿÿ8œßÍõ1J$8ee1e571-95f4-4637-8290-09fd8a26ef80
-dkotlin:S1128"Remove this unused import.(÷à‚Ëûÿÿÿÿ8ßÍõ1J$4dac5d92-5e96-45fa-9d3b-01694942a758
-dkotlin:S1128*"Remove this unused import.(‚ÅÎùúÿÿÿÿ8ßÍõ1J$c65a2280-002d-45d1-8510-6bc102fbb6d6
-_kotlin:S1128."Remove this unused import.(íí›8ßÍõ1J$cff619cb-e6fc-4499-8fc9-bebb8ef528cc
-œkotlin:S3776F"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(ìøıäüÿÿÿÿ8ŸßÍõ1J$dde24e8a-0408-425c-9eeb-554d5945cd19
+{kotlin:S1172H"6Remove this unused function parameter "navController".(¬àİâ8İÚ©Îõ1J$24340f29-da08-480d-8af5-d544cc8ce397
+hkotlin:S125c"Remove this commented out code.(ê¼ÕÈÿÿÿÿÿ8ßÚ©Îõ1J$2bca238b-e19d-4299-80fd-4c235832e7c6
+ikotlin:S125Š"Remove this commented out code.(ØÏªÿÿÿÿÿ8àÚ©Îõ1J$e74214e5-91fc-43d6-b019-0ec07924c0d4
+|kotlin:S1481_"2Remove this unused "navController" local variable.(¸„‘±üÿÿÿÿ8åÚ©Îõ1J$67f2e867-e9d5-4ce0-a7e8-19621fa642e2
+vkotlin:S1481M",Remove this unused "screens" local variable.(úŸßûÿÿÿÿ8åÚ©Îõ1J$2855d92c-3718-413b-8043-c62e170e183a
+_kotlin:S1128"Remove this unused import.(£«§ú8æÚ©Îõ1J$5a6e8bad-d83b-4fa9-b4e8-7283b6f83f3c
+^kotlin:S1128"Remove this unused import.(ÿÈŞ}8æÚ©Îõ1J$a992c786-2bd8-4523-ba02-4b812e065414
+_kotlin:S1128"Remove this unused import.(É‡Ş™8çÚ©Îõ1J$3b2ed0c2-be83-43f6-b288-65bf9e4514e9
+_kotlin:S1128"Remove this unused import.(çœÏ•8çÚ©Îõ1J$62f42247-da0b-4af5-81ee-9927a0f70da8
+9kotlin:S1128"Remove this unused import.(³‡Âá8ÏÒ®Îõ1
+dkotlin:S1128"Remove this unused import.(÷à‚Ëûÿÿÿÿ8çÚ©Îõ1J$aa34d193-aa66-44bf-9586-10ba2089f92e
+dkotlin:S1128("Remove this unused import.(²ïØûıÿÿÿÿ8çÚ©Îõ1J$b90c4fa6-4d13-44ff-9598-462bb6fcf3dc
+dkotlin:S1128*"Remove this unused import.(‚ÅÎùúÿÿÿÿ8çÚ©Îõ1J$fcf5e2f6-9433-4413-8559-bffbe921bf2f
+œkotlin:S3776F"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ìøıäüÿÿÿÿ8èÚ©Îõ1J$00fa2d6e-ab14-4f3c-9733-7e00f89b8082

@@ -92,47 +92,48 @@ fun MainScreen(
     val mapProperties = MapProperties(isMyLocationEnabled = state.lastKnownLocation != null)
     val cameraPositionState = rememberCameraPositionState()
 
-
+val navController = rememberNavController()
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
 
-        BottomAppBar {
-            BottomNavigationBar(
-                items = listOf(
-                    BottomNavItem(
-                        NavigationItem.Main.route,
-                        Screen.MAIN.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Home)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.User.route,
-                        Screen.USER.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Search)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.Camera.route,
-                        Screen.CAMERA.name,
-                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.Explore.route,
-                        Screen.EXPLORE.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Explore)
-                    ),
-                    BottomNavItem(
-                        NavigationItem.User.route,
-                        Screen.USER.name,
-                        icon = rememberVectorPainter(image = Icons.Default.Person)
-                    ),
-                ), navController = navController
-            ) {
-                if (it.route == NavigationItem.User.route) {
-                    navController.navigate(NavigationItem.User.route)
-                } else {
-                    navController.navigate(it.route)
-                }
-            }
-        }
+//BottomNavigationBar(navController = navController)
+//        BottomAppBar {
+//            BottomNavigationBar(
+//                items = listOf(
+//                    BottomNavItem(
+//                        NavigationItem.Main.route,
+//                        Screen.MAIN.name,
+//                        icon = rememberVectorPainter(image = Icons.Default.Home)
+//                    ),
+//                    BottomNavItem(
+//                        NavigationItem.User.route,
+//                        Screen.USER.name,
+//                        icon = rememberVectorPainter(image = Icons.Default.Search)
+//                    ),
+//                    BottomNavItem(
+//                        NavigationItem.Camera.route,
+//                        Screen.CAMERA.name,
+//                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
+//                    ),
+//                    BottomNavItem(
+//                        NavigationItem.Explore.route,
+//                        Screen.EXPLORE.name,
+//                        icon = rememberVectorPainter(image = Icons.Default.Explore)
+//                    ),
+//                    BottomNavItem(
+//                        NavigationItem.User.route,
+//                        Screen.USER.name,
+//                        icon = rememberVectorPainter(image = Icons.Default.Person)
+//                    ),
+//                ), navController = navController
+//            ) {
+//                if (it.route == NavigationItem.User.route) {
+//                    navController.navigate(NavigationItem.User.route)
+//                } else {
+//                    navController.navigate(it.route)
+//                }
+//            }
+//        }
 
         //                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
         //                        Icon(

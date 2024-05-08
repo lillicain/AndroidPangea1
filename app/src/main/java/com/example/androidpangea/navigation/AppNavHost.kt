@@ -50,7 +50,7 @@ fun AppNavHost(
         startDestination = if (isSplashScreenFinished) {
             NavigationItem.Main.route
         } else {
-            NavigationItem.SignIn.route
+            NavigationItem.Main.route
         }
     ) {
 

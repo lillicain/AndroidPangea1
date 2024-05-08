@@ -1,5 +1,6 @@
 
-mkotlin:S1172Z"(Remove these unused function parameters.(ÕÍºÎ8Ú‚§÷ô1J$6997454e-e89f-4df3-be68-dea7b7d1a50b
-‹kotlin:S107Y"GThis function has 9 parameters, which is greater than the 7 authorized.(âß™¯8Ş‚§÷ô1J$36777eea-deff-4e22-bb4f-d23556ea3f5d
-Vkotlin:S1481!"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿ8Ù×Á§õ1
-¤kotlin:S1186c"ZAdd a nested comment explaining why this function is empty or complete the implementation.(­£˜…şÿÿÿÿ8â‚§÷ô1J$a5f71b8c-c66f-4e15-819b-6b0c923b7434
+mkotlin:S1172b"(Remove these unused function parameters.(ÕÍºÎ8ÄÎÎõ1J$7e39b45b-71b5-4b57-ad97-99fe492f8e2a
+hkotlin:S125"Remove this commented out code.(–Å¦àÿÿÿÿÿ8ğÑšÎõ1J$16caa99d-b2a0-47f7-b77f-6ff81f45be46
+‹kotlin:S107a"GThis function has 9 parameters, which is greater than the 7 authorized.(âß™¯8ÆÎÎõ1J$a8e7e0b9-c6bd-4ec7-a892-b66b70dfee70
+|kotlin:S1481)"2Remove this unused "inactiveColor" local variable.(±ó„ˆûÿÿÿÿ8ÆÎÎõ1J$5e950ae2-7931-4582-b60e-bcb2fb93c39b
+¤kotlin:S1186k"ZAdd a nested comment explaining why this function is empty or complete the implementation.(­£˜…şÿÿÿÿ8ÈÎÎõ1J$77ee98c1-6849-4a8a-bea2-256d49953bea
