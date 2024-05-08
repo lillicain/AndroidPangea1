@@ -94,7 +94,7 @@ fun MainScreen(
 
 val navController = rememberNavController()
 
-    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
+
 //        if (isBottomSheetOpened) {
 //            ModalBottomSheet(
 //                sheetState = bottomSheet,
@@ -144,7 +144,7 @@ val navController = rememberNavController()
 
 
 
-
+//    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -212,6 +212,6 @@ val navController = rememberNavController()
             }
         }
     }
-}
+//}
 
 

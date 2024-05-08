@@ -1,12 +1,16 @@
 package com.example.androidpangea.views.authentication
 
-data class LoginUIState(
-    var email  :String = "",
-    var password  :String = "",
-
-    var emailError :Boolean = false,
-    var passwordError : Boolean = false
-
+//data class LoginUIState(
+//    var email  :String = "",
+//    var password  :String = "",
+//
+//    var emailError :Boolean = false,
+//    var passwordError : Boolean = false
+//
+//)
+data class LoginUiState(
+    val email: String = "",
+    val password: String = ""
 )
 
 data class RegistrationUIState(

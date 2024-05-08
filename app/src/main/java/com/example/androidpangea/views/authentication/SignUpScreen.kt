@@ -49,6 +49,7 @@ import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.views.authentication.AppRouter.navigateTo
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
@@ -58,6 +59,8 @@ fun SignUpScreen(
     //    onNavToLoginPage:() -> Unit,
     navController: NavController
 ) {
+    lateinit var auth: FirebaseAuth
+//    val appState = rememberAppState()
 
     Box(
         modifier = Modifier.fillMaxSize(),

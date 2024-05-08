@@ -112,7 +112,7 @@ dependencies {
     implementation("com.firebaseui:firebase-ui-auth:7.2.0")
     implementation("androidx.activity:activity-compose:1.3.1")
     implementation("com.google.android.gms:play-services-auth:19.2.0")
-
+    implementation("com.google.firebase:firebase-auth-ktx")
     //    implementation("com.facebook.android:facebook-android-sdk:8.x")
 
 
