@@ -38,9 +38,11 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.views.subviews.CameraState
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
+import com.ramcosta.composedestinations.annotation.Destination
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalPermissionsApi::class)
+@Destination
 @Composable
 fun CameraScreen(
     viewModel: CameraViewModel = hiltViewModel(),

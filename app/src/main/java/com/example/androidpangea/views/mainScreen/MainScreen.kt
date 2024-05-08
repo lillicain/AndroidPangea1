@@ -94,7 +94,7 @@ fun MainScreen(
     val mapProperties = MapProperties(isMyLocationEnabled = state.lastKnownLocation != null)
     val cameraPositionState = rememberCameraPositionState()
 
-val navController = rememberNavController()
+//val navController = rememberNavController()
 
 
 //        if (isBottomSheetOpened) {

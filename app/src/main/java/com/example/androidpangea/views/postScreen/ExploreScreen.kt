@@ -49,7 +49,7 @@ import retrofit2.Response
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-//@Destination
+@Destination
 @Composable
 fun ExploreScreen(navController: NavController) {
 
