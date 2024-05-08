@@ -1,11 +1,18 @@
 
-{kotlin:S1172*"6Remove this unused function parameter "authViewModel".(øˆ°‘8¶‡ ©õ1J$56f599b8-48ed-4009-8b1e-f457ced60533
-{kotlin:S1172;"6Use "_" instead of this unused lambda parameter "it1".(ô‚Ôø8¶‡ ©õ1J$28c0c0ec-666c-4613-8692-09e26346c837
-hkotlin:S125/"Remove this commented out code.(ŒÙö¼şÿÿÿÿ8·‡ ©õ1J$4b0ee70a-7e30-4b12-9f75-cff7408c6b15
-ckotlin:S125L"Remove this commented out code.(÷€·¿8¸‡ ©õ1J$eee59831-e697-46e0-b82a-488e03bb10c3
-dkotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8»‡ ©õ1J$69c3a1b2-d1d1-4cf8-9d0f-624831c143e7
-dkotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8»‡ ©õ1J$e39bdb2f-3ea6-4efb-9f10-36d2d629ef4a
-dkotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8»‡ ©õ1J$387c1795-9900-4ae4-846c-ae833939093c
-^kotlin:S1128"Remove this unused import.(±ÿu8»‡ ©õ1J$9b0f0234-d029-4f05-9d90-96c269e6a5fe
-dkotlin:S1128"Remove this unused import.(Èó§½üÿÿÿÿ8ÌŞ—Èõ1J$1fb84d70-919c-48eb-a057-e1163a3d6bf5
-_kotlin:S1128#"Remove this unused import.(¡ ƒ¿8»‡ ©õ1J$30e1564b-eebf-467f-8597-47da3e3b065d
+xkotlin:S1481M".Remove this unused "isLoading" local variable.(ÔæìŞıÿÿÿÿ8Ñ³âÈõ1J$f245a85c-103e-4090-9629-69ca65d6df90
+_kotlin:S1128"Remove this unused import.(ï›’8ÔüáÈõ1J$a89a4868-e9be-4796-a3d9-8e000dcd2c32
+dkotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8»‡ ©õ1J$a01a7403-e55d-44f5-85d5-ac7dbb170edd
+_kotlin:S1128"Remove this unused import.(­Ä‚˜8ÔüáÈõ1J$0a81e0c7-9704-4cda-8966-b871715d124d
+dkotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8»‡ ©õ1J$a6ad5263-869d-43dd-a756-d943f8a40cdf
+dkotlin:S1128"Remove this unused import.(ÂÕÉöúÿÿÿÿ8ÕüáÈõ1J$2dd94827-5f91-4f5d-98a7-1d26fc9fbb2d
+_kotlin:S1128"Remove this unused import.(íÑšê8ÕüáÈõ1J$c5dda998-27bc-4f30-9710-28b38b017510
+_kotlin:S1128 "Remove this unused import.(€Ğú¬8ÕüáÈõ1J$b8988654-9ed4-453a-9ef2-fbe7594df0b6
+dkotlin:S1128$"Remove this unused import.(®•¯øÿÿÿÿ8»‡ ©õ1J$5c6eb866-0226-41da-b979-284cd771038e
+_kotlin:S1128("Remove this unused import.(©ÎÖÅ8ÖüáÈõ1J$f56dbf5a-c71d-4027-a91a-c73ce482fc71
+^kotlin:S1128:"Remove this unused import.(±ÿu8»‡ ©õ1J$717c7171-0447-4ad9-b17b-0e6663077f82
+dkotlin:S1128?"Remove this unused import.(™‡ò¡úÿÿÿÿ8ÖüáÈõ1J$a55e5720-99c6-467f-a0fc-00ff78538c05
+dkotlin:S1128C"Remove this unused import.(™¾¬ñûÿÿÿÿ8ÖüáÈõ1J$3e863892-9781-4bae-a61a-f3b34ff76887
+dkotlin:S1128D"Remove this unused import.(£ñ¹¸ûÿÿÿÿ8×üáÈõ1J$34c8ef9c-55d0-45e8-b18f-83792808205a
+_kotlin:S1128E"Remove this unused import.(¡ ƒ¿8»‡ ©õ1J$6300632c-535f-447c-b155-168d265bb535
+—kotlin:S3776H"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(á‘ª8Ö³âÈõ1J$cc48bd0f-fd01-45f9-8466-f026f9c6556c
+¦kotlin:S3923¢"[Remove this conditional structure or edit its code blocks so that they're not all the same.(–Ãò–ûÿÿÿÿ8Ù³âÈõ1J$cc4b5c03-e5c5-48f8-984a-12974895f992

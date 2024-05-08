@@ -13,6 +13,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.androidpangea.views.authentication.AppContent
+import com.example.androidpangea.views.authentication.AuthScreen
+import com.example.androidpangea.views.authentication.FirebaseScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
@@ -21,6 +24,10 @@ import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun AppNavHost(
@@ -33,6 +40,7 @@ fun AppNavHost(
         mutableStateOf(false)
     }
 
+    val auth: FirebaseAuth by lazy { Firebase.auth }
 //    viewModel.checkForActiveSession()
 
 
@@ -42,7 +50,7 @@ fun AppNavHost(
         startDestination = if (isSplashScreenFinished) {
             NavigationItem.Main.route
         } else {
-            NavigationItem.SignIn.route
+            NavigationItem.Auth.route
         }
     ) {
 
@@ -92,7 +100,9 @@ fun AppNavHost(
             )
         }
         composable(NavigationItem.Auth.route) {
+            AuthScreen {
 
+            }
         }
 
 

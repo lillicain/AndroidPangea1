@@ -40,6 +40,7 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
+import com.example.androidpangea.views.authentication.AppContent
 import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.authentication.SignInScreen
@@ -48,11 +49,15 @@ import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+private val auth: FirebaseAuth by lazy { Firebase.auth }
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val viewModel: MapViewModel by viewModels()
@@ -94,6 +99,7 @@ class MainActivity : ComponentActivity() {
                         .navigationBarsPadding(),
                 color = MaterialTheme.colorScheme.background
                 ) {
+
 
                     val navController = rememberNavController()
                     val screens = listOf(
@@ -163,9 +169,11 @@ class MainActivity : ComponentActivity() {
                             navController = rememberNavController(),
                             modifier = Modifier.padding(it)
                         )
-
-
                     }
+
+
+
+
                 }
             }
         }

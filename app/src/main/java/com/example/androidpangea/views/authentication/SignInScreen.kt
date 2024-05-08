@@ -159,14 +159,14 @@ fun SignInScreen(
                     navController.navigate(NavigationItem.SignUp.route)
                 })
             }
-            AuthView(
-                errorText = text,
-                onClick = {
-                    navController.navigate(NavigationItem.Main.route)
-                    text = null
-                    authResultLauncher.launch(signInRequestCode)
-                }
-            )
+//            AuthView(
+//                errorText = text,
+//                onClick = {
+//                    navController.navigate(NavigationItem.Main.route)
+//                    text = null
+//                    authResultLauncher.launch(signInRequestCode)
+//                }
+//            )
         }
 
         if(loginViewModel.loginInProgress.value) {
