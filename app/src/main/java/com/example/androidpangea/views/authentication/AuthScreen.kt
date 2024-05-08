@@ -30,6 +30,7 @@ import com.example.androidpangea.utils.AuthResultContract
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import java.util.jar.Manifest
@@ -38,9 +39,18 @@ import java.util.jar.Manifest
 @ExperimentalFoundationApi
 @ExperimentalCoroutinesApi
 @Composable
-fun AuthScreen(
-    authViewModel: AuthViewModel
-) {
+fun AuthScreen(onSignedIn: (FirebaseUser) -> Unit) {
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var isLoading by remember { mutableStateOf(false) }
+    var isSignIn by remember { mutableStateOf(true) }
+    var isPasswordVisible by remember { mutableStateOf(false) }
+    // State variables for error message
+    var myErrorMessage by remember { mutableStateOf<String?>(null) }
+
+//    authViewModel: AuthViewModel
 
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }

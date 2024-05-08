@@ -113,3 +113,9 @@ Capp/src/main/java/com/example/androidpangea/extensions/BaseState.kt,5/3/535ef5
 Uapp/src/main/java/com/example/androidpangea/views/subviews/SystemBackButtonHandler.kt,4/f/4fd562b873d3bc50668951287f3366c0689105da
 j
 :app/src/main/java/com/example/androidpangea/models/Post.kt,9/7/97afdfb927c710a222ed5b1ac3acad7562844552
+j
+:app/src/main/java/com/example/androidpangea/models/User.kt,c/e/ce9733cb158f993366d6b96b60759fd3d4618112
+€
+Papp/src/main/java/com/example/androidpangea/views/authentication/GoogleSignIn.kt,5/2/52da1c1f7912b9041490730442a1c576010daf84
+q
+Aapp/src/main/java/com/example/androidpangea/utils/SplashScreen.kt,d/b/dba060ab32603eb328f0bf183c8cb0cec1db902e

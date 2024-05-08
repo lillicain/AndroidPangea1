@@ -1,11 +1,18 @@
 
-{kotlin:S1172*"6Remove this unused function parameter "authViewModel".(øˆ°‘8¶‡ ©õ1J$56f599b8-48ed-4009-8b1e-f457ced60533
-{kotlin:S1172;"6Use "_" instead of this unused lambda parameter "it1".(ô‚Ôø8¶‡ ©õ1J$28c0c0ec-666c-4613-8692-09e26346c837
-hkotlin:S125/"Remove this commented out code.(ŒÙö¼şÿÿÿÿ8·‡ ©õ1J$4b0ee70a-7e30-4b12-9f75-cff7408c6b15
-ckotlin:S125L"Remove this commented out code.(÷€·¿8¸‡ ©õ1J$eee59831-e697-46e0-b82a-488e03bb10c3
-dkotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8»‡ ©õ1J$69c3a1b2-d1d1-4cf8-9d0f-624831c143e7
-dkotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8»‡ ©õ1J$e39bdb2f-3ea6-4efb-9f10-36d2d629ef4a
-dkotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8»‡ ©õ1J$387c1795-9900-4ae4-846c-ae833939093c
-^kotlin:S1128"Remove this unused import.(±ÿu8»‡ ©õ1J$9b0f0234-d029-4f05-9d90-96c269e6a5fe
-dkotlin:S1128"Remove this unused import.(Èó§½üÿÿÿÿ8ÌŞ—Èõ1J$1fb84d70-919c-48eb-a057-e1163a3d6bf5
-_kotlin:S1128#"Remove this unused import.(¡ ƒ¿8»‡ ©õ1J$30e1564b-eebf-467f-8597-47da3e3b065d
+xkotlin:S1172*"3Remove this unused function parameter "onSignedIn".(á‘ª8ÌğØÉõ1J$efba9018-8aaa-4fe6-9409-717e56b01d23
+{kotlin:S1172E"6Use "_" instead of this unused lambda parameter "it1".(ô‚Ôø8è»ØÉõ1J$d6e9e17c-537c-4e14-90c4-e490cb0899ac
+hkotlin:S1259"Remove this commented out code.(ŒÙö¼şÿÿÿÿ8ê»ØÉõ1J$24e2c384-8588-4d56-8707-abcaa17d7b56
+ckotlin:S125V"Remove this commented out code.(÷€·¿8ê»ØÉõ1J$6cd9d1c7-06b2-4166-bb3c-220e8d5beefb
+xkotlin:S14813"3Remove this unused "myErrorMessage" local variable.(ıÑÎ8ÔğØÉõ1J$4b3f1f62-79c1-4fa1-83c9-51e1a8f892b4
+{kotlin:S14811"6Remove this unused "isPasswordVisible" local variable.(Ò–Ê§8ÔğØÉõ1J$966e8936-d868-4bc2-8b57-8d51849a7b0e
+rkotlin:S14810"-Remove this unused "isSignIn" local variable.(Ó˜¥8ÔğØÉõ1J$4c2446f6-5d22-489f-abd0-b014a6b2bd72
+xkotlin:S1481/".Remove this unused "isLoading" local variable.(ÔæìŞıÿÿÿÿ8ÕğØÉõ1J$88aa35ef-ba2d-435d-8c88-743a1dcd36a3
+rkotlin:S1481."-Remove this unused "lastName" local variable.(Ü”ÉÚ8ÕğØÉõ1J$626076c3-afce-4d0c-953f-f9bbfe3e52b9
+rkotlin:S1481-".Remove this unused "firstName" local variable.(ÄÜ²8ÕğØÉõ1J$f9b05a8a-d912-46b5-adf6-e09c09806071
+rkotlin:S1481,"-Remove this unused "password" local variable.(Í©Öî8ÕğØÉõ1J$4ba74e1f-cc4b-4adc-aad0-e26763c2dbcc
+nkotlin:S1481+"*Remove this unused "email" local variable.(ÏÑ¡v8ÕğØÉõ1J$714105f5-5fe4-46e4-a2f8-63dcc4055a34
+dkotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8î»ØÉõ1J$3d78562f-1764-4e1f-884e-8d76371b9674
+dkotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8î»ØÉõ1J$749c73ca-7994-4163-9d7f-7fdfa9fbb6ad
+dkotlin:S1128"Remove this unused import.(®•¯øÿÿÿÿ8î»ØÉõ1J$812121f5-41d8-4b62-a0bf-26228fe8fec4
+^kotlin:S1128"Remove this unused import.(±ÿu8î»ØÉõ1J$a023b0f5-7c3d-4509-b813-afc8d76e58fc
+_kotlin:S1128$"Remove this unused import.(¡ ƒ¿8î»ØÉõ1J$552398b1-d378-42c7-8bab-6bf03229349a

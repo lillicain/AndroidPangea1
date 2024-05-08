@@ -1,5 +1,7 @@
 package com.example.androidpangea.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,6 +15,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
@@ -22,6 +25,7 @@ import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
 
+@OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun AppNavHost(
     viewModel: MainViewModel,
@@ -33,7 +37,7 @@ fun AppNavHost(
         mutableStateOf(false)
     }
 
-//    viewModel.checkForActiveSession()
+    //    viewModel.checkForActiveSession()
 
 
     NavHost(
@@ -42,7 +46,7 @@ fun AppNavHost(
         startDestination = if (isSplashScreenFinished) {
             NavigationItem.Main.route
         } else {
-            NavigationItem.SignIn.route
+            NavigationItem.SignUp.route
         }
     ) {
 
@@ -92,7 +96,9 @@ fun AppNavHost(
             )
         }
         composable(NavigationItem.Auth.route) {
+            AuthScreen {
 
+            }
         }
 
 
