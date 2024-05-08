@@ -35,6 +35,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
 import com.example.androidpangea.extensions.ButtonComponent
@@ -124,6 +125,7 @@ fun SignUpScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.signUp),
                     onButtonClicked = {
+                        navController.navigate(NavigationItem.Main.route)
                         signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
                     },
                     isEnabled = signupViewModel.allValidationsPassed.value,

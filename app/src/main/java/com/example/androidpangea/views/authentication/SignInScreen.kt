@@ -142,7 +142,7 @@ fun SignInScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.signIn),
                     onButtonClicked = {
-                        navController.navigate(NavigationItem.SignUp.route)
+                        navController.navigate(NavigationItem.Main.route)
                         loginViewModel.onEvent(LoginUIEvent.LoginButtonClicked)
                     },
                     isEnabled = loginViewModel.allValidationsPassed.value,
