@@ -39,10 +39,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 fun UserScreen(
 //    userId: String,
     navController: NavController
-//    navigator: DestinationsNavigator
 ) {
-
-//val navController = rememberNavController()
 
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
