@@ -59,8 +59,6 @@ Japp/src/main/java/com/example/androidpangea/views/userScreen/UserScreen.kt,d/4
 Wapp/src/main/java/com/example/androidpangea/views/subviews/SavePhotoToGalleryUseCase.kt,9/d/9d2f2a08fcd805d436b2ec5b8f21c9f9137fff87
 }
 Mapp/src/main/java/com/example/androidpangea/views/userScreen/UserViewModel.kt,3/8/38b13cdc5cb1a73f89a2487ecb5c8417078b7b9a
-z
-Japp/src/main/java/com/example/androidpangea/views/postScreen/PostScreen.kt,2/9/294fa5993bd11cf281f3080a8fa5a54faa33ab3b
 n
 >app/src/main/java/com/example/androidpangea/MainApplication.kt,6/5/65edb1f3807a1e720540d525d9feece3e9a3ddb0
 }
@@ -77,10 +75,6 @@ Lapp/src/main/java/com/example/androidpangea/navigation/BottomBarViewModel.kt,1
 Rapp/src/main/java/com/example/androidpangea/views/authentication/AuthRepository.kt,1/e/1edc518654c9342a50cac630089f80a06b7aee77
 €
 Papp/src/main/java/com/example/androidpangea/views/authentication/SignUpScreen.kt,f/9/f92de9e872f3eac0c0e21a1f49a2449abe24a101
-{
-Kapp/src/main/java/com/example/androidpangea/views/mainScreen/firstScreen.kt,3/d/3d9491f9befd4f590df08a51ad3fe1809aa38862
-{
-Kapp/src/main/java/com/example/androidpangea/views/mainScreen/FirstScreen.kt,2/2/2251a82d6be4cde5427a578499f53e9e45af1d7d
 €
 Papp/src/main/java/com/example/androidpangea/views/authentication/SignInScreen.kt,4/8/48d5e0cee8f284efa1b9f20d54b67607270db491
 }
