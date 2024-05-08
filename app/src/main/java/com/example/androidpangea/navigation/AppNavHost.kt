@@ -6,45 +6,39 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
-import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.example.androidpangea.views.authentication.AppContent
 import com.example.androidpangea.views.authentication.AuthScreen
-import com.example.androidpangea.views.authentication.FirebaseScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
-import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 fun AppNavHost(
 //    viewModel: MainViewModel,
-//    navController: NavHostController,
+    navController: NavHostController,
+//    navigator: DestinationsNavigator,
     modifier: Modifier = Modifier,
 ) {
+    val auth: FirebaseAuth by lazy { Firebase.auth }
     val mapViewModel = MapViewModel()
     var isSplashScreenFinished by rememberSaveable {
         mutableStateOf(false)
     }
 
-    val auth: FirebaseAuth by lazy { Firebase.auth }
-//    viewModel.checkForActiveSession()
 
-var navController = rememberNavController()
+
+
     NavHost(
         modifier = modifier,
         navController = navController,
@@ -76,8 +70,8 @@ var navController = rememberNavController()
 //            )
 //        }
         composable(NavigationItem.User.route) {
-//            UserScreen(navController = navController)
-            UserScreen()
+            UserScreen(navController = navController)
+
         }
 
         composable(NavigationItem.Camera.route) {

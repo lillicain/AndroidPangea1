@@ -15,12 +15,16 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.subviews.CircularImage
 import com.example.androidpangea.views.subviews.ImagePicker
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Destination
 @Composable
 fun UserScreen(
 //    userId: String,
-//    navController: NavController
+    navController: NavController
+//    navigator: DestinationsNavigator
 ) {
 
 val navController = rememberNavController()

@@ -62,11 +62,13 @@ import com.google.maps.android.compose.MapProperties
 import com.google.maps.android.compose.MarkerInfoWindow
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
+import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "PotentialBehaviorOverride")
 @Composable
+@Destination(start = true)
 fun MainScreen(
     modifier: Modifier = Modifier,
     navController: NavController,

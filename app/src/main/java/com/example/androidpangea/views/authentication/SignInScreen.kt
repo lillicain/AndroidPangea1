@@ -40,51 +40,49 @@ import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.utils.AuthResultContract
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 @Composable
 fun SignInScreen(
     viewModel: AuthViewModel = hiltViewModel(),
-//    onNavToHomePage: () -> Unit,
-//    onNavToSignUpPage: () -> Unit,
+    //    onNavToHomePage: () -> Unit,
+    //    onNavToSignUpPage: () -> Unit,
     navController: NavController
 ) {
     val uiState by viewModel.uiState
-
-
-    lateinit var auth: FirebaseAuth
+    val auth: FirebaseAuth by lazy { Firebase.auth }
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
-
     val signInRequestCode = 1
 
-    val authResultLauncher =
-        rememberLauncherForActivityResult(contract = AuthResultContract()) { task ->
-            try {
-                val account = task?.getResult(ApiException::class.java)
-                if (account == null) {
-                    text = "Google sign in failed"
-                } else {
-                    coroutineScope.launch {
-                        account.email?.let {
-                            account.displayName?.let { it1 ->
+    val authResultLauncher = rememberLauncherForActivityResult(contract = AuthResultContract()) { task ->
+        try {
+            val account = task?.getResult(ApiException::class.java)
+            if (account == null) {
+                text = "Google sign in failed"
+            } else {
+                coroutineScope.launch {
+                    account.email?.let {
+                        account.displayName?.let { it1 ->
 
 
 
 
-                                //                                authView
-                                //                                    email = it,
-                                //                                    username = it1,
-                                //
-                                //                                    )
-                            }
+                            //                                authView
+                            //                                    email = it,
+                            //                                    username = it1,
+                            //
+                            //                                    )
                         }
                     }
                 }
-            } catch (e: ApiException) {
-                text = "Google sign in failed"
             }
+        } catch (e: ApiException) {
+            text = "Google sign in failed"
         }
+    }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -101,7 +99,6 @@ fun SignInScreen(
                     .fillMaxSize()
             ) {
 
-//                EmailField(uiState.email, viewModel::onEmailChange, Modifier)
                 NormalTextComponent(value = stringResource(id = R.string.signIn))
                 HeadingTextComponent(value = stringResource(id = R.string.welcome))
                 Spacer(modifier = Modifier.height(20.dp))
@@ -109,20 +106,20 @@ fun SignInScreen(
                 MyTextFieldComponent(labelValue = stringResource(id = R.string.username),
                     painterResource(id = R.drawable.ic_profile),
                     onTextChanged = {
-viewModel::onEmailChange
-//                        viewModel.onEvent(LoginUIEvent.EmailChanged(it))
+                        viewModel::onEmailChange
+                        //                        viewModel.onEvent(LoginUIEvent.EmailChanged(it))
                     },
-//                    errorStatus = viewModel.loginUIState.value.emailError
+                    //                    errorStatus = viewModel.loginUIState.value.emailError
                 )
 
                 PasswordTextFieldComponent(
                     labelValue = stringResource(id = R.string.password),
                     painterResource(id = R.drawable.ic_profile),
                     onTextSelected = {
-//                        viewModel.onEvent(LoginUIEvent.PasswordChanged(it))
-                                     viewModel::allValidationsPassed
+                        //                        viewModel.onEvent(LoginUIEvent.PasswordChanged(it))
+                        viewModel::allValidationsPassed
                     },
-//                    errorStatus = viewModel.loginUIState.value.passwordError
+                    //                    errorStatus = viewModel.loginUIState.value.passwordError
                 )
 
                 Spacer(modifier = Modifier.height(40.dp))
@@ -136,14 +133,14 @@ viewModel::onEmailChange
                     onButtonClicked = {
                         navController.navigate(NavigationItem.Main.route)
                         viewModel::loginInProgress
-//                        viewModel.onEvent(LoginUIEvent.LoginButtonClicked)
+                        //                        viewModel.onEvent(LoginUIEvent.LoginButtonClicked)
                     },
                     isEnabled = viewModel.allValidationsPassed.value,
                     navController = rememberNavController()
 
                 )
                 Button(onClick = { navController.navigate(NavigationItem.Main.route)
-                viewModel::loginInProgress}) {
+                    viewModel::loginInProgress}) {
                     Text("Sign In")
                 }
 
@@ -152,18 +149,18 @@ viewModel::onEmailChange
                 DividerTextComponent()
 
                 ClickableLoginTextComponent(tryingToLogin = false, onTextSelected = {
-                   AppRouter.navigateTo(Screen.SIGNUP)
+                    AppRouter.navigateTo(Screen.SIGNUP)
                     navController.navigate(NavigationItem.SignUp.route)
                 })
             }
-//            AuthView(
-//                errorText = text,
-//                onClick = {
-//                    navController.navigate(NavigationItem.Main.route)
-//                    text = null
-//                    authResultLauncher.launch(signInRequestCode)
-//                }
-//            )
+            //            AuthView(
+            //                errorText = text,
+            //                onClick = {
+            //                    navController.navigate(NavigationItem.Main.route)
+            //                    text = null
+            //                    authResultLauncher.launch(signInRequestCode)
+            //                }
+            //            )
         }
 
         if(viewModel.loginInProgress.value) {
@@ -172,9 +169,9 @@ viewModel::onEmailChange
     }
 
 
-//    SystemBackButtonHandler {
-//        AppRouter.navigateTo(Screen.SIGNUP)
-//    }
+    //    SystemBackButtonHandler {
+    //        AppRouter.navigateTo(Screen.SIGNUP)
+    //    }
 }
 
 @Composable

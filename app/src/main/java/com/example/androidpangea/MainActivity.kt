@@ -8,44 +8,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.scaleOut
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.Explore
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.navigation.AppNavHost
-import com.example.androidpangea.navigation.BottomNavItem
-import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.NavigationItem
-import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
-import com.example.androidpangea.views.authentication.AppContent
-import com.example.androidpangea.views.authentication.AuthScreen
+import com.example.androidpangea.views.NavGraphs
 import com.example.androidpangea.views.authentication.AuthViewModel
-import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
@@ -54,8 +29,9 @@ import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -170,10 +146,12 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
 //                                }
 //                            }
 //                        }
-//                    }) {
+////                    }) {
+//                    DestinationsNavHost(navGraph = NavGraphs.root)
                         AppNavHost(
 //                            viewModel = mainViewModel,
-//                            navController = rememberNavController(),
+                            navController = rememberNavController(),
+
                             modifier = Modifier
                         )
                     }

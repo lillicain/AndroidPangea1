@@ -34,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.androidpangea.R
 import com.example.androidpangea.extensions.BaseState
@@ -42,13 +43,17 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.subviews.ImagePicker
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import retrofit2.Response
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+//@Destination
 @Composable
 fun ExploreScreen(navController: NavController) {
 
+//val navController = rememberNavController()
 //    val postsState by viewModel.posts.collectAsState()
 
 
@@ -71,7 +76,8 @@ fun ExploreScreen(navController: NavController) {
                 modifier = Modifier.animateContentSize(animationSpec = tween(2000))
             ) {
                 item(span = StaggeredGridItemSpan.FullLine) {
-                    SearchBar(modifier = Modifier.fillMaxWidth()
+                    SearchBar(modifier = Modifier
+                        .fillMaxWidth()
                         .padding(vertical = 8.dp, horizontal = 16.dp),
                         query = query,
                         leadingIcon = {

@@ -50,6 +50,8 @@ import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.views.authentication.AppRouter.navigateTo
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
@@ -59,7 +61,7 @@ fun SignUpScreen(
     //    onNavToLoginPage:() -> Unit,
     navController: NavController
 ) {
-    lateinit var auth: FirebaseAuth
+    val auth: FirebaseAuth by lazy { Firebase.auth }
 //    val appState = rememberAppState()
 
     Box(
