@@ -94,120 +94,52 @@ fun MainScreen(
 
 val navController = rememberNavController()
 
-    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
-
-BottomNavigationBar(navController = navController)
-//        BottomAppBar {
-//            BottomNavigationBar(
-//                items = listOf(
-//                    BottomNavItem(
-//                        NavigationItem.Main.route,
-//                        Screen.MAIN.name,
-//                        icon = rememberVectorPainter(image = Icons.Default.Home)
-//                    ),
-//                    BottomNavItem(
-//                        NavigationItem.User.route,
-//                        Screen.USER.name,
-//                        icon = rememberVectorPainter(image = Icons.Default.Search)
-//                    ),
-//                    BottomNavItem(
-//                        NavigationItem.Camera.route,
-//                        Screen.CAMERA.name,
-//                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
-//                    ),
-//                    BottomNavItem(
-//                        NavigationItem.Explore.route,
-//                        Screen.EXPLORE.name,
-//                        icon = rememberVectorPainter(image = Icons.Default.Explore)
-//                    ),
-//                    BottomNavItem(
-//                        NavigationItem.User.route,
-//                        Screen.USER.name,
-//                        icon = rememberVectorPainter(image = Icons.Default.Person)
-//                    ),
-//                ), navController = navController
+    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
+//        if (isBottomSheetOpened) {
+//            ModalBottomSheet(
+//                sheetState = bottomSheet,
+//                onDismissRequest = {
+//                    isBottomSheetOpened = false
+//                }
 //            ) {
-//                if (it.route == NavigationItem.User.route) {
-//                    navController.navigate(NavigationItem.User.route)
-//                } else {
-//                    navController.navigate(it.route)
+//            Column(
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .padding(top = 24.dp)
+//                    .padding(horizontal = 24.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally
+//            ) {
+//                Text(
+//                    text = "Options",
+//                    modifier = Modifier.fillMaxWidth(),
+//                    style = MaterialTheme.typography.headlineMedium,
+//                    textAlign = TextAlign.Center
+//                )
+//                Spacer(modifier = Modifier.height(16.dp))
+//                Text(
+//                    text = "Unfollow",
+//                    modifier = Modifier.fillMaxWidth(),
+//                    style = MaterialTheme.typography.bodyLarge,
+//                )
+//                Spacer(modifier = Modifier.height(16.dp))
+//                Text(
+//                    text = "Go to profile",
+//                    modifier = Modifier.fillMaxWidth(),
+//                    style = MaterialTheme.typography.bodyLarge,
+//                )
+//                Spacer(modifier = Modifier.height(16.dp))
+//                Row(Modifier.fillMaxWidth()) {
+//                    Icon(imageVector = Icons.Default.Share, contentDescription = "share")
+//                    Spacer(modifier = Modifier.width(8.dp))
+//                    Text(
+//                        text = "Share",
+//                        modifier = Modifier.fillMaxWidth(),
+//                        style = MaterialTheme.typography.bodyLarge,
+//                    )
 //                }
 //            }
 //        }
-
-        //                    IconButton(onClick = { navController.navigate(NavigationItem.User.route) }) {
-        //                        Icon(
-        //                            painterResource(id = R.drawable.ic_profile),
-        //                            contentDescription = null,
-        //                            Modifier.padding(8.dp)
-        //                        )
-        //                    }
-        //
-        //                    IconButton(onClick = { navController.navigate(NavigationItem.Camera.route) }) {
-        //                        Icon(
-        //                            painterResource(id = R.drawable.ic_camera),
-        //                            contentDescription = null,
-        //                            Modifier.padding(8.dp)
-        //                        )
-        //                    }
-        //
-        //                    IconButton(onClick = { navController.navigate(NavigationItem.Explore.route) }) {
-        //                        Icon(
-        //                            painterResource(id = R.drawable.ic_profile),
-        //                            contentDescription = null,
-        //                            Modifier.padding(8.dp)
-        //                        )
-        //                    }
-    }
-
-
-
-    ) {
-        if (isBottomSheetOpened) {
-            ModalBottomSheet(
-                sheetState = bottomSheet,
-                onDismissRequest = {
-                    isBottomSheetOpened = false
-                }
-            ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 24.dp)
-                    .padding(horizontal = 24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    text = "Options",
-                    modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.headlineMedium,
-                    textAlign = TextAlign.Center
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = "Unfollow",
-                    modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = "Go to profile",
-                    modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Row(Modifier.fillMaxWidth()) {
-                    Icon(imageVector = Icons.Default.Share, contentDescription = "share")
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Share",
-                        modifier = Modifier.fillMaxWidth(),
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                }
-            }
-        }
-    }
+//    }
 
 
 

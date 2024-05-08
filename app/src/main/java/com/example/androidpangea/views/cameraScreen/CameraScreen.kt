@@ -1,6 +1,7 @@
 package com.example.androidpangea.views.cameraScreen
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.os.Build
 import android.widget.Toast
 import androidx.camera.view.PreviewView
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.R
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -16,6 +18,7 @@ import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.outlined.Camera
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -31,27 +34,30 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.views.subviews.CameraState
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CameraScreen(
     viewModel: CameraViewModel = hiltViewModel(),
     navController: NavController
 ) {
-    val permissions = if (Build.VERSION.SDK_INT <= 28){
+    val permissions = if (Build.VERSION.SDK_INT <= 28) {
         listOf(
-            Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+            Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-    }else listOf(Manifest.permission.CAMERA)
+    } else listOf(Manifest.permission.CAMERA)
 
     val permissionState = rememberMultiplePermissionsState(
-        permissions = permissions)
+        permissions = permissions
+    )
 
-    if (!permissionState.allPermissionsGranted){
+
+    if (!permissionState.allPermissionsGranted) {
         SideEffect {
             permissionState.launchMultiplePermissionRequest()
         }
@@ -67,53 +73,49 @@ fun CameraScreen(
 
     val cameraState: CameraState by viewModel.state.collectAsStateWithLifecycle()
 
-//    CameraContent(
-//        onPhotoCaptured = viewModel::storePhotoInGallery,
-//        lastCapturedPhoto = cameraState.capturedImage
-//    )
+    //    CameraContent(
+    //        onPhotoCaptured = viewModel::storePhotoInGallery,
+    //        lastCapturedPhoto = cameraState.capturedImage
+    //    )
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        if (permissionState.allPermissionsGranted) {
-            Box(modifier = Modifier
-                .height(screeHeight * 0.85f)
-                .width(screenWidth)) {
-                AndroidView(
-                    factory = {
-                        previewView = PreviewView(it)
-                        viewModel.showCameraPreview(previewView, lifecycleOwner)
-                        previewView
-                    },
-                    modifier = Modifier
-                        .height(screeHeight * 0.85f)
-                        .width(screenWidth)
-                )
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        bottomBar = { BottomNavigationBar(navController = navController) }) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            if (permissionState.allPermissionsGranted) {
+                Box(
+                    modifier = Modifier.height(screeHeight * 0.85f).width(screenWidth)
+                ) {
+                    AndroidView(
+                        factory = {
+                            previewView = PreviewView(it)
+                            viewModel.showCameraPreview(previewView, lifecycleOwner)
+                            previewView
+                        }, modifier = Modifier.height(screeHeight * 0.85f).width(screenWidth)
+                    )
+                }
             }
-        }
 
-        Box(
-            modifier = Modifier
-                .height(screeHeight*0.15f),
-            contentAlignment = Alignment.Center
-        ){
-            IconButton(onClick = {
-                if (permissionState.allPermissionsGranted){
-                    viewModel.captureAndSave(context)
+            Box(
+                modifier = Modifier.height(screeHeight * 0.15f), contentAlignment = Alignment.Center
+            ) {
+                IconButton(onClick = {
+                    if (permissionState.allPermissionsGranted) {
+                        viewModel.captureAndSave(context)
+                    } else {
+                        Toast.makeText(
+                            context, "Please accept permission in app settings", Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }) {
+                    Icon(imageVector = Icons.Outlined.Camera, contentDescription = "")
+                    Icon(imageVector = Icons.Default.Image, contentDescription = "")
+
+
                 }
-                else{
-                    Toast.makeText(
-                        context,
-                        "Please accept permission in app settings",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }) {
-Icon(imageVector = Icons.Outlined.Camera, contentDescription = "")
-                Icon(imageVector = Icons.Default.Image, contentDescription = "")
-
-
             }
         }
     }

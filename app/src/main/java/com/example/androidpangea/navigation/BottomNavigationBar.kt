@@ -29,6 +29,7 @@ fun BottomNavigationBar(navController: NavController) {
         NavigationItem.Main,
         NavigationItem.User,
         NavigationItem.Camera,
+        NavigationItem.Explore
     )
     var selectedItem by remember { mutableStateOf(0) }
     var currentRoute by remember { mutableStateOf(NavigationItem.Main.route) }

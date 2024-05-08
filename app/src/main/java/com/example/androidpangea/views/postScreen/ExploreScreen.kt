@@ -6,6 +6,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -37,6 +38,7 @@ import coil.compose.AsyncImage
 import com.example.androidpangea.R
 import com.example.androidpangea.extensions.BaseState
 import com.example.androidpangea.models.Post
+import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.subviews.ImagePicker
@@ -51,7 +53,8 @@ fun ExploreScreen(viewModel: MainViewModel, navController: NavController) {
 
 
 
-    Scaffold {
+
+    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
 
 
         //        ImagePicker()

@@ -1,13 +1,26 @@
 
-hkotlin:S125d"Remove this commented out code.(“๐๗ดÿÿÿÿÿ8ฐัมฮ๕1J$9ace4358-0006-4746-baf2-7d56830869fe
-ikotlin:S125"Remove this commented out code.(ุฯชÿÿÿÿÿ8ฑัมฮ๕1J$b68a142b-199f-4f74-aad2-6bb8471fdfc7
-vkotlin:S1481M",Remove this unused "screens" local variable.(๚฿๛ÿÿÿÿ8ทัมฮ๕1J$f704c496-f7b8-4d11-bdd1-641b9dd08b07
-_kotlin:S1128"Remove this unused import.(ฃซง๚8นัมฮ๕1J$89b7d340-6899-411b-a3ad-13ece9c4b618
-^kotlin:S1128"Remove this unused import.(ÿศÞ}8บัมฮ๕1J$0bdf330c-32f8-4a69-8d91-1163991f3263
-_kotlin:S1128"Remove this unused import.(ษÞ8บัมฮ๕1J$e358d86e-3280-4695-bd9f-ab9dcd944678
-_kotlin:S1128"Remove this unused import.(็ฯ•8บัมฮ๕1J$f9996af6-d24a-47b0-b885-4041334b0c02
-_kotlin:S1128"Remove this unused import.(ณยแ8บัมฮ๕1J$d04e170e-ee1a-41f6-a0ef-2e4b33644a56
-dkotlin:S1128"Remove this unused import.(๗เห๛ÿÿÿÿ8บัมฮ๕1J$1e8bde6b-11f5-4fc1-a7c6-1bcb2b98422b
-dkotlin:S1128("Remove this unused import.(ฒ๏ุ๛ýÿÿÿÿ8บัมฮ๕1J$f7898fb1-6724-48cf-8f2d-5a5f0deb352f
-dkotlin:S1128*"Remove this unused import.(ลฮ๙๚ÿÿÿÿ8บัมฮ๕1J$ddaebcac-8ad4-48d1-a013-9da095158152
-kotlin:S3776F"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(์๘ýไüÿÿÿÿ8ผัมฮ๕1J$31031f7a-d6e3-48ce-b6be-7646661bdd95
+Bkotlin:S125b"Remove this commented out code.(ÿ๕…๚ÿÿÿÿ8กุ๙ฮ๕1
+\kotlin:S1481X"8Remove this unused "isBottomSheetOpened" local variable.(ฒÿู๛ÿÿÿÿ8จุ๙ฮ๕1
+Tkotlin:S1481V"0Remove this unused "bottomSheet" local variable.(ฤวะýÿÿÿÿ8จุ๙ฮ๕1
+Pkotlin:S1481M",Remove this unused "screens" local variable.(๚฿๛ÿÿÿÿ8จุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(฿ถÝ๑8ฉุ๙ฮ๕1
+>kotlin:S1128	"Remove this unused import.(ฃุุ๙ÿÿÿÿ8ฉุ๙ฮ๕1
+>kotlin:S1128"Remove this unused import.(ฝ๙าปÿÿÿÿÿ8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(ิอภ๏8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(บ๖8ชุ๙ฮ๕1
+8kotlin:S1128"Remove this unused import.(ห๎>8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(ฃซง๚8ชุ๙ฮ๕1
+8kotlin:S1128"Remove this unused import.(ÿศÞ}8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(ษÞ8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(็ฯ•8ชุ๙ฮ๕1
+>kotlin:S1128"Remove this unused import.(มฟฝÿÿÿÿÿ8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(ณยแ8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(ฤๅ์พ8ชุ๙ฮ๕1
+>kotlin:S1128"Remove this unused import.(๗เห๛ÿÿÿÿ8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.( แื8ชุ๙ฮ๕1
+9kotlin:S1128"Remove this unused import.(จฑศค8ชุ๙ฮ๕1
+>kotlin:S1128"Remove this unused import.(ฝ…าฆýÿÿÿÿ8ชุ๙ฮ๕1
+>kotlin:S1128("Remove this unused import.(ฒ๏ุ๛ýÿÿÿÿ8ชุ๙ฮ๕1
+>kotlin:S1128*"Remove this unused import.(ลฮ๙๚ÿÿÿÿ8ชุ๙ฮ๕1
+9kotlin:S1128+"Remove this unused import.(๔ฤผü8ชุ๙ฮ๕1
+vkotlin:S3776F"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(์๘ýไüÿÿÿÿ8ฌุ๙ฮ๕1

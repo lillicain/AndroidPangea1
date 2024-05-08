@@ -1,6 +1,7 @@
 package com.example.androidpangea
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -85,6 +86,7 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
     }
 
 
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -103,19 +105,21 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
 
 
                     val navController = rememberNavController()
-//                    val screens = listOf(
-//                        NavigationItem.Main.route,
-//                        NavigationItem.User.route,
-//                        NavigationItem.Camera.route,
-//                        NavigationItem.Explore.route,
+                    val screens = listOf(
+                        NavigationItem.Main.route,
+                        NavigationItem.User.route,
+                        NavigationItem.Camera.route,
+                        NavigationItem.Explore.route,
 //                        "${NavigationItem.User.route}/{userid}",
 //                        NavigationItem.SignIn.route,
 //                        NavigationItem.SignUp.route
-//                    )
-//                    val showBottomBar = navController
-//                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
-//                    Scaffold(
-//                        bottomBar = {
+                    )
+                    val showBottomBar = navController
+                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+                    Scaffold(
+                        bottomBar = { BottomNavigationBar(navController = navController)} ) {
+
+
 //                        AnimatedVisibility(
 //                            visible = showBottomBar,
 //                            enter = fadeIn() + scaleIn(),
@@ -127,6 +131,8 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
 //                                    .background(MaterialTheme.colorScheme.background)
 //                                    .fillMaxWidth()
 //                            ) {
+//                                BottomNavigationBar(navController = navController)
+//                            }
 //                                BottomNavigationBar(
 //                                    items = listOf(
 //                                    BottomNavItem(
@@ -168,7 +174,7 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
                         AppNavHost(
                             viewModel = mainViewModel,
                             navController = rememberNavController(),
-                            modifier = Modifier.padding(10.dp)
+                            modifier = Modifier
                         )
                     }
 
@@ -179,4 +185,4 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
             }
         }
     }
-//}
+}
