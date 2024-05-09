@@ -54,7 +54,7 @@ fun AppNavHost(
 
         composable(NavigationItem.Main.route) {
             MainScreen(viewModel,
-                navController = navController,
+//                navController = navController,
                 state = mapViewModel.state.value,
                 setupClusterManager = mapViewModel::setupClusterManager,
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,

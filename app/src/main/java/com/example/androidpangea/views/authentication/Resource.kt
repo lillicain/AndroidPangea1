@@ -1,4 +1,4 @@
-package com.example.androidpangea.utils
+package com.example.androidpangea.views.authentication
 
 import java.lang.Exception
 
@@ -9,7 +9,7 @@ import java.lang.Exception
 //}
 
 sealed class Resource<out R> {
-    data class Success<out R>(val result: R): Resource<R>()
-    data class Failure(val exception: Exception): Resource<Nothing>()
+    data class forSuccess<out R>(val result: R): Resource<R>()
+    data class forFailure(val exception: Exception): Resource<Nothing>()
     object Loading: Resource<Nothing>()
 }

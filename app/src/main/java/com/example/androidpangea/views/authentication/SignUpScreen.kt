@@ -1,46 +1,28 @@
 package com.example.androidpangea.views.authentication
 
 import android.widget.Toast
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
@@ -53,13 +35,6 @@ import com.example.androidpangea.extensions.MyTextFieldComponent
 import com.example.androidpangea.extensions.NormalTextComponent
 import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.navigation.NavigationItem
-import com.example.androidpangea.navigation.Screen
-import com.example.androidpangea.utils.Resource
-import com.example.androidpangea.views.authentication.AppRouter.navigateTo
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun SignUpScreen(
@@ -72,7 +47,8 @@ fun SignUpScreen(
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    val signupFlow = viewModel?.signupFlow?.collectAsState()
+    val authResource = viewModel?.loginFlow?.collectAsState()
+//    val signupFlow = viewModel?.signupFlow?.collectAsState()
 
     //    val auth: FirebaseAuth by lazy { Firebase.auth }
     //    val appState = rememberAppState()
@@ -143,7 +119,7 @@ fun SignUpScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.signUp),
                     onButtonClicked = {
-                        viewModel?.signup(name, email, password)
+                        viewModel?.signupUser(name, email, password)
                         //                                      signupViewModel::signUpInProgress
                         //                        navController.navigate(NavigationItem.Main.route)
                         //                        signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
@@ -151,7 +127,7 @@ fun SignUpScreen(
                     //                    isEnabled = signupViewModel.allValidationsPassed.value,
                     navController = rememberNavController()
                 )
-                Button(onClick = { viewModel?.signup(name, email, password)}) {
+                Button(onClick = { viewModel?.signupUser(name, email, password)}) {
 
                     //                    navController.navigate(NavigationItem.Main.route)
                     //                    signupViewModel::signUpInProgress}) {
@@ -174,9 +150,9 @@ fun SignUpScreen(
         //        CircularProgressIndicator()
         //    }
         //}
-        signupFlow?.value.let {
+        authResource?.value?.let {
             when (it) {
-                is Resource.Failure -> {
+                is Resource.forFailure -> {
                     val context = LocalContext.current
                     Toast.makeText(context, it.exception.message, Toast.LENGTH_LONG).show()
                 }
@@ -187,7 +163,7 @@ fun SignUpScreen(
 
                 }
 
-                is Resource.Success<*> -> {
+                is Resource.forSuccess<*> -> {
                     LaunchedEffect(Unit) {
 
                         navController.navigate(NavigationItem.Main.route) {

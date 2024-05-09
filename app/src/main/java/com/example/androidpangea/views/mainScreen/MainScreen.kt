@@ -75,7 +75,7 @@ import kotlinx.coroutines.launch
 fun MainScreen(
     viewModel: AuthViewModel?,
     modifier: Modifier = Modifier,
-    navController: NavHostController,
+    navController: NavController = rememberNavController(),
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,

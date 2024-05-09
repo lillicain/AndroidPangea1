@@ -117,3 +117,5 @@ j
 :app/src/main/java/com/example/androidpangea/models/User.kt,c/e/ce9733cb158f993366d6b96b60759fd3d4618112
 r
 Bapp/src/main/java/com/example/androidpangea/utils/FirebaseUtils.kt,8/6/86c4af943bd7ada29e864006507e886f6aa681c3
+|
+Lapp/src/main/java/com/example/androidpangea/views/authentication/Resource.kt,a/a/aa4a437a7eb7afcd4ff847c8544e2e69fd023951

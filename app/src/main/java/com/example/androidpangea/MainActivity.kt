@@ -153,7 +153,7 @@ class MainActivity : ComponentActivity() {
                     //                    DestinationsNavHost(navGraph = NavGraphs.root)
                     AppNavHost(
                                                     viewModel = authViewModel,
-                        navController = rememberNavController(),
+
 
                         modifier = Modifier
                     )

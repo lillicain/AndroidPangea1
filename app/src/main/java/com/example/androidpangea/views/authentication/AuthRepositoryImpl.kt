@@ -14,7 +14,7 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
     @SuppressLint("RestrictedApi")
     override suspend fun login(email: String, password: String): Resource<FirebaseUser> {
-        try {
+       return try {
 
             val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
 //            Resource.Success(result.user!!)
@@ -30,14 +30,13 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     override suspend fun signUp(
         name: String, email: String, password: String
     ): Resource<FirebaseUser> {
-        try {
-
+       return try {
             val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
-            result?.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build()).await()
-                        Resource.Success(result.user!!)
+            result?.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())?.await()
+                        Resource.forSuccess(result.user!!)
 //            Resource.forSuccess(result.user!!)
         } catch (e: Exception) {
-            Resource.Failure(e)
+            Resource.forFailure(e)
 //            Resource.forFailure(e)
 
 

@@ -15,6 +15,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -28,7 +29,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
@@ -41,9 +41,7 @@ import com.example.androidpangea.extensions.NormalTextComponent
 import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.extensions.UnderLinedTextComponent
 import com.example.androidpangea.navigation.NavigationItem
-import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.utils.AuthResultContract
-import com.example.androidpangea.utils.Resource
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -62,9 +60,11 @@ fun SignInScreen(
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    val loginFlow = viewModel?.loginFlow.collectAsState()
 
-    val auth: FirebaseAuth by lazy { Firebase.auth }
+    val authResource = viewModel?.loginFlow?.collectAsState()
+//    val loginFlow = viewModel?.loginFlow?.collectAsState()
+
+////    val auth: FirebaseAuth by lazy { Firebase.auth }
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
     val signInRequestCode = 1
@@ -144,7 +144,7 @@ fun SignInScreen(
                 ButtonComponent(
                     value = stringResource(id = R.string.signIn),
                     onButtonClicked = {
-                        viewModel?.login(email, password)
+                        viewModel?.loginUser(email, password)
 //                        navController.navigate(NavigationItem.Main.route)
                         //                        viewModel::loginInProgress
 
@@ -155,7 +155,7 @@ fun SignInScreen(
 
                 )
                 Button(onClick = { //navController.navigate(NavigationItem.Main.route)
-                    viewModel?.login(email, password) }) {
+                    viewModel?.loginUser(email, password) }) {
                     Text("Sign In")
                 }
 
@@ -181,19 +181,19 @@ fun SignInScreen(
         //        if(viewModel.loginInProgress.value) {
         //            CircularProgressIndicator()
         //        }
-        loginFlow?.value.let {
+        authResource?.value?.let {
             when (it) {
-                is Resource.Failure -> {
+                is Resource.forFailure -> {
                     val context = LocalContext.current
                     Toast.makeText(context, it.exception.message, Toast.LENGTH_LONG).show()
                 }
                 Resource.Loading -> {
-                    CircularProgressIndicator() {
+                    CircularProgressIndicator()
 
-                    }
+
 
                 }
-                is Resource.Success<*> -> {
+                is Resource.forSuccess<*> -> {
                     LaunchedEffect(Unit) {
 
                         navController.navigate(NavigationItem.Main.route) {

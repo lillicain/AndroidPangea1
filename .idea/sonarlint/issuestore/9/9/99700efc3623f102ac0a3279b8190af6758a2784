@@ -1,2 +1,4 @@
 
-hkotlin:S125"Remove this commented out code.(ÙŠ¾úÿÿÿÿ8Õ¿ñõ1J$cbaf3390-ba21-480e-889c-363947232679
+hkotlin:S125"Remove this commented out code.(ÙŠ¾úÿÿÿÿ8Õ¿ñõ1J$93a95e0d-2045-407c-aed2-d41ebc52c695
+kkotlin:S101"MRename class "forSuccess" to match the regular expression ^[A-Z][a-zA-Z0-9]*$(ÎËÍà8³ÑÂøõ1
+–kotlin:S101"MRename class "forFailure" to match the regular expression ^[A-Z][a-zA-Z0-9]*$(›»Êûÿÿÿÿÿ8şÂøõ1J$0b8b56a7-fa5f-4e2a-b942-172dacc37323
