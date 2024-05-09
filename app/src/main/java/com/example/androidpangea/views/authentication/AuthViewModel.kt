@@ -3,112 +3,154 @@ package com.example.androidpangea.views.authentication
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.androidpangea.navigation.Screen
+import com.firebase.ui.auth.data.model.Resource
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-//@HiltViewModel
-class AuthViewModel: ViewModel() {
+@HiltViewModel
+class AuthViewModel @Inject constructor(private val repository: AuthRepository): ViewModel() {
+    val currentUser: FirebaseUser?
+        get() = repository.currentUser
+
+    private val _loginFlow = MutableStateFlow<Resource<FirebaseUser>?>(null)
+    val loginFlow = StateFlow<Resource<FirebaseUser>?> = _loginFlow
+
+    private val _signupFlow = MutableStateFlow<Resource<FirebaseUser>?>(null)
+    val signupFlow = StateFlow<Resource<FirebaseUser>?> = _signupFlow
 
 
-    private val TAG = AuthViewModel::class.simpleName
-    fun onEmailChange(newValue: String) {
-        uiState.value = uiState.value.copy(email = newValue)
-    }
-//    var loginUIState = mutableStateOf(LoginUIState())
-
-    var allValidationsPassed = mutableStateOf(false)
-
-    var loginInProgress = mutableStateOf(false)
-
-    var uiState = mutableStateOf(LoginUiState())
-        private set
-    fun createAnonymousAccount(onResult: (Throwable?) -> Unit) {
-        Firebase.auth.signInAnonymously()
-            .addOnCompleteListener { onResult(it.exception) }
-    }
-
-    fun authenticate(email: String, password: String, onResult: (Throwable?) -> Unit) {
-        Firebase.auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { onResult(it.exception) }
+    init {
+        if (repository.currentUser != null)  {
+            _loginFlow.value = Resource.Success(repository.currentUser!!)
+        }
 
     }
-
-    fun linkAccount(email: String, password: String, onResult: (Throwable?) -> Unit) {
-        val credential = EmailAuthProvider.getCredential(email, password)
-
-        Firebase.auth.currentUser!!.linkWithCredential(credential)
-            .addOnCompleteListener { onResult(it.exception) }
-
+    fun login(email: String, password: String) = viewModelScope.launch {
+        _loginFlow.value = Resource.Loading()
+        val result = repository.login(email, password)
+        _loginFlow.value = result
 
     }
-//    fun onEvent(event: LoginUIEvent) {
-//        when (event) {
-//            is LoginUIEvent.EmailChanged -> {
-//                loginUIState.value = loginUIState.value.copy(
-//                    email = event.email
-//                )
-//            }
-//
-//            is LoginUIEvent.PasswordChanged -> {
-//                loginUIState.value = loginUIState.value.copy(
-//                    password = event.password
-//                )
-//            }
-//
-//            is LoginUIEvent.LoginButtonClicked -> {
-//                login()
-//            }
-//        }
-//        validateLoginUIDataWithRules()
-//    }
-//
-//    private fun validateLoginUIDataWithRules() {
-//        val emailResult = Validator.validateEmail(
-//            email = loginUIState.value.email
-//        )
-//
-//
-//        val passwordResult = Validator.validatePassword(
-//            password = loginUIState.value.password
-//        )
-//
-//        loginUIState.value = loginUIState.value.copy(
-//            emailError = emailResult.status, passwordError = passwordResult.status
-//        )
-//
-//        allValidationsPassed.value = emailResult.status && passwordResult.status
-//
-//    }
-//
-//    private fun login() {
-//
-//        loginInProgress.value = true
-//        val email = loginUIState.value.email
-//        val password = loginUIState.value.password
-//
-//        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener {
-//                Log.d(TAG, "Inside_login_success")
-//                Log.d(TAG, "${it.isSuccessful}")
-//
-//                if (it.isSuccessful) {
-//                    loginInProgress.value = false
-//
-//                    AppRouter.navigateTo(Screen.MAIN)
-//                }
-//            }.addOnFailureListener {
-//                Log.d(TAG, "Inside_login_failure")
-//                Log.d(TAG, "${it.localizedMessage}")
-//
-//                loginInProgress.value = false
-//
-//            }
-//
-//    }
+
+
+    fun signup(name: String, email: String, password: String) = viewModelScope.launch {
+        _signupFlow.value = Resource.Loading()
+        val result = repository.signUp(name, email, password)
+        _signupFlow.value = result
+
+    }
+
+    fun logout() {
+        repository.logout()
+        _loginFlow.value = null
+        _signupFlow.value = null
+    }
+
+    //    private val TAG = AuthViewModel::class.simpleName
+    //    fun onEmailChange(newValue: String) {
+    //        uiState.value = uiState.value.copy(email = newValue)
+    //    }
+    ////    var loginUIState = mutableStateOf(LoginUIState())
+    //
+    //    var allValidationsPassed = mutableStateOf(false)
+    //
+    //    var loginInProgress = mutableStateOf(false)
+    //
+    //    var uiState = mutableStateOf(LoginUiState())
+    //        private set
+    //    fun createAnonymousAccount(onResult: (Throwable?) -> Unit) {
+    //        Firebase.auth.signInAnonymously()
+    //            .addOnCompleteListener { onResult(it.exception) }
+    //    }
+    //
+    //    fun authenticate(email: String, password: String, onResult: (Throwable?) -> Unit) {
+    //        Firebase.auth.signInWithEmailAndPassword(email, password)
+    //            .addOnCompleteListener { onResult(it.exception) }
+    //
+    //    }
+    //
+    //    fun linkAccount(email: String, password: String, onResult: (Throwable?) -> Unit) {
+    //        val credential = EmailAuthProvider.getCredential(email, password)
+    //
+    //        Firebase.auth.currentUser!!.linkWithCredential(credential)
+    //            .addOnCompleteListener { onResult(it.exception) }
+    //
+    //
+    //    }
+    //    fun onEvent(event: LoginUIEvent) {
+    //        when (event) {
+    //            is LoginUIEvent.EmailChanged -> {
+    //                loginUIState.value = loginUIState.value.copy(
+    //                    email = event.email
+    //                )
+    //            }
+    //
+    //            is LoginUIEvent.PasswordChanged -> {
+    //                loginUIState.value = loginUIState.value.copy(
+    //                    password = event.password
+    //                )
+    //            }
+    //
+    //            is LoginUIEvent.LoginButtonClicked -> {
+    //                login()
+    //            }
+    //        }
+    //        validateLoginUIDataWithRules()
+    //    }
+    //
+    //    private fun validateLoginUIDataWithRules() {
+    //        val emailResult = Validator.validateEmail(
+    //            email = loginUIState.value.email
+    //        )
+    //
+    //
+    //        val passwordResult = Validator.validatePassword(
+    //            password = loginUIState.value.password
+    //        )
+    //
+    //        loginUIState.value = loginUIState.value.copy(
+    //            emailError = emailResult.status, passwordError = passwordResult.status
+    //        )
+    //
+    //        allValidationsPassed.value = emailResult.status && passwordResult.status
+    //
+    //    }
+    //
+    //    private fun login() {
+    //
+    //        loginInProgress.value = true
+    //        val email = loginUIState.value.email
+    //        val password = loginUIState.value.password
+    //
+    //        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+    //            .addOnCompleteListener {
+    //                Log.d(TAG, "Inside_login_success")
+    //                Log.d(TAG, "${it.isSuccessful}")
+    //
+    //                if (it.isSuccessful) {
+    //                    loginInProgress.value = false
+    //
+    //                    AppRouter.navigateTo(Screen.MAIN)
+    //                }
+    //            }.addOnFailureListener {
+    //                Log.d(TAG, "Inside_login_failure")
+    //                Log.d(TAG, "${it.localizedMessage}")
+    //
+    //                loginInProgress.value = false
+    //
+    //            }
+    //
+    //    }
 
 }
 

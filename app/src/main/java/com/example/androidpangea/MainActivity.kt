@@ -35,13 +35,16 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-private val auth: FirebaseAuth by lazy { Firebase.auth }
+
+    private val auth: FirebaseAuth by lazy { Firebase.auth }
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val viewModel: MapViewModel by viewModels()
     private val mainViewModel: MainViewModel by viewModels()
     private val cameraViewModel: CameraViewModel by viewModels()
-    private val authViewModel: AuthViewModel by viewModels()
+
+    private val authViewModel by viewModels<AuthViewModel>()
+
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
@@ -76,91 +79,91 @@ private val auth: FirebaseAuth by lazy { Firebase.auth }
                         .fillMaxSize()
                         .statusBarsPadding()
                         .navigationBarsPadding(),
-                color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background
                 ) {
 
 
                     val navController = rememberNavController()
-//                    val screens = listOf(
-//                        NavigationItem.Main.route,
-//                        NavigationItem.User.route,
-//                        NavigationItem.Camera.route,
-//                        NavigationItem.Explore.route,
-////                        "${NavigationItem.User.route}/{userid}",
-////                        NavigationItem.SignIn.route,
-////                        NavigationItem.SignUp.route
-//                    )
-//                    val showBottomBar = navController
-//                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
-//                    Scaffold(
-//                        bottomBar = { BottomNavigationBar(navController = navController)} ) {
+                    //                    val screens = listOf(
+                    //                        NavigationItem.Main.route,
+                    //                        NavigationItem.User.route,
+                    //                        NavigationItem.Camera.route,
+                    //                        NavigationItem.Explore.route,
+                    ////                        "${NavigationItem.User.route}/{userid}",
+                    ////                        NavigationItem.SignIn.route,
+                    ////                        NavigationItem.SignUp.route
+                    //                    )
+                    //                    val showBottomBar = navController
+                    //                        .currentBackStackEntryAsState().value?.destination?.route in screens.map { it }
+                    //                    Scaffold(
+                    //                        bottomBar = { BottomNavigationBar(navController = navController)} ) {
 
 
-//                        AnimatedVisibility(
-//                            visible = showBottomBar,
-//                            enter = fadeIn() + scaleIn(),
-//                            exit = fadeOut() + scaleOut(),
-//                        ) {
-//                            Row(
-//                                horizontalArrangement = Arrangement.SpaceEvenly,
-//                                modifier = Modifier
-//                                    .background(MaterialTheme.colorScheme.background)
-//                                    .fillMaxWidth()
-//                            ) {
-//                                BottomNavigationBar(navController = navController)
-//                            }
-//                                BottomNavigationBar(
-//                                    items = listOf(
-//                                    BottomNavItem(
-//                                        NavigationItem.Main.route,
-//                                        Screen.MAIN.name,
-//                                        icon = rememberVectorPainter(image = Icons.Default.Home)
-//                                    ),
-//                                    BottomNavItem(
-//                                        NavigationItem.User.route,
-//                                        Screen.USER.name,
-//                                        icon = rememberVectorPainter(image = Icons.Default.Search)
-//                                    ),
-//                                    BottomNavItem(
-//                                        NavigationItem.Camera.route,
-//                                        Screen.CAMERA.name,
-//                                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
-//                                    ),
-//                                    BottomNavItem(
-//                                        NavigationItem.Explore.route,
-//                                        Screen.EXPLORE.name,
-//                                        icon = rememberVectorPainter(image = Icons.Default.Explore)
-//                                    ),
-//                                    BottomNavItem(
-//                                        NavigationItem.User.route,
-//                                        Screen.USER.name,
-//                                        icon = rememberVectorPainter(image = Icons.Default.Person)
-//                                    ),
-//                                ), navController = navController
-//                                ) {
-//                                    if (it.route == NavigationItem.User.route) {
-//                                        navController.navigate(NavigationItem.User.route)
-//                                    } else {
-//                                        navController.navigate(it.route)
-//                                    }
-//                                }
-//                            }
-//                        }
-////                    }) {
-//                    DestinationsNavHost(navGraph = NavGraphs.root)
-                        AppNavHost(
-//                            viewModel = mainViewModel,
-                            navController = rememberNavController(),
+                    //                        AnimatedVisibility(
+                    //                            visible = showBottomBar,
+                    //                            enter = fadeIn() + scaleIn(),
+                    //                            exit = fadeOut() + scaleOut(),
+                    //                        ) {
+                    //                            Row(
+                    //                                horizontalArrangement = Arrangement.SpaceEvenly,
+                    //                                modifier = Modifier
+                    //                                    .background(MaterialTheme.colorScheme.background)
+                    //                                    .fillMaxWidth()
+                    //                            ) {
+                    //                                BottomNavigationBar(navController = navController)
+                    //                            }
+                    //                                BottomNavigationBar(
+                    //                                    items = listOf(
+                    //                                    BottomNavItem(
+                    //                                        NavigationItem.Main.route,
+                    //                                        Screen.MAIN.name,
+                    //                                        icon = rememberVectorPainter(image = Icons.Default.Home)
+                    //                                    ),
+                    //                                    BottomNavItem(
+                    //                                        NavigationItem.User.route,
+                    //                                        Screen.USER.name,
+                    //                                        icon = rememberVectorPainter(image = Icons.Default.Search)
+                    //                                    ),
+                    //                                    BottomNavItem(
+                    //                                        NavigationItem.Camera.route,
+                    //                                        Screen.CAMERA.name,
+                    //                                        icon = rememberVectorPainter(image = Icons.Default.AddCircle)
+                    //                                    ),
+                    //                                    BottomNavItem(
+                    //                                        NavigationItem.Explore.route,
+                    //                                        Screen.EXPLORE.name,
+                    //                                        icon = rememberVectorPainter(image = Icons.Default.Explore)
+                    //                                    ),
+                    //                                    BottomNavItem(
+                    //                                        NavigationItem.User.route,
+                    //                                        Screen.USER.name,
+                    //                                        icon = rememberVectorPainter(image = Icons.Default.Person)
+                    //                                    ),
+                    //                                ), navController = navController
+                    //                                ) {
+                    //                                    if (it.route == NavigationItem.User.route) {
+                    //                                        navController.navigate(NavigationItem.User.route)
+                    //                                    } else {
+                    //                                        navController.navigate(it.route)
+                    //                                    }
+                    //                                }
+                    //                            }
+                    //                        }
+                    ////                    }) {
+                    //                    DestinationsNavHost(navGraph = NavGraphs.root)
+                    AppNavHost(
+                                                    viewModel = authViewModel,
+                        navController = rememberNavController(),
 
-                            modifier = Modifier
-                        )
-                    }
-
-
-
-
+                        modifier = Modifier
+                    )
                 }
+
+
+
+
             }
         }
     }
+}
 //}

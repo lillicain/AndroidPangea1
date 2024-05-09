@@ -34,25 +34,11 @@ val currentUser: FirebaseUser?
                 }
             }.await()
     }
-    suspend fun login(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
-        Firebase.auth
-            .signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if ( it.isSuccessful) {
-                    onComplete.invoke(true)
-                } else {
-                    onComplete.invoke(false)
-                }
-            }.await()
-    }
+    @SuppressLint("RestrictedApi")
+    suspend fun login(email: String, password: String): Resource<FirebaseUser>
 
+    @SuppressLint("RestrictedApi")
+    suspend fun signUp(name: String, email: String, password: String): Resource<FirebaseUser>
+
+    fun logout()
 }
-
-//interface AuthRepository {
-//    @SuppressLint("RestrictedApi")
-//    fun loginUser(email: String, password: String): Flow<Resource<AuthResult>>
-//
-//    @SuppressLint("RestrictedApi")
-//    fun registerUser(email: String, password: String): Flow<Resource<AuthResult>>
-//
-//}

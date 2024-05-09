@@ -20,6 +20,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -43,6 +44,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.R
 import com.example.androidpangea.navigation.BottomNavItem
@@ -50,6 +52,7 @@ import com.example.androidpangea.navigation.BottomNavigationBar
 import com.example.androidpangea.navigation.BottomNavigationItem
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
+import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.mapScreen.MapItemManager
 import com.example.androidpangea.views.mapScreen.MapState
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -70,8 +73,9 @@ import kotlinx.coroutines.launch
 @Composable
 @Destination(start = true)
 fun MainScreen(
+    viewModel: AuthViewModel?,
     modifier: Modifier = Modifier,
-    navController: NavController,
+    navController: NavHostController,
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,
@@ -187,6 +191,16 @@ fun MainScreen(
                                 }
                             }
                         }
+                    }
+                    Button(onClick = {
+                        viewModel?.logout()
+                    navController.navigate(NavigationItem.SignIn.route) {
+                        popUpTo(NavigationItem.Main.route) { inclusive = true }
+                    }
+
+                    }
+                    ) {
+                        Text(text = "Sign Out")
                     }
 
 

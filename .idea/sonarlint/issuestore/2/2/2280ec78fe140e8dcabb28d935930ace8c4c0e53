@@ -1,8 +1,9 @@
 
-Qkotlin:S1172 "2Remove this unused function parameter "viewModel".(ÅßŒÈ8µœÍÒõ1
-Bkotlin:S125@"Remove this commented out code.(°Ú¢Àüÿÿÿÿ8·œÍÒõ1
-Hkotlin:S1481%")Remove this unused "auth" local variable.(úà€”8¼œÍÒõ1
-9kotlin:S1128"Remove this unused import.(şÃ¨‰8½œÍÒõ1
-9kotlin:S1128"Remove this unused import.(íí›8½œÍÒõ1
-8kotlin:S1128"Remove this unused import.(î‹³q8½œÍÒõ1
-9kotlin:S1128"Remove this unused import.(ÙšŞ¶8½œÍÒõ1
+hkotlin:S125?"Remove this commented out code.(°Ú¢Àüÿÿÿÿ8èëªòõ1J$a605a429-88ab-4cdf-aa1a-703ce2cbc02e
+€kotlin:S1481*";Remove this unused "isSplashScreenFinished" local variable.(…®ªÿ8êëªòõ1J$77cddf7f-b296-417f-991d-e1030595b239
+nkotlin:S1481(")Remove this unused "auth" local variable.(úà€”8ëëªòõ1J$fb9ce1f3-9ff7-41cf-a041-21f3adc1153f
+^kotlin:S1128	"Remove this unused import.(¥€ÈA8ìëªòõ1J$a824fbb1-c461-4d1e-bf0b-306316fd2b94
+_kotlin:S1128"Remove this unused import.(şÃ¨‰8ìëªòõ1J$f42dea0e-e996-46ea-ab85-d8897b505a5c
+^kotlin:S1128"Remove this unused import.(î‹³q8ìëªòõ1J$87d6b673-dfae-44e4-b44f-413fd50dbbd2
+_kotlin:S1128"Remove this unused import.(¥â¬‚8ìëªòõ1J$3cc64a23-8bfc-4f95-aefc-f52fbe7369dc
+_kotlin:S1128"Remove this unused import.(ÙšŞ¶8íëªòõ1J$db5e8a05-49ea-48cb-8de4-b9002252d802

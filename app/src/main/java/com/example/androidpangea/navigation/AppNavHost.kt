@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.androidpangea.views.authentication.AuthScreen
+import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
@@ -25,14 +26,16 @@ import com.example.androidpangea.views.userScreen.UserScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 fun AppNavHost(
-    viewModel: MainViewModel = hiltViewModel(),
-    navController: NavHostController,
-//    navigator: DestinationsNavigator,
-    modifier: Modifier = Modifier,
+    viewModel: AuthViewModel,
+    modifier: Modifier,
+    navController: NavHostController = rememberNavController(),
+
+    startDestination: String = NavigationItem.SignIn.route,
 ) {
     val auth: FirebaseAuth by lazy { Firebase.auth }
     val mapViewModel = MapViewModel()
@@ -46,15 +49,11 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = if (isSplashScreenFinished) {
-            NavigationItem.Main.route
-        } else {
-            NavigationItem.SignIn.route
-        }
+        startDestination = startDestination
     ) {
 
         composable(NavigationItem.Main.route) {
-            MainScreen(
+            MainScreen(viewModel,
                 navController = navController,
                 state = mapViewModel.state.value,
                 setupClusterManager = mapViewModel::setupClusterManager,
@@ -89,15 +88,16 @@ fun AppNavHost(
             SignUpScreen(
                 //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
                 //                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
-                navController = navController
+                viewModel, navController
             )
         }
 
         composable(NavigationItem.SignIn.route) {
             SignInScreen(
+                viewModel, navController
                 //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
                 //                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
-                navController = navController
+
             )
         }
         composable(NavigationItem.Auth.route) {

@@ -13,4 +13,5 @@
     <string name="last_name">\Last Name\</string>
     <string name="create_account">\Create Account\</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="name">Name</string>
 </resources>

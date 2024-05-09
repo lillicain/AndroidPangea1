@@ -69,8 +69,6 @@ Gapp/src/main/java/com/example/androidpangea/views/mapScreen/MapState.kt,7/a/7a
 Kapp/src/main/java/com/example/androidpangea/views/mapScreen/MapViewModel.kt,7/e/7e09df303309624d577653271ac2e4bf0381c978
 s
 Capp/src/main/java/com/example/androidpangea/navigation/BottomBar.kt,4/f/4f1883435d0306a23dce48f569bec299722b93de
-|
-Lapp/src/main/java/com/example/androidpangea/navigation/BottomBarViewModel.kt,1/8/184b84c6ce9b1192031b74d45a1eee52e3482c71
 ‚
 Rapp/src/main/java/com/example/androidpangea/views/authentication/AuthRepository.kt,1/e/1edc518654c9342a50cac630089f80a06b7aee77
 €
@@ -117,3 +115,5 @@ j
 Rapp/src/main/java/com/example/androidpangea/views/authentication/FirebaseScreen.kt,b/8/b857c10a3650187944aef60f566ae5806e410053
 j
 :app/src/main/java/com/example/androidpangea/models/User.kt,c/e/ce9733cb158f993366d6b96b60759fd3d4618112
+r
+Bapp/src/main/java/com/example/androidpangea/utils/FirebaseUtils.kt,8/6/86c4af943bd7ada29e864006507e886f6aa681c3
