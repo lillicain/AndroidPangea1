@@ -19,7 +19,9 @@ enum class Screen {
     EXPLORE,
     SIGNUP,
     SIGNIN,
-AUTH
+    AUTH,
+    FIREBASESIGNUP,
+    FIREBASESIGNIN
 }
 
 sealed class NavigationItem(val route: String, val icon: ImageVector?) {
@@ -30,6 +32,7 @@ sealed class NavigationItem(val route: String, val icon: ImageVector?) {
     object Explore: NavigationItem(Screen.EXPLORE.name, icon = Icons.Filled.Search)
     object SignIn: NavigationItem(Screen.SIGNIN.name, icon = Icons.Rounded.Home)
     object SignUp: NavigationItem(Screen.SIGNUP.name, icon = Icons.Rounded.Home)
-
     object Auth: NavigationItem(Screen.AUTH.name, icon = Icons.Rounded.Home)
+    object FirebaseSignIn: NavigationItem(Screen.FIREBASESIGNIN.name, icon = Icons.Rounded.Home)
+    object FirebaseSignUp: NavigationItem(Screen.FIREBASESIGNUP.name, icon = Icons.Rounded.Home)
 }
