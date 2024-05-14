@@ -131,3 +131,5 @@ Dapp/src/main/java/com/example/androidpangea/extensions/Extensions.kt,c/8/c8712
 Uapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseViewModel.kt,4/6/46223b6674b832c5d9f99b4a8f114f90b5d1ba2d
 |
 Lapp/src/main/java/com/example/androidpangea/views/cameraScreen/CreatePost.kt,1/7/171f8d48db49f09516669dbb2f2e6757ff2fed98
+t
+Dapp/src/main/java/com/example/androidpangea/views/subviews/Bitmap.kt,8/f/8fa574458e5b297dbd5ef811d7358b43279eb7ef

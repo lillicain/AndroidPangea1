@@ -11,3 +11,4 @@ fun Bitmap.rotateBitmap(rotationDegrees: Int): Bitmap {
 
     return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
 }
+

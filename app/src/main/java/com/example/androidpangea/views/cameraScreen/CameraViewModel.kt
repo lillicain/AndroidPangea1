@@ -12,35 +12,47 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-//@HiltViewModel
-class CameraViewModel(
-    private val savePhotoToGalleryUseCase: SavePhotoToGalleryUseCase
-) : ViewModel() {
 
-    private val _state = MutableStateFlow(CameraState())
-    val state = _state.asStateFlow()
+class CameraViewModel: ViewModel() {
 
-    fun storePhotoInGallery(bitmap: Bitmap) {
-        viewModelScope.launch {
-            savePhotoToGalleryUseCase.call(bitmap)
-            updateCapturedPhotoState(bitmap)
-        }
-    }
+    private val _bitmaps = MutableStateFlow<List<Bitmap>>(emptyList())
+    val bitmaps = _bitmaps.asStateFlow()
 
-    private fun updateCapturedPhotoState(updatedPhoto: Bitmap?) {
-        _state.value.capturedImage?.recycle()
-        _state.value = _state.value.copy(capturedImage = updatedPhoto)
-    }
-
-    override fun onCleared() {
-        _state.value.capturedImage?.recycle()
-        super.onCleared()
+    fun onTakePhoto(bitmap: Bitmap) {
+        _bitmaps.value += bitmap
     }
 }
 
-data class CameraState(
-    val capturedImage: Bitmap? = null,
-)
+
+//@HiltViewModel
+//class CameraViewModel(
+//    private val savePhotoToGalleryUseCase: SavePhotoToGalleryUseCase
+//) : ViewModel() {
+//
+//    private val _state = MutableStateFlow(CameraState())
+//    val state = _state.asStateFlow()
+//
+//    fun storePhotoInGallery(bitmap: Bitmap) {
+//        viewModelScope.launch {
+//            savePhotoToGalleryUseCase.call(bitmap)
+//            updateCapturedPhotoState(bitmap)
+//        }
+//    }
+//
+//    private fun updateCapturedPhotoState(updatedPhoto: Bitmap?) {
+//        _state.value.capturedImage?.recycle()
+//        _state.value = _state.value.copy(capturedImage = updatedPhoto)
+//    }
+//
+//    override fun onCleared() {
+//        _state.value.capturedImage?.recycle()
+//        super.onCleared()
+//    }
+//}
+//
+//data class CameraState(
+//    val capturedImage: Bitmap? = null,
+//)
 
 
 //class CameraViewModel(

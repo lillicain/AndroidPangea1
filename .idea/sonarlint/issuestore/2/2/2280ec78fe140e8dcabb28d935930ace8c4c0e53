@@ -1,20 +1,21 @@
 
-wkotlin:S1172)"2Remove this unused function parameter "viewModel".(ÅßŒÈ8¨ıÇ÷1J$3b34302a-4d3b-41b4-86b1-fedf699cc93f
-hkotlin:S125-"Remove this commented out code.(ŞƒÃ şÿÿÿÿ8îôöÆ÷1J$c0832a80-0726-40fa-87d9-3d5b6ed3b2eb
-hkotlin:S1252"Remove this commented out code.(š«¦¯úÿÿÿÿ8îôöÆ÷1J$34eccd23-f554-4ded-b005-2a5e3e4741c1
-hkotlin:S125="Remove this commented out code.(éè˜Ÿÿÿÿÿÿ8îôöÆ÷1J$9889cbcd-90ba-430d-8619-eae79e6736f0
-hkotlin:S125L"Remove this commented out code.(°Ú¢Àüÿÿÿÿ8ïôöÆ÷1J$2712e826-7fa4-4b0d-bb54-a1319be7a38b
-=kotlin:S125_"Remove this commented out code.(æÉá°8Úò‘Ç÷1
-_kotlin:S1128"Remove this unused import.(ŠëÙ 8ñôöÆ÷1J$7bcd3a0b-bdb6-42ba-8001-70ba6b515c00
-dkotlin:S1128"Remove this unused import.(‹‚ü†ıÿÿÿÿ8ñôöÆ÷1J$1b4f9827-6f86-4671-993c-62d7af267e93
-dkotlin:S1128"Remove this unused import.(ïö°Ìøÿÿÿÿ8ñôöÆ÷1J$618282d3-2569-4fcc-9488-398d082019cd
-^kotlin:S1128"Remove this unused import.(†™¹$8ñôöÆ÷1J$75d852a1-d843-4784-bbde-0b5a97ed7d9a
-_kotlin:S1128
-"Remove this unused import.(ÏéûÖ8÷©ˆÇ÷1J$9058aaf6-fa41-40ea-abf3-bbf6183e4302
-_kotlin:S1128"Remove this unused import.(şÃ¨‰8ñôöÆ÷1J$c0b00f84-0f45-4e18-9bbe-6531388591ad
-^kotlin:S1128"Remove this unused import.(î‹³q8ñôöÆ÷1J$b86969f4-4e4a-4246-b7e1-e4b5b7bbc77f
-dkotlin:S1128!"Remove this unused import.(¼³ëõıÿÿÿÿ8÷©ˆÇ÷1J$0d098e60-4d82-42f0-abd6-92b2589418ab
-_kotlin:S1128""Remove this unused import.(›»„Â8ñôöÆ÷1J$6cf3b35a-76ed-40a4-948f-612fa990ffbf
-_kotlin:S1128#"Remove this unused import.(¹—­²8ñôöÆ÷1J$67d3a134-39dc-4037-a9ec-8d774358a021
-dkotlin:S1128$"Remove this unused import.(­‹æÇşÿÿÿÿ8ñôöÆ÷1J$04692769-67ff-4b0d-acdf-fdfd24aac902
-_kotlin:S1128%"Remove this unused import.(ÙšŞ¶8ñôöÆ÷1J$edfc4764-3124-4be8-b6a7-d552d9ede8fb
+wkotlin:S1172-"2Remove this unused function parameter "viewModel".(ÅßŒÈ8Ô¿ëÇ÷1J$71821b69-91e8-4ca6-a44a-4c2346e0294c
+hkotlin:S1251"Remove this commented out code.(ŞƒÃ şÿÿÿÿ8Ö¿ëÇ÷1J$def73f32-36ed-4b98-95d6-d29f75190615
+hkotlin:S1257"Remove this commented out code.(š«¦¯úÿÿÿÿ8Ö¿ëÇ÷1J$dc32da3d-d7c9-4289-858c-ff1954fc8ece
+hkotlin:S125A"Remove this commented out code.(éè˜Ÿÿÿÿÿÿ8Ö¿ëÇ÷1J$f360bf82-2203-4f84-b01f-49891ca0aa13
+hkotlin:S125P"Remove this commented out code.(°Ú¢Àüÿÿÿÿ8×¿ëÇ÷1J$20249dfb-be6f-4e5f-be58-f95d76e2d689
+~kotlin:S14814"4Remove this unused "cameraViewModel" local variable.(ÅàŠıÿÿÿÿ8Ù¿ëÇ÷1J$bc9442c0-f8cf-4583-bd58-1ae4f73d3eff
+_kotlin:S1128"Remove this unused import.(üƒŠ¸8æÖìÇ÷1J$8063fe97-1f59-4c2d-8677-ee11f557cb3e
+_kotlin:S1128"Remove this unused import.(ŠëÙ 8Ú¿ëÇ÷1J$4315da67-eb9a-4b3d-8f89-c9112e2da91c
+dkotlin:S1128"Remove this unused import.(‹‚ü†ıÿÿÿÿ8Ú¿ëÇ÷1J$03fe9208-fc34-440a-9e04-e4898b4e1f92
+dkotlin:S1128
+"Remove this unused import.(ïö°Ìøÿÿÿÿ8Ú¿ëÇ÷1J$7ed104b0-12e7-4fd7-aa6f-7ea77580eb15
+^kotlin:S1128"Remove this unused import.(†™¹$8Ú¿ëÇ÷1J$e1af4a5c-30bd-477a-96e5-34bfd3567023
+_kotlin:S1128"Remove this unused import.(ÏéûÖ8Ú¿ëÇ÷1J$6c2ea1be-3641-4064-ad45-c24ae3421d21
+_kotlin:S1128"Remove this unused import.(şÃ¨‰8Ú¿ëÇ÷1J$3ef12331-0517-40a5-b3c0-7e821a2c34f6
+^kotlin:S1128"Remove this unused import.(î‹³q8Ú¿ëÇ÷1J$6fd8bd7e-68fa-42ae-b112-53cb24e37538
+dkotlin:S1128%"Remove this unused import.(¼³ëõıÿÿÿÿ8Ú¿ëÇ÷1J$37405502-895f-45b5-9251-dfe480085d3f
+_kotlin:S1128&"Remove this unused import.(›»„Â8Ú¿ëÇ÷1J$6e4e8fcb-0fd2-4071-9021-8f50e1e63331
+_kotlin:S1128'"Remove this unused import.(¹—­²8Ú¿ëÇ÷1J$44317e46-101b-4772-8491-e00e6931bb99
+dkotlin:S1128("Remove this unused import.(­‹æÇşÿÿÿÿ8Ú¿ëÇ÷1J$8ca48862-6c9e-472b-9b64-e45344dc8d4d
+_kotlin:S1128)"Remove this unused import.(ÙšŞ¶8Ú¿ëÇ÷1J$b33e63d2-1bbd-4fe5-b0d1-e392d17222ce

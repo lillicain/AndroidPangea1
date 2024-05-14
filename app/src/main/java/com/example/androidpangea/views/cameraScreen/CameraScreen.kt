@@ -11,11 +11,16 @@ import androidx.camera.core.ImageProxy
 import androidx.camera.view.LifecycleCameraController
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
@@ -28,8 +33,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.BottomStart
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
@@ -47,14 +54,61 @@ import java.util.concurrent.Executor
 
 @Composable
 fun CameraScreen(
-    viewModel: CameraViewModel //= koinViewModel()
+    controller: LifecycleCameraController,
+    modifier: Modifier = Modifier
 ) {
-    val cameraState: CameraState by viewModel.state.collectAsStateWithLifecycle()
-
-    CameraContent(
-        onPhotoCaptured = viewModel::storePhotoInGallery,
-        lastCapturedPhoto = cameraState.capturedImage
+    val lifecycleOwner = LocalLifecycleOwner.current
+    AndroidView(
+        factory = {
+            PreviewView(it).apply {
+                this.controller = controller
+                controller.bindToLifecycle(lifecycleOwner)
+            }
+        },
+        modifier = modifier
     )
+
+//    viewModel: CameraViewModel //= koinViewModel()
+//) {
+//    val cameraState: CameraState by viewModel.state.collectAsStateWithLifecycle()
+//
+//    CameraContent(
+//        onPhotoCaptured = viewModel::storePhotoInGallery,
+//        lastCapturedPhoto = cameraState.capturedImage
+//    )
+}
+
+@Composable
+fun PhotoBottomSheetContent(
+    bitmaps: List<Bitmap>,
+    modifier: Modifier = Modifier
+) {
+    if(bitmaps.isEmpty()) {
+        Box(
+            modifier = modifier
+                .padding(16.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text("There are no photos yet")
+        }
+    } else {
+        LazyVerticalStaggeredGrid(
+            columns = StaggeredGridCells.Fixed(2),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalItemSpacing = 16.dp,
+            contentPadding = PaddingValues(16.dp),
+            modifier = modifier
+        ) {
+            items(bitmaps) { bitmap ->
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(10.dp))
+                )
+            }
+        }
+    }
 }
 
 //@Composable

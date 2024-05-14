@@ -1,11 +1,16 @@
 package com.example.androidpangea.navigation
 
+import android.content.Context
+import androidx.camera.view.CameraController
+import androidx.camera.view.LifecycleCameraController
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
@@ -19,7 +24,6 @@ import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraContent
 import com.example.androidpangea.views.cameraScreen.CameraScreen
-import com.example.androidpangea.views.cameraScreen.CameraState
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignUpScreen
@@ -45,14 +49,14 @@ fun AppNavHost(
 //    val auth: FirebaseAuth by lazy { Firebase.auth }
 
     val mapViewModel = MapViewModel()
+val cameraViewModel=CameraViewModel()
 
 
 //    var isSplashScreenFinished by rememberSaveable {
 //        mutableStateOf(false)
 //    }
 
-
-
+val context = LocalContext.current
 
     NavHost(
         modifier = modifier,
@@ -92,8 +96,12 @@ fun AppNavHost(
         }
 
         composable(NavigationItem.Camera.route) {
-//            CameraScreen()//navController = navController)
-//CameraScreen()
+
+CameraScreen(controller = remember {
+LifecycleCameraController(context).apply {
+setEnabledUseCases(CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE)
+}
+})
 
         }
         composable(NavigationItem.Explore.route) {
