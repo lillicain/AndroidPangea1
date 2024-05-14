@@ -2,7 +2,6 @@ package com.example.androidpangea.views.authentication
 
 import android.annotation.SuppressLint
 import com.example.androidpangea.utils.await
-import com.firebase.ui.auth.data.model.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest

@@ -1,19 +1,12 @@
 package com.example.androidpangea.views.authentication
 
 import android.annotation.SuppressLint
-import com.firebase.ui.auth.data.model.Resource
-import com.google.firebase.Firebase
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
+import com.example.androidpangea.utils.await
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-
 
 
 interface AuthRepository {
@@ -23,7 +16,8 @@ val currentUser: FirebaseUser?
 
     fun getUserId():String = Firebase.auth.currentUser?.uid.toString()
 
-    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(
+        Dispatchers.IO) {
         Firebase.auth
             .createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {

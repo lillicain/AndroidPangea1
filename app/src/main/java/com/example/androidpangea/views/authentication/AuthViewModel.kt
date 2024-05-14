@@ -32,13 +32,13 @@ class AuthViewModel @Inject constructor(
     fun loginUser(email: String, password: String) = viewModelScope.launch {
         _loginFlow.value = Resource.Loading
         val result = repository.login(email, password)
-//        _loginFlow.value = result
+        _loginFlow.value = result
     }
 
     fun signupUser(name: String, email: String, password: String) = viewModelScope.launch {
         _signupFlow.value = Resource.Loading
         val result = repository.signUp(name, email, password)
-//        _signupFlow.value = result
+        _signupFlow.value = result
     }
 
     fun logout() {

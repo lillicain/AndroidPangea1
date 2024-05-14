@@ -26,6 +26,7 @@ import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -157,6 +158,7 @@ class MainActivity : ComponentActivity() {
 
                         modifier = Modifier
                     )
+//                    FirebaseApp.initializeApp(this)
                 }
 
 
