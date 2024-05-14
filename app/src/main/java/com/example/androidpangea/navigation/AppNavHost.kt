@@ -23,6 +23,7 @@ import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraContent
+import com.example.androidpangea.views.cameraScreen.CameraPermissionScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
@@ -90,33 +91,29 @@ val context = LocalContext.current
 //                navController = navController
 //            )
 //        }
+
         composable(NavigationItem.User.route) {
             UserScreen(navController = navController)
-
         }
 
         composable(NavigationItem.Camera.route) {
 
-CameraScreen(controller = remember {
-LifecycleCameraController(context).apply {
-setEnabledUseCases(CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE)
-}
-})
-
+//CameraScreen(controller = remember {
+//LifecycleCameraController(context).apply {
+//setEnabledUseCases(CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE)
+//}
+//})
+            CameraPermissionScreen(navController = navController)
         }
         composable(NavigationItem.Explore.route) {
             ExploreScreen(navController = navController)
         }
         composable(NavigationItem.SignUp.route) {
-            SignUpScreen(
-                navController = navController
-            )
+            SignUpScreen(navController = navController)
         }
 
         composable(NavigationItem.SignIn.route) {
-            SignInScreen(
-                navController = navController
-            )
+            SignInScreen(navController = navController)
         }
 
         composable(NavigationItem.FirebaseSignIn.route) {

@@ -73,35 +73,24 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val auth: FirebaseAuth by lazy { Firebase.auth }
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val mapViewModel: MapViewModel by viewModels()
-    private val mainViewModel: MainViewModel by viewModels()
-    private val cameraViewModel: CameraViewModel by viewModels()
-    private val authViewModel: AuthViewModel by viewModels()
+//    private val mainViewModel: MainViewModel by viewModels()
+//    private val cameraViewModel: CameraViewModel by viewModels()
+//    private val authViewModel: AuthViewModel by viewModels()
 
-    private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-            if (isGranted) {
-                mapViewModel.getDeviceLocation(fusedLocationProviderClient)
-            }
-        }
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean -> if (isGranted) { mapViewModel.getDeviceLocation(fusedLocationProviderClient) } }
 
     private fun askPermissions() = when {
-        ContextCompat.checkSelfPermission(
-            this,
-            ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED -> {
+        ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
             mapViewModel.getDeviceLocation(fusedLocationProviderClient)
-        }
-        else -> {
+        } else -> {
             requestPermissionLauncher.launch(ACCESS_FINE_LOCATION)
         }
     }
 
 
-    @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,10 +98,8 @@ class MainActivity : ComponentActivity() {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         askPermissions()
 
-        if (!hasRequiredPermissions()){
-            ActivityCompat.requestPermissions(
-                this, CAMERAX_PERMISSIONS, 0
-            )
+        if (!hasRequiredPermissions()) {
+            ActivityCompat.requestPermissions(this, CAMERAX_PERMISSIONS, 0)
         }
 
         setContent {
@@ -192,121 +179,15 @@ class MainActivity : ComponentActivity() {
                     ////                    }) {
                     //                    DestinationsNavHost(navGraph = NavGraphs.root)
 
-                    //                    CameraScreen(viewModel = cameraViewModel)
                     AppNavHost(
                         navController = rememberNavController(),
-
                         modifier = Modifier
                     )
-
-//                    val scope = rememberCoroutineScope()
-//                    val scaffoldState = rememberBottomSheetScaffoldState()
-//                    val controller = remember {
-//                        LifecycleCameraController(applicationContext).apply {
-//                            setEnabledUseCases(
-//                                CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE
-//                            )
-//                        }
-//                    }
-//                    val viewModel = viewModel<CameraViewModel>()
-//                    val bitmaps by viewModel.bitmaps.collectAsState()
-//
-//                    BottomSheetScaffold(
-//                        scaffoldState = scaffoldState,
-//                        sheetPeekHeight = 0.dp,
-//                        sheetContent = {
-//                            PhotoBottomSheetContent(
-//                                bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
-//                            )
-//                        }) { padding ->
-//                        Box(
-//                            modifier = Modifier.fillMaxSize().padding(padding)
-//                        ) {
-//                            CameraScreen(
-//                                controller = controller, modifier = Modifier.fillMaxSize()
-//                            )
-//
-//                            IconButton(
-//                                onClick = {
-//                                    controller.cameraSelector =
-//                                        if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
-//                                            CameraSelector.DEFAULT_FRONT_CAMERA
-//                                        } else CameraSelector.DEFAULT_BACK_CAMERA
-//                                }, modifier = Modifier.offset(16.dp, 16.dp)
-//                            ) {
-//                                Icon(
-//                                    imageVector = Icons.Default.Cameraswitch,
-//                                    contentDescription = "Switch camera"
-//                                )
-//                            }
-//
-//                            Row(
-//                                modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter)
-//                                    .padding(16.dp), horizontalArrangement = Arrangement.SpaceAround
-//                            ) {
-//                                IconButton(onClick = {
-//                                    scope.launch {
-//                                        scaffoldState.bottomSheetState.expand()
-//                                    }
-//                                }) {
-//                                    Icon(
-//                                        imageVector = Icons.Default.Photo,
-//                                        contentDescription = "Open gallery"
-//                                    )
-//                                }
-//                                IconButton(onClick = {
-//                                    takePhoto(
-//                                        controller = controller,
-//                                        onPhotoTaken = cameraViewModel::onTakePhoto
-//                                    )
-//                                }) {
-//                                    Icon(
-//                                        imageVector = Icons.Default.PhotoCamera,
-//                                        contentDescription = "Take photo"
-//                                    )
-//                                }
-//                            }
-//                        }
-//                    }
-
                 }
             }
         }
     }
 
-    private fun takePhoto(
-        controller: LifecycleCameraController,
-        onPhotoTaken: (Bitmap) -> Unit
-    ) {
-        controller.takePicture(
-            ContextCompat.getMainExecutor(applicationContext),
-            object : ImageCapture.OnImageCapturedCallback() {
-                override fun onCaptureSuccess(image: ImageProxy) {
-                    super.onCaptureSuccess(image)
-
-                    val matrix = Matrix().apply {
-                        postRotate(image.imageInfo.rotationDegrees.toFloat())
-                    }
-                    val rotatedBitmap = Bitmap.createBitmap(
-                        image.toBitmap(),
-                        0,
-                        0,
-                        image.width,
-                        image.height,
-                        matrix,
-                        true
-                    )
-
-                    onPhotoTaken(rotatedBitmap)
-                }
-
-                override fun onError(exception: ImageCaptureException) {
-                    super.onError(exception)
-                    Log.e("Camera", "Couldn't take photo: ", exception)
-                }
-            }
-        )
-    }
 
     private fun hasRequiredPermissions(): Boolean {
         return CAMERAX_PERMISSIONS.all {

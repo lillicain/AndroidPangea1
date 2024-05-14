@@ -1,5 +1,6 @@
 package com.example.androidpangea.views.cameraScreen
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
@@ -25,6 +26,7 @@ import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -37,11 +39,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.androidpangea.navigation.BottomNavigationBar
 import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CameraPermissionScreen() {
+fun CameraPermissionScreen(navController: NavController) {
 
     val CAMERAX_PERMISSIONS = arrayOf(
         android.Manifest.permission.CAMERA,
@@ -87,57 +93,66 @@ fun CameraPermissionScreen() {
             })
     }
 
+    Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
+            BottomSheetScaffold(
+                scaffoldState = scaffoldState,
+                sheetPeekHeight = 0.dp,
+                sheetContent = {
+                    PhotoBottomSheetContent(
+                        bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
+                    )
+                }) { padding ->
+                Box(
+                    modifier = Modifier.fillMaxSize().padding(padding).padding()
+                ) {
+                    CameraScreen(
+                        controller = controller, modifier = Modifier.fillMaxSize()
+                    )
 
-    BottomSheetScaffold(scaffoldState = scaffoldState, sheetPeekHeight = 0.dp, sheetContent = {
-        PhotoBottomSheetContent(
-            bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
-        )
-    }) { padding ->
-        Box(
-            modifier = Modifier.fillMaxSize().padding(padding)
-        ) {
-            CameraScreen(
-                controller = controller, modifier = Modifier.fillMaxSize()
-            )
-
-            IconButton(
-                onClick = {
-                    controller.cameraSelector =
-                        if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
-                            CameraSelector.DEFAULT_FRONT_CAMERA
-                        } else CameraSelector.DEFAULT_BACK_CAMERA
-                }, modifier = Modifier.offset(16.dp, 16.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Cameraswitch, contentDescription = "Switch camera"
-                )
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter).padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceAround
-            ) {
-                IconButton(onClick = {
-                    scope.launch {
-                        scaffoldState.bottomSheetState.expand()
+                    IconButton(
+                        onClick = {
+                            controller.cameraSelector =
+                                if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
+                                    CameraSelector.DEFAULT_FRONT_CAMERA
+                                } else CameraSelector.DEFAULT_BACK_CAMERA
+                        }, modifier = Modifier.offset(10.dp, 10.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Cameraswitch,
+                            contentDescription = "Switch camera"
+                        )
                     }
-                }) {
-                    Icon(
-                        imageVector = Icons.Default.Photo, contentDescription = "Open gallery"
-                    )
-                }
-                IconButton(onClick = {
-                    takePhoto(
-                        controller = controller, onPhotoTaken = viewModel::onTakePhoto
-                    )
-                }) {
-                    Icon(
-                        imageVector = Icons.Default.PhotoCamera, contentDescription = "Take photo"
-                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth()
+                            .align(Alignment.BottomCenter)
+                            .padding(10.dp)
+                            .padding(bottom = 50.dp),
+                        horizontalArrangement = Arrangement.SpaceAround
+
+                    ) {
+                        IconButton(onClick = {
+                            scope.launch {
+                                scaffoldState.bottomSheetState.expand()
+                            }
+                        }, modifier = Modifier.padding(bottom = 50.dp)) {
+                            Icon(
+                                imageVector = Icons.Default.Photo,
+                                contentDescription = "Open gallery"
+                            )
+                        }
+                        IconButton(onClick = {
+                            takePhoto(
+                                controller = controller, onPhotoTaken = viewModel::onTakePhoto
+                            )
+                        }, modifier = Modifier.padding(bottom = 50.dp)) {
+                            Icon(
+                                imageVector = Icons.Default.PhotoCamera,
+                                contentDescription = "Take photo"
+                            )
+                        }
+                    }
                 }
             }
         }
     }
-
-
-}
