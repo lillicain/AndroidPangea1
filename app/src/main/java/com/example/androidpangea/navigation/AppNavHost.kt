@@ -17,6 +17,8 @@ import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
+import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
+import com.example.androidpangea.views.firebaseScreen.FirebaseSignUpScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
@@ -87,25 +89,22 @@ fun AppNavHost(
         }
         composable(NavigationItem.SignUp.route) {
             SignUpScreen(
-                //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
-                //                onNavToLoginPage = { navController.navigate(NavigationItem.SignIn.route) },
                 navController = navController
             )
         }
 
         composable(NavigationItem.SignIn.route) {
             SignInScreen(
-                //                onNavToHomePage = { navController.navigate(NavigationItem.Main.route) },
-                //                onNavToSignUpPage = { navController.navigate(NavigationItem.SignUp.route) },
                 navController = navController
             )
         }
-        composable(NavigationItem.Auth.route) {
-            AuthScreen {
 
-            }
+        composable(NavigationItem.FirebaseSignIn.route) {
+            FirebaseSignInScreen()
         }
 
-
+        composable(NavigationItem.FirebaseSignUp.route) {
+            FirebaseSignUpScreen()
+        }
     }
 }

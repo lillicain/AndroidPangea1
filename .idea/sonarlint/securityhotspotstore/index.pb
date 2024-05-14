@@ -121,3 +121,5 @@ j
 Xapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseSignInScreen.kt,2/c/2c745b06f13abb09e6534f48fb28ce97c6f63400
 ˆ
 Xapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseSignUpScreen.kt,6/4/640cc6e2de55c52bc8d675adea37a040881488a7
+H
+app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9

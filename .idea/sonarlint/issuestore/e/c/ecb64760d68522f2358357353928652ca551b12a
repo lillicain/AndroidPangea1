@@ -1,18 +1,18 @@
 
-xkotlin:S1481M".Remove this unused "isLoading" local variable.(ÔæìŞıÿÿÿÿ8Ñ³âÈõ1J$f245a85c-103e-4090-9629-69ca65d6df90
-_kotlin:S1128"Remove this unused import.(ï›’8ÔüáÈõ1J$a89a4868-e9be-4796-a3d9-8e000dcd2c32
-dkotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8»‡ ©õ1J$a01a7403-e55d-44f5-85d5-ac7dbb170edd
-_kotlin:S1128"Remove this unused import.(­Ä‚˜8ÔüáÈõ1J$0a81e0c7-9704-4cda-8966-b871715d124d
-dkotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8»‡ ©õ1J$a6ad5263-869d-43dd-a756-d943f8a40cdf
-dkotlin:S1128"Remove this unused import.(ÂÕÉöúÿÿÿÿ8ÕüáÈõ1J$2dd94827-5f91-4f5d-98a7-1d26fc9fbb2d
-_kotlin:S1128"Remove this unused import.(íÑšê8ÕüáÈõ1J$c5dda998-27bc-4f30-9710-28b38b017510
-_kotlin:S1128 "Remove this unused import.(€Ğú¬8ÕüáÈõ1J$b8988654-9ed4-453a-9ef2-fbe7594df0b6
-dkotlin:S1128$"Remove this unused import.(®•¯øÿÿÿÿ8»‡ ©õ1J$5c6eb866-0226-41da-b979-284cd771038e
-_kotlin:S1128("Remove this unused import.(©ÎÖÅ8ÖüáÈõ1J$f56dbf5a-c71d-4027-a91a-c73ce482fc71
-^kotlin:S1128:"Remove this unused import.(±ÿu8»‡ ©õ1J$717c7171-0447-4ad9-b17b-0e6663077f82
-dkotlin:S1128?"Remove this unused import.(™‡ò¡úÿÿÿÿ8ÖüáÈõ1J$a55e5720-99c6-467f-a0fc-00ff78538c05
-dkotlin:S1128C"Remove this unused import.(™¾¬ñûÿÿÿÿ8ÖüáÈõ1J$3e863892-9781-4bae-a61a-f3b34ff76887
-dkotlin:S1128D"Remove this unused import.(£ñ¹¸ûÿÿÿÿ8×üáÈõ1J$34c8ef9c-55d0-45e8-b18f-83792808205a
-_kotlin:S1128E"Remove this unused import.(¡ ƒ¿8»‡ ©õ1J$6300632c-535f-447c-b155-168d265bb535
-—kotlin:S3776H"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(á‘ª8Ö³âÈõ1J$cc48bd0f-fd01-45f9-8466-f026f9c6556c
-¦kotlin:S3923¢"[Remove this conditional structure or edit its code blocks so that they're not all the same.(–Ãò–ûÿÿÿÿ8Ù³âÈõ1J$cc4b5c03-e5c5-48f8-984a-12974895f992
+Rkotlin:S1481M".Remove this unused "isLoading" local variable.(ÔæìŞıÿÿÿÿ8äìÅ÷1
+9kotlin:S1128"Remove this unused import.(ï›’8 äìÅ÷1
+>kotlin:S1128"Remove this unused import.(¼„÷ãûÿÿÿÿ8 äìÅ÷1
+9kotlin:S1128"Remove this unused import.(­Ä‚˜8 äìÅ÷1
+>kotlin:S1128"Remove this unused import.(úœË§ıÿÿÿÿ8 äìÅ÷1
+>kotlin:S1128"Remove this unused import.(ÂÕÉöúÿÿÿÿ8 äìÅ÷1
+9kotlin:S1128"Remove this unused import.(íÑšê8¡äìÅ÷1
+9kotlin:S1128 "Remove this unused import.(€Ğú¬8¡äìÅ÷1
+>kotlin:S1128$"Remove this unused import.(®•¯øÿÿÿÿ8¡äìÅ÷1
+9kotlin:S1128("Remove this unused import.(©ÎÖÅ8¡äìÅ÷1
+8kotlin:S1128:"Remove this unused import.(±ÿu8¡äìÅ÷1
+>kotlin:S1128?"Remove this unused import.(™‡ò¡úÿÿÿÿ8¡äìÅ÷1
+>kotlin:S1128C"Remove this unused import.(™¾¬ñûÿÿÿÿ8¡äìÅ÷1
+>kotlin:S1128D"Remove this unused import.(£ñ¹¸ûÿÿÿÿ8¡äìÅ÷1
+9kotlin:S1128E"Remove this unused import.(¡ ƒ¿8¡äìÅ÷1
+qkotlin:S3776H"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(á‘ª8£äìÅ÷1
+€kotlin:S3923¢"[Remove this conditional structure or edit its code blocks so that they're not all the same.(–Ãò–ûÿÿÿÿ8¦äìÅ÷1
