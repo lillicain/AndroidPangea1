@@ -37,7 +37,6 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @Composable
 fun UserScreen(
-//    userId: String,
     navController: NavController
 ) {
 
@@ -49,7 +48,7 @@ fun UserScreen(
         Column(modifier = Modifier.fillMaxSize()) {
             TopAppBar(
                 title = {
-                    Text("Profile", fontSize = 16.sp)
+                    Text("Sign Out", fontSize = 16.sp)
                 },
                 navigationIcon = {
                     IconButton(onClick = {

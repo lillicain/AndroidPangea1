@@ -28,12 +28,11 @@ object AppModule {
 
 
 
-
-    @Provides
-    @Singleton
-    fun providesDatabaseRepositoryImpl(): DatabaseRepository {
-        return DatabaseRepositoryImpl()
-    }
+//    @Provides
+//    @Singleton
+//    fun providesDatabaseRepositoryImpl(): DatabaseRepository {
+//        return DatabaseRepositoryImpl()
+//    }
 
     @Provides
     @Singleton

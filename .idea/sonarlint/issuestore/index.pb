@@ -123,3 +123,7 @@ Xapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseSignIn
 Xapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseSignUpScreen.kt,6/4/640cc6e2de55c52bc8d675adea37a040881488a7
 H
 app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9
+z
+Japp/src/main/java/com/example/androidpangea/extensions/FirebaseResource.kt,d/b/dbd4f3061ce9229dfe3acc412bbdb227edef8d1d
+t
+Dapp/src/main/java/com/example/androidpangea/extensions/Extensions.kt,c/8/c871255179246174a5b91d730eea320436e0c45e
