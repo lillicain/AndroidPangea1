@@ -19,6 +19,7 @@ import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignUpScreen
+import com.example.androidpangea.views.firebaseScreen.FirebaseViewModel
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
@@ -32,15 +33,16 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun AppNavHost(
     viewModel: MainViewModel = hiltViewModel(),
-    navController: NavHostController,
-//    navigator: DestinationsNavigator,
+    navController: NavHostController = rememberNavController(),
     modifier: Modifier = Modifier,
 ) {
-    val auth: FirebaseAuth by lazy { Firebase.auth }
+//    val auth: FirebaseAuth by lazy { Firebase.auth }
+
     val mapViewModel = MapViewModel()
-    var isSplashScreenFinished by rememberSaveable {
-        mutableStateOf(false)
-    }
+
+//    var isSplashScreenFinished by rememberSaveable {
+//        mutableStateOf(false)
+//    }
 
 
 
@@ -48,11 +50,12 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = if (isSplashScreenFinished) {
-            NavigationItem.Main.route
-        } else {
-            NavigationItem.SignIn.route
-        }
+        startDestination = NavigationItem.SignIn.route
+//        if (isSplashScreenFinished) {
+//            NavigationItem.Main.route
+//        } else {
+//            NavigationItem.SignIn.route
+//        }
     ) {
 
         composable(NavigationItem.Main.route) {

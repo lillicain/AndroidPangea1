@@ -1,27 +1,27 @@
 
-Bkotlin:S125c"Remove this commented out code.(ÿ˜õ…úÿÿÿÿ8³©²Å÷1
-\kotlin:S1481Z"8Remove this unused "isBottomSheetOpened" local variable.(™²ÿÙûÿÿÿÿ8¼©²Å÷1
-Tkotlin:S1481X"0Remove this unused "bottomSheet" local variable.(ÄŒÇĞıÿÿÿÿ8¼©²Å÷1
-Pkotlin:S1481O",Remove this unused "screens" local variable.(úŸßûÿÿÿÿ8¼©²Å÷1
-_kotlin:S1128"Remove this unused import.(ß¶İñ8²ÓÃÃ÷1J$0b775ea8-b806-46d1-9d7c-faf479c8f601
-dkotlin:S1128	"Remove this unused import.(£ØØùÿÿÿÿ8²ÓÃÃ÷1J$037f37be-51eb-483b-b32f-ea5f3c5fb297
-dkotlin:S1128"Remove this unused import.(½ùÒ»ÿÿÿÿÿ8²ÓÃÃ÷1J$68015ecf-1fbe-4ba5-b33c-2c9fa07ceb72
-_kotlin:S1128"Remove this unused import.(ÔÍÀï8²ÓÃÃ÷1J$9a1bd778-e307-4627-9b90-a9f8b282fff7
-_kotlin:S1128"Remove this unused import.(„ºö8²ÓÃÃ÷1J$fd2eced3-4496-4ce8-9f4c-dae90282620b
-^kotlin:S1128"Remove this unused import.(Ëî>8²ÓÃÃ÷1J$ec23e482-49d1-446f-9c1a-af45bc786c08
-_kotlin:S1128"Remove this unused import.(£«§ú8²ÓÃÃ÷1J$9dd772ea-c4ca-4e49-9f17-6ec92b3ceafd
-^kotlin:S1128"Remove this unused import.(ÿÈŞ}8²ÓÃÃ÷1J$1fa08ae5-bd23-4d58-be67-a9b03afe2b09
-_kotlin:S1128"Remove this unused import.(É‡Ş™8²ÓÃÃ÷1J$1a7d1e69-87b9-4723-8a0e-fa0ed7b695f3
-_kotlin:S1128"Remove this unused import.(çœÏ•8²ÓÃÃ÷1J$890cf0cc-7ab0-4669-83d1-9466380ae265
-dkotlin:S1128"Remove this unused import.(Á¿½ÿÿÿÿÿ8²ÓÃÃ÷1J$4478b24b-201e-4736-b4a8-9b3224703152
-_kotlin:S1128"Remove this unused import.(³‡Âá8²ÓÃÃ÷1J$07e1884b-c499-4f49-b4f0-5046630cde13
-9kotlin:S1128"Remove this unused import.(Äåì¾8À©²Å÷1
->kotlin:S1128"Remove this unused import.(÷à‚Ëûÿÿÿÿ8À©²Å÷1
-9kotlin:S1128"Remove this unused import.(† á×8À©²Å÷1
-9kotlin:S1128"Remove this unused import.(¨±È¤8À©²Å÷1
->kotlin:S1128"Remove this unused import.(½…Ò¦ıÿÿÿÿ8À©²Å÷1
->kotlin:S1128("Remove this unused import.(²ïØûıÿÿÿÿ8À©²Å÷1
->kotlin:S1128*"Remove this unused import.(‚ÅÎùúÿÿÿÿ8À©²Å÷1
-9kotlin:S1128+"Remove this unused import.(ôÄ¼ü8À©²Å÷1
-9kotlin:S1128."Remove this unused import.(íí›8À©²Å÷1
-vkotlin:S3776H"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ìøıäüÿÿÿÿ8Ã©²Å÷1
+hkotlin:S125c"Remove this commented out code.(ÿ˜õ…úÿÿÿÿ8ÕÎÕÅ÷1J$fbb4d56a-4324-4b90-b76f-11149cc99146
+‚kotlin:S1481Z"8Remove this unused "isBottomSheetOpened" local variable.(™²ÿÙûÿÿÿÿ8İÎÕÅ÷1J$e8da199e-a569-42c1-a022-c8ba6692f826
+zkotlin:S1481X"0Remove this unused "bottomSheet" local variable.(ÄŒÇĞıÿÿÿÿ8İÎÕÅ÷1J$d01236c5-02b7-40e8-a775-8434c6e82042
+vkotlin:S1481O",Remove this unused "screens" local variable.(úŸßûÿÿÿÿ8İÎÕÅ÷1J$da68ef88-1ec0-457a-923e-2b3626a1e921
+_kotlin:S1128"Remove this unused import.(ß¶İñ8²ÓÃÃ÷1J$faa02ab2-c631-42e0-af65-4ea22b76ad06
+dkotlin:S1128	"Remove this unused import.(£ØØùÿÿÿÿ8²ÓÃÃ÷1J$0b964b97-558c-4d8b-a771-57533171739f
+dkotlin:S1128"Remove this unused import.(½ùÒ»ÿÿÿÿÿ8²ÓÃÃ÷1J$cd4dd500-08c6-4fa1-b74a-bd2ba8ca0722
+_kotlin:S1128"Remove this unused import.(ÔÍÀï8²ÓÃÃ÷1J$e61e99a1-063a-4f90-90dd-51151912efb2
+_kotlin:S1128"Remove this unused import.(„ºö8²ÓÃÃ÷1J$22df4367-5166-420b-a24a-9c03bea731eb
+^kotlin:S1128"Remove this unused import.(Ëî>8²ÓÃÃ÷1J$d682fc5e-e07d-45f2-8001-b7766e10f1c7
+_kotlin:S1128"Remove this unused import.(£«§ú8²ÓÃÃ÷1J$a6cf390f-ecd0-4aa8-acd5-ae221fbe14f8
+^kotlin:S1128"Remove this unused import.(ÿÈŞ}8²ÓÃÃ÷1J$6602acce-92d2-4656-a1df-18fdfc66e482
+_kotlin:S1128"Remove this unused import.(É‡Ş™8²ÓÃÃ÷1J$b22bfb55-5009-432b-9ca1-9b106daadbfc
+_kotlin:S1128"Remove this unused import.(çœÏ•8²ÓÃÃ÷1J$e0620a4f-b14d-40ba-b48c-506e54209469
+dkotlin:S1128"Remove this unused import.(Á¿½ÿÿÿÿÿ8²ÓÃÃ÷1J$f8d90f48-8bc8-4da9-b21a-d6731760a376
+_kotlin:S1128"Remove this unused import.(³‡Âá8²ÓÃÃ÷1J$9cbdfc20-09f5-4220-aad1-8a0ca2f42c99
+_kotlin:S1128"Remove this unused import.(Äåì¾8À©²Å÷1J$09013526-bd5f-42cf-93b8-03c5d10655b0
+dkotlin:S1128"Remove this unused import.(÷à‚Ëûÿÿÿÿ8À©²Å÷1J$9c7d23aa-bccc-4d69-859a-d8400a9a9585
+_kotlin:S1128"Remove this unused import.(† á×8À©²Å÷1J$f5c77e77-9a1d-45d2-b224-4bf523fb2b7a
+_kotlin:S1128"Remove this unused import.(¨±È¤8À©²Å÷1J$3b223965-7b9f-459f-a4e9-51c81c22928a
+dkotlin:S1128"Remove this unused import.(½…Ò¦ıÿÿÿÿ8À©²Å÷1J$391c89ff-fb70-404a-bd03-09711697f2dc
+dkotlin:S1128("Remove this unused import.(²ïØûıÿÿÿÿ8À©²Å÷1J$bb0114d2-ca2d-43dc-bb1b-467f56d74607
+dkotlin:S1128*"Remove this unused import.(‚ÅÎùúÿÿÿÿ8À©²Å÷1J$c961f8c6-7eb1-4e94-ad0a-af0799f4954a
+_kotlin:S1128+"Remove this unused import.(ôÄ¼ü8À©²Å÷1J$b80b3e3e-8c3f-496b-a7d4-777877d345bc
+_kotlin:S1128."Remove this unused import.(íí›8àÎÕÅ÷1J$27a072a2-389a-4e57-af94-86693517acce
+œkotlin:S3776H"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ìøıäüÿÿÿÿ8Ã©²Å÷1J$adcb1484-dc20-4e89-9291-b54bef659547

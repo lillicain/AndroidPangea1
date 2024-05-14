@@ -67,8 +67,8 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "PotentialBehaviorOverride")
-@Composable
 @Destination(start = true)
+@Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
