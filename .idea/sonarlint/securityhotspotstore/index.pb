@@ -127,3 +127,5 @@ z
 Japp/src/main/java/com/example/androidpangea/extensions/FirebaseResource.kt,d/b/dbd4f3061ce9229dfe3acc412bbdb227edef8d1d
 t
 Dapp/src/main/java/com/example/androidpangea/extensions/Extensions.kt,c/8/c871255179246174a5b91d730eea320436e0c45e
+…
+Uapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseViewModel.kt,4/6/46223b6674b832c5d9f99b4a8f114f90b5d1ba2d
