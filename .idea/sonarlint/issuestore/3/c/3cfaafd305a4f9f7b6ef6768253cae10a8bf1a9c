@@ -1,6 +1,31 @@
 
-dkotlin:S1128"Remove this unused import.(¡»ãõýÿÿÿÿ8£¥‚È÷1J$e57e52ff-75e1-4443-b17e-c93f3c9af7b6
-9kotlin:S1128*"Remove this unused import.(ŠëÙ 8“Ò…È÷1
-_kotlin:S11282"Remove this unused import.(î±‚º8ýåƒÈ÷1J$87d2801e-a896-4a33-a656-987c02e91eb0
-_kotlin:S1128E"Remove this unused import.(¾æÜù8£¥‚È÷1J$1565389e-ffd5-4e24-b5a2-d990a969e49b
-_kotlin:S1128F"Remove this unused import.(ÙšÞ¶8£¥‚È÷1J$ea6c134a-c290-44fd-aa24-d698d982c115
+Ckotlin:S125Ê"Remove this commented out code.(™ˆÀ ÿÿÿÿÿ8Ð’±È÷1
+Skotlin:S1144•".Remove this unused private "takePhoto" method.(÷ºÝøÿÿÿÿ8Õ’±È÷1
+9kotlin:S1128"Remove this unused import.(¶×üê8à’±È÷1
+dkotlin:S1128"Remove this unused import.(¡»ãõýÿÿÿÿ8£¥‚È÷1J$11fa5037-bfbf-4646-89bf-fd102292eb43
+>kotlin:S1128"Remove this unused import.(š–¹´ûÿÿÿÿ8á’±È÷1
+>kotlin:S1128"Remove this unused import.(µ¢«Ïúÿÿÿÿ8á’±È÷1
+9kotlin:S1128"Remove this unused import.(° Á‹8á’±È÷1
+9kotlin:S1128"Remove this unused import.(ß¶Ýñ8á’±È÷1
+>kotlin:S1128"Remove this unused import.(½ùÒ»ÿÿÿÿÿ8á’±È÷1
+>kotlin:S1128"Remove this unused import.(…Ìèœúÿÿÿÿ8á’±È÷1
+>kotlin:S1128"Remove this unused import.(ô¿Þ†øÿÿÿÿ8á’±È÷1
+8kotlin:S1128"Remove this unused import.(žËî>8â’±È÷1
+>kotlin:S1128"Remove this unused import.(¢³í«ÿÿÿÿÿ8â’±È÷1
+>kotlin:S1128 "Remove this unused import.(Ñ¶¡Íÿÿÿÿÿ8â’±È÷1
+>kotlin:S1128!"Remove this unused import.(‰Œàèüÿÿÿÿ8â’±È÷1
+>kotlin:S1128""Remove this unused import.(ŒÉ„Íüÿÿÿÿ8â’±È÷1
+9kotlin:S1128$"Remove this unused import.(Äåì¾8â’±È÷1
+>kotlin:S1128%"Remove this unused import.(÷à‚Ëûÿÿÿÿ8â’±È÷1
+9kotlin:S1128("Remove this unused import.(øÎó‰8â’±È÷1
+>kotlin:S1128)"Remove this unused import.(®•¯øÿÿÿÿ8â’±È÷1
+_kotlin:S1128*"Remove this unused import.(ŠëÙ 8“Ò…È÷1J$376a36b3-736f-485b-9a5c-37252191ae2a
+9kotlin:S1128+"Remove this unused import.(ÀÄŽ8â’±È÷1
+9kotlin:S1128,"Remove this unused import.(©ÎÖÅ8ã’±È÷1
+>kotlin:S1128-"Remove this unused import.(ÏõÁÞþÿÿÿÿ8ã’±È÷1
+>kotlin:S1128/"Remove this unused import.(¸çÁßûÿÿÿÿ8ã’±È÷1
+_kotlin:S11282"Remove this unused import.(î±‚º8ýåƒÈ÷1J$691622ff-2944-4caf-b825-d5c48fc8a12e
+>kotlin:S11283"Remove this unused import.(ª×ˆùÿÿÿÿ8ã’±È÷1
+_kotlin:S1128E"Remove this unused import.(¾æÜù8£¥‚È÷1J$f5725e85-9e38-48d9-b624-433b8cf6319d
+_kotlin:S1128F"Remove this unused import.(ÙšÞ¶8£¥‚È÷1J$32fe2cb0-ec48-4104-9fd9-7c74c8c41ed4
+>kotlin:S1128H"Remove this unused import.(£ñ¹¸ûÿÿÿÿ8ã’±È÷1
