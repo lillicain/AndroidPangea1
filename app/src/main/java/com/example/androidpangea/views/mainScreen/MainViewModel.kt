@@ -15,13 +15,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(): ViewModel() {
-// private val repository: AuthRepository
-    private val _users =
-        MutableStateFlow< BaseState <List<User>, Failure>>(BaseState.Loading)
+
+    private val _users = MutableStateFlow<BaseState <List<User>, Failure>>(BaseState.Loading)
     val users = _users.asStateFlow()
 
-    private val _posts =
-        MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
+    private val _posts = MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
     val posts = _posts.asStateFlow()
 
     fun getUsers() {

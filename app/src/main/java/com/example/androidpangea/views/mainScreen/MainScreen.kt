@@ -76,20 +76,20 @@ fun MainScreen(
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,
     calculateZoneViewCenter: () -> LatLngBounds,
 ) {
-    val screens = listOf(
-        NavigationItem.Main.route,
-        NavigationItem.User.route,
-        NavigationItem.Camera.route,
-        NavigationItem.Explore.route,
-        "${NavigationItem.User.route}/{userid}",
-        NavigationItem.SignUp.route,
-        NavigationItem.SignIn.route
-    )
-    val bottomSheet = rememberModalBottomSheetState()
-
-    var isBottomSheetOpened by remember {
-        mutableStateOf(false)
-    }
+//    val screens = listOf(
+//        NavigationItem.Main.route,
+//        NavigationItem.User.route,
+//        NavigationItem.Camera.route,
+//        NavigationItem.Explore.route,
+//        "${NavigationItem.User.route}/{userid}",
+//        NavigationItem.SignUp.route,
+//        NavigationItem.SignIn.route
+//    )
+//    val bottomSheet = rememberModalBottomSheetState()
+//
+//    var isBottomSheetOpened by remember {
+//        mutableStateOf(false)
+//    }
 
     val mapProperties = MapProperties(isMyLocationEnabled = state.lastKnownLocation != null)
     val cameraPositionState = rememberCameraPositionState()
@@ -150,7 +150,8 @@ fun MainScreen(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
-        ) { //    CircularImage(imageUrl = user?.profileImage ?: "")
+        ) {
+            //    CircularImage(imageUrl = user?.profileImage ?: "")
             //        Text(text = user?.username ?: "")
 
 
