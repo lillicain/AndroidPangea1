@@ -13,6 +13,7 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
+import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.LifecycleCameraController
@@ -55,7 +56,15 @@ fun CameraContent(
         floatingActionButton = {
             ExtendedFloatingActionButton(
                 text = { Text(text = "Take photo") },
-                onClick = { capturePhoto(context, cameraController, onPhotoCaptured) },
+                onClick = {
+                    val mainExecutor = ContextCompat.getMainExecutor(context)
+                    cameraController.takePicture(mainExecutor, object: ImageCapture.OnImageCapturedCallback() {
+                        override fun onCaptureSuccess(image: ImageProxy) {
+                            super.onCaptureSuccess(image)
+                            image.toBitmap()
+                        }
+                    })
+                          },
                 icon = { Icon(imageVector = Icons.Default.Camera, contentDescription = "Camera capture icon") }
             )
         }
@@ -79,12 +88,12 @@ fun CameraContent(
                 }
             )
 
-            if (lastCapturedPhoto != null) {
-                LastPhotoPreview(
-                    modifier = Modifier.align(alignment = Alignment.BottomStart),
-                    lastCapturedPhoto = lastCapturedPhoto
-                )
-            }
+//            if (lastCapturedPhoto != null) {
+//                LastPhotoPreview(
+//                    modifier = Modifier.align(alignment = Alignment.BottomStart),
+//                    lastCapturedPhoto = lastCapturedPhoto
+//                )
+//            }
         }
     }
 }

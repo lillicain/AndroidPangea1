@@ -7,6 +7,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -16,7 +17,10 @@ import androidx.navigation.navArgument
 import com.example.androidpangea.views.authentication.AuthScreen
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
+import com.example.androidpangea.views.cameraScreen.CameraContent
 import com.example.androidpangea.views.cameraScreen.CameraScreen
+import com.example.androidpangea.views.cameraScreen.CameraState
+import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignUpScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseViewModel
@@ -24,7 +28,9 @@ import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
+import com.example.androidpangea.views.subviews.SavePhotoToGalleryUseCase
 import com.example.androidpangea.views.userScreen.UserScreen
+import com.google.android.play.integrity.internal.c
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -39,6 +45,7 @@ fun AppNavHost(
 //    val auth: FirebaseAuth by lazy { Firebase.auth }
 
     val mapViewModel = MapViewModel()
+
 
 //    var isSplashScreenFinished by rememberSaveable {
 //        mutableStateOf(false)
@@ -85,7 +92,9 @@ fun AppNavHost(
         }
 
         composable(NavigationItem.Camera.route) {
-            CameraScreen(navController = navController)
+//            CameraScreen()//navController = navController)
+//CameraScreen()
+
         }
         composable(NavigationItem.Explore.route) {
             ExploreScreen(navController = navController)
