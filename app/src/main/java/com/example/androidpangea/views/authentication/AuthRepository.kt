@@ -52,12 +52,3 @@ interface AuthRepository {
 //    }
 
 //}
-
-//interface AuthRepository {
-//    @SuppressLint("RestrictedApi")
-//    fun loginUser(email: String, password: String): Flow<Resource<AuthResult>>
-//
-//    @SuppressLint("RestrictedApi")
-//    fun registerUser(email: String, password: String): Flow<Resource<AuthResult>>
-//
-//}

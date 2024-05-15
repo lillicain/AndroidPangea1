@@ -153,3 +153,7 @@ Happ/src/main/java/com/example/androidpangea/navigation/bar/BottomIcon.kt,6/8/6
 Qapp/src/main/java/com/example/androidpangea/navigation/bar/BottomNavigationBar.kt,d/8/d857a7df0918b4844bc059dd292feb67f42dc513
 ~
 Napp/src/main/java/com/example/androidpangea/navigation/bar/BottomNavigation.kt,7/b/7b672f0414332d9dc57ea39d9fa790bcc22650cc
+s
+Capp/src/main/java/com/example/androidpangea/utils/GoogleMapsUtil.kt,3/0/3073ec1b9f862a9e3c8f6524bb72ba408ef46e91
+z
+Japp/src/main/java/com/example/androidpangea/views/subviews/SplashScreen.kt,a/d/ad9756becdbbd82489607f2041195f69c8ed349e
