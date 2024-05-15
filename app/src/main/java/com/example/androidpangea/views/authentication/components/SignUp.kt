@@ -75,14 +75,6 @@ fun SignUp(
                     showVerifyEmailMessage()
                 }
             }
-//            db.collection("users")
-//                                .add(isUserSignedUp))
-//                                .addOnSuccessListener { documentReference ->
-//                                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-//                                }
-//                                .addOnFailureListener { e ->
-//                                    Log.w(TAG, "Error adding document", e)
-//                                }
 
         }
         is Response.Failure -> signUpResponse.apply {
@@ -99,10 +91,6 @@ fun SignUpContent(
     signUp: (email: String, password: String) -> Unit,
     navController: NavController
 ) {
-val db = Firebase.firestore
-//    val database = Firebase.database
-//    val myRef = database.getReference("Users")
-
     var email by rememberSaveable(
         stateSaver = TextFieldValue.Saver,
         init = {
