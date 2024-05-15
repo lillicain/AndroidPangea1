@@ -1,13 +1,5 @@
 package com.example.androidpangea.views.authentication
 
-//data class LoginUIState(
-//    var email  :String = "",
-//    var password  :String = "",
-//
-//    var emailError :Boolean = false,
-//    var passwordError : Boolean = false
-//
-//)
 data class LoginUiState(
     val email: String = "",
     val password: String = ""
@@ -19,21 +11,15 @@ data class RegistrationUIState(
     var email  :String = "",
     var password  :String = "",
     var privacyPolicyAccepted :Boolean = false,
-
-
     var firstNameError :Boolean = false,
     var lastNameError : Boolean = false,
     var emailError :Boolean = false,
     var passwordError : Boolean = false,
     var privacyPolicyError:Boolean = false
-
-
 )
 
 
 object Validator {
-
-
     fun validateFirstName(fName: String): ValidationResult {
         return ValidationResult(
             (!fName.isNullOrEmpty() && fName.length >= 2)

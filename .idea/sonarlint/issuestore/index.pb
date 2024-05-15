@@ -139,3 +139,5 @@ Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/LastPhotoPreview
 Xapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraPermissionScreen.kt,a/6/a6afdba9a9eddcd0c04f98a521bce067b4ddb7e5
 |
 Lapp/src/main/java/com/example/androidpangea/views/authentication/Resource.kt,a/a/aa4a437a7eb7afcd4ff847c8544e2e69fd023951
+s
+Capp/src/main/java/com/example/androidpangea/navigation/AppRouter.kt,3/b/3bacc28ca7c5b80e222a0f0535360af5d8382412

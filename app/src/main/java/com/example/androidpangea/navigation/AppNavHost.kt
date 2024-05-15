@@ -45,29 +45,15 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 fun AppNavHost(
     viewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController = rememberNavController(),
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
-//    val auth: FirebaseAuth by lazy { Firebase.auth }
-
     val mapViewModel = MapViewModel()
-val cameraViewModel=CameraViewModel()
 
-
-//    var isSplashScreenFinished by rememberSaveable {
-//        mutableStateOf(false)
-//    }
-
-val context = LocalContext.current
 
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = NavigationItem.SignIn.route
-//        if (isSplashScreenFinished) {
-//            NavigationItem.Main.route
-//        } else {
-//            NavigationItem.SignIn.route
-//        }
     ) {
 
         composable(NavigationItem.Main.route) {
@@ -78,31 +64,12 @@ val context = LocalContext.current
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )
         }
-//        composable(
-//            "${NavigationItem.User.route}/{userid}",
-//            arguments = listOf(
-//                navArgument("userid") {
-//                    type = NavType.StringType
-//                }
-//            )) {
-//            val userId = it.arguments?.getString("userid")
-//            UserScreen(
-//                userId = userId.toString(),
-//                navController = navController
-//            )
-//        }
 
         composable(NavigationItem.User.route) {
             UserScreen(navController = navController)
         }
 
         composable(NavigationItem.Camera.route) {
-
-//CameraScreen(controller = remember {
-//LifecycleCameraController(context).apply {
-//setEnabledUseCases(CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE)
-//}
-//})
             CameraPermissionScreen(navController = navController)
         }
         composable(NavigationItem.Explore.route) {
