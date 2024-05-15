@@ -47,6 +47,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SignInScreen(viewModel: AuthViewModel = hiltViewModel(), navController: NavController) {
+
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
     val uiState by viewModel.uiState
 //    val auth: FirebaseAuth by lazy { Firebase.auth }
     val coroutineScope = rememberCoroutineScope()
@@ -128,7 +131,8 @@ fun SignInScreen(viewModel: AuthViewModel = hiltViewModel(), navController: NavC
                     value = stringResource(id = R.string.signIn),
                     onButtonClicked = {
                         navController.navigate(NavigationItem.Main.route)
-                        viewModel::loginInProgress
+//                        viewModel.loginUser(email = email, password = password)
+//                        viewModel::loginInProgress
                         //                        viewModel.onEvent(LoginUIEvent.LoginButtonClicked)
                     },
                     isEnabled = viewModel.allValidationsPassed.value,
@@ -137,7 +141,7 @@ fun SignInScreen(viewModel: AuthViewModel = hiltViewModel(), navController: NavC
                 )
                 Button(onClick = {
                     navController.navigate(NavigationItem.Main.route)
-                    viewModel::loginInProgress
+                    viewModel.loginInProgress
 
                 }) {
                     Text("Sign In")

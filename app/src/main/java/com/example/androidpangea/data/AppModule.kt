@@ -38,9 +38,9 @@ object AppModule {
     fun provideFirebaseViewModel(repository: DatabaseRepository): FirebaseViewModel = FirebaseViewModel(repository)
 
 
-    //    @Singleton
-    //    @Provides
-    //    fun provideAuthViewModel(repository: AuthRepository): AuthViewModel = AuthViewModel(repository)
+//    @Singleton
+//    @Provides
+//    fun provideAuthViewModel(repository: AuthRepository): AuthViewModel = AuthViewModel(repository)
 
     @Provides
     @Singleton

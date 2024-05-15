@@ -3,12 +3,18 @@ package com.example.androidpangea.views.authentication
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.androidpangea.navigation.Screen
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 //@HiltViewModel
 class AuthViewModel: ViewModel() {
@@ -45,6 +51,41 @@ class AuthViewModel: ViewModel() {
 
 
     }
+
+    private val _loginFlow = MutableStateFlow<Resource<FirebaseUser>?>(null)
+    val loginFlow: StateFlow<Resource<FirebaseUser>?> = _loginFlow
+
+    private val _signupFlow = MutableStateFlow<Resource<FirebaseUser>?>(null)
+    val signupFlow: StateFlow<Resource<FirebaseUser>?> = _signupFlow
+
+//    val currentUser: FirebaseUser?
+//        get() = repository.currentUser
+//
+//    init {
+//        if (repository.currentUser != null) {
+//            _loginFlow.value = Resource.Success(repository.currentUser!!)
+//        }
+//    }
+//
+//    fun loginUser(email: String, password: String) = viewModelScope.launch {
+//        _loginFlow.value = Resource.Loading
+//        val result = repository.login(email, password)
+//        _loginFlow.value = result
+//    }
+//
+//    fun signupUser(name: String, email: String, password: String) = viewModelScope.launch {
+//        _signupFlow.value = Resource.Loading
+//        val result = repository.signup(name, email, password)
+//        _signupFlow.value = result
+//    }
+//
+//    fun logout() {
+//        repository.logout()
+//        _loginFlow.value = null
+//        _signupFlow.value = null
+//    }
+}
+
 //    fun onEvent(event: LoginUIEvent) {
 //        when (event) {
 //            is LoginUIEvent.EmailChanged -> {
@@ -110,7 +151,6 @@ class AuthViewModel: ViewModel() {
 //
 //    }
 
-}
 
 
 //    private val _users = MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)
