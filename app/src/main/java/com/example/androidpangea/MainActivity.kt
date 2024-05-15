@@ -76,6 +76,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     private val mapViewModel: MapViewModel by viewModels()
@@ -104,6 +105,8 @@ class MainActivity : ComponentActivity() {
         if (!hasRequiredPermissions()) {
             ActivityCompat.requestPermissions(this, CAMERAX_PERMISSIONS, 0)
         }
+
+//        auth = Firebase.auth
 
         setContent {
             AndroidPangeaTheme {
