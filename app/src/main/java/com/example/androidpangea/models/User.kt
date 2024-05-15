@@ -5,5 +5,5 @@ data class User(
     val email: String,
     val username: String,
     val profileImage: String,
-
+    val posts: List<String>
 )

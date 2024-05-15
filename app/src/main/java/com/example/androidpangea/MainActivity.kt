@@ -64,6 +64,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -75,6 +77,7 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     private val mapViewModel: MapViewModel by viewModels()
 
 
@@ -83,7 +86,7 @@ class MainActivity : ComponentActivity() {
 //    private val authViewModel: AuthViewModel by viewModels()
 
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean -> if (isGranted) { mapViewModel.getDeviceLocation(fusedLocationProviderClient) } }
-
+    val db = Firebase.firestore
     private fun askPermissions() = when {
         ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
             mapViewModel.getDeviceLocation(fusedLocationProviderClient)
@@ -104,6 +107,7 @@ class MainActivity : ComponentActivity() {
         }
 
         auth = Firebase.auth
+        firestore = Firebase.firestore
 
         setContent {
             AndroidPangeaTheme {

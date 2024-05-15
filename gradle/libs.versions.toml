@@ -39,6 +39,8 @@ browser = "1.8.0"
 firebase-firestore-ktx = "25.0.0"
 google-gms-google-services = "4.4.1"
 firebase-auth = "23.0.0"
+firebase-firestore = "25.0.0"
+firebase-database-ktx = "21.0.0"
 
 [libraries]
 
@@ -89,6 +91,8 @@ camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "
 browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebase-firestore-ktx" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebase-auth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebase-firestore" }
+firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebase-database-ktx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "android-application" }

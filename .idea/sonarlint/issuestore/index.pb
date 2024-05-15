@@ -139,3 +139,7 @@ q
 Aapp/src/main/java/com/example/androidpangea/extensions/Failure.kt,2/0/2083d9abefbf4b503adbf9d92f75af31be19ee31
 ƒ
 Sapp/src/main/java/com/example/androidpangea/views/authentication/SignInViewModel.kt,a/3/a3c40aca21343b9c428c81e5743bca6bb58055a8
+x
+Happ/src/main/java/com/example/androidpangea/views/postScreen/PostCard.kt,3/3/33038854a9724e3fef9a79a2203ee97828fa2171
+x
+Happ/src/main/java/com/example/androidpangea/views/postScreen/PostItem.kt,2/1/214afbec61206cc300a6d4da6563e06caee50d02

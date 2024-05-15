@@ -1,5 +1,6 @@
 package com.example.androidpangea.views.authentication.components
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,6 +30,7 @@ import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.utils.Constants.EMPTY_STRING
 import com.example.androidpangea.utils.Constants.SIGN_UP_BUTTON
 import com.example.androidpangea.utils.Constants.SIGN_UP_SCREEN
+import com.example.androidpangea.utils.Constants.TAG
 import com.example.androidpangea.views.authentication.BackIcon
 import com.example.androidpangea.views.authentication.EmailField
 import com.example.androidpangea.views.authentication.PasswordField
@@ -36,6 +38,9 @@ import com.example.androidpangea.views.authentication.Response
 import com.example.androidpangea.views.authentication.SignUpViewModel
 import com.example.androidpangea.views.authentication.SmallSpacer
 import com.example.androidpangea.views.authentication.ProgressBar
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
+import com.google.firebase.firestore.firestore
 
 
 @Composable
@@ -63,12 +68,22 @@ fun SignUp(
         is Response.Loading -> ProgressBar()
         is Response.Success -> {
             val isUserSignedUp = signUpResponse.data
+            val db = Firebase.firestore
             LaunchedEffect(isUserSignedUp) {
                 if (isUserSignedUp) {
                     sendEmailVerification()
                     showVerifyEmailMessage()
                 }
             }
+//            db.collection("users")
+//                                .add(isUserSignedUp))
+//                                .addOnSuccessListener { documentReference ->
+//                                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+//                                }
+//                                .addOnFailureListener { e ->
+//                                    Log.w(TAG, "Error adding document", e)
+//                                }
+
         }
         is Response.Failure -> signUpResponse.apply {
             LaunchedEffect(e) {
@@ -84,6 +99,10 @@ fun SignUpContent(
     signUp: (email: String, password: String) -> Unit,
     navController: NavController
 ) {
+val db = Firebase.firestore
+//    val database = Firebase.database
+//    val myRef = database.getReference("Users")
+
     var email by rememberSaveable(
         stateSaver = TextFieldValue.Saver,
         init = {
@@ -132,6 +151,8 @@ fun SignUpContent(
                 keyboard?.hide()
                 signUp(email.text, password.text)
                 navController.navigate(NavigationItem.Main.route)
+//                myRef.setValue(signUp(email.text, password.text))
+//
             }
         ) {
             Text(

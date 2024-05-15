@@ -38,7 +38,6 @@ import kotlinx.coroutines.launch
 @Destination(start = true)
 @Composable
 fun MainScreen(
-    modifier: Modifier = Modifier,
     navController: NavController,
     state: MapState,
     setupClusterManager: (Context, GoogleMap) -> MapItemManager,

@@ -56,7 +56,7 @@ fun PostItem(
     onMoreClick: () -> Unit,
 ) {
     var views by remember {
-        mutableIntStateOf(post.views)
+        mutableIntStateOf(0)
     }
     var isExpanded by remember {
         mutableStateOf(false)
