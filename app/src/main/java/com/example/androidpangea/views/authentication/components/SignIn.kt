@@ -26,6 +26,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.utils.Constants.EMPTY_STRING
 import com.example.androidpangea.utils.Constants.FORGOT_PASSWORD
 import com.example.androidpangea.utils.Constants.NO_ACCOUNT
@@ -62,9 +64,7 @@ fun SignIn(
 fun SignInContent(
     padding: PaddingValues,
     signIn: (email: String, password: String) -> Unit,
-    navigate: Unit,
-//    navigateToForgotPasswordScreen: () -> Unit,
-//    navigateToSignUpScreen: () -> Unit
+    navController: NavController
 ) {
     var email by rememberSaveable(
         stateSaver = TextFieldValue.Saver,
@@ -113,6 +113,7 @@ fun SignInContent(
             onClick = {
                 keyboard?.hide()
                 signIn(email.text, password.text)
+                navController.navigate(NavigationItem.Main.route)
             }
         ) {
             Text(
@@ -123,7 +124,6 @@ fun SignInContent(
         Row {
             Text(
                 modifier = Modifier.clickable {
-//                    navigateToForgotPasswordScreen()
                 },
                 text = FORGOT_PASSWORD,
                 fontSize = 15.sp
@@ -136,7 +136,7 @@ fun SignInContent(
             )
             Text(
                 modifier = Modifier.clickable {
-//                    navigateToSignUpScreen()
+                    navController.navigate(NavigationItem.SignUp.route)
                 },
                 text = NO_ACCOUNT,
                 fontSize = 15.sp

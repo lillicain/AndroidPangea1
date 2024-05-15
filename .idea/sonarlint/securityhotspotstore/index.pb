@@ -157,3 +157,5 @@ j
 dapp/src/main/java/com/example/androidpangea/views/authentication/components/SendEmailVerification.kt,d/0/d04d0c1ce4f556fa9ce472ce77d4006be440da7a
 …
 Uapp/src/main/java/com/example/androidpangea/views/authentication/components/SignIn.kt,b/3/b35595be1bb432adff5569b565a97eb9218cde2d
+…
+Uapp/src/main/java/com/example/androidpangea/views/authentication/components/SignUp.kt,8/d/8da1b1d8c3f6f5a6d8393ae5f85f09c9c968ffd2

@@ -6,6 +6,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.utils.Utils.Companion.showMessage
 import com.example.androidpangea.views.authentication.components.SignIn
@@ -33,9 +34,7 @@ fun SignInScreen(
                 signIn = { email, password ->
                     viewModel.signInWithEmailAndPassword(email, password)
                 },
-                navController.navigate(NavigationItem.SignUp.route)
-//                navigateToForgotPasswordScreen = navigateToForgotPasswordScreen,
-//                navigateToSignUpScreen = navigateToSignUpScreen
+               navController =  navController
             )
         }
     )

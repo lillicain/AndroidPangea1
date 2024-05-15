@@ -3,7 +3,6 @@ package com.example.androidpangea.views.authentication.components
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -26,11 +25,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidpangea.navigation.NavigationItem
-import com.example.androidpangea.utils.Constants.ALREADY_USER
 import com.example.androidpangea.utils.Constants.EMPTY_STRING
 import com.example.androidpangea.utils.Constants.SIGN_UP_BUTTON
 import com.example.androidpangea.utils.Constants.SIGN_UP_SCREEN
-import com.example.androidpangea.views.authentication.BackIcon
 import com.example.androidpangea.views.authentication.EmailField
 import com.example.androidpangea.views.authentication.PasswordField
 import com.example.androidpangea.views.authentication.Response
@@ -133,6 +130,7 @@ fun SignUpContent(
             onClick = {
                 keyboard?.hide()
                 signUp(email.text, password.text)
+                navController.navigate(NavigationItem.Main.route)
             }
         ) {
             Text(

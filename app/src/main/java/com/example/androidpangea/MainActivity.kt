@@ -59,8 +59,6 @@ import com.example.androidpangea.views.cameraScreen.CameraContent
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
 import com.example.androidpangea.views.cameraScreen.PhotoBottomSheetContent
-import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
-import com.example.androidpangea.views.firebaseScreen.FirebaseSignUpScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient

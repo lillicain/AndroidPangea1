@@ -7,15 +7,12 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.lifecycle.ViewModel
 import com.example.androidpangea.extensions.DatabaseRepository
 import com.example.androidpangea.extensions.DatabaseRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthRepository
 import com.example.androidpangea.views.authentication.AuthRepositoryImpl
-import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepo
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepoImpl
-import com.example.androidpangea.views.firebaseScreen.FirebaseViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -37,10 +34,6 @@ object AppModule {
 
     @Provides
     fun provideAuthRepository(): AuthRepository = AuthRepositoryImpl(auth = Firebase.auth)
-
-    @Singleton
-    @Provides
-    fun provideFirebaseViewModel(repository: DatabaseRepository): FirebaseViewModel = FirebaseViewModel(repository)
 
 
 //    @Singleton

@@ -11,6 +11,7 @@ import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 
+@Suppress("SpellCheckingInspection")
 enum class Screen {
     MAIN,
     USER,
@@ -19,9 +20,7 @@ enum class Screen {
     PHOTO,
     EXPLORE,
     SIGNUP,
-    SIGNIN,
-    FIREBASESIGNUP,
-    FIREBASESIGNIN
+    SIGNIN
 }
 
 sealed class NavigationItem(val route: String, val icon: ImageVector?) {
@@ -33,6 +32,4 @@ sealed class NavigationItem(val route: String, val icon: ImageVector?) {
     object Explore: NavigationItem(Screen.EXPLORE.name, icon = Icons.Filled.Search)
     object SignIn: NavigationItem(Screen.SIGNIN.name, icon = Icons.Rounded.Home)
     object SignUp: NavigationItem(Screen.SIGNUP.name, icon = Icons.Rounded.Home)
-    object FirebaseSignIn: NavigationItem(Screen.FIREBASESIGNIN.name, icon = Icons.Rounded.Home)
-    object FirebaseSignUp: NavigationItem(Screen.FIREBASESIGNUP.name, icon = Icons.Rounded.Home)
 }
