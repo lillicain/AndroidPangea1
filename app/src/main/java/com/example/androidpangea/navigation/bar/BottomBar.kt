@@ -1,4 +1,4 @@
-package com.example.androidpangea.navigation
+package com.example.androidpangea.navigation.bar
 
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
@@ -28,9 +28,3 @@ fun BottomBar(items: List<BottomNavigationItem>, currentNavIndex: Int, onClick: 
     }
 }
 
-data class BottomNavigationItem(
-    var id: String,
-var title: String,
-var selectedIcon: ImageVector,
-var unselectedIcon: ImageVector
-)

@@ -1,4 +1,4 @@
-package com.example.androidpangea.navigation
+package com.example.androidpangea.navigation.bar
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material3.Icon

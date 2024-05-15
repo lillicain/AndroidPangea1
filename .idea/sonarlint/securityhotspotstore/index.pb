@@ -141,3 +141,15 @@ Xapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraPermission
 Lapp/src/main/java/com/example/androidpangea/views/authentication/Resource.kt,a/a/aa4a437a7eb7afcd4ff847c8544e2e69fd023951
 s
 Capp/src/main/java/com/example/androidpangea/navigation/AppRouter.kt,3/b/3bacc28ca7c5b80e222a0f0535360af5d8382412
+w
+Gapp/src/main/java/com/example/androidpangea/navigation/bar/BottomBar.kt,9/e/9efb1f3d5c968a7c8b896042bc45164f7210fdb7
+Ç
+Rapp/src/main/java/com/example/androidpangea/navigation/bar/BottomNavigationItem.kt,9/d/9d8992538933468c8cf3d6b6c3db5539ede6dc12
+{
+Kapp/src/main/java/com/example/androidpangea/navigation/bar/BottomNavItem.kt,8/2/827d0f7507078ad8b115e71b5e2ad7973aa47695
+x
+Happ/src/main/java/com/example/androidpangea/navigation/bar/BottomIcon.kt,6/8/688c8295819f265e680407727cdff241717a251c
+Å
+Qapp/src/main/java/com/example/androidpangea/navigation/bar/BottomNavigationBar.kt,d/8/d857a7df0918b4844bc059dd292feb67f42dc513
+~
+Napp/src/main/java/com/example/androidpangea/navigation/bar/BottomNavigation.kt,7/b/7b672f0414332d9dc57ea39d9fa790bcc22650cc

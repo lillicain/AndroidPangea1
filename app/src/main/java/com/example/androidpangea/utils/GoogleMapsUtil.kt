@@ -1,4 +1,4 @@
-package com.example.androidpangea.extensions
+package com.example.androidpangea.utils
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds

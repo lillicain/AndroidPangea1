@@ -10,6 +10,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import com.example.androidpangea.extensions.DatabaseRepository
 import com.example.androidpangea.extensions.DatabaseRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthRepository
+import com.example.androidpangea.views.authentication.AuthRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepo
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepoImpl

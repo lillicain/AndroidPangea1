@@ -1,7 +1,6 @@
 package com.example.androidpangea.views.cameraScreen
 
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
 import android.util.Log
@@ -40,8 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.androidpangea.navigation.BottomNavigationBar
+import com.example.androidpangea.navigation.bar.BottomNavigationBar
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

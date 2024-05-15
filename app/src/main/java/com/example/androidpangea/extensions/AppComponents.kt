@@ -64,7 +64,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.androidpangea.R
-import com.example.androidpangea.navigation.BottomNavigationItem
+import com.example.androidpangea.navigation.bar.BottomNavigationItem
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.ui.theme.AccentColor
 import com.example.androidpangea.ui.theme.GrayColor
@@ -73,7 +73,6 @@ import com.example.androidpangea.ui.theme.Secondary
 import com.example.androidpangea.ui.theme.TextColor
 import com.example.androidpangea.ui.theme.WhiteColor
 import com.example.androidpangea.ui.theme.componentShapes
-import com.google.common.io.Files.append
 
 @Composable
 fun NormalTextComponent(value: String) {
