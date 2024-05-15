@@ -107,7 +107,7 @@ class MainActivity : ComponentActivity() {
             ActivityCompat.requestPermissions(this, CAMERAX_PERMISSIONS, 0)
         }
 
-//        auth = Firebase.auth
+        auth = Firebase.auth
 
         setContent {
             AndroidPangeaTheme {
