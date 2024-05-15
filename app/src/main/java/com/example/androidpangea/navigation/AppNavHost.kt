@@ -26,6 +26,7 @@ import com.example.androidpangea.views.cameraScreen.CameraContent
 import com.example.androidpangea.views.cameraScreen.CameraPermissionScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
+import com.example.androidpangea.views.cameraScreen.PhotoScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignInScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseSignUpScreen
 import com.example.androidpangea.views.firebaseScreen.FirebaseViewModel
@@ -93,6 +94,9 @@ fun AppNavHost(
 
         composable(NavigationItem.FirebaseSignUp.route) {
             FirebaseSignUpScreen(navController = navController)
+        }
+        composable(NavigationItem.Photo.route) {
+            PhotoScreen(navController = navController)
         }
     }
 }

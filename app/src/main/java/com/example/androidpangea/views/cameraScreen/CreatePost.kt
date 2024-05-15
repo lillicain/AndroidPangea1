@@ -7,3 +7,4 @@ import com.example.androidpangea.views.subviews.ImagePicker
 fun CreatePost() {
     ImagePicker()
 }
+

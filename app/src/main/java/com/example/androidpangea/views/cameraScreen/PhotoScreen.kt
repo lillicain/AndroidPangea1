@@ -1,4 +1,4 @@
-package com.example.androidpangea.views.userScreen
+package com.example.androidpangea.views.cameraScreen
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
@@ -23,7 +23,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Destination
 @Composable
-fun UserScreen(
+fun PhotoScreen(
     navController: NavController
 ) {
 

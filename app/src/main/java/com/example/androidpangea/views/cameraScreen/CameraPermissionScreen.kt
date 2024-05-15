@@ -3,7 +3,11 @@ package com.example.androidpangea.views.cameraScreen
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.net.Uri
 import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -17,6 +21,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.filled.Photo
@@ -28,10 +34,13 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -39,7 +48,10 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import coil.compose.AsyncImage
+import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.bar.BottomNavigationBar
+import com.example.androidpangea.views.subviews.ImagePicker
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -61,6 +73,12 @@ fun CameraPermissionScreen(navController: NavController) {
     }
     val viewModel = viewModel<CameraViewModel>()
     val bitmaps by viewModel.bitmaps.collectAsState()
+    var imageUris by remember { mutableStateOf<List<Uri?>>(emptyList()) }
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickMultipleVisualMedia(),
+        onResult = { uri: List<Uri?> -> imageUris = uri }
+    )
+
 
     fun takePhoto(controller: LifecycleCameraController, onPhotoTaken: (Bitmap) -> Unit) {
 
@@ -98,7 +116,10 @@ fun CameraPermissionScreen(navController: NavController) {
                     )
                 }) { padding ->
                 Box(
-                    modifier = Modifier.fillMaxSize().padding(padding).padding()
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(padding)
+                        .padding()
                 ) {
                     CameraScreen(
                         controller = controller, modifier = Modifier.fillMaxSize()
@@ -119,7 +140,8 @@ fun CameraPermissionScreen(navController: NavController) {
                     }
 
                     Row(
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .align(Alignment.BottomCenter)
                             .padding(10.dp)
                             .padding(bottom = 50.dp),
@@ -144,6 +166,16 @@ fun CameraPermissionScreen(navController: NavController) {
                             Icon(
                                 imageVector = Icons.Default.PhotoCamera,
                                 contentDescription = "Take photo"
+                            )
+                        }
+
+                        IconButton(onClick = {
+                           navController.navigate(NavigationItem.Photo.route)
+
+                        }, modifier = Modifier.padding(bottom = 50.dp)) {
+                            Icon(
+                                imageVector = Icons.Default.PhotoCamera,
+                                contentDescription = "Choose from photo library"
                             )
                         }
                     }

@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 
 @Composable
@@ -23,7 +24,6 @@ fun ImagePicker() {
         contract = ActivityResultContracts.PickMultipleVisualMedia(),
         onResult = { uri: List<Uri?> -> imageUris = uri }
     )
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()

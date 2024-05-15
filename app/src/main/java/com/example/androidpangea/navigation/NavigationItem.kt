@@ -16,6 +16,7 @@ enum class Screen {
     USER,
     MAP,
     CAMERA,
+    PHOTO,
     EXPLORE,
     SIGNUP,
     SIGNIN,
@@ -28,6 +29,7 @@ sealed class NavigationItem(val route: String, val icon: ImageVector?) {
     object User : NavigationItem(Screen.USER.name, icon = Icons.Filled.Person)
     object Map : NavigationItem(Screen.MAP.name, icon = Icons.Filled.PinDrop)
     object Camera: NavigationItem(Screen.CAMERA.name, icon = Icons.Filled.Camera)
+    object Photo: NavigationItem(Screen.PHOTO.name, icon = Icons.Filled.Camera)
     object Explore: NavigationItem(Screen.EXPLORE.name, icon = Icons.Filled.Search)
     object SignIn: NavigationItem(Screen.SIGNIN.name, icon = Icons.Rounded.Home)
     object SignUp: NavigationItem(Screen.SIGNUP.name, icon = Icons.Rounded.Home)

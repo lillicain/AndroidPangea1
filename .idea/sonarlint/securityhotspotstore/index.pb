@@ -143,3 +143,7 @@ s
 Capp/src/main/java/com/example/androidpangea/utils/GoogleMapsUtil.kt,3/0/3073ec1b9f862a9e3c8f6524bb72ba408ef46e91
 z
 Japp/src/main/java/com/example/androidpangea/views/subviews/SplashScreen.kt,a/d/ad9756becdbbd82489607f2041195f69c8ed349e
+y
+Iapp/src/main/java/com/example/androidpangea/views/subviews/ImagePicker.kt,b/0/b021c213c237755c79d91425c3c0f70243d45216
+}
+Mapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoScreen.kt,3/5/359ee42e57b60bb737deff58b4bd82821d1d1f21
