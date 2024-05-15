@@ -7,6 +7,7 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.lifecycle.ViewModel
 import com.example.androidpangea.extensions.DatabaseRepository
 import com.example.androidpangea.extensions.DatabaseRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthRepository
@@ -14,6 +15,7 @@ import com.example.androidpangea.views.authentication.AuthRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepo
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepoImpl
+import com.example.androidpangea.views.firebaseScreen.FirebaseViewModel
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
@@ -29,11 +31,16 @@ object AppModule {
     fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
     @Provides
-    fun providesAuthRepository(impl: DatabaseRepositoryImpl): DatabaseRepository = impl
+    fun providesDatabaseRepository(impl: DatabaseRepositoryImpl): DatabaseRepository = impl
 
-//    @Singleton
-//    @Provides
-//    fun provideAuthViewModel(repository: AuthRepository) : AuthViewModel = AuthViewModel(repository)
+    @Singleton
+    @Provides
+    fun provideFirebaseViewModel(repository: DatabaseRepository): FirebaseViewModel = FirebaseViewModel(repository)
+
+
+    //    @Singleton
+    //    @Provides
+    //    fun provideAuthViewModel(repository: AuthRepository): AuthViewModel = AuthViewModel(repository)
 
     @Provides
     @Singleton
@@ -45,10 +52,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCameraProvider(application: Application)
-            : ProcessCameraProvider {
+    fun provideCameraProvider(application: Application): ProcessCameraProvider {
         return ProcessCameraProvider.getInstance(application).get()
-
     }
 
     @Provides
@@ -76,19 +81,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCustomCameraRepo(
-        cameraProvider: ProcessCameraProvider,
-        selector: CameraSelector,
-        imageCapture: ImageCapture,
-        imageAnalysis: ImageAnalysis,
-        preview: Preview
-    ): CustomCameraRepo {
-        return CustomCameraRepoImpl(
-            cameraProvider,
-            selector,
-            preview,
-            imageAnalysis,
-            imageCapture
-        )
+    fun provideCustomCameraRepo(cameraProvider: ProcessCameraProvider, selector: CameraSelector, imageCapture: ImageCapture, imageAnalysis: ImageAnalysis, preview: Preview): CustomCameraRepo {
+        return CustomCameraRepoImpl(cameraProvider, selector, preview, imageAnalysis, imageCapture)
     }
 }
