@@ -140,8 +140,11 @@ fun SignInScreen(
                     navController = rememberNavController()
 
                 )
-                Button(onClick = { navController.navigate(NavigationItem.Main.route)
-                    viewModel::loginInProgress}) {
+                Button(onClick = {
+                    navController.navigate(NavigationItem.Main.route)
+                    viewModel::loginInProgress
+
+                }) {
                     Text("Sign In")
                 }
 

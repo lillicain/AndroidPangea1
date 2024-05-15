@@ -83,11 +83,11 @@ fun AppNavHost(
         }
 
         composable(NavigationItem.FirebaseSignIn.route) {
-            FirebaseSignInScreen()
+            FirebaseSignInScreen(navController = navController)
         }
 
         composable(NavigationItem.FirebaseSignUp.route) {
-            FirebaseSignUpScreen()
+            FirebaseSignUpScreen(navController = navController)
         }
     }
 }
