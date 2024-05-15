@@ -17,24 +17,24 @@ class DatabaseRepositoryImpl @Inject constructor(private val firebaseAuth: Fireb
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
 
-    override suspend fun login(email: String, password: String): Resource<FirebaseUser> {
+    override suspend fun login(email: String, password: String): FirebaseResource<FirebaseUser> {
         return try {
             val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
-            Resource.Success(result.user!!)
+            FirebaseResource.Success(result.user!!)
         } catch (e: Exception) {
             e.printStackTrace()
-            Resource.Failure(e)
+            FirebaseResource.Failure(e)
         }
     }
 
-    override suspend fun signup(name: String, email: String, password: String): Resource<FirebaseUser> {
+    override suspend fun signup(name: String, email: String, password: String): FirebaseResource<FirebaseUser> {
         return try {
             val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
             result.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())?.await()
-            return Resource.Success(result.user!!)
+            return FirebaseResource.Success(result.user!!)
         } catch (e: Exception) {
             e.printStackTrace()
-            Resource.Failure(e)
+            FirebaseResource.Failure(e)
         }
     }
 

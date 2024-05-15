@@ -15,7 +15,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import com.example.androidpangea.R
-import com.example.androidpangea.extensions.Resource
 import com.example.androidpangea.navigation.NavigationItem
 
 @Composable
