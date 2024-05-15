@@ -87,19 +87,11 @@ fun CameraContent(
                     }
                 }
             )
-
-//            if (lastCapturedPhoto != null) {
-//                LastPhotoPreview(
-//                    modifier = Modifier.align(alignment = Alignment.BottomStart),
-//                    lastCapturedPhoto = lastCapturedPhoto
-//                )
-//            }
         }
     }
 }
 
 interface CustomCameraRepo {
-
     suspend fun captureAndSaveImage(context:Context)
     suspend fun showCameraPreview(
         previewView: PreviewView,
@@ -114,19 +106,19 @@ class CustomCameraRepoImpl @Inject constructor(
     private val imageAnalysis: ImageAnalysis,
     private val imageCapture: ImageCapture
 ):CustomCameraRepo {
-
-
     override suspend fun captureAndSaveImage(
         context: Context
     ) {
 
-        //for file name
+        // FILE NAME
+
         val name = SimpleDateFormat(
             "yyyy-MM-dd-HH-mm-ss-SSS", Locale.ENGLISH
         ).format(System.currentTimeMillis())
 
 
-        // for storing
+        // STORE
+
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
@@ -135,24 +127,19 @@ class CustomCameraRepoImpl @Inject constructor(
             }
         }
 
-        // for capture output
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(
-                context.contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues
-            ).build()
+        // CAPTURE OUTPUT
+
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(context.contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues).build()
 
         imageCapture.takePicture(outputOptions,
             ContextCompat.getMainExecutor(context),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    Toast.makeText(
-                        context, "Saved image ${outputFileResults.savedUri!!}", Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(context, "Saved image ${outputFileResults.savedUri!!}", Toast.LENGTH_LONG).show()
                 }
 
                 override fun onError(exception: ImageCaptureException) {
-                    Toast.makeText(
-                        context, "some error occurred ${exception.message}", Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(context, "some error occurred ${exception.message}", Toast.LENGTH_LONG).show()
                 }
             })
 
@@ -162,7 +149,6 @@ class CustomCameraRepoImpl @Inject constructor(
     override suspend fun showCameraPreview(
         previewView: PreviewView, lifecycleOwner: LifecycleOwner
     ) {
-
         preview.setSurfaceProvider(previewView.surfaceProvider)
         try {
             cameraProvider.unbindAll()
