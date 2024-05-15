@@ -21,8 +21,11 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.utils.Constants.ALREADY_USER
 import com.example.androidpangea.utils.Constants.EMPTY_STRING
 import com.example.androidpangea.utils.Constants.SIGN_UP_BUTTON
@@ -79,9 +82,9 @@ fun SignUp(
 @Composable
 @ExperimentalComposeUiApi
 fun SignUpContent(
-//    padding: PaddingValues,
+    //    padding: PaddingValues,
     signUp: (email: String, password: String) -> Unit,
-//    navigateBack: () -> Unit
+    navController: NavController
 ) {
     var email by rememberSaveable(
         stateSaver = TextFieldValue.Saver,
@@ -107,8 +110,8 @@ fun SignUpContent(
 
     Column(
         modifier = Modifier
-            .fillMaxSize(),
-//            .padding(padding),
+            .fillMaxSize()
+            .padding(10.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -139,9 +142,9 @@ fun SignUpContent(
         }
         Text(
             modifier = Modifier.clickable {
-//                navigateBack()
+                navController.navigate(NavigationItem.SignIn.route)
             },
-            text = ALREADY_USER,
+            text = "Already have an account?",
             fontSize = 15.sp
         )
     }
@@ -159,9 +162,9 @@ fun SignUpTopBar(
             )
         },
         navigationIcon = {
-//            BackIcon(
-////                navigateBack = navigateBack
-//            )
+            //            BackIcon(
+            ////                navigateBack = navigateBack
+            //            )
         }
     )
 }

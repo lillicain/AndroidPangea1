@@ -37,7 +37,7 @@ fun SignUpScreen(
                 signUp = { email, password ->
                     viewModel.signUpWithEmailAndPassword(email, password)
                 },
-//                navigateBack = navigateBack
+                navController = navController
             )
 //        }
 //    )
