@@ -19,12 +19,6 @@ Happ/src/main/java/com/example/androidpangea/navigation/NavigationItem.kt,3/3/3
 Kapp/src/main/java/com/example/androidpangea/views/subviews/CIrcularImage.kt,7/4/746c91ff0bd6334a24d46c6292a3c95b723adc86
 ~
 Napp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraScreen.kt,6/4/6456614cd55cdfb4c943e53aefc13eceacb1b96f
-t
-Dapp/src/main/java/com/example/androidpangea/navigation/BottomIcon.kt,c/7/c7a2aa8e2b79f967e9250708917423dde1ebc2b6
-}
-Mapp/src/main/java/com/example/androidpangea/navigation/BottomNavigationBar.kt,7/5/75983ce817937ce1ad6d85ca2ac5f3a6ba054ddf
-w
-Gapp/src/main/java/com/example/androidpangea/navigation/BottomNavItem.kt,4/2/42e9b01aec52b26a1e933e200b7386556ce035ac
 z
 Japp/src/main/java/com/example/androidpangea/views/mainScreen/MainScreen.kt,4/4/440a5890d05b706265979480c7bf4c14602341b2
 k
@@ -67,10 +61,6 @@ w
 Gapp/src/main/java/com/example/androidpangea/views/mapScreen/MapState.kt,7/a/7a7f208cbee987e9ca4b8eb31a435bfbc96ce9a1
 {
 Kapp/src/main/java/com/example/androidpangea/views/mapScreen/MapViewModel.kt,7/e/7e09df303309624d577653271ac2e4bf0381c978
-s
-Capp/src/main/java/com/example/androidpangea/navigation/BottomBar.kt,4/f/4f1883435d0306a23dce48f569bec299722b93de
-|
-Lapp/src/main/java/com/example/androidpangea/navigation/BottomBarViewModel.kt,1/8/184b84c6ce9b1192031b74d45a1eee52e3482c71
 ‚
 Rapp/src/main/java/com/example/androidpangea/views/authentication/AuthRepository.kt,1/e/1edc518654c9342a50cac630089f80a06b7aee77
 €
@@ -91,8 +81,6 @@ Dapp/src/main/java/com/example/androidpangea/navigation/AppNavHost.kt,2/2/2280e
 Wapp/src/main/java/com/example/androidpangea/views/subviews/CenterCircularProgressBar.kt,3/d/3d735ea41cb881951c81af3e5eba26977f19d6d5
 }
 Mapp/src/main/java/com/example/androidpangea/views/postScreen/ExploreScreen.kt,6/2/6237d1bf185c8e44e22d08370eac8b12fee06819
-m
-=app/src/main/java/com/example/androidpangea/utils/Resource.kt,9/9/99700efc3623f102ac0a3279b8190af6758a2784
 †
 Vapp/src/main/java/com/example/androidpangea/views/authentication/AuthRepositoryImpl.kt,c/5/c52bbe1ee0c509a94f13e5b76243c9e3ebdbc067
 |
@@ -121,8 +109,6 @@ j
 Xapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseSignInScreen.kt,2/c/2c745b06f13abb09e6534f48fb28ce97c6f63400
 ˆ
 Xapp/src/main/java/com/example/androidpangea/views/firebaseScreen/FirebaseSignUpScreen.kt,6/4/640cc6e2de55c52bc8d675adea37a040881488a7
-H
-app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9
 z
 Japp/src/main/java/com/example/androidpangea/extensions/FirebaseResource.kt,d/b/dbd4f3061ce9229dfe3acc412bbdb227edef8d1d
 t
