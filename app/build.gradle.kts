@@ -138,3 +138,6 @@ dependencies {
     implementation("androidx.camera:camera-extensions:1.2.0-alpha02")
 
 }
+kapt {
+    correctErrorTypes = true
+}

@@ -32,6 +32,9 @@ class AuthViewModel: ViewModel() {
 
     var uiState = mutableStateOf(LoginUiState())
         private set
+
+
+
     fun createAnonymousAccount(onResult: (Throwable?) -> Unit) {
         Firebase.auth.signInAnonymously()
             .addOnCompleteListener { onResult(it.exception) }
