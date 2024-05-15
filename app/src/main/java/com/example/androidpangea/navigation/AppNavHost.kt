@@ -49,7 +49,6 @@ fun AppNavHost(
 ) {
     val mapViewModel = MapViewModel()
 
-
     NavHost(
         modifier = modifier,
         navController = navController,
