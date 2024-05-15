@@ -3,6 +3,7 @@ package com.example.androidpangea.extensions
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -30,6 +31,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -47,6 +49,7 @@ import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -54,7 +57,9 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -128,7 +133,7 @@ fun MyTextFieldComponent(
             focusedBorderColor = Primary,
             focusedLabelColor = Primary,
             cursorColor = Primary,
-//            backgroundColor = BgColor
+            //            backgroundColor = BgColor
         ),
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
         singleLine = true,
@@ -172,7 +177,7 @@ fun PasswordTextFieldComponent(
             focusedBorderColor = Primary,
             focusedLabelColor = Primary,
             cursorColor = Primary,
-//            backgroundColor = BgColor
+            //            backgroundColor = BgColor
         ),
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Password,
@@ -200,9 +205,9 @@ fun PasswordTextFieldComponent(
             }
 
             val description = if (passwordVisible.value) {
-//                stringResource(id = R.string.hide_password)
+                //                stringResource(id = R.string.hide_password)
             } else {
-//                stringResource(id = R.string.show_password)
+                //                stringResource(id = R.string.show_password)
             }
 
             IconButton(onClick = { passwordVisible.value = !passwordVisible.value }) {
@@ -346,9 +351,8 @@ fun DividerTextComponent() {
 
 @Composable
 fun ClickableLoginTextComponent(tryingToLogin: Boolean = true, onTextSelected: (String) -> Unit) {
-    val initialText =
-        if (tryingToLogin) "Already have an account? " else "Don’t have an account yet? "
-    val loginText = if (tryingToLogin) "Login" else "Register"
+    val initialText = if (tryingToLogin) "Already have an account? " else "Don’t have an account yet? "
+    val loginText = if (tryingToLogin) "Sign In" else "Sign Up"
 
     val annotatedString = buildAnnotatedString {
         append(initialText)
@@ -373,14 +377,11 @@ fun ClickableLoginTextComponent(tryingToLogin: Boolean = true, onTextSelected: (
 
             annotatedString.getStringAnnotations(offset, offset)
                 .firstOrNull()?.also { span ->
-                    Log.d("ClickableTextComponent", "{${span.item}}")
+                    Log.d("Clickable Text", "{${span.item}}")
 
-                    if (span.item == loginText) {
-                        onTextSelected(span.item)
-                    }
+                    if (span.item == loginText) { onTextSelected(span.item) }
                 }
-
-        },
+        }
     )
 }
 
@@ -399,7 +400,6 @@ fun UnderLinedTextComponent(value: String) {
         textAlign = TextAlign.Center,
         textDecoration = TextDecoration.Underline
     )
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -408,14 +408,8 @@ fun AppToolbar(
     toolbarTitle: String, logoutButtonClicked: () -> Unit,
     navigationIconClicked: () -> Unit
 ) {
-
     TopAppBar(
-//        backgroundColor = Primary,
-        title = {
-            Text(
-                text = toolbarTitle, color = WhiteColor
-            )
-        },
+        title = { Text(text = toolbarTitle, color = WhiteColor) },
         navigationIcon = {
             IconButton(onClick = {
                 navigationIconClicked.invoke()
@@ -426,7 +420,6 @@ fun AppToolbar(
                     tint = WhiteColor
                 )
             }
-
         },
         actions = {
             IconButton(onClick = {
@@ -445,20 +438,12 @@ fun AppToolbar(
 fun NavigationDrawerHeader(value: String?) {
     Box(
         modifier = Modifier
-            .background(
-                Brush.horizontalGradient(
-                    listOf(Primary, Secondary)
-                )
-            )
+            .background(Brush.horizontalGradient(listOf(Primary, Secondary)))
             .fillMaxWidth()
-            .height(180.dp)
-            .padding(32.dp)
+            .height(150.dp)
+            .padding(30.dp)
     ) {
-
-        NavigationDrawerText(
-            title = value?:stringResource(R.string.navigation_header), 28.sp , AccentColor
-        )
-
+        NavigationDrawerText(title = value?:stringResource(R.string.navigation_header), 28.sp , AccentColor)
     }
 }
 
@@ -473,9 +458,7 @@ fun NavigationDrawerBody(navigationDrawerItems: List<BottomNavigationItem>, onNa
 }
 
 @Composable
-fun NavigationItemRow(
-    item: BottomNavigationItem,
-    onNavigationItemClicked:(BottomNavigationItem) -> Unit) {
+fun NavigationItemRow(item: BottomNavigationItem, onNavigationItemClicked: (BottomNavigationItem) -> Unit) {
 
     Row(
         modifier = Modifier
@@ -500,7 +483,6 @@ fun NavigationItemRow(
 
 @Composable
 fun NavigationDrawerText(title: String, textUnit: TextUnit, color: Color) {
-
     val shadowOffset = Offset(4f, 6f)
 
     Text(
@@ -514,4 +496,50 @@ fun NavigationDrawerText(title: String, textUnit: TextUnit, color: Color) {
             )
         )
     )
+}
+
+
+@Composable
+fun GoToLogin(
+    modifier: Modifier = Modifier,
+    onNavigateToLogin: () -> Unit
+) {
+    Row(
+        modifier = modifier, horizontalArrangement = Arrangement.SpaceAround
+    ) {
+        Text(text = "Already have an account?", style = MaterialTheme.typography.headlineSmall)
+        Text(
+            text = "Sign In",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = modifier.clickable { onNavigateToLogin() }
+        )
+    }
+}
+
+
+@Composable
+fun RegisterOutlinedText(
+    value: String,
+    onValueChanged: (String) -> Unit,
+    keyboardOptions: KeyboardOptions,
+    label: @Composable (() -> Unit)?,
+    applyVisualTransformation: Boolean = false
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChanged,
+        keyboardOptions = keyboardOptions,
+        label = label,
+        visualTransformation = if (applyVisualTransformation) PasswordVisualTransformation() else VisualTransformation.None
+    )
+}
+
+private class PasswordVisualTransformation : VisualTransformation {
+    override fun filter(text: AnnotatedString): TransformedText {
+        return TransformedText(
+            AnnotatedString("*".repeat(text.text.length)),
+            OffsetMapping.Identity
+        )
+    }
 }

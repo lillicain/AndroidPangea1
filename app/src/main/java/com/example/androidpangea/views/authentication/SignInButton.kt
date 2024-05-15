@@ -46,8 +46,6 @@ fun SignInButton(
     borderColor: Color = Color.LightGray,
     backgroundColor: Color = Color.Transparent,
     progressIndicatorColor: Color = Color.Gray,
-//    backgroundColor: Color = MaterialTheme.colors.surface,
-//    progressIndicatorColor: Color = MaterialTheme.colors.primary,
     onClick: () -> Unit
 ) {
     Surface(
@@ -78,7 +76,7 @@ fun SignInButton(
         ) {
             Icon(
                 painter = icon,
-                contentDescription = "SignInButton",
+                contentDescription = "Sign In",
                 tint = Color.Unspecified
             )
             Spacer(modifier = Modifier.width(8.dp))
@@ -95,52 +93,5 @@ fun SignInButton(
                 )
             }
         }
-    }
-}
-
-@Composable
-fun GoToLogin(
-    modifier: Modifier = Modifier,
-    onNavigateToLogin: () -> Unit
-) {
-    Row(
-        modifier = modifier, horizontalArrangement = Arrangement.SpaceAround
-    ) {
-        Text(text = "Have already an account?", style = MaterialTheme.typography.headlineSmall)
-        Text(
-            text = "Login",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = modifier.clickable { onNavigateToLogin() }
-        )
-    }
-}
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun RegisterOutlinedText(
-    value: String,
-    onValueChanged: (String) -> Unit,
-    keyboardOptions: KeyboardOptions,
-    label: @Composable (() -> Unit)?,
-    applyVisualTransformation: Boolean = false
-) {
-    OutlinedTextField(
-        value = value,
-        onValueChange = onValueChanged,
-        keyboardOptions = keyboardOptions,
-        label = label,
-        visualTransformation = if (applyVisualTransformation) PasswordVisualTransformation() else VisualTransformation.None
-    )
-}
-
-private class PasswordVisualTransformation : VisualTransformation {
-    override fun filter(text: AnnotatedString): TransformedText {
-        return TransformedText(
-            AnnotatedString("*".repeat(text.text.length)),
-
-            OffsetMapping.Identity
-        )
     }
 }
