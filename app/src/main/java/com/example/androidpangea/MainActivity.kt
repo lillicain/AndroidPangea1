@@ -75,7 +75,9 @@ import kotlinx.coroutines.launch
 class MainActivity : ComponentActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
     private val mapViewModel: MapViewModel by viewModels()
+
 //    private val mainViewModel: MainViewModel by viewModels()
 //    private val cameraViewModel: CameraViewModel by viewModels()
 //    private val authViewModel: AuthViewModel by viewModels()
@@ -85,9 +87,7 @@ class MainActivity : ComponentActivity() {
     private fun askPermissions() = when {
         ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
             mapViewModel.getDeviceLocation(fusedLocationProviderClient)
-        } else -> {
-            requestPermissionLauncher.launch(ACCESS_FINE_LOCATION)
-        }
+        } else -> { requestPermissionLauncher.launch(ACCESS_FINE_LOCATION) }
     }
 
 
@@ -96,6 +96,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
         askPermissions()
 
         if (!hasRequiredPermissions()) {

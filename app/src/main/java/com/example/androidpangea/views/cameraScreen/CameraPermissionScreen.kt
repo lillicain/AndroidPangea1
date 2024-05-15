@@ -49,10 +49,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun CameraPermissionScreen(navController: NavController) {
 
-    val CAMERAX_PERMISSIONS = arrayOf(
-        android.Manifest.permission.CAMERA,
-        android.Manifest.permission.RECORD_AUDIO,
-    )
+    val CAMERAX_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.RECORD_AUDIO)
 
     val context = LocalContext.current
     val scope = rememberCoroutineScope()

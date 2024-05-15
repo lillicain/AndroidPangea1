@@ -29,6 +29,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.example.androidpangea.views.subviews.rotateBitmap
 import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.scopes.ActivityScoped
 import java.util.concurrent.Executor
@@ -57,13 +58,6 @@ fun LastPhotoPreview(
     }
 }
 
-@Preview
-@Composable
-private fun Preview_CameraContent() {
-    CameraContent(
-        onPhotoCaptured = {}
-    )
-}
 
 interface PermissionListener {
     fun permissionGranted()
@@ -133,7 +127,7 @@ fun capturePhoto(
         override fun onCaptureSuccess(image: ImageProxy) {
             val correctedBitmap: Bitmap = image
                 .toBitmap()
-            //                .rotateBitmap(image.imageInfo.rotationDegrees)
+                .rotateBitmap(image.imageInfo.rotationDegrees)
 
             onPhotoCaptured(correctedBitmap)
             image.close()
