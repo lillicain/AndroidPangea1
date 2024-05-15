@@ -79,7 +79,7 @@ fun SignUp(
 @Composable
 @ExperimentalComposeUiApi
 fun SignUpContent(
-    padding: PaddingValues,
+//    padding: PaddingValues,
     signUp: (email: String, password: String) -> Unit,
 //    navigateBack: () -> Unit
 ) {
@@ -107,8 +107,8 @@ fun SignUpContent(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(padding),
+            .fillMaxSize(),
+//            .padding(padding),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

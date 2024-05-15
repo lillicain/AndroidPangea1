@@ -4,6 +4,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidpangea.navigation.NavigationItem
@@ -23,23 +24,23 @@ fun SignUpScreen(
 ) {
     val context = LocalContext.current
 
-    Scaffold(
-        topBar = {
-            SignUpTopBar(
-                navigateBack = navController.navigate(NavigationItem.SignIn.route)
-//                navigateBack = navigateBack
-            )
-        },
-        content = { padding ->
+//    Scaffold(
+//        topBar = {
+//            SignUpTopBar(
+//                navigateBack = navController.navigate(NavigationItem.SignIn.route)
+////                navigateBack = navigateBack
+//            )
+//        },
+//        content = { padding ->
             SignUpContent(
-                padding = padding,
+
                 signUp = { email, password ->
                     viewModel.signUpWithEmailAndPassword(email, password)
                 },
 //                navigateBack = navigateBack
             )
-        }
-    )
+//        }
+//    )
 
     SignUp(
         sendEmailVerification = {
