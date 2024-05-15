@@ -14,25 +14,6 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class DatabaseRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth): DatabaseRepository {
-//    @SuppressLint("SuspiciousIndentation")
-//    override fun addUserDetails(viewModel: AuthViewModel, application: Application) {
-//
-//
-//
-//        val dB: FirebaseFirestore = FirebaseFirestore.getInstance()
-//        val dbUsers: CollectionReference = dB.collection("Users")
-//
-//        val users = User("", "", "")
-//
-//        dbUsers.add(users).addOnSuccessListener {
-//            Toast.makeText(application, "User added successfully!", Toast.LENGTH_SHORT).show()
-//        }.addOnFailureListener { e ->
-//            Toast.makeText(application, "Exception: $e", Toast.LENGTH_SHORT).show()
-//        }
-//
-//
-//    }
-
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
 
@@ -60,5 +41,4 @@ class DatabaseRepositoryImpl @Inject constructor(private val firebaseAuth: Fireb
     override fun logout() {
         firebaseAuth.signOut()
     }
-
 }
