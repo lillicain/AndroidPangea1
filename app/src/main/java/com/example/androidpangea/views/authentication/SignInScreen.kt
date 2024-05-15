@@ -1,5 +1,6 @@
 package com.example.androidpangea.views.authentication
 
+import android.annotation.SuppressLint
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -14,6 +15,7 @@ import com.example.androidpangea.views.authentication.components.SignInContent
 import com.example.androidpangea.views.authentication.components.SignInTopBar
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 @ExperimentalComposeUiApi
 fun SignInScreen(
