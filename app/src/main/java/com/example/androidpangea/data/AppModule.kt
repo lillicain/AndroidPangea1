@@ -10,6 +10,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import com.example.androidpangea.extensions.DatabaseRepository
 import com.example.androidpangea.extensions.DatabaseRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthRepository
+import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepo
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepoImpl
 import com.google.firebase.auth.FirebaseAuth
@@ -28,6 +29,10 @@ object AppModule {
 
     @Provides
     fun providesAuthRepository(impl: DatabaseRepositoryImpl): DatabaseRepository = impl
+
+//    @Singleton
+//    @Provides
+//    fun provideAuthViewModel(repository: AuthRepository) : AuthViewModel = AuthViewModel(repository)
 
     @Provides
     @Singleton
