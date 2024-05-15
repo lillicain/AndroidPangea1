@@ -1,14 +1,55 @@
-//package com.example.androidpangea.views.authentication
-//
-//import android.util.Log
-//import androidx.compose.runtime.mutableStateOf
-//import androidx.lifecycle.ViewModel
-//import com.example.androidpangea.navigation.AppRouter
-//import com.example.androidpangea.navigation.Screen
-//import com.google.firebase.auth.FirebaseAuth
-//import dagger.hilt.android.lifecycle.HiltViewModel
-//
-//
+package com.example.androidpangea.views.authentication
+
+import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.androidpangea.navigation.AppRouter
+import com.example.androidpangea.navigation.Screen
+import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+
+@HiltViewModel
+class SignInViewModel @Inject constructor(
+    private val repo: AuthRepository
+): ViewModel() {
+    var signInResponse by mutableStateOf<SignInResponse>(Response.Success(false))
+        private set
+
+    fun signInWithEmailAndPassword(email: String, password: String) = viewModelScope.launch {
+        signInResponse = Response.Loading
+        signInResponse = repo.firebaseSignInWithEmailAndPassword(email, password)
+    }
+}
+
+@HiltViewModel
+class SignUpViewModel @Inject constructor(
+    private val repo: AuthRepository
+): ViewModel() {
+    var signUpResponse by mutableStateOf<SignUpResponse>(Response.Success(false))
+        private set
+    var sendEmailVerificationResponse by mutableStateOf<SendEmailVerificationResponse>(
+        Response.Success(
+            false
+        )
+    )
+        private set
+
+    fun signUpWithEmailAndPassword(email: String, password: String) = viewModelScope.launch {
+        signUpResponse = Response.Loading
+        signUpResponse = repo.firebaseSignUpWithEmailAndPassword(email, password)
+    }
+
+    fun sendEmailVerification() = viewModelScope.launch {
+        sendEmailVerificationResponse = Response.Loading
+        sendEmailVerificationResponse = repo.sendEmailVerification()
+    }
+}
 //class SignupViewModel : ViewModel() {
 //
 //    private val TAG = SignupViewModel::class.simpleName

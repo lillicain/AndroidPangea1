@@ -147,3 +147,13 @@ y
 Iapp/src/main/java/com/example/androidpangea/views/subviews/ImagePicker.kt,b/0/b021c213c237755c79d91425c3c0f70243d45216
 }
 Mapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoScreen.kt,3/5/359ee42e57b60bb737deff58b4bd82821d1d1f21
+|
+Lapp/src/main/java/com/example/androidpangea/views/authentication/Response.kt,e/f/effd94b6bd7c4ec13ec37eafdd592915e022ed57
+n
+>app/src/main/java/com/example/androidpangea/utils/Constants.kt,9/9/9978d8f180391dfbb411050c4144fd29701a0cae
+j
+:app/src/main/java/com/example/androidpangea/utils/Utils.kt,f/0/f0243dac955c965acb7aa30367542beae5733303
+”
+dapp/src/main/java/com/example/androidpangea/views/authentication/components/SendEmailVerification.kt,d/0/d04d0c1ce4f556fa9ce472ce77d4006be440da7a
+…
+Uapp/src/main/java/com/example/androidpangea/views/authentication/components/SignIn.kt,b/3/b35595be1bb432adff5569b565a97eb9218cde2d
