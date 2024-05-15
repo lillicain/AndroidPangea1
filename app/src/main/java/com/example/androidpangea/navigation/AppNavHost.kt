@@ -48,11 +48,16 @@ fun AppNavHost(
     modifier: Modifier = Modifier
 ) {
     val mapViewModel = MapViewModel()
+    val splashScreen by rememberSaveable { mutableStateOf(false) }
 
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = NavigationItem.SignIn.route
+        startDestination = if (splashScreen) {
+            NavigationItem.Main.route
+        } else {
+            NavigationItem.SignIn.route
+        }
     ) {
 
         composable(NavigationItem.Main.route) {
