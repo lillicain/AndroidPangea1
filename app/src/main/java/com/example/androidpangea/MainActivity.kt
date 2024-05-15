@@ -74,10 +74,9 @@ import kotlinx.coroutines.launch
 class MainActivity : ComponentActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-
+    private lateinit var auth: FirebaseAuth
     private val mapViewModel: MapViewModel by viewModels()
 
-    private lateinit var auth: FirebaseAuth
 
 //    private val mainViewModel: MainViewModel by viewModels()
 //    private val cameraViewModel: CameraViewModel by viewModels()
