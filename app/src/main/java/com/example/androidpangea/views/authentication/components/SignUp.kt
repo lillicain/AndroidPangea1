@@ -3,6 +3,7 @@ package com.example.androidpangea.views.authentication.components
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -28,6 +29,7 @@ import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.utils.Constants.EMPTY_STRING
 import com.example.androidpangea.utils.Constants.SIGN_UP_BUTTON
 import com.example.androidpangea.utils.Constants.SIGN_UP_SCREEN
+import com.example.androidpangea.views.authentication.BackIcon
 import com.example.androidpangea.views.authentication.EmailField
 import com.example.androidpangea.views.authentication.PasswordField
 import com.example.androidpangea.views.authentication.Response
@@ -79,7 +81,6 @@ fun SignUp(
 @Composable
 @ExperimentalComposeUiApi
 fun SignUpContent(
-    //    padding: PaddingValues,
     signUp: (email: String, password: String) -> Unit,
     navController: NavController
 ) {
@@ -108,7 +109,7 @@ fun SignUpContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(10.dp),
+            .padding(6.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -151,18 +152,12 @@ fun SignUpContent(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpTopBar(
-    navigateBack: Unit
 ) {
     TopAppBar (
         title = {
             Text(
-                text = SIGN_UP_SCREEN
+                text = "Sign Up"
             )
-        },
-        navigationIcon = {
-            //            BackIcon(
-            ////                navigateBack = navigateBack
-            //            )
         }
     )
 }

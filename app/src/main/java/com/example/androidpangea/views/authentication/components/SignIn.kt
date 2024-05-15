@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.font.FontSynthesis.Companion.Weight
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
@@ -62,7 +63,6 @@ fun SignIn(
 @Composable
 @ExperimentalComposeUiApi
 fun SignInContent(
-    padding: PaddingValues,
     signIn: (email: String, password: String) -> Unit,
     navController: NavController
 ) {
@@ -91,7 +91,7 @@ fun SignInContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(padding),
+            .padding(6.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -121,29 +121,15 @@ fun SignInContent(
                 fontSize = 15.sp
             )
         }
-        Row {
-            Text(
-                modifier = Modifier.clickable {
-                },
-                text = FORGOT_PASSWORD,
-                fontSize = 15.sp
-            )
-            Text(
-                modifier = Modifier.padding(start = 4.dp, end = 4.dp),
-                text = VERTICAL_DIVIDER,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold
-            )
             Text(
                 modifier = Modifier.clickable {
                     navController.navigate(NavigationItem.SignUp.route)
                 },
-                text = NO_ACCOUNT,
+                text = "Don't have an account? Sign Up",
                 fontSize = 15.sp
             )
         }
     }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -151,7 +137,7 @@ fun SignInTopBar() {
     TopAppBar (
         title = {
             Text(
-                text = SIGN_IN_SCREEN
+                text = "Sign In"
             )
         }
     )

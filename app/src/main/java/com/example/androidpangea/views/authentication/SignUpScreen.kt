@@ -22,27 +22,15 @@ import com.example.androidpangea.views.authentication.components.SignUpTopBar
 fun SignUpScreen(
     viewModel: SignUpViewModel = hiltViewModel(),
     navController: NavController
-//    navigateBack: () -> Unit
 ) {
     val context = LocalContext.current
 
-//    Scaffold(
-//        topBar = {
-//            SignUpTopBar(
-//                navigateBack = navController.navigate(NavigationItem.SignIn.route)
-////                navigateBack = navigateBack
-//            )
-//        },
-//        content = { padding ->
             SignUpContent(
-
                 signUp = { email, password ->
                     viewModel.signUpWithEmailAndPassword(email, password)
                 },
                 navController = navController
             )
-//        }
-//    )
 
     SignUp(
         sendEmailVerification = {
@@ -52,9 +40,10 @@ fun SignUpScreen(
             showMessage(context, VERIFY_EMAIL_MESSAGE)
         }
     )
-
     SendEmailVerification()
 }
+
+
 //@Composable
 //fun SignUpScreen(viewModel: SignUpViewModel = hiltViewModel(), navController: NavController) {
 //

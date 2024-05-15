@@ -8,9 +8,11 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraPermissionScreen
@@ -49,10 +51,22 @@ fun AppNavHost(
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )
         }
-
-        composable(NavigationItem.User.route) {
-            UserScreen(navController = navController)
-        }
+        composable(
+        "${NavigationItem.User.route}/{id}",
+        arguments = listOf(
+            navArgument("id") {
+                type = NavType.StringType
+            }
+        )) {
+        val id = it.arguments?.getString("id")
+        UserScreen(
+            id = id ?: "",
+            navController = navController
+        )
+    }
+//        composable(NavigationItem.User.route) {
+//            UserScreen(navController = navController)
+//        }
 
         composable(NavigationItem.Camera.route) {
             CameraPermissionScreen(navController = navController)
@@ -62,14 +76,10 @@ fun AppNavHost(
         }
         composable(NavigationItem.SignUp.route) {
             SignUpScreen(navController = navController)
-
-
         }
-
         composable(NavigationItem.SignIn.route) {
             SignInScreen(navController = navController)
         }
-
         composable(NavigationItem.Photo.route) {
             PhotoScreen(navController = navController)
         }

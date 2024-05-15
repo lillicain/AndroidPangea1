@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.androidpangea.navigation.bar.BottomNavigationBar
+import com.example.androidpangea.views.subviews.CircularImage
 import com.example.androidpangea.views.subviews.ImagePicker
 import com.ramcosta.composedestinations.annotation.Destination
 
@@ -24,29 +25,28 @@ import com.ramcosta.composedestinations.annotation.Destination
 @Destination
 @Composable
 fun UserScreen(
+    id: String,
     navController: NavController
 ) {
 
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
-        ImagePicker()
+//        ImagePicker()
 
 
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
             TopAppBar(
                 title = {
                     Text("Sign Out", fontSize = 16.sp)
                 },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        navController.popBackStack()
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack, contentDescription = "Back",
-                        )
+                navigationIcon = { IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back",)
                     }
                 }
-            )
+            ) 
+
         }
     }
 }
