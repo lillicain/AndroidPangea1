@@ -130,6 +130,7 @@ fun SignUpScreen(viewModel: AuthViewModel = hiltViewModel(), navController: NavC
                     onButtonClicked = {
 //                                      signupViewModel::signUpInProgress
                         navController.navigate(NavigationItem.Main.route)
+
 //                        signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
                     },
 //                    isEnabled = signupViewModel.allValidationsPassed.value,
