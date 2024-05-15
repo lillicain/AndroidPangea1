@@ -33,6 +33,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
@@ -49,19 +50,16 @@ import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.navigation.AppRouter
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
+import com.example.androidpangea.views.firebaseScreen.FirebaseViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
-fun SignUpScreen(
-    signupViewModel: SignupViewModel = viewModel(),
-    //    onNavToHomePage:() -> Unit,
-    //    onNavToLoginPage:() -> Unit,
-    navController: NavController
-) {
-    val auth: FirebaseAuth by lazy { Firebase.auth }
+fun SignUpScreen(viewModel: AuthViewModel = hiltViewModel(), navController: NavController) {
+
+//    val auth: FirebaseAuth by lazy { Firebase.auth }
 //    val appState = rememberAppState()
 
     Box(
@@ -84,36 +82,36 @@ fun SignUpScreen(
                     labelValue = stringResource(id = R.string.first_name),
                     painterResource(id = R.drawable.ic_profile),
                     onTextChanged = {
-                        signupViewModel.onEvent(SignupUIEvent.FirstNameChanged(it))
+//                        signupViewModel.onEvent(SignupUIEvent.FirstNameChanged(it))
                     },
-                    errorStatus = signupViewModel.registrationUIState.value.firstNameError
+//                    errorStatus = signupViewModel.registrationUIState.value.firstNameError
                 )
 
                 MyTextFieldComponent(
                     labelValue = stringResource(id = R.string.last_name),
                     painterResource = painterResource(id = R.drawable.ic_profile),
                     onTextChanged = {
-                        signupViewModel.onEvent(SignupUIEvent.LastNameChanged(it))
+//                        signupViewModel.onEvent(SignupUIEvent.LastNameChanged(it))
                     },
-                    errorStatus = signupViewModel.registrationUIState.value.lastNameError
+//                    errorStatus = signupViewModel.registrationUIState.value.lastNameError
                 )
 
                 MyTextFieldComponent(
                     labelValue = stringResource(id = R.string.username),
                     painterResource = painterResource(id = R.drawable.ic_profile),
                     onTextChanged = {
-                        signupViewModel.onEvent(SignupUIEvent.EmailChanged(it))
+//                        signupViewModel.onEvent(SignupUIEvent.EmailChanged(it))
                     },
-                    errorStatus = signupViewModel.registrationUIState.value.emailError
+//                    errorStatus = signupViewModel.registrationUIState.value.emailError
                 )
 
                 PasswordTextFieldComponent(
                     labelValue = stringResource(id = R.string.password),
                     painterResource = painterResource(id = R.drawable.ic_profile),
                     onTextSelected = {
-                        signupViewModel.onEvent(SignupUIEvent.PasswordChanged(it))
+//                        signupViewModel.onEvent(SignupUIEvent.PasswordChanged(it))
                     },
-                    errorStatus = signupViewModel.registrationUIState.value.passwordError
+//                    errorStatus = signupViewModel.registrationUIState.value.passwordError
                 )
 
                 CheckboxComponent(value = stringResource(id = R.string.terms_and_conditions),
@@ -121,7 +119,7 @@ fun SignUpScreen(
                         AppRouter.navigateTo(Screen.MAIN)
                     },
                     onCheckedChange = {
-                        signupViewModel.onEvent(SignupUIEvent.PrivacyPolicyCheckBoxClicked(it))
+//                        signupViewModel.onEvent(SignupUIEvent.PrivacyPolicyCheckBoxClicked(it))
                     }
                 )
 
@@ -132,13 +130,14 @@ fun SignUpScreen(
                     onButtonClicked = {
 //                                      signupViewModel::signUpInProgress
                         navController.navigate(NavigationItem.Main.route)
-                        signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
+//                        signupViewModel.onEvent(SignupUIEvent.RegisterButtonClicked)
                     },
-                    isEnabled = signupViewModel.allValidationsPassed.value,
+//                    isEnabled = signupViewModel.allValidationsPassed.value,
                     navController = rememberNavController()
                 )
                 Button(onClick = { navController.navigate(NavigationItem.Main.route)
-                    signupViewModel::signUpInProgress}) {
+//                    signupViewModel::signUpInProgress
+                }) {
                     Text("Sign Up")
                 }
 
@@ -154,9 +153,9 @@ fun SignUpScreen(
 
     }
 
-    if(signupViewModel.signUpInProgress.value) {
-        CircularProgressIndicator()
-    }
+//    if(signupViewModel.signUpInProgress.value) {
+//        CircularProgressIndicator()
+//    }
 }
 
 

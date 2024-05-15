@@ -46,14 +46,9 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 @Composable
-fun SignInScreen(
-    viewModel: AuthViewModel = hiltViewModel(),
-    //    onNavToHomePage: () -> Unit,
-    //    onNavToSignUpPage: () -> Unit,
-    navController: NavController
-) {
+fun SignInScreen(viewModel: AuthViewModel = hiltViewModel(), navController: NavController) {
     val uiState by viewModel.uiState
-    val auth: FirebaseAuth by lazy { Firebase.auth }
+//    val auth: FirebaseAuth by lazy { Firebase.auth }
     val coroutineScope = rememberCoroutineScope()
     var text by remember { mutableStateOf<String?>(null) }
     val signInRequestCode = 1
