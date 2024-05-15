@@ -119,3 +119,7 @@ r
 Bapp/src/main/java/com/example/androidpangea/utils/FirebaseUtils.kt,8/6/86c4af943bd7ada29e864006507e886f6aa681c3
 |
 Lapp/src/main/java/com/example/androidpangea/views/authentication/Resource.kt,a/a/aa4a437a7eb7afcd4ff847c8544e2e69fd023951
+‚
+Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/LastPhotoPreview.kt,1/8/1835e2d4d44fa90b093ff6bb1a0101f6e1d40c6f
+H
+app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9

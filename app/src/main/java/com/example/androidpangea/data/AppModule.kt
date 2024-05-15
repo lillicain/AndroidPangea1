@@ -11,6 +11,7 @@ import com.example.androidpangea.extensions.DatabaseRepository
 import com.example.androidpangea.extensions.DatabaseRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthRepository
 import com.example.androidpangea.views.authentication.AuthRepositoryImpl
+import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepo
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepoImpl
 import com.google.firebase.auth.FirebaseAuth
@@ -27,14 +28,18 @@ object AppModule {
     fun providesFirebaseAuth() = FirebaseAuth.getInstance()
 
     @Provides
-    fun provideAuthRespository(impl: AuthRepositoryImpl) : AuthRepository = impl
+    fun provideAuthRepository(impl: AuthRepositoryImpl) : AuthRepository = impl
 
-
-    @Provides
     @Singleton
-    fun providesDatabaseRepositoryImpl(): DatabaseRepository {
-        return DatabaseRepositoryImpl()
-    }
+    @Provides
+    fun provideAuthViewModel(repository: AuthRepository) : AuthViewModel = AuthViewModel(repository)
+
+
+//    @Provides
+//    @Singleton
+//    fun providesDatabaseRepositoryImpl(): DatabaseRepository {
+//        return DatabaseRepositoryImpl()
+//    }
 
     @Provides
     @Singleton
