@@ -19,8 +19,6 @@ import com.example.androidpangea.views.authentication.components.SignInTopBar
 fun SignInScreen(
     viewModel: SignInViewModel = hiltViewModel(),
     navController: NavController
-//    navigateToForgotPasswordScreen: () -> Unit,
-//    navigateToSignUpScreen: () -> Unit,
 ) {
     val context = LocalContext.current
 

@@ -159,3 +159,7 @@ dapp/src/main/java/com/example/androidpangea/views/authentication/components/Sen
 Uapp/src/main/java/com/example/androidpangea/views/authentication/components/SignIn.kt,b/3/b35595be1bb432adff5569b565a97eb9218cde2d
 …
 Uapp/src/main/java/com/example/androidpangea/views/authentication/components/SignUp.kt,8/d/8da1b1d8c3f6f5a6d8393ae5f85f09c9c968ffd2
+q
+Aapp/src/main/java/com/example/androidpangea/extensions/Failure.kt,2/0/2083d9abefbf4b503adbf9d92f75af31be19ee31
+ƒ
+Sapp/src/main/java/com/example/androidpangea/views/authentication/SignInViewModel.kt,a/3/a3c40aca21343b9c428c81e5743bca6bb58055a8

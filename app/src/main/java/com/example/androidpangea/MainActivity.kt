@@ -54,7 +54,6 @@ import com.example.androidpangea.navigation.AppNavHost
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.ui.theme.AndroidPangeaTheme
 import com.example.androidpangea.views.NavGraphs
-import com.example.androidpangea.views.authentication.AuthViewModel
 import com.example.androidpangea.views.cameraScreen.CameraContent
 import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.CameraViewModel
