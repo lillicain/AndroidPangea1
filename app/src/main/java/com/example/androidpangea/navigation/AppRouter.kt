@@ -4,7 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 
 object AppRouter {
-    var currentScreen: MutableState<Screen> = mutableStateOf(Screen.SIGNUP)
+    private var currentScreen: MutableState<Screen> = mutableStateOf(Screen.SIGNUP)
     fun navigateTo(destination: Screen) {
         currentScreen.value = destination
     }

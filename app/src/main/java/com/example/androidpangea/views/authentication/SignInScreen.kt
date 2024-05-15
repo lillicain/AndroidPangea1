@@ -35,6 +35,7 @@ import com.example.androidpangea.extensions.MyTextFieldComponent
 import com.example.androidpangea.extensions.NormalTextComponent
 import com.example.androidpangea.extensions.PasswordTextFieldComponent
 import com.example.androidpangea.extensions.UnderLinedTextComponent
+import com.example.androidpangea.navigation.AppRouter
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.Screen
 import com.example.androidpangea.utils.AuthResultContract

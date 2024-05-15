@@ -3,6 +3,7 @@ package com.example.androidpangea.views.authentication
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.example.androidpangea.navigation.AppRouter
 import com.example.androidpangea.navigation.Screen
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -127,7 +128,6 @@ class SignupViewModel : ViewModel() {
 
 
     private fun createUserInFirebase(email: String, password: String) {
-
         signUpInProgress.value = true
 
         FirebaseAuth
