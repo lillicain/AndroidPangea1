@@ -113,11 +113,12 @@ fun CameraScreen(navController: NavController) {
             scaffoldState = scaffoldState,
             sheetPeekHeight = 0.dp,
             sheetContent = {
-                Text(text = location.toString())
 
                 PhotoBottomSheetContent(
                     bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
                 )
+
+
             }) { padding ->
             Box(
                 modifier = Modifier

@@ -19,7 +19,7 @@ import coil.compose.AsyncImage
 import com.example.androidpangea.utils.StorageUtil
 
 @Composable
-fun PhotoPicker(){
+fun PhotoPicker() {
     var uri by remember { mutableStateOf<Uri?>(null) }
 
     val singlePhotoPicker = rememberLauncherForActivityResult(
