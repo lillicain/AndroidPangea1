@@ -30,7 +30,6 @@ fun ImagePicker() {
     LazyColumn(
         modifier = Modifier
 
-
     ) {
         items(imageUris) {
             if (it != null) {
@@ -47,16 +46,16 @@ fun ImagePicker() {
     }
 }
 
-//@Composable
-//fun ImagePicker(onImageSelected: (Uri) -> Unit) {
-//    val launcher = rememberLauncherForActivityResult(
-//        contract = ActivityResultContracts.GetContent(),
-//        onResult = { uri: Uri? -> uri?.let { onImageSelected(it) } }
-//    )
-//
-//    Button(
-//        onClick = { launcher.launch("image/*") }
-//    ) {
-//        Text("Select Image")
-//    }
-//}
+@Composable
+fun Picker(onImageSelected: (Uri) -> Unit) {
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent(),
+        onResult = { uri: Uri? -> uri?.let { onImageSelected(it) } }
+    )
+
+    Button(
+        onClick = { launcher.launch("image/*") }
+    ) {
+        Text("Select Image")
+    }
+}

@@ -37,17 +37,17 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination =
-        if (viewModel.state.value.id.isEmpty()) {
-                NavigationItem.SignUp.route
-        } else {
-            NavigationItem.Main.route
-        }
-//        startDestination = if (splashScreen) {
-//            NavigationItem.Main.route
+//        startDestination =
+//        if (viewModel.state.value.id.isEmpty()) {
+//                NavigationItem.SignUp.route
 //        } else {
-//            NavigationItem.SignIn.route
+//            NavigationItem.Main.route
 //        }
+        startDestination = if (splashScreen) {
+            NavigationItem.Main.route
+        } else {
+            NavigationItem.SignIn.route
+        }
     ) {
 
         composable(NavigationItem.Main.route) {

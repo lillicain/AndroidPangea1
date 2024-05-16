@@ -66,21 +66,19 @@ fun PostItem(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            CircularImage(
-                imageUrl = user.profileImage,
-                imageSize = 40.dp,
-                modifier = Modifier
-                    .padding(vertical = 8.dp, horizontal = 16.dp)
-                    .clickable {
-                        onImageClick()
-                    }
-            )
+            user.profileImage?.let {
+                CircularImage(imageUrl = it,
+                    imageSize = 40.dp,
+                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp).clickable {
+                            onImageClick()
+                        })
+            }
             Column(
                 modifier = Modifier
                     .weight(1f)
                     .padding(vertical = 4.dp)
             ) {
-                Text(user.username)
+                user.username?.let { Text(it) }
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     "location",

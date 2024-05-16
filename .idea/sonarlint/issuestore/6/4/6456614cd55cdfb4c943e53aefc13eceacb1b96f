@@ -1,11 +1,12 @@
 
-dkotlin:S125°"Remove this commented out code.(¥ê÷ê8²•æ–ø1J$09063ed0-76d6-424b-a616-3eed77743980
-—kotlin:S117?"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ÖèÙ´8Æà–ø1J$fbfa9399-a739-4621-9689-a54f069c1097
-wkotlin:S1481N"-Remove this unused "launcher" local variable.(Ùşàıÿÿÿÿ8¸•æ–ø1J$ad98a29b-bb0d-4a22-b5fc-ca3de83ae422
-}kotlin:S1481?"8Remove this unused "CAMERAX_PERMISSIONS" local variable.(ÖèÙ´8Ìà–ø1J$4b72dbc1-d588-474e-8ab1-e406ed246baf
->kotlin:S1128	"Remove this unused import.(ùÉŞşÿÿÿÿ8¿Í§—ø1
->kotlin:S1128"Remove this unused import.(òû±¢ùÿÿÿÿ8¿Í§—ø1
-9kotlin:S1128"Remove this unused import.(™òæÜ8¿Í§—ø1
-_kotlin:S1128"Remove this unused import.(¦ï½å8»•æ–ø1J$b377c904-bb9c-4e9d-b703-689e0018aa76
-9kotlin:S1128'"Remove this unused import.(”ªˆ­8¿Í§—ø1
-9kotlin:S11285"Remove this unused import.(·“Áã8¿Í§—ø1
+dkotlin:S125±"Remove this commented out code.(¥ê÷ê8‚ã¥œø1J$c33b6eac-1b01-4647-9e73-ff74857e2f97
+—kotlin:S117?"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ÖèÙ´8­úœø1J$6d81de6f-3c6b-4c6f-803d-9b251a003aa4
+wkotlin:S1481N"-Remove this unused "launcher" local variable.(Ùşàıÿÿÿÿ8´úœø1J$b05b1775-b8d1-43bb-9b74-cb03fa13a331
+}kotlin:S1481?"8Remove this unused "CAMERAX_PERMISSIONS" local variable.(ÖèÙ´8´úœø1J$8d671e96-2d0e-4f9e-bf4d-3425243a9c80
+dkotlin:S1128	"Remove this unused import.(ùÉŞşÿÿÿÿ8¸úœø1J$6c38c18a-615c-4424-8cd9-e094f83d1da6
+dkotlin:S1128"Remove this unused import.(òû±¢ùÿÿÿÿ8¸úœø1J$617bb960-0039-4b4d-bf70-605cbe51eaf9
+_kotlin:S1128"Remove this unused import.(™òæÜ8¸úœø1J$a8579835-b8f6-489d-9916-39bc1bf72e0b
+9kotlin:S1128"Remove this unused import.(¦ï½å8Á‡¦œø1
+dkotlin:S1128$"Remove this unused import.(½…Ò¦ıÿÿÿÿ8§¶¤œø1J$c763f6db-e2f1-4613-9e6e-9b5465d6b7fd
+_kotlin:S1128'"Remove this unused import.(”ªˆ­8¸úœø1J$03261b3b-a3d6-441b-84e8-6cdb9728c74a
+_kotlin:S11285"Remove this unused import.(·“Áã8¸úœø1J$f7e143ae-beba-4c6e-afae-8135c36dd997

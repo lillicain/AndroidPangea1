@@ -1,4 +1,4 @@
-package com.example.androidpangea.data
+package com.example.androidpangea.repository
 
 import com.example.androidpangea.models.User
 import com.example.androidpangea.views.authentication.AuthStateResponse
@@ -40,7 +40,8 @@ interface DatabaseRepository {
 
     fun getUserId(): String = currentUser?.id.toString()
 
-    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(
+        Dispatchers.IO) {
         Firebase.auth
             .createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
@@ -51,7 +52,8 @@ interface DatabaseRepository {
                 }
             }.await()
     }
-    suspend fun signIn(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+    suspend fun signIn(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(
+        Dispatchers.IO) {
         Firebase.auth
             .signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {

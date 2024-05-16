@@ -66,7 +66,7 @@ fun UserScreen(
 
             Image(painter = rememberAsyncImagePainter(model = getData.profileImage), contentDescription = null)
 
-            Text(text = getData.email)
+//            Text(text = getData.email)
 
         }
     }

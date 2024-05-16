@@ -71,10 +71,11 @@ fun MiddlePart(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            CircularImage(
-                imageUrl = user.profileImage,
-                imageSize = 80.dp
-            )
+            user.profileImage?.let {
+                CircularImage(
+                    imageUrl = it, imageSize = 80.dp
+                )
+            }
             StateInfo(modifier = Modifier.weight(7f), user, navController)
         }
     }

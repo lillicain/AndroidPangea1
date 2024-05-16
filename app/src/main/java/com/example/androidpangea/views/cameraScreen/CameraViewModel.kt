@@ -29,10 +29,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.jetbrains.annotations.UnknownNullability
+import java.net.URI
 
 
 class CameraViewModel: ViewModel() {
     var imageUris = mutableStateOf<List<Uri?>>(emptyList())
+
 
     private val _bitmaps = MutableStateFlow<List<Bitmap>>(emptyList())
     val bitmaps = _bitmaps.asStateFlow()
@@ -41,16 +43,7 @@ class CameraViewModel: ViewModel() {
         _bitmaps.value += bitmap
     }
 
+    fun openImagePicker(onImageSelected: (Uri) -> Unit) {
 
-
-    fun openImagePicker(onSelectedImage: (Uri) -> Unit) {
-       viewModelScope.launch {
-
-            try {
-
-            } catch (e: Exception) {
-
-            }
-        }
     }
 }

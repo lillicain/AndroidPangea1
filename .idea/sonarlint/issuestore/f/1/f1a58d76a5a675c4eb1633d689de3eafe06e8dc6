@@ -1,0 +1,6 @@
+
+^kotlin:S1172."?Use "_" instead of this unused lambda parameter "taskSnapshot".(Ã¸Þ8ˆÀîšø1
+vkotlin:S117"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(¾ëªÇýÿÿÿÿ8‰Àîšø1
+>kotlin:S1128
+"Remove this unused import.(ƒüñÿýÿÿÿÿ8‹Àîšø1
+9kotlin:S1128"Remove this unused import.(Ýí’Ä8‹Àîšø1
