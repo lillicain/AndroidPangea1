@@ -1,4 +1,5 @@
 
-hkotlin:S125/"Remove this commented out code.(†×–Îùÿÿÿÿ8¡”°í÷1J$370e987c-5c1c-403e-b237-a294f87a4886
-_kotlin:S1128"Remove this unused import.(€Ðú¬8‡‘²í÷1J$e26eff41-a0ca-4a1c-8304-e2efa38a3a68
-dkotlin:S1128"Remove this unused import.(¸çÁßûÿÿÿÿ8¥”°í÷1J$93f6b10d-0404-40ea-ae4d-3e7cb4e5193b
+Zkotlin:S1172";Use "_" instead of this unused lambda parameter "username".(äí–ë8Žê½˜ø1
+hkotlin:S125/"Remove this commented out code.(†×–Îùÿÿÿÿ8¡”°í÷1J$3fba5f6b-bd89-46b6-bd72-05d9d6c0336e
+_kotlin:S1128"Remove this unused import.(€Ðú¬8‡‘²í÷1J$677d1e9a-81e1-48f7-86d8-39a437dda173
+dkotlin:S1128"Remove this unused import.(¸çÁßûÿÿÿÿ8¥”°í÷1J$fb741772-7ea3-432c-bf18-ea5c66c09437

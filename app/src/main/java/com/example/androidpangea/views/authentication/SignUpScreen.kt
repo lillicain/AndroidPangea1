@@ -26,7 +26,7 @@ fun SignUpScreen(
     val context = LocalContext.current
 
             SignUpContent(
-                signUp = { email, password ->
+                signUp = { username, email, password ->
                     viewModel.signUpWithEmailAndPassword(email, password)
                 },
                 navController = navController

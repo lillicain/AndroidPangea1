@@ -51,6 +51,7 @@ interface DatabaseRepository {
     }
     suspend fun signIn(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
         Firebase.auth
+//            .signInWithCustomToken(email)
             .signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if ( it.isSuccessful) {

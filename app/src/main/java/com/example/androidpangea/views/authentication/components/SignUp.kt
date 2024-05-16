@@ -41,6 +41,7 @@ import com.example.androidpangea.views.authentication.ProgressBar
 import com.example.androidpangea.views.authentication.UsernameField
 import com.google.firebase.Firebase
 import com.google.firebase.database.database
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 
 
@@ -70,6 +71,8 @@ fun SignUp(
         is Response.Success -> {
             val isUserSignedUp = signUpResponse.data
             val db = Firebase.firestore
+            val database = FirebaseFirestore.getInstance()
+
             LaunchedEffect(isUserSignedUp) {
                 if (isUserSignedUp) {
                     sendEmailVerification()
@@ -130,7 +133,7 @@ fun SignUpContent(
         UsernameField(
             username = username,
             onUsernameValueChange = { newValue ->
-                email = newValue
+                username = newValue
             }
         )
         SmallSpacer()
@@ -173,8 +176,7 @@ fun SignUpContent(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignUpTopBar(
-) {
+fun SignUpTopBar() {
     TopAppBar (
         title = {
             Text(
