@@ -143,3 +143,5 @@ x
 Happ/src/main/java/com/example/androidpangea/views/postScreen/PostCard.kt,3/3/33038854a9724e3fef9a79a2203ee97828fa2171
 x
 Happ/src/main/java/com/example/androidpangea/views/postScreen/PostItem.kt,2/1/214afbec61206cc300a6d4da6563e06caee50d02
+}
+Mapp/src/main/java/com/example/androidpangea/views/userScreen/DataViewModel.kt,5/e/5e742ccb7fe735611ec17a36805d9762ffb05175

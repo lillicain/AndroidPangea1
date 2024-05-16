@@ -80,13 +80,9 @@ class MainActivity : ComponentActivity() {
     private lateinit var firestore: FirebaseFirestore
     private val mapViewModel: MapViewModel by viewModels()
 
-
-//    private val mainViewModel: MainViewModel by viewModels()
-//    private val cameraViewModel: CameraViewModel by viewModels()
-//    private val authViewModel: AuthViewModel by viewModels()
-
+    var db = Firebase.firestore
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean -> if (isGranted) { mapViewModel.getDeviceLocation(fusedLocationProviderClient) } }
-    val db = Firebase.firestore
+
     private fun askPermissions() = when {
         ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
             mapViewModel.getDeviceLocation(fusedLocationProviderClient)
@@ -107,6 +103,7 @@ class MainActivity : ComponentActivity() {
         }
 
         auth = Firebase.auth
+        db = Firebase.firestore
         firestore = Firebase.firestore
 
         setContent {

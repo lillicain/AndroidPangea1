@@ -20,6 +20,7 @@ import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
+import com.example.androidpangea.views.userScreen.UserViewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -29,6 +30,7 @@ fun AppNavHost(
     modifier: Modifier = Modifier
 ) {
     val mapViewModel = MapViewModel()
+    val userViewModel = UserViewModel()
     val splashScreen by rememberSaveable { mutableStateOf(false) }
 
     NavHost(
@@ -75,7 +77,7 @@ fun AppNavHost(
 //            }
 //        }
         composable(NavigationItem.User.route) {
-            UserScreen(id = this.toString(), navController = navController)
+            UserScreen(id = this.toString(), navController = navController, viewModel = userViewModel)
         }
 
         composable(NavigationItem.Camera.route) {
