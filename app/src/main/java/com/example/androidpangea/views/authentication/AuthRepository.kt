@@ -1,6 +1,10 @@
 package com.example.androidpangea.views.authentication
 
 import android.annotation.SuppressLint
+import android.util.Log
+import android.widget.Toast
+import com.example.androidpangea.models.User
+import com.example.androidpangea.utils.Constants.TAG
 import com.google.firebase.Firebase
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +29,9 @@ typealias AuthStateResponse = StateFlow<Boolean>
 
 interface AuthRepository {
     val currentUser: FirebaseUser?
+    fun hasUser(): Boolean = Firebase.auth.currentUser != null
+    fun getUserId():String = Firebase.auth.currentUser?.uid.toString()
+
 
     suspend fun firebaseSignUpWithEmailAndPassword(email: String, password: String): SignUpResponse
 
@@ -41,41 +48,35 @@ interface AuthRepository {
     suspend fun revokeAccess(): RevokeAccessResponse
 
     fun getAuthState(viewModelScope: CoroutineScope): AuthStateResponse
-}
-//interface AuthRepository {
-//    val currentUser: FirebaseUser?
-//    suspend fun login(email: String, password: String): Resource<FirebaseUser>
-//    suspend fun signup(name: String, email: String, password: String): Resource<FirebaseUser>
-//    fun logout()
-//}
+    fun updateUI(user: FirebaseUser?) {
 
-//interface AuthRepository {
-//val currentUser: FirebaseUser?
-//
-//    fun hasUser(): Boolean = Firebase.auth.currentUser != null
-//
-//    fun getUserId():String = Firebase.auth.currentUser?.uid.toString()
-//
-//    suspend fun createUser(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
-//        Firebase.auth
-//            .createUserWithEmailAndPassword(email, password)
-//            .addOnCompleteListener {
-//                if ( it.isSuccessful) {
+    }
+
+    suspend fun signUp(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+        Firebase.auth
+            .createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener() {
+                if (it.isSuccessful) {
 //                    onComplete.invoke(true)
-//                } else {
-//                     onComplete.invoke(false)
-//                }
-//            }.await()
-//    }
-//    suspend fun login(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
-//        Firebase.auth
-//            .signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener {
-//                if ( it.isSuccessful) {
-//                    onComplete.invoke(true)
-//                } else {
+                    Log.d(TAG, "signInWithCustomToken:success")
+                    val user = Firebase.auth.currentUser
+                    updateUI(user)
+                } else {
 //                    onComplete.invoke(false)
-//                }
-//            }.await()
-//    }
-//}
+
+                    updateUI(null)
+                }
+            }.await()
+    }
+    suspend fun signIn(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
+        Firebase.auth
+            .signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener() {
+                if (it.isSuccessful) {
+                    onComplete.invoke(true)
+                } else {
+                    onComplete.invoke(false)
+                }
+            }.await()
+    }
+}

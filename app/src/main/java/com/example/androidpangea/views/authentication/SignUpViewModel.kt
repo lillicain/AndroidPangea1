@@ -22,6 +22,7 @@ class SignUpViewModel @Inject constructor(
     fun signUpWithEmailAndPassword(email: String, password: String) = viewModelScope.launch {
         signUpResponse = Response.Loading
         signUpResponse = repo.firebaseSignUpWithEmailAndPassword(email, password)
+
     }
 
     fun sendEmailVerification() = viewModelScope.launch {

@@ -101,8 +101,6 @@ t
 Dapp/src/main/java/com/example/androidpangea/views/subviews/Bitmap.kt,8/f/8fa574458e5b297dbd5ef811d7358b43279eb7ef
 Ç
 Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/LastPhotoPreview.kt,1/8/1835e2d4d44fa90b093ff6bb1a0101f6e1d40c6f
-à
-Xapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraPermissionScreen.kt,a/6/a6afdba9a9eddcd0c04f98a521bce067b4ddb7e5
 s
 Capp/src/main/java/com/example/androidpangea/navigation/AppRouter.kt,3/b/3bacc28ca7c5b80e222a0f0535360af5d8382412
 w
@@ -143,18 +141,12 @@ x
 Happ/src/main/java/com/example/androidpangea/views/postScreen/PostCard.kt,3/3/33038854a9724e3fef9a79a2203ee97828fa2171
 x
 Happ/src/main/java/com/example/androidpangea/views/postScreen/PostItem.kt,2/1/214afbec61206cc300a6d4da6563e06caee50d02
-}
-Mapp/src/main/java/com/example/androidpangea/views/userScreen/DataViewModel.kt,5/e/5e742ccb7fe735611ec17a36805d9762ffb05175
-p
-@app/src/main/java/com/example/androidpangea/navigation/Screen.kt,7/e/7eb0c5a1e42039b2e6491610798eec4b8a4b56ff
 Å
 Qapp/src/main/java/com/example/androidpangea/views/subviews/CameraPositionState.kt,d/b/dba214745146f111b1dca651347f7254ba9d910b
 â
 Yapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoBottomSheetContent.kt,f/0/f0869ef26b4c48f8c015171f05665ae5be025494
 Ç
 Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraController.kt,2/6/2663c512a3456ba76395c229df29b2a188e8dd36
-v
-Fapp/src/main/java/com/example/androidpangea/data/FirebaseUIActivity.kt,8/7/87eacf12a0f02f79060d5238c6eb1b6e6291b00d
 v
 Fapp/src/main/java/com/example/androidpangea/data/databaseRepository.kt,d/f/df37bb6c0ee2cb569ebb641810d4d5469e51577e
 v

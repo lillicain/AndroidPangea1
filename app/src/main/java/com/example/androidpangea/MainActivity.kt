@@ -198,6 +198,9 @@ class MainActivity : ComponentActivity() {
     public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
+        if (currentUser != null) {
+
+        }
         updateUI(user = currentUser)
     }
 

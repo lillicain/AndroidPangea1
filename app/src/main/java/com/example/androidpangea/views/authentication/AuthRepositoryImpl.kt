@@ -1,6 +1,9 @@
 package com.example.androidpangea.views.authentication
 
+import com.example.androidpangea.models.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.SharingStarted
@@ -14,7 +17,8 @@ import javax.inject.Singleton
 class AuthRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth
 ) : AuthRepository {
-    override val currentUser get() = auth.currentUser
+    override val currentUser: FirebaseUser? get() = auth.currentUser
+
 
     override suspend fun firebaseSignUpWithEmailAndPassword(
         email: String, password: String
@@ -73,37 +77,7 @@ class AuthRepositoryImpl @Inject constructor(
             auth.removeAuthStateListener(authStateListener)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), auth.currentUser == null)
+
 }
-//class AuthRepositoryImpl @Inject constructor(
-//    private val firebaseAuth: FirebaseAuth
-//) : AuthRepository {
-//
-//    override val currentUser: FirebaseUser?
-//        get() = firebaseAuth.currentUser
-//
-//    override suspend fun login(email: String, password: String): Resource<FirebaseUser> {
-//        return try {
-//            val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
-//            Resource.Success(result.user!!)
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//            Resource.Failure(e)
-//        }
-//    }
-//
-//    override suspend fun signup(name: String, email: String, password: String): Resource<FirebaseUser> {
-//        return try {
-//            val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
-//            result.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())?.await()
-//            return Resource.Success(result.user!!)
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//            Resource.Failure(e)
-//        }
-//    }
-//
-//    override fun logout() {
-//        firebaseAuth.signOut()
-//    }
-//
-//}
+
+

@@ -9,6 +9,7 @@ import com.example.androidpangea.views.authentication.SendPasswordResetEmailResp
 import com.example.androidpangea.views.authentication.SignInResponse
 import com.example.androidpangea.views.authentication.SignUpResponse
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +18,7 @@ import kotlinx.coroutines.withContext
 
 interface DatabaseRepository {
     val currentUser: User?
+    val currentFirebaseUser: FirebaseUser?
     suspend fun firebaseSignUpWithEmailAndPassword(email: String, password: String): SignUpResponse
 
     suspend fun sendEmailVerification(): SendEmailVerificationResponse
@@ -51,10 +53,9 @@ interface DatabaseRepository {
     }
     suspend fun signIn(email: String, password: String, onComplete: (Boolean) -> Unit) = withContext(Dispatchers.IO) {
         Firebase.auth
-//            .signInWithCustomToken(email)
             .signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                if ( it.isSuccessful) {
+                if (it.isSuccessful) {
                     onComplete.invoke(true)
                 } else {
                     onComplete.invoke(false)
