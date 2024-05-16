@@ -13,14 +13,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
-import com.example.androidpangea.views.cameraScreen.CameraPermissionScreen
+import com.example.androidpangea.views.cameraScreen.CameraScreen
 import com.example.androidpangea.views.cameraScreen.PhotoScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
-import com.example.androidpangea.views.userScreen.UserViewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -30,7 +29,6 @@ fun AppNavHost(
     modifier: Modifier = Modifier
 ) {
     val mapViewModel = MapViewModel()
-    val userViewModel = UserViewModel()
     val splashScreen by rememberSaveable { mutableStateOf(false) }
 
     NavHost(
@@ -77,11 +75,11 @@ fun AppNavHost(
 //            }
 //        }
         composable(NavigationItem.User.route) {
-            UserScreen(id = this.toString(), navController = navController, viewModel = userViewModel)
+            UserScreen(id = this.toString(), navController = navController)
         }
 
         composable(NavigationItem.Camera.route) {
-            CameraPermissionScreen(navController = navController)
+            CameraScreen(navController = navController)
         }
         composable(NavigationItem.Explore.route) {
             ExploreScreen(navController = navController)

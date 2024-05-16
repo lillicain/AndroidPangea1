@@ -149,3 +149,7 @@ p
 @app/src/main/java/com/example/androidpangea/navigation/Screen.kt,7/e/7eb0c5a1e42039b2e6491610798eec4b8a4b56ff
 Å
 Qapp/src/main/java/com/example/androidpangea/views/subviews/CameraPositionState.kt,d/b/dba214745146f111b1dca651347f7254ba9d910b
+â
+Yapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoBottomSheetContent.kt,f/0/f0869ef26b4c48f8c015171f05665ae5be025494
+Ç
+Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraController.kt,2/6/2663c512a3456ba76395c229df29b2a188e8dd36

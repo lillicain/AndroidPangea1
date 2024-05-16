@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.androidpangea.models.User
@@ -34,7 +35,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 fun UserScreen(
     id: String,
     navController: NavController,
-    viewModel: UserViewModel
+    viewModel: MainViewModel = hiltViewModel(),
 ) {
     val getData = viewModel.state.value
 
