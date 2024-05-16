@@ -26,9 +26,11 @@ fun ImagePicker() {
         contract = ActivityResultContracts.PickMultipleVisualMedia(),
         onResult = { uri: List<Uri?> -> imageUris = uri }
     )
+
     LazyColumn(
         modifier = Modifier
-            .fillMaxSize()
+
+
     ) {
         items(imageUris) {
             if (it != null) {

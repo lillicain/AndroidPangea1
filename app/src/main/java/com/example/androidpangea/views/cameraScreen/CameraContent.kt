@@ -113,7 +113,7 @@ class CustomCameraRepoImpl @Inject constructor(
         // FILE NAME
 
         val name = SimpleDateFormat(
-            "yyyy-MM-dd-HH-mm-ss-SSS", Locale.ENGLISH
+            "yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH
         ).format(System.currentTimeMillis())
 
 
@@ -123,7 +123,7 @@ class CustomCameraRepoImpl @Inject constructor(
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
             if (Build.VERSION.SDK_INT > 28) {
-                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/My-Camera-App-Images")
+                put(MediaStore.Images.Media.RELATIVE_PATH, "images")
             }
         }
 
@@ -135,7 +135,7 @@ class CustomCameraRepoImpl @Inject constructor(
             ContextCompat.getMainExecutor(context),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    Toast.makeText(context, "Saved image ${outputFileResults.savedUri!!}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "saved image ${outputFileResults.savedUri!!}", Toast.LENGTH_LONG).show()
                 }
 
                 override fun onError(exception: ImageCaptureException) {

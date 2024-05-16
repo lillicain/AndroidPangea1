@@ -16,11 +16,7 @@ class SignUpViewModel @Inject constructor(
 ): ViewModel() {
     var signUpResponse by mutableStateOf<SignUpResponse>(Response.Success(false))
         private set
-    var sendEmailVerificationResponse by mutableStateOf<SendEmailVerificationResponse>(
-        Response.Success(
-            false
-        )
-    )
+    var sendEmailVerificationResponse by mutableStateOf<SendEmailVerificationResponse>(Response.Success(false))
         private set
 
     fun signUpWithEmailAndPassword(email: String, password: String) = viewModelScope.launch {

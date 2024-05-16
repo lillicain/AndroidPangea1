@@ -82,6 +82,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.analytics)
+    implementation(libs.play.services.cast.framework)
     ksp(libs.compose.ksp)
     implementation(libs.compose.extended.icons)
     implementation(libs.compose.coil)

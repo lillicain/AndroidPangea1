@@ -41,6 +41,7 @@ import com.example.androidpangea.utils.Constants.EMAIL_LABEL
 import com.example.androidpangea.utils.Constants.PASSWORD_LABEL
 import com.example.androidpangea.utils.Constants.REVOKE_ACCESS_ITEM
 import com.example.androidpangea.utils.Constants.SIGN_OUT_ITEM
+import com.google.android.gms.cast.framework.media.ImagePicker
 import kotlinx.coroutines.job
 
 sealed class Response<out T> {
@@ -53,6 +54,55 @@ sealed class Response<out T> {
     data class Failure(
         val e: Exception
     ): Response<Nothing>()
+}
+
+//@Composable
+//fun ProfileImageField(
+//    username: TextFieldValue,
+//    onUsernameValueChange: (newValue: TextFieldValue) -> ImagePicker
+//) {
+//    val focusRequester = FocusRequester()
+//
+//    OutlinedTextField(value = username, onValueChange = { newValue ->
+//        onUsernameValueChange(newValue)
+//    }, label = {
+//        Text(
+//            text = ""
+//        )
+//    }, singleLine = true, keyboardOptions = KeyboardOptions(
+//        keyboardType = KeyboardType.Uri
+//    ), modifier = Modifier.focusRequester(focusRequester)
+//    )
+//
+//    LaunchedEffect(Unit) {
+//        coroutineContext.job.invokeOnCompletion {
+//            focusRequester.requestFocus()
+//        }
+//    }
+//}
+@Composable
+fun UsernameField(
+    username: TextFieldValue,
+    onUsernameValueChange: (newValue: TextFieldValue) -> Unit
+) {
+    val focusRequester = FocusRequester()
+
+    OutlinedTextField(value = username, onValueChange = { newValue ->
+        onUsernameValueChange(newValue)
+    }, label = {
+        Text(
+            text = "Username"
+        )
+    }, singleLine = true, keyboardOptions = KeyboardOptions(
+        keyboardType = KeyboardType.Text
+    ), modifier = Modifier.focusRequester(focusRequester)
+    )
+
+    LaunchedEffect(Unit) {
+        coroutineContext.job.invokeOnCompletion {
+            focusRequester.requestFocus()
+        }
+    }
 }
 
 @Composable
@@ -69,7 +119,7 @@ fun EmailField(
         },
         label = {
             Text(
-                text = EMAIL_LABEL
+                text = "Email"
             )
         },
         singleLine = true,
@@ -100,7 +150,7 @@ fun PasswordField(
         },
         label = {
             Text(
-                text = PASSWORD_LABEL
+                text = "Password"
             )
         },
         singleLine = true,
@@ -131,6 +181,7 @@ fun PasswordField(
         }
     )
 }
+
 @Composable
 fun BackIcon(
     navigateBack: () -> Unit

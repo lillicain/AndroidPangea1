@@ -5,6 +5,6 @@ import com.example.androidpangea.views.subviews.ImagePicker
 
 @Composable
 fun CreatePost() {
-//    ImagePicker()
+    ImagePicker()
 }
 

@@ -1,4 +1,11 @@
 
-—kotlin:S1178"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ÖèÙ´8éÖ˜”ø1J$e772231d-a67d-42ba-9ae3-ee211e6a3553
-wkotlin:S1481G"-Remove this unused "launcher" local variable.(ŽÙþàýÿÿÿÿ8íÖ˜”ø1J$d638c9b2-cd47-4b27-82e5-ba48f150b7be
-}kotlin:S14818"8Remove this unused "CAMERAX_PERMISSIONS" local variable.(ÖèÙ´8íÖ˜”ø1J$5ce566e5-d684-44a1-ae46-103a7c431ce5
+dkotlin:S125°"Remove this commented out code.(¥ê÷ê8²•æ–ø1J$09063ed0-76d6-424b-a616-3eed77743980
+—kotlin:S117?"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ÖèÙ´8Æà–ø1J$fbfa9399-a739-4621-9689-a54f069c1097
+wkotlin:S1481N"-Remove this unused "launcher" local variable.(ŽÙþàýÿÿÿÿ8¸•æ–ø1J$ad98a29b-bb0d-4a22-b5fc-ca3de83ae422
+}kotlin:S1481?"8Remove this unused "CAMERAX_PERMISSIONS" local variable.(ÖèÙ´8Ìà–ø1J$4b72dbc1-d588-474e-8ab1-e406ed246baf
+>kotlin:S1128	"Remove this unused import.(ùÉÞþÿÿÿÿ8¿Í§—ø1
+>kotlin:S1128"Remove this unused import.(òû±¢ùÿÿÿÿ8¿Í§—ø1
+9kotlin:S1128"Remove this unused import.(™òæÜ8¿Í§—ø1
+_kotlin:S1128"Remove this unused import.(¦ï½å8»•æ–ø1J$b377c904-bb9c-4e9d-b703-689e0018aa76
+9kotlin:S1128'"Remove this unused import.(”ªˆ­8¿Í§—ø1
+9kotlin:S11285"Remove this unused import.(·“Áã8¿Í§—ø1

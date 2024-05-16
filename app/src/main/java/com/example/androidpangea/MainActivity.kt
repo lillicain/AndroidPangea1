@@ -63,6 +63,7 @@ import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -194,6 +195,15 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+    public override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        updateUI(user = currentUser)
+    }
+
+    private fun updateUI(user: FirebaseUser?) {
+
+    }
 
 
     private fun hasRequiredPermissions(): Boolean {
@@ -211,4 +221,6 @@ class MainActivity : ComponentActivity() {
             android.Manifest.permission.RECORD_AUDIO,
         )
     }
+
 }
+

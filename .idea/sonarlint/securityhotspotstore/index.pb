@@ -153,3 +153,9 @@ Qapp/src/main/java/com/example/androidpangea/views/subviews/CameraPositionState.
 Yapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoBottomSheetContent.kt,f/0/f0869ef26b4c48f8c015171f05665ae5be025494
 ‚
 Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraController.kt,2/6/2663c512a3456ba76395c229df29b2a188e8dd36
+v
+Fapp/src/main/java/com/example/androidpangea/data/FirebaseUIActivity.kt,8/7/87eacf12a0f02f79060d5238c6eb1b6e6291b00d
+v
+Fapp/src/main/java/com/example/androidpangea/data/databaseRepository.kt,d/f/df37bb6c0ee2cb569ebb641810d4d5469e51577e
+v
+Fapp/src/main/java/com/example/androidpangea/data/DatabaseRepository.kt,b/e/be17cc4e7264d980af671a41deb7d3b9daee786f

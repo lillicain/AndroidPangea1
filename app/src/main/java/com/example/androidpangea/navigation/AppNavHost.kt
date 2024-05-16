@@ -1,5 +1,6 @@
 package com.example.androidpangea.navigation
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -11,6 +12,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.androidpangea.models.User
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
@@ -21,6 +23,7 @@ import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
 
+@SuppressLint("UnrememberedMutableState")
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun AppNavHost(
@@ -34,11 +37,17 @@ fun AppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = if (splashScreen) {
-            NavigationItem.Main.route
+        startDestination =
+        if (viewModel.state.value.id.isEmpty()) {
+                NavigationItem.SignUp.route
         } else {
-            NavigationItem.SignIn.route
+            NavigationItem.Main.route
         }
+//        startDestination = if (splashScreen) {
+//            NavigationItem.Main.route
+//        } else {
+//            NavigationItem.SignIn.route
+//        }
     ) {
 
         composable(NavigationItem.Main.route) {

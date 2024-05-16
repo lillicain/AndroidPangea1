@@ -6,6 +6,7 @@ import android.graphics.Matrix
 import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -20,11 +21,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.filled.Photo
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,6 +36,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,11 +50,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.bar.BottomNavigationBar
+import com.example.androidpangea.views.subviews.ImagePicker
 import kotlinx.coroutines.launch
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnrememberedMutableState")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CameraScreen(navController: NavController) {
@@ -73,7 +80,7 @@ fun CameraScreen(navController: NavController) {
         onResult = { uri: List<Uri?> -> imageUris = uri }
     )
 
-val location by remember { mutableStateOf(null) }
+    val location by remember { mutableStateOf(null) }
 
     fun takePhoto(controller: LifecycleCameraController, onPhotoTaken: (Bitmap) -> Unit) {
 
@@ -102,81 +109,105 @@ val location by remember { mutableStateOf(null) }
     }
 
     Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = { BottomNavigationBar(navController = navController) }) {
-            BottomSheetScaffold(
-                scaffoldState = scaffoldState,
-                sheetPeekHeight = 0.dp,
-                sheetContent = {
-                    Text(text = location.toString())
+        BottomSheetScaffold(
+            scaffoldState = scaffoldState,
+            sheetPeekHeight = 0.dp,
+            sheetContent = {
+                Text(text = location.toString())
 
-                    PhotoBottomSheetContent(
-                        bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
-                    )
-                }) { padding ->
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(padding)
-                        .padding()
+                PhotoBottomSheetContent(
+                    bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
+                )
+            }) { padding ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+                    .padding()
+            ) {
+                CameraController(
+                    controller = controller, modifier = Modifier.fillMaxSize()
+                )
+
+                IconButton(
+                    onClick = {
+                        controller.cameraSelector =
+                            if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
+                                CameraSelector.DEFAULT_FRONT_CAMERA
+                            } else CameraSelector.DEFAULT_BACK_CAMERA
+                    }, modifier = Modifier.offset(10.dp, 10.dp)
                 ) {
-                    CameraController(
-                        controller = controller, modifier = Modifier.fillMaxSize()
+                    Icon(
+                        imageVector = Icons.Default.Cameraswitch,
+                        contentDescription = "Switch camera"
                     )
+                }
 
-                    IconButton(
-                        onClick = {
-                            controller.cameraSelector =
-                                if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
-                                    CameraSelector.DEFAULT_FRONT_CAMERA
-                                } else CameraSelector.DEFAULT_BACK_CAMERA
-                        }, modifier = Modifier.offset(10.dp, 10.dp)
-                    ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.BottomCenter)
+                        .padding(10.dp)
+                        .padding(bottom = 50.dp),
+                    horizontalArrangement = Arrangement.SpaceAround
+
+                ) {
+                    IconButton(onClick = {
+                        scope.launch {
+                            scaffoldState.bottomSheetState.expand()
+                        }
+                    }, modifier = Modifier.padding(bottom = 50.dp)) {
                         Icon(
-                            imageVector = Icons.Default.Cameraswitch,
-                            contentDescription = "Switch camera"
+                            imageVector = Icons.Default.Photo,
+                            contentDescription = "Open gallery"
+                        )
+                    }
+                    IconButton(onClick = {
+                        takePhoto(
+                            controller = controller, onPhotoTaken = viewModel::onTakePhoto
+                        )
+                    }, modifier = Modifier.padding(bottom = 50.dp)) {
+                        Icon(
+                            imageVector = Icons.Default.PhotoCamera,
+                            contentDescription = "Take photo"
                         )
                     }
 
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.BottomCenter)
-                            .padding(10.dp)
-                            .padding(bottom = 50.dp),
-                        horizontalArrangement = Arrangement.SpaceAround
+//                    Button(onClick = {
+//
+//                    }) {
+//                        LazyColumn(
+//                            modifier = Modifier
+//
+//
+//                        ) {
+//                            items(imageUris) {
+//                                if (it != null) {
+//                                    AsyncImage(
+//                                        model = it,
+//                                        contentDescription = "Selected Image",
+//                                        modifier = Modifier.fillMaxSize()
+//                                    )
+//                                }
+//                            }
+//                        }
+//                        LaunchedEffect(key1 = true) {
+//                            launcher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
+//
+//                        }
+//                    }
 
-                    ) {
-                        IconButton(onClick = {
-                            scope.launch {
-                                scaffoldState.bottomSheetState.expand()
-                            }
-                        }, modifier = Modifier.padding(bottom = 50.dp)) {
-                            Icon(
-                                imageVector = Icons.Default.Photo,
-                                contentDescription = "Open gallery"
-                            )
-                        }
-                        IconButton(onClick = {
-                            takePhoto(
-                                controller = controller, onPhotoTaken = viewModel::onTakePhoto
-                            )
-                        }, modifier = Modifier.padding(bottom = 50.dp)) {
-                            Icon(
-                                imageVector = Icons.Default.PhotoCamera,
-                                contentDescription = "Take photo"
-                            )
-                        }
+                    IconButton(onClick = {
 
-                        IconButton(onClick = {
-                           navController.navigate(NavigationItem.Photo.route)
 
-                        }, modifier = Modifier.padding(bottom = 50.dp)) {
-                            Icon(
-                                imageVector = Icons.Default.PhotoCamera,
-                                contentDescription = "Choose from photo library"
-                            )
-                        }
+                    }, modifier = Modifier.padding(bottom = 50.dp)) {
+                        Icon(
+                            imageVector = Icons.Default.PhotoCamera,
+                            contentDescription = "Choose from photo library"
+                        )
                     }
                 }
             }
         }
     }
+}

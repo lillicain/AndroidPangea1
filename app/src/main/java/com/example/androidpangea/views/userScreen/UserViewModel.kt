@@ -14,54 +14,54 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
+//@HiltVilillewModel
 class UserViewModel: ViewModel() {
 
     val state = mutableStateOf(User())
- init {
-     getData()
- }
+    init {
+        getData()
+    }
     fun getData() {
         viewModelScope.launch {
             state.value = getDataFromFireStore()
 
         }
     }
-//    private val _users =
-//        MutableStateFlow< BaseState <List<User>, Failure>>(BaseState.Loading)
-//    val users = _users.asStateFlow()
-//
-//    private val _posts =
-//        MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
-//    val posts = _posts.asStateFlow()
-//
-//    fun getUsers() {
-//        viewModelScope.launch {
-//            try {
-//                val response = users.value
-//                if (response.toString() == "success_user") {
-////                    val userList = response.data.
-////
-////                    _users.value = BaseState.Success(userList)
-//                } else {
-//                    _users.value = BaseState.Failed(Failure.Unknown("Error"))
-//                }
-//            } catch (e: Exception) {
-//                _users.value = BaseState.Failed(Failure.Unknown(e.message.toString()))
-//            }
-//        }
-//    }
-//
-//    fun getUserById(userId: String): User? {
-//        return (_users.value as BaseState.Success).data.find {
-//            it.id == userId
-//        }
-//    }
-//
-//    fun getPostById(postId: String): Post? {
-//        return (_posts.value as BaseState.Success).data.find {
-//            it.id == postId
-//        }
-//    }
+    //    private val _users =
+    //        MutableStateFlow< BaseState <List<User>, Failure>>(BaseState.Loading)
+    //    val users = _users.asStateFlow()
+    //
+    //    private val _posts =
+    //        MutableStateFlow<BaseState<List<Post>, Failure>>(BaseState.Loading)
+    //    val posts = _posts.asStateFlow()
+    //
+    //    fun getUsers() {
+    //        viewModelScope.launch {
+    //            try {
+    //                val response = users.value
+    //                if (response.toString() == "success_user") {
+    ////                    val userList = response.data.
+    ////
+    ////                    _users.value = BaseState.Success(userList)
+    //                } else {
+    //                    _users.value = BaseState.Failed(Failure.Unknown("Error"))
+    //                }
+    //            } catch (e: Exception) {
+    //                _users.value = BaseState.Failed(Failure.Unknown(e.message.toString()))
+    //            }
+    //        }
+    //    }
+    //
+    //    fun getUserById(userId: String): User? {
+    //        return (_users.value as BaseState.Success).data.find {
+    //            it.id == userId
+    //        }
+    //    }
+    //
+    //    fun getPostById(postId: String): Post? {
+    //        return (_posts.value as BaseState.Success).data.find {
+    //            it.id == postId
+    //        }
+    //    }
 
 }

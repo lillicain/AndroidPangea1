@@ -38,6 +38,7 @@ import com.example.androidpangea.views.authentication.Response
 import com.example.androidpangea.views.authentication.SignUpViewModel
 import com.example.androidpangea.views.authentication.SmallSpacer
 import com.example.androidpangea.views.authentication.ProgressBar
+import com.example.androidpangea.views.authentication.UsernameField
 import com.google.firebase.Firebase
 import com.google.firebase.database.database
 import com.google.firebase.firestore.firestore
@@ -75,7 +76,6 @@ fun SignUp(
                     showVerifyEmailMessage()
                 }
             }
-
         }
         is Response.Failure -> signUpResponse.apply {
             LaunchedEffect(e) {
@@ -88,11 +88,10 @@ fun SignUp(
 @Composable
 @ExperimentalComposeUiApi
 fun SignUpContent(
-    signUp: (email: String, password: String) -> Unit,
+    signUp: (username: String, email: String, password: String) -> Unit,
     navController: NavController
 ) {
-    var email by rememberSaveable(
-        stateSaver = TextFieldValue.Saver,
+    var username by rememberSaveable(stateSaver = TextFieldValue.Saver,
         init = {
             mutableStateOf(
                 value = TextFieldValue(
@@ -101,8 +100,16 @@ fun SignUpContent(
             )
         }
     )
-    var password by rememberSaveable(
-        stateSaver = TextFieldValue.Saver,
+    var email by rememberSaveable(stateSaver = TextFieldValue.Saver,
+        init = {
+            mutableStateOf(
+                value = TextFieldValue(
+                    text = EMPTY_STRING
+                )
+            )
+        }
+    )
+    var password by rememberSaveable(stateSaver = TextFieldValue.Saver,
         init = {
             mutableStateOf(
                 value = TextFieldValue(
@@ -120,6 +127,13 @@ fun SignUpContent(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        UsernameField(
+            username = username,
+            onUsernameValueChange = { newValue ->
+                email = newValue
+            }
+        )
+        SmallSpacer()
         EmailField(
             email = email,
             onEmailValueChange = { newValue ->
@@ -137,10 +151,9 @@ fun SignUpContent(
         Button(
             onClick = {
                 keyboard?.hide()
-                signUp(email.text, password.text)
+                signUp(username.text, email.text, password.text)
                 navController.navigate(NavigationItem.Main.route)
 //                myRef.setValue(signUp(email.text, password.text))
-//
             }
         ) {
             Text(
