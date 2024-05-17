@@ -147,10 +147,6 @@ Qapp/src/main/java/com/example/androidpangea/views/subviews/CameraPositionState.
 Yapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoBottomSheetContent.kt,f/0/f0869ef26b4c48f8c015171f05665ae5be025494
 ‚
 Rapp/src/main/java/com/example/androidpangea/views/cameraScreen/CameraController.kt,2/6/2663c512a3456ba76395c229df29b2a188e8dd36
-v
-Fapp/src/main/java/com/example/androidpangea/data/databaseRepository.kt,d/f/df37bb6c0ee2cb569ebb641810d4d5469e51577e
-v
-Fapp/src/main/java/com/example/androidpangea/data/DatabaseRepository.kt,b/e/be17cc4e7264d980af671a41deb7d3b9daee786f
 |
 Lapp/src/main/java/com/example/androidpangea/repository/DatabaseRepository.kt,1/9/1988c6fcb44cf1668d566fca65e3b0b9cd636127
 {
@@ -161,12 +157,8 @@ v
 Fapp/src/main/java/com/example/androidpangea/repository/DataResponse.kt,2/c/2cd99d442b982bbb3915e7c7c35ea286aea16cae
 
 Oapp/src/main/java/com/example/androidpangea/repository/ProfileRepositoryImpl.kt,e/a/ead22d94b9a0f3565085b4744325bf464d21ecf6
-
-Oapp/src/main/java/com/example/androidpangea/views/subviews/SinglePhotoPicker.kt,0/8/083796b3c6f34746fb22b9c3b178d251458eddf9
 y
 Iapp/src/main/java/com/example/androidpangea/views/subviews/PhotoPicker.kt,1/8/18be1e562f018a78e657514f0a9238e8b6addc7f
-q
-Aapp/src/main/java/com/example/androidpangea/utils/StorageUtils.kt,6/6/6669ddadb7fd586f218d2f051e68273a91a5a7bb
 p
 @app/src/main/java/com/example/androidpangea/utils/StorageUtil.kt,f/1/f1a58d76a5a675c4eb1633d689de3eafe06e8dc6
 r
