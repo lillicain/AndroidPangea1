@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -53,6 +54,7 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.navigation.bar.BottomNavigationBar
+import com.example.androidpangea.utils.StorageUtil
 import com.example.androidpangea.views.subviews.ImagePicker
 import kotlinx.coroutines.launch
 
@@ -60,7 +62,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CameraScreen(navController: NavController) {
-    val CAMERAX_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.RECORD_AUDIO)
+//    val CAMERAX_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.RECORD_AUDIO)
 
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -81,6 +83,14 @@ fun CameraScreen(navController: NavController) {
     )
 
     val location by remember { mutableStateOf(null) }
+    var uri by remember { mutableStateOf<Uri?>(null) }
+
+    val singlePhotoPicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickVisualMedia(),
+        onResult = {
+            uri = it
+        }
+    )
 
     fun takePhoto(controller: LifecycleCameraController, onPhotoTaken: (Bitmap) -> Unit) {
 
@@ -174,6 +184,25 @@ fun CameraScreen(navController: NavController) {
                         )
                     }
 
+                    Button(onClick = {
+                        singlePhotoPicker.launch(
+                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                        )
+
+                    }) {
+                        Text("Open Gallery")
+                    }
+
+                    AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
+
+                    Button(onClick = {
+                        uri?.let {
+                            StorageUtil.uploadToStorage(uri = it, context = context, type = "image")
+                        }
+
+                    }) {
+                        Text("Upload")
+                    }
 //                    Button(onClick = {
 //
 //                    }) {

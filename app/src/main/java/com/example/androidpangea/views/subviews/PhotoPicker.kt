@@ -5,6 +5,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,10 +41,10 @@ fun PhotoPicker() {
             )
 
         }) {
-            Text("Pick Single Image")
+            Text("Open Gallery")
         }
 
-        AsyncImage(model = uri, contentDescription = null)
+        AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
 
         Button(onClick = {
             uri?.let {

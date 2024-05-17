@@ -17,11 +17,10 @@ class StorageUtil {
         fun uploadToStorage(uri: Uri, context: Context, type: String) {
             val storage = Firebase.storage
 
-            // Create a storage reference from our app
-            var storageRef = storage.reference
+            val storageRef = storage.reference
 
             val unique_image_name = UUID.randomUUID()
-            var spaceRef: StorageReference
+            val spaceRef: StorageReference
 
             if (type == "image"){
                 spaceRef = storageRef.child("images/$unique_image_name.jpg")
@@ -35,20 +34,17 @@ class StorageUtil {
 
             byteArray?.let{
 
-                var uploadTask = spaceRef.putBytes(byteArray)
+                val uploadTask = spaceRef.putBytes(byteArray)
                 uploadTask.addOnFailureListener {
                     Toast.makeText(
                         context,
                         "upload failed",
                         Toast.LENGTH_SHORT
                     ).show()
-                    // Handle unsuccessful uploads
                 }.addOnSuccessListener { taskSnapshot ->
-                    // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-                    // ...
                     Toast.makeText(
                         context,
-                        "upload successed",
+                        "success",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
