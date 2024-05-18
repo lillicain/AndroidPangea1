@@ -12,7 +12,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.androidpangea.models.User
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
@@ -52,7 +51,7 @@ fun AppNavHost(
         composable(NavigationItem.Main.route) {
             MainScreen(
                 navController = navController,
-                state = mapViewModel.state.value,
+                state = mapViewModel.mapState.value,
                 setupClusterManager = mapViewModel::setupClusterManager,
                 calculateZoneViewCenter = mapViewModel::calculateZoneLatLngBounds,
             )

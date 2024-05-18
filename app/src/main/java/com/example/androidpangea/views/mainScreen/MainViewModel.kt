@@ -1,6 +1,8 @@
 package com.example.androidpangea.views.mainScreen
 
+import android.annotation.SuppressLint
 import android.util.Log
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,10 +12,16 @@ import com.example.androidpangea.extensions.await
 import com.example.androidpangea.models.Post
 import com.example.androidpangea.models.User
 import com.example.androidpangea.views.authentication.AuthRepository
+import com.example.androidpangea.views.mapScreen.MapItem
+import com.example.androidpangea.views.mapScreen.MapState
+import com.example.androidpangea.views.mapScreen.MapViewModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.toObject
+import com.google.maps.android.ktx.model.polygonOptions
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,6 +37,50 @@ class MainViewModel @Inject constructor(): ViewModel() {
     val posts = _posts.asStateFlow()
 
     val state = mutableStateOf(User())
+
+    private val mapState: MutableState<MapState> = mutableStateOf(
+        MapState(
+            lastKnownLocation = null,
+            mapItems = listOf(
+                MapItem(
+                    id = "1",
+                    title = "School",
+                    snippet = "This is Zone 1.",
+                    polygonOptions = polygonOptions {
+                        //                        add(LatLng(37.09, 113.57))
+                        //                        add(LatLng(37.098, 113.58))
+                        //                        add(LatLng(37.094, 113.591))
+                        //                        add(LatLng(37.01, 113.59))
+
+                        add(LatLng(39.105, -122.524))
+                        add(LatLng(39.101, -122.529))
+                        add(LatLng(39.092, -122.501))
+                        add(LatLng(39.1, -122.506))
+
+                        fillColor(MapViewModel.POLYGON_FILL_COLOR)
+                    }
+                ),
+                MapItem(
+                    id = "2",
+                    title = "Test",
+                    snippet = "This is a test area.",
+                    polygonOptions = polygonOptions {
+
+                        add(LatLng(39.105, -122.524))
+                        add(LatLng(39.101, -122.529))
+                        add(LatLng(39.092, -122.501))
+                        add(LatLng(39.1, -122.506))
+
+                        //                        add(LatLng(37.11, 113.36))
+                        //                        add(LatLng(37.123, 113.373))
+                        //                        add(LatLng(37.111, 113.37))
+
+                        fillColor(MapViewModel.POLYGON_FILL_COLOR)
+                    }
+                )
+            )
+        )
+    )
 
     init {
         getData()
@@ -80,22 +132,38 @@ class MainViewModel @Inject constructor(): ViewModel() {
     //            }
             }
         }
-
-   suspend fun getDataFromFireStore(): User {
-        val db = FirebaseFirestore.getInstance()
-        var user = User()
-
+    @SuppressLint("MissingPermission")
+    fun getDeviceLocation(
+        fusedLocationProviderClient: FusedLocationProviderClient
+    ) {
         try {
-            db.collection("users").get().await().map {
-                val result = it.toObject(User::class.java)
-                user = result
+            val locationResult = fusedLocationProviderClient.lastLocation
+            locationResult.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    mapState.value = mapState.value.copy(
+                        lastKnownLocation = task.result,
+                    )
+                }
             }
-        } catch (e: FirebaseFirestoreException) {
-            Log.d("error", "getDataFromFireStore: $e")
+        } catch (_: SecurityException) {
 
         }
-        return user
     }
+//   fun getDataFromFireStore(): User {
+//        val db = FirebaseFirestore.getInstance()
+//        var user = User()
+//
+//        try {
+//            db.collection("users").get().await().map {
+//                val result = it.toObject(User::class.java)
+//                user = result
+//            }
+//        } catch (e: FirebaseFirestoreException) {
+//            Log.d("error", "getDataFromFireStore: $e")
+//
+//        }
+//        return user
+//    }
 }
 
 suspend fun getDataFromFireStore(): User {

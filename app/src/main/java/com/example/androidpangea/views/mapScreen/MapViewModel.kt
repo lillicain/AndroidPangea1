@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MapViewModel @Inject constructor(): ViewModel() {
 
-    val state: MutableState<MapState> = mutableStateOf(
+    val mapState: MutableState<MapState> = mutableStateOf(
         MapState(
             lastKnownLocation = null,
             mapItems = listOf(
@@ -71,7 +71,7 @@ class MapViewModel @Inject constructor(): ViewModel() {
             val locationResult = fusedLocationProviderClient.lastLocation
             locationResult.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    state.value = state.value.copy(
+                    mapState.value = mapState.value.copy(
                         lastKnownLocation = task.result,
                     )
                 }
@@ -86,19 +86,19 @@ class MapViewModel @Inject constructor(): ViewModel() {
         map: GoogleMap,
     ): MapItemManager {
         val clusterManager = MapItemManager(context, map)
-        clusterManager.addItems(state.value.mapItems)
+        clusterManager.addItems(mapState.value.mapItems)
         return clusterManager
     }
 
     fun calculateZoneLatLngBounds(): LatLngBounds {
-        val latLngs = state.value.mapItems.map { it.polygonOptions }
+        val latLngs = mapState.value.mapItems.map { it.polygonOptions }
             .map { it.points.map { LatLng(it.latitude, it.longitude) } }.flatten()
         return latLngs.calculateCameraViewPoints().getCenterOfPolygon()
     }
 
 
     companion object {
-        private val POLYGON_FILL_COLOR = Color.parseColor("#ABF44336")
+        val POLYGON_FILL_COLOR = Color.parseColor("#ABF44336")
     }
 }
 
