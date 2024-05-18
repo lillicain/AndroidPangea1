@@ -28,6 +28,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.filled.Photo
 import androidx.compose.material.icons.filled.PhotoCamera
+import androidx.compose.material.icons.filled.Preview
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -118,17 +119,16 @@ fun CameraScreen(navController: NavController) {
             sheetContent = {
 
                 AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
+
 //                PhotoBottomSheetContent(
 //                    bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
 //                )
 
 
-            }) { padding ->
+            }) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(padding)
-                    .padding()
             ) {
                 CameraController(
                     controller = controller, modifier = Modifier.fillMaxSize()
@@ -152,18 +152,19 @@ fun CameraScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(Alignment.BottomCenter)
-                        .padding(10.dp)
-                        .padding(bottom = 50.dp),
-                    horizontalArrangement = Arrangement.SpaceAround
+                        .padding(bottom = 40.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
 
                 ) {
                     IconButton(onClick = {
                         scope.launch {
                             scaffoldState.bottomSheetState.expand()
                         }
-                    }, modifier = Modifier.padding(bottom = 50.dp)) {
+                    }, modifier = Modifier
+                        .padding(bottom = 40.dp)
+                    ) {
                         Icon(
-                            imageVector = Icons.Default.Photo,
+                            imageVector = Icons.Default.Preview,
                             contentDescription = "Open gallery"
                         )
                     }
@@ -171,21 +172,24 @@ fun CameraScreen(navController: NavController) {
                         takePhoto(
                             controller = controller, onPhotoTaken = viewModel::onTakePhoto
                         )
-                    }, modifier = Modifier.padding(bottom = 50.dp)) {
+
+                    }, modifier = Modifier
+                        .padding(bottom = 40.dp)
+                    ) {
                         Icon(
                             imageVector = Icons.Default.PhotoCamera,
                             contentDescription = "Take photo"
                         )
                     }
-
-                    Button(onClick = {
-                        singlePhotoPicker.launch(
-                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                        )
-
-                    }) {
-                        Text("Open Gallery")
-                    }
+//
+//                    Button(onClick = {
+//                        singlePhotoPicker.launch(
+//                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+//                        )
+//
+//                    }) {
+//                        Text("Open Gallery")
+//                    }
 
                     AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
 
@@ -222,11 +226,16 @@ fun CameraScreen(navController: NavController) {
 //                    }
 
                     IconButton(onClick = {
+                        singlePhotoPicker.launch(
+                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                        )
 
 
-                    }, modifier = Modifier.padding(bottom = 50.dp)) {
+                    }, modifier = Modifier
+                        .padding(bottom = 40.dp)
+                    ) {
                         Icon(
-                            imageVector = Icons.Default.PhotoCamera,
+                            imageVector = Icons.Default.Photo,
                             contentDescription = "Choose from photo library"
                         )
                     }
