@@ -120,9 +120,7 @@ fun CameraScreen(navController: NavController) {
 
                 AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
 
-//                PhotoBottomSheetContent(
-//                    bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
-//                )
+//                PhotoBottomSheetContent(bitmaps = bitmaps, modifier = Modifier.fillMaxWidth())
 
 
             }) {
@@ -130,23 +128,33 @@ fun CameraScreen(navController: NavController) {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                CameraController(
-                    controller = controller, modifier = Modifier.fillMaxSize()
-                )
+                CameraController(controller = controller, modifier = Modifier.fillMaxSize())
 
-                IconButton(
-                    onClick = {
-                        controller.cameraSelector =
-                            if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
+                Button(onClick = {
+                        controller.cameraSelector = if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
                                 CameraSelector.DEFAULT_FRONT_CAMERA
-                            } else CameraSelector.DEFAULT_BACK_CAMERA
-                    }, modifier = Modifier.offset(10.dp, 10.dp)
-                ) {
+                            } else {
+                                CameraSelector.DEFAULT_BACK_CAMERA
+                            }
+                }) {
                     Icon(
                         imageVector = Icons.Default.Cameraswitch,
-                        contentDescription = "Switch camera"
+                        contentDescription = "Switch Camera"
                     )
                 }
+//                IconButton(
+//                    onClick = {
+//                        controller.cameraSelector =
+//                            if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
+//                                CameraSelector.DEFAULT_FRONT_CAMERA
+//                            } else CameraSelector.DEFAULT_BACK_CAMERA
+//                    }, modifier = Modifier.offset(10.dp, 10.dp)
+//                ) {
+//                    Icon(
+//                        imageVector = Icons.Default.Cameraswitch,
+//                        contentDescription = "Switch camera"
+//                    )
+//                }
 
                 Row(
                     modifier = Modifier
@@ -156,7 +164,7 @@ fun CameraScreen(navController: NavController) {
                     horizontalArrangement = Arrangement.SpaceEvenly,
 
                 ) {
-                    IconButton(onClick = {
+                   Button(onClick = {
                         scope.launch {
                             scaffoldState.bottomSheetState.expand()
                         }
@@ -168,7 +176,7 @@ fun CameraScreen(navController: NavController) {
                             contentDescription = "Open gallery"
                         )
                     }
-                    IconButton(onClick = {
+                   Button(onClick = {
                         takePhoto(
                             controller = controller, onPhotoTaken = viewModel::onTakePhoto
                         )
@@ -181,16 +189,6 @@ fun CameraScreen(navController: NavController) {
                             contentDescription = "Take photo"
                         )
                     }
-//
-//                    Button(onClick = {
-//                        singlePhotoPicker.launch(
-//                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-//                        )
-//
-//                    }) {
-//                        Text("Open Gallery")
-//                    }
-
                     AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
 
                     Button(onClick = {
@@ -225,7 +223,7 @@ fun CameraScreen(navController: NavController) {
 //                        }
 //                    }
 
-                    IconButton(onClick = {
+                   Button(onClick = {
                         singlePhotoPicker.launch(
                             PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
                         )
