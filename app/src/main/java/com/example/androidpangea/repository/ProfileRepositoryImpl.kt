@@ -75,33 +75,34 @@ class ProfileRepositoryImpl(
     }
 
     override suspend fun updateUser(
-        newDisplayName: String,
+        username: String,
         email: String,
-        phoneNumber: String,
+        location: String?,
     ): Resource<Boolean> {
         return try {
             val profileUpdates = userProfileChangeRequest {
-                displayName = newDisplayName
+                displayName = username
             }
 
             auth.currentUser?.updateProfile(profileUpdates)?.await()
             auth.currentUser?.updateEmail(email)?.await()
 
             val updatedValue = mapOf(
-                "displayName" to newDisplayName, "email" to email, "phoneNumber" to phoneNumber
+                "Username" to username, "Email" to email, "Location" to location
             )
             db.collection(USERS).document(auth.currentUser!!.uid).update(updatedValue)
                 .addOnCompleteListener {
-                    Log.w(TAG, "firestoreUpdateUser:Complete")
+                    Log.w(TAG, "Complete")
                 }.addOnFailureListener {
-                    Log.e(TAG, "firestoreUpdateUser:Error: $it ")
+                    Log.e(TAG, it.toString())
                 }
-            Log.w(TAG, "updateUser: Success")
+            Log.w(TAG, "Success")
             Resource.Success(true)
         } catch (e: Exception) {
             Resource.Error(e)
         }
     }
+
 
     override suspend fun updateProfilePhoto(
         newPhotoUri: Uri?

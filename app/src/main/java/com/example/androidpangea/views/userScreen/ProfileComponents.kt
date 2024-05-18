@@ -125,16 +125,13 @@ fun StateItem(
 fun ProfileDescription(
     displayName: String,
     description: String,
-    url: String?,
-    followedBy: List<String>,
-    otherCount: Int,
-    modifier: Modifier = Modifier,
+    url: String?
 ) {
     val letterSpacing = 0.5.sp
     val lineHeight = 16.sp
     val context = LocalContext.current
     Column(
-        modifier = modifier
+        modifier = Modifier
     ) {
         Text(
             text = displayName,
@@ -159,29 +156,6 @@ fun ProfileDescription(
                     openTab(context, url)
                 }
             )
-        }
-        if (followedBy.isNotEmpty()) {
-            Text(text = buildAnnotatedString {
-                val boldStyle = SpanStyle(
-                    color = MaterialTheme.colorScheme.onBackground,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 16.sp
-                )
-                append("Followed by ")
-                followedBy.forEachIndexed { index, name ->
-                    pushStyle(boldStyle)
-                    append(name)
-                    pop()
-                    if (index < followedBy.size - 1) {
-                        append(", ")
-                    }
-                    if (otherCount > 2) {
-                        append(" and ")
-                        pushStyle(boldStyle)
-                        append("$otherCount others")
-                    }
-                }
-            })
         }
     }
 }

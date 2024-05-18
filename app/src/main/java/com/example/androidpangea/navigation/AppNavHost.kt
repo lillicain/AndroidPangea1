@@ -20,6 +20,7 @@ import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
 import com.example.androidpangea.views.postScreen.ExploreScreen
 import com.example.androidpangea.views.userScreen.UserScreen
+import com.example.androidpangea.views.userScreen.components.ProfileScreen
 
 @SuppressLint("UnrememberedMutableState")
 @OptIn(ExperimentalComposeUiApi::class)
@@ -82,7 +83,10 @@ fun AppNavHost(
 //            }
 //        }
         composable(NavigationItem.User.route) {
-            UserScreen(id = this.toString(), navController = navController)
+//            UserScreen(id = this.toString(), navController = navController)]
+            ProfileScreen(
+              navController = navController
+            )
         }
 
         composable(NavigationItem.Camera.route) {

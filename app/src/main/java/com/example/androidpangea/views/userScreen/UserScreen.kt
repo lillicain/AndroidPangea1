@@ -19,6 +19,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -64,56 +65,64 @@ fun UserScreen(
         }
     )
 
-    Scaffold(modifier = Modifier
-        .fillMaxSize(),
-        bottomBar = {
-            BottomNavigationBar(navController = navController)
-        },
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text("Sign Out", fontSize = 16.sp)
-                },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(imageVector = Icons.Default.ArrowBackIosNew, contentDescription = null)
-                    }
-                }
-            )
-        }
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-
-        ) {
-            CircleImage(modifier = Modifier.size(200.dp), url = uri.toString()) {
-
-            }
-            Button(onClick = {
-                singlePhotoPicker.launch(
-                    PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                )
-
-            }) {
-                Text("Edit Profile Picture")
-            }
-
-            Button(onClick = {
-                uri?.let {
-                    StorageUtil.uploadToStorage(uri = it, context = context, type = "image")
-                }
-            }) {
-Text(text = "Save")
-            }
-
-            //            Image(painter = rememberAsyncImagePainter(model = getData.profileImage), contentDescription = null)
-
-            //            Text(text = getData.email)
-//            AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
-
-        }
-    }
+//    Scaffold(modifier = Modifier
+//        .fillMaxSize(),
+//        bottomBar = {
+//            BottomNavigationBar(navController = navController)
+//        },
+//        topBar = {
+//            TopAppBar(
+//                title = {
+//                    Text("Sign Out", fontSize = 16.sp)
+//                },
+//                navigationIcon = {
+//                    IconButton(onClick = { navController.popBackStack() }) {
+//                        Icon(imageVector = Icons.Default.ArrowBackIosNew, contentDescription = null)
+//                    }
+//                }
+//            )
+//        }
+//    ) {
+//        Column(
+//            modifier = Modifier
+//                .fillMaxSize(),
+//            horizontalAlignment = Alignment.CenterHorizontally,
+//            verticalArrangement = Arrangement.Center
+//
+//        ) {
+//            ProfileDescription(
+//                displayName = viewModel.getUsers().toString(),
+//                description = "",
+//                url = uri.toString()
+//            )
+//            CircleImage(modifier = Modifier.size(200.dp), url = uri.toString()) {
+//
+//            }
+//            Button(onClick = {
+//                singlePhotoPicker.launch(
+//                    PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+//                )
+//
+//            }) {
+//                Text("Edit Profile Picture")
+//            }
+//
+//            Button(onClick = {
+//                uri?.let {
+//                    StorageUtil.uploadToStorage(uri = it, context = context, type = "image")
+//                }
+//            }) {
+//Text(text = "Save")
+//            }
+//
+//            //            Image(painter = rememberAsyncImagePainter(model = getData.profileImage), contentDescription = null)
+//
+//            //            Text(text = getData.email)
+////            AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
+//
+//        }
+//    }
 }
+
+
+

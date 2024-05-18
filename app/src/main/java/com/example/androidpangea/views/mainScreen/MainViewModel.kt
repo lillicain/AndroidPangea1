@@ -1,9 +1,12 @@
 package com.example.androidpangea.views.mainScreen
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.util.Log
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidpangea.extensions.BaseState
@@ -11,6 +14,8 @@ import com.example.androidpangea.extensions.Failure
 import com.example.androidpangea.extensions.await
 import com.example.androidpangea.models.Post
 import com.example.androidpangea.models.User
+import com.example.androidpangea.repository.ProfileRepository
+import com.example.androidpangea.repository.Resource
 import com.example.androidpangea.views.authentication.AuthRepository
 import com.example.androidpangea.views.mapScreen.MapItem
 import com.example.androidpangea.views.mapScreen.MapState
@@ -29,7 +34,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(): ViewModel() {
+class MainViewModel @Inject constructor(private val repository: ProfileRepository): ViewModel() {
     private val _users = MutableStateFlow<BaseState<List<User>, Failure>>(BaseState.Loading)
     val users = _users.asStateFlow()
 
@@ -37,6 +42,18 @@ class MainViewModel @Inject constructor(): ViewModel() {
     val posts = _posts.asStateFlow()
 
     val state = mutableStateOf(User())
+
+
+
+    var revokeAccessResponse by mutableStateOf<Resource<Boolean>>(Resource.Success(false))
+
+    var reloadUserResponse by mutableStateOf<Resource<Boolean>>(Resource.Success(false))
+
+    var updateUserResponse by mutableStateOf<Resource<Boolean>>(Resource.Success(false))
+
+    var currentUserDataResponse by mutableStateOf<User?>(null)
+
+    val currentUser get() = repository.currentUser
 
     private val mapState: MutableState<MapState> = mutableStateOf(
         MapState(
@@ -84,8 +101,38 @@ class MainViewModel @Inject constructor(): ViewModel() {
 
     init {
         getData()
+        getUserData()
+    }
+    fun getUserData() = viewModelScope.launch {
+        currentUserDataResponse = repository.currentUserData()
+    }
+    fun reloadUser() = viewModelScope.launch {
+        reloadUserResponse = Resource.Loading
+
+        reloadUserResponse = repository.reloadUser()
     }
 
+    val isEmailVerified get() = repository.currentUser?.isEmailVerified ?: false
+
+    fun signOut() = repository.signOut()
+
+    fun revokeAccess() = viewModelScope.launch {
+        revokeAccessResponse = Resource.Loading
+
+        revokeAccessResponse = repository.revokeAccess()
+    }
+
+    fun updateUser(username: String, email: String, location: String?) = viewModelScope.launch {
+        updateUserResponse = Resource.Loading
+
+        updateUserResponse = repository.updateUser(username, email, location)
+    }
+
+    fun updateProfilePhoto(newPhotoUri: Uri) = viewModelScope.launch {
+        updateUserResponse = Resource.Loading
+
+        updateUserResponse = repository.updateProfilePhoto(newPhotoUri)
+    }
     fun getData() {
         viewModelScope.launch {
             state.value = getDataFromFireStore()
@@ -149,21 +196,21 @@ class MainViewModel @Inject constructor(): ViewModel() {
 
         }
     }
-//   fun getDataFromFireStore(): User {
-//        val db = FirebaseFirestore.getInstance()
-//        var user = User()
-//
-//        try {
-//            db.collection("users").get().await().map {
-//                val result = it.toObject(User::class.java)
-//                user = result
-//            }
-//        } catch (e: FirebaseFirestoreException) {
-//            Log.d("error", "getDataFromFireStore: $e")
-//
-//        }
-//        return user
-//    }
+   suspend fun getDataFromFireStore(): User {
+        val db = FirebaseFirestore.getInstance()
+        var user = User()
+
+        try {
+            db.collection("users").get().await().map {
+                val result = it.toObject(User::class.java)
+                user = result
+            }
+        } catch (e: FirebaseFirestoreException) {
+            Log.d("error", "getDataFromFireStore: $e")
+
+        }
+        return user
+    }
 }
 
 suspend fun getDataFromFireStore(): User {

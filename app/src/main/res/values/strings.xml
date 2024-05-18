@@ -14,4 +14,32 @@
     <string name="create_account">\Create Account\</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="already_have_account">Already have an Account?</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="revoke_access">Access Revoked</string>
+    <string name="created_at_content_description">Created At:</string>
+    <string name="location_content_description">Location:</string>
+    <string name="email_content_description">Email:</string>
+    <string name="username_content_description">Username:</string>
+    <string name="save">Save</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+
+
+    <string name="preview_error">There is no internet connection</string>
+    <string name="preview_password">helloWorld</string>
+    <string name="preview_email">helloworld@helloworld.com</string>
+    <string name="preview_username">Hello World</string>
+    <string name="preview_content_description">Preview Content Description</string>
+
+    <string name="email_error">Email account must contain \'@\' and \'.com\'</string>
+    <string name="password_error">Password\n1.Must be longer than 6 characters \n2. Contain at least one special character\n3. Contain one capitalized character \n4. Contain one digit</string>
+    <string name="password_visibility_description">Password visibility on/off</string>
+    <string name="preview_name">Username</string>
+    <string name="username_label">Username</string>
+    <string name="profile_information">Profile Information</string>
+
+    <string name="user_successfully_update_message">User successfully updated</string>
+    <string name="user_update_error_message">Something went wrong</string>
+    <string name="access_revoked_message">Access Revoked</string>
+
 </resources>

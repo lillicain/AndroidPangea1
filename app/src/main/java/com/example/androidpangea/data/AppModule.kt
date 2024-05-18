@@ -8,13 +8,20 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import com.example.androidpangea.models.User
+import com.example.androidpangea.repository.ProfileRepository
+import com.example.androidpangea.repository.ProfileRepositoryImpl
 import com.example.androidpangea.views.authentication.AuthRepository
 import com.example.androidpangea.views.authentication.AuthRepositoryImpl
+import com.example.androidpangea.views.authentication.SignUpViewModel
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepo
 import com.example.androidpangea.views.cameraScreen.CustomCameraRepoImpl
+import com.example.androidpangea.views.mainScreen.MainViewModel
+import com.google.android.gms.auth.api.identity.Identity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,13 +43,20 @@ object AppModule {
     @Provides
     fun provideAuthRepository(): AuthRepository = AuthRepositoryImpl(auth = Firebase.auth)
 
+    @Provides
+    fun provideProfileRepository(): ProfileRepository = ProfileRepositoryImpl(
+        auth = Firebase.auth,
+        db = FirebaseFirestore.getInstance(),
+        storage = FirebaseStorage.getInstance()
+    )
+
 //    @Singleton
 //    @Provides
 //    fun provideSignInViewModel(repository: AuthRepository): SignInViewModel = SignInViewModel(repository)
 //
-//    @Singleton
-//    @Provides
-//    fun provideSignUpViewModel(repository: AuthRepository): SignUpViewModel = SignUpViewModel(repository)
+    @Singleton
+    @Provides
+    fun provideMainViewModel(repository: ProfileRepository): MainViewModel = MainViewModel(repository)
 
     @Provides
     @Singleton

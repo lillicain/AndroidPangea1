@@ -1,13 +1,16 @@
 package com.example.androidpangea.models
 
+import android.util.Log
 import com.google.api.AuthProvider
 import com.google.firebase.auth.FirebaseUser
+import com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location
 
 data class User(
     val id: String? = null,
     val email: String? = null,
     val username: String? = null,
     val profileImage: String? = null,
+    val location: String? = null,
     val createdAt: String? = null,
     val authProvider: AuthProvider? = null
 )
