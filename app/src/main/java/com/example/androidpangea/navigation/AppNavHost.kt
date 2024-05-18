@@ -16,7 +16,6 @@ import com.example.androidpangea.models.User
 import com.example.androidpangea.views.authentication.SignInScreen
 import com.example.androidpangea.views.authentication.SignUpScreen
 import com.example.androidpangea.views.cameraScreen.CameraScreen
-import com.example.androidpangea.views.cameraScreen.PhotoScreen
 import com.example.androidpangea.views.mainScreen.MainScreen
 import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.mapScreen.MapViewModel
@@ -99,8 +98,6 @@ fun AppNavHost(
         composable(NavigationItem.SignIn.route) {
             SignInScreen(navController = navController)
         }
-        composable(NavigationItem.Photo.route) {
-            PhotoScreen(navController = navController)
-        }
+
     }
 }

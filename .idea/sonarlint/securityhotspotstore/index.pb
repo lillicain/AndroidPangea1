@@ -163,3 +163,5 @@ p
 @app/src/main/java/com/example/androidpangea/utils/StorageUtil.kt,f/1/f1a58d76a5a675c4eb1633d689de3eafe06e8dc6
 r
 Bapp/src/main/java/com/example/androidpangea/utils/DispatchGroup.kt,8/f/8f422e2a6f88f0203cb2bd0cc8ffb0c818aa095a
+t
+Dapp/src/main/java/com/example/androidpangea/ui/theme/ColorPalette.kt,7/3/738e7c9357f356f0929adac4680903009fee4912

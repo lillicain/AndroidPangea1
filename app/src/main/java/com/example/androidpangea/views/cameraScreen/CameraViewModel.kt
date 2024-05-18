@@ -33,17 +33,10 @@ import java.net.URI
 
 
 class CameraViewModel: ViewModel() {
-    var imageUris = mutableStateOf<List<Uri?>>(emptyList())
-
-
     private val _bitmaps = MutableStateFlow<List<Bitmap>>(emptyList())
     val bitmaps = _bitmaps.asStateFlow()
 
     fun onTakePhoto(bitmap: Bitmap) {
         _bitmaps.value += bitmap
-    }
-
-    fun openImagePicker(onImageSelected: (Uri) -> Unit) {
-
     }
 }
