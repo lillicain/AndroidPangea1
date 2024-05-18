@@ -14,6 +14,7 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import androidx.camera.view.CameraController
 import androidx.camera.view.LifecycleCameraController
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -47,6 +48,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
@@ -130,7 +132,7 @@ fun CameraScreen(navController: NavController) {
             ) {
                 CameraController(controller = controller, modifier = Modifier.fillMaxSize())
 
-                Button(onClick = {
+                IconButton(onClick = {
                         controller.cameraSelector = if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
                                 CameraSelector.DEFAULT_FRONT_CAMERA
                             } else {
@@ -160,77 +162,52 @@ fun CameraScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(Alignment.BottomCenter)
-                        .padding(bottom = 40.dp),
+                        .padding(bottom = 100.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly,
-
                 ) {
                    Button(onClick = {
                         scope.launch {
                             scaffoldState.bottomSheetState.expand()
                         }
                     }, modifier = Modifier
-                        .padding(bottom = 40.dp)
+//                        .padding(bottom = 48.dp)
                     ) {
                         Icon(
                             imageVector = Icons.Default.Preview,
                             contentDescription = "Open gallery"
                         )
                     }
+
                    Button(onClick = {
                         takePhoto(
                             controller = controller, onPhotoTaken = viewModel::onTakePhoto
                         )
 
                     }, modifier = Modifier
-                        .padding(bottom = 40.dp)
+//                        .padding(bottom = 48.dp)
                     ) {
                         Icon(
                             imageVector = Icons.Default.PhotoCamera,
                             contentDescription = "Take photo"
                         )
                     }
-                    AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
 
-                    Button(onClick = {
-                        uri?.let {
-                            StorageUtil.uploadToStorage(uri = it, context = context, type = "image")
-                        }
-
-                    }) {
-                        Text("Upload")
-                    }
 //                    Button(onClick = {
+//                        uri?.let {
+//                            StorageUtil.uploadToStorage(uri = it, context = context, type = "image")
+//                        }
 //
 //                    }) {
-//                        LazyColumn(
-//                            modifier = Modifier
-//
-//
-//                        ) {
-//                            items(imageUris) {
-//                                if (it != null) {
-//                                    AsyncImage(
-//                                        model = it,
-//                                        contentDescription = "Selected Image",
-//                                        modifier = Modifier.fillMaxSize()
-//                                    )
-//                                }
-//                            }
-//                        }
-//                        LaunchedEffect(key1 = true) {
-//                            launcher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
-//
-//                        }
+//                        Text("Upload")
 //                    }
 
                    Button(onClick = {
                         singlePhotoPicker.launch(
                             PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
                         )
-
-
                     }, modifier = Modifier
-                        .padding(bottom = 40.dp)
+//                        .padding(bottom = 48.dp)
+
                     ) {
                         Icon(
                             imageVector = Icons.Default.Photo,
@@ -238,6 +215,7 @@ fun CameraScreen(navController: NavController) {
                         )
                     }
                 }
+                AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
             }
         }
     }
