@@ -69,20 +69,13 @@ fun CameraScreen(navController: NavController) {
     val scaffoldState = rememberBottomSheetScaffoldState()
     val controller = remember {
         LifecycleCameraController(context).apply {
-            setEnabledUseCases(
-                CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE
-            )
+            setEnabledUseCases(CameraController.IMAGE_CAPTURE or CameraController.VIDEO_CAPTURE)
         }
     }
     val viewModel = viewModel<CameraViewModel>()
     val bitmaps by viewModel.bitmaps.collectAsState()
-    var imageUris by remember { mutableStateOf<List<Uri?>>(emptyList()) }
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.PickMultipleVisualMedia(),
-        onResult = { uri: List<Uri?> -> imageUris = uri }
-    )
+//    var imageUris by remember { mutableStateOf<List<Uri?>>(emptyList()) }
 
-    val location by remember { mutableStateOf(null) }
     var uri by remember { mutableStateOf<Uri?>(null) }
 
     val singlePhotoPicker = rememberLauncherForActivityResult(
@@ -91,11 +84,15 @@ fun CameraScreen(navController: NavController) {
             uri = it
         }
     )
+//    val launcher = rememberLauncherForActivityResult(
+//        contract = ActivityResultContracts.PickMultipleVisualMedia(),
+//        onResult = { uri: List<Uri?> -> imageUris = uri }
+//    )
+
+    val location by remember { mutableStateOf(null) }
+
 
     fun takePhoto(controller: LifecycleCameraController, onPhotoTaken: (Bitmap) -> Unit) {
-
-
-
         controller.takePicture(ContextCompat.getMainExecutor(context),
             object : ImageCapture.OnImageCapturedCallback() {
                 override fun onCaptureSuccess(image: ImageProxy) {
@@ -104,13 +101,9 @@ fun CameraScreen(navController: NavController) {
                     val matrix = Matrix().apply {
                         postRotate(image.imageInfo.rotationDegrees.toFloat())
                     }
-                    val rotatedBitmap = Bitmap.createBitmap(
-                        image.toBitmap(), 0, 0, image.width, image.height, matrix, true
-                    )
-
+                    val rotatedBitmap = Bitmap.createBitmap(image.toBitmap(), 0, 0, image.width, image.height, matrix, true)
                     onPhotoTaken(rotatedBitmap)
                 }
-
                 override fun onError(exception: ImageCaptureException) {
                     super.onError(exception)
                     Log.e("Camera", "Couldn't take photo: ", exception)
@@ -124,9 +117,10 @@ fun CameraScreen(navController: NavController) {
             sheetPeekHeight = 0.dp,
             sheetContent = {
 
-                PhotoBottomSheetContent(
-                    bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
-                )
+                AsyncImage(model = uri, contentDescription = null, modifier = Modifier.size(200.dp))
+//                PhotoBottomSheetContent(
+//                    bitmaps = bitmaps, modifier = Modifier.fillMaxWidth()
+//                )
 
 
             }) { padding ->
