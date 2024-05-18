@@ -185,3 +185,13 @@ j
 :app/src/main/java/com/example/androidpangea/data/Module.kt,e/0/e05fdcb1e6703cba58e158dc5f77f7ef37749e33
 …
 Uapp/src/main/java/com/example/androidpangea/views/userScreen/components/Components.kt,a/d/ad951611d3a088214a17c37e3681156eb33fbf3b
+y
+Iapp/src/main/java/com/example/androidpangea/repository/EmailRepository.kt,f/1/f108a71f8f7ec5f3ba8dc31651dfabcff0fb8f76
+}
+Mapp/src/main/java/com/example/androidpangea/repository/EmailRepositoryImpl.kt,b/f/bfa6406a221be5c8285781ba9f2e50aa777c9512
+ƒ
+Sapp/src/main/java/com/example/androidpangea/data/database/AuthenticationProvider.kt,4/e/4e7d411f61b67380ad7b32981fe066d2f4e54730
+y
+Iapp/src/main/java/com/example/androidpangea/data/database/AuthProvider.kt,8/8/88958092db2d5f14c597571f045752b8d5629390
+€
+Papp/src/main/java/com/example/androidpangea/utils/functions/FirebaseFunctions.kt,8/1/816a39b4a44dfbc0bfa4353be1ef50bb8fe47144

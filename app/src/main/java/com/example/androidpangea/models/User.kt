@@ -1,9 +1,7 @@
 package com.example.androidpangea.models
 
-import android.util.Log
 import com.google.api.AuthProvider
 import com.google.firebase.auth.FirebaseUser
-import com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location
 
 data class User(
     val id: String? = null,
@@ -15,7 +13,7 @@ data class User(
     val authProvider: AuthProvider? = null
 )
 
-fun FirebaseUser.toUser(authProvider: AuthProvider?, createdAt: String? = null): User {
+fun FirebaseUser.toUser(authProvider: com.example.androidpangea.data.database.AuthProvider, createdAt: String? = null): User {
     return User(
         id = uid,
         email = email,
