@@ -1,6 +1,4 @@
 
-Å
-Qapp/src/main/java/com/example/androidpangea/views/userScreen/ProfileComponents.kt,7/5/751a208a042903dfb534d6cf70695b217384bbdb
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 
@@ -49,8 +47,6 @@ z
 Japp/src/main/java/com/example/androidpangea/views/userScreen/UserScreen.kt,d/4/d425a0b914738e11b68abe8f60280770e5299ea8
 á
 Wapp/src/main/java/com/example/androidpangea/views/subviews/SavePhotoToGalleryUseCase.kt,9/d/9d2f2a08fcd805d436b2ec5b8f21c9f9137fff87
-}
-Mapp/src/main/java/com/example/androidpangea/views/userScreen/UserViewModel.kt,3/8/38b13cdc5cb1a73f89a2487ecb5c8417078b7b9a
 n
 >app/src/main/java/com/example/androidpangea/MainApplication.kt,6/5/65edb1f3807a1e720540d525d9feece3e9a3ddb0
 }
@@ -95,8 +91,6 @@ j
 :app/src/main/java/com/example/androidpangea/models/User.kt,c/e/ce9733cb158f993366d6b96b60759fd3d4618112
 t
 Dapp/src/main/java/com/example/androidpangea/extensions/Extensions.kt,c/8/c871255179246174a5b91d730eea320436e0c45e
-|
-Lapp/src/main/java/com/example/androidpangea/views/cameraScreen/CreatePost.kt,1/7/171f8d48db49f09516669dbb2f2e6757ff2fed98
 t
 Dapp/src/main/java/com/example/androidpangea/views/subviews/Bitmap.kt,8/f/8fa574458e5b297dbd5ef811d7358b43279eb7ef
 Ç
@@ -121,8 +115,6 @@ z
 Japp/src/main/java/com/example/androidpangea/views/subviews/SplashScreen.kt,a/d/ad9756becdbbd82489607f2041195f69c8ed349e
 y
 Iapp/src/main/java/com/example/androidpangea/views/subviews/ImagePicker.kt,b/0/b021c213c237755c79d91425c3c0f70243d45216
-}
-Mapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoScreen.kt,3/5/359ee42e57b60bb737deff58b4bd82821d1d1f21
 |
 Lapp/src/main/java/com/example/androidpangea/views/authentication/Response.kt,e/f/effd94b6bd7c4ec13ec37eafdd592915e022ed57
 n
@@ -157,18 +149,12 @@ v
 Fapp/src/main/java/com/example/androidpangea/repository/DataResponse.kt,2/c/2cd99d442b982bbb3915e7c7c35ea286aea16cae
 
 Oapp/src/main/java/com/example/androidpangea/repository/ProfileRepositoryImpl.kt,e/a/ead22d94b9a0f3565085b4744325bf464d21ecf6
-y
-Iapp/src/main/java/com/example/androidpangea/views/subviews/PhotoPicker.kt,1/8/18be1e562f018a78e657514f0a9238e8b6addc7f
 p
 @app/src/main/java/com/example/androidpangea/utils/StorageUtil.kt,f/1/f1a58d76a5a675c4eb1633d689de3eafe06e8dc6
 r
 Bapp/src/main/java/com/example/androidpangea/utils/DispatchGroup.kt,8/f/8f422e2a6f88f0203cb2bd0cc8ffb0c818aa095a
 t
 Dapp/src/main/java/com/example/androidpangea/ui/theme/ColorPalette.kt,7/3/738e7c9357f356f0929adac4680903009fee4912
-Å
-Qapp/src/main/java/com/example/androidpangea/views/userScreen/UserScreenContent.kt,2/8/286096955213288afe4098df0b6bf9dea18c12f4
-é
-^app/src/main/java/com/example/androidpangea/views/userScreen/UserUpdateFloatingActionButton.kt,0/9/09372849d03022d2e89cab6b26dfb6a6efe29f0f
 
 Oapp/src/main/java/com/example/androidpangea/views/userScreen/components/User.kt,c/b/cbdf40d60e5fc8274d1d3c51df1f29e7071fbb41
 Ü
@@ -197,3 +183,5 @@ s
 Capp/src/main/java/com/example/androidpangea/data/FirebaseModules.kt,f/6/f6b5aa7aad503517385aa033e6ca93c7e0d1d4f3
 j
 :app/src/main/java/com/example/androidpangea/data/Module.kt,e/0/e05fdcb1e6703cba58e158dc5f77f7ef37749e33
+Ö
+Uapp/src/main/java/com/example/androidpangea/views/userScreen/components/Components.kt,a/d/ad951611d3a088214a17c37e3681156eb33fbf3b

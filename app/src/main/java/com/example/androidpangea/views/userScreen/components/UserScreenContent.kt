@@ -20,7 +20,7 @@ import androidx.navigation.NavController
 import com.example.androidpangea.views.mainScreen.MainViewModel
 
 @Composable
-private fun UserScreenContent(
+fun UserScreenContent(
     navController: NavController,
 //    navigateToForgotPasswordScreen: (email: String) -> Unit,
     snackBarHostState: SnackbarHostState = SnackbarHostState(),

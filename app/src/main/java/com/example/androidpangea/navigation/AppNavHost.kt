@@ -84,7 +84,7 @@ fun AppNavHost(
 //        }
         composable(NavigationItem.User.route) {
 //            UserScreen(id = this.toString(), navController = navController)]
-            ProfileScreen(
+            UserScreen(
               navController = navController
             )
         }

@@ -1,6 +1,5 @@
-package com.example.androidpangea.views.userScreen
+package com.example.androidpangea.views.userScreen.components
 
-import android.content.res.Configuration
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -9,19 +8,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
@@ -39,23 +33,14 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.example.androidpangea.R
 import com.example.androidpangea.models.Post
 import com.example.androidpangea.models.User
-import com.example.androidpangea.navigation.NavigationItem
 import com.example.androidpangea.views.subviews.CircularImage
 import com.example.androidpangea.views.subviews.openTab
 
@@ -83,17 +68,17 @@ fun MiddlePart(
 
 @Composable
 fun StateInfo(modifier: Modifier, user: User, navController: NavController) {
-//    StateItem("Posts", user.postIds.size.toString(), modifier)
-//    StateItem("Followers", user.followerIds.size.toString(), modifier.clickable {
-//        navController.navigate(
-//            "${NavigationItem.Followers.route}/false/${user.id}"
-//        )
-//    })
-//    StateItem("Following", user.followingIds.size.toString(), modifier.clickable {
-//        navController.navigate(
-//            "${NavigationItem.Followers.route}/true/${user.id}"
-//        )
-//    })
+    //    StateItem("Posts", user.postIds.size.toString(), modifier)
+    //    StateItem("Followers", user.followerIds.size.toString(), modifier.clickable {
+    //        navController.navigate(
+    //            "${NavigationItem.Followers.route}/false/${user.id}"
+    //        )
+    //    })
+    //    StateItem("Following", user.followingIds.size.toString(), modifier.clickable {
+    //        navController.navigate(
+    //            "${NavigationItem.Followers.route}/true/${user.id}"
+    //        )
+    //    })
 }
 
 @Composable
@@ -261,9 +246,9 @@ fun PostSection(
                         color = MaterialTheme.colorScheme.background
                     )
                     .clickable {
-//                        navController.navigate(
-//                            "${NavigationItem.ViewPost.route}/${it.dp}"
-//                        )
+                        //                        navController.navigate(
+                        //                            "${NavigationItem.ViewPost.route}/${it.dp}"
+                        //                        )
                     }
             )
         }

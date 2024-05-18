@@ -12,7 +12,7 @@ import kotlinx.coroutines.tasks.await
 
 class ProfileRepositoryImpl(
     private val auth: FirebaseAuth,
-    private val db: FirebaseFirestore,
+    private val database: FirebaseFirestore,
     private val storage: FirebaseStorage,
 ) : ProfileRepository {
     override val currentUser: FirebaseUser?
@@ -32,7 +32,7 @@ class ProfileRepositoryImpl(
 
     override suspend fun currentUserData(): User? {
         return try {
-            val document = db.collection(USERS).document(currentUser!!.uid).get()
+            val document = database.collection(USERS).document(currentUser!!.uid).get()
                 .addOnCompleteListener { Log.w(TAG, "currentUserData:Success") }
                 .addOnFailureListener {
                     Log.e(TAG, "currentUserData:Error: $it")
@@ -51,7 +51,7 @@ class ProfileRepositoryImpl(
 
     override suspend fun revokeAccess(): Resource<Boolean> {
         return try {
-            db.collection(USERS).document(auth.currentUser?.uid!!).delete()
+            database.collection(USERS).document(auth.currentUser?.uid!!).delete()
             auth.currentUser?.delete()?.addOnCompleteListener { Log.w(TAG, "revokeAccess:Success") }
                 ?.addOnFailureListener { Log.e(TAG, "revokeAccess:Error: $it") }?.await()
             Resource.Success(true)
@@ -90,7 +90,7 @@ class ProfileRepositoryImpl(
             val updatedValue = mapOf(
                 "Username" to username, "Email" to email, "Location" to location
             )
-            db.collection(USERS).document(auth.currentUser!!.uid).update(updatedValue)
+            database.collection(USERS).document(auth.currentUser!!.uid).update(updatedValue)
                 .addOnCompleteListener {
                     Log.w(TAG, "Complete")
                 }.addOnFailureListener {
@@ -144,7 +144,7 @@ class ProfileRepositoryImpl(
                     "photoUri" to downloadUrl.toString()
                 )
 
-                db.collection(USERS).document(auth.currentUser!!.uid).update(updatedPhoto)
+                database.collection(USERS).document(auth.currentUser!!.uid).update(updatedPhoto)
                     .addOnCompleteListener { Log.w(TAG, "updateProfilePhoto:Success") }
                     .addOnFailureListener { Log.e(TAG, "updateProfilePhoto:Error: $it") }
             }

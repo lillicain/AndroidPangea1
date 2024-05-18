@@ -43,6 +43,7 @@ import com.example.androidpangea.views.mainScreen.MainViewModel
 import com.example.androidpangea.views.subviews.CircleImage
 import com.example.androidpangea.views.subviews.CircularImage
 import com.example.androidpangea.views.subviews.ImagePicker
+import com.example.androidpangea.views.userScreen.components.UserScreenContent
 import com.ramcosta.composedestinations.annotation.Destination
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,7 +51,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 @Destination
 @Composable
 fun UserScreen(
-    id: String,
+//    id: String,
     navController: NavController,
     viewModel: MainViewModel = hiltViewModel(),
 ) {
@@ -65,6 +66,9 @@ fun UserScreen(
         }
     )
 
+UserScreenContent(
+    navController = navController
+)
 //    Scaffold(modifier = Modifier
 //        .fillMaxSize(),
 //        bottomBar = {
