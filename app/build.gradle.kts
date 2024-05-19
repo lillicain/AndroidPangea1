@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.googleGmsGoogleServices) //    id("com.android.application")
+    //    id("com.google.gms.google-services")
 }
 
 android {
@@ -76,6 +78,11 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.camera.view)
     implementation(libs.browser)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.analytics)
+    implementation(libs.play.services.cast.framework)
     ksp(libs.compose.ksp)
     implementation(libs.compose.extended.icons)
     implementation(libs.compose.coil)
@@ -102,9 +109,28 @@ dependencies {
 
     implementation("com.google.accompanist:accompanist-permissions:0.31.3-beta")
 
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-storage:20.2.0")
+    implementation("com.google.firebase:firebase-database")
+
+
+    //    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+//        implementation("com.google.android.gms:play-services-auth:19.2.0")
+    //    implementation("com.facebook.android:facebook-android-sdk:8.x")
+
+    implementation("com.google.android.gms:play-services-auth:21.1.0")
+    implementation("androidx.activity:activity-compose:1.3.1")
+
+
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.maps.android:maps-compose:2.9.0")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.maps.android:maps-ktx:3.2.1")
+    implementation("com.google.maps.android:maps-utils-ktx:3.2.1")
+
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -115,4 +141,7 @@ dependencies {
     implementation("androidx.camera:camera-view:1.2.0-alpha02")
     implementation("androidx.camera:camera-extensions:1.2.0-alpha02")
 
+}
+kapt {
+    correctErrorTypes = true
 }

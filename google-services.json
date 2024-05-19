@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "810411159119",
+    "project_id": "androidpangea",
+    "storage_bucket": "androidpangea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810411159119:android:b48c0120a72c5bfbc2043a",
+        "android_client_info": {
+          "package_name": "com.example.androidpangea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhFXjNJxBNelZcb7FH8vXS9ODmvWnrY0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

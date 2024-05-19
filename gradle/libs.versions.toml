@@ -36,6 +36,13 @@ play-services-location = "21.2.0"
 appcompat = "1.6.1"
 camera-view = "1.3.3"
 browser = "1.8.0"
+firebase-firestore-ktx = "25.0.0"
+google-gms-google-services = "4.4.1"
+firebase-auth = "23.0.0"
+firebase-firestore = "25.0.0"
+firebase-database-ktx = "21.0.0"
+firebase-analytics = "22.0.0"
+play-services-cast-framework = "21.4.0"
 
 [libraries]
 
@@ -84,6 +91,12 @@ play-services-location = { group = "com.google.android.gms", name = "play-servic
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera-view" }
 browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebase-firestore-ktx" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebase-auth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebase-firestore" }
+firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebase-database-ktx" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebase-analytics" }
+play-services-cast-framework = { group = "com.google.android.gms", name = "play-services-cast-framework", version.ref = "play-services-cast-framework" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "android-application" }
@@ -92,4 +105,5 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt"}
+googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "google-gms-google-services" }
 

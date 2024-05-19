@@ -1,0 +1,49 @@
+package com.example.androidpangea.views.subviews
+
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
+import com.example.androidpangea.R
+import com.example.androidpangea.utils.functions.emailVerifier
+
+@Composable
+fun EmailTextField(
+    email: TextFieldValue = TextFieldValue(stringResource(id= R.string.preview_email)),
+    onEmailValueChange: (email: TextFieldValue, isError: Boolean) -> Unit = { _, _ ->},
+    keyboardActions: KeyboardActions = KeyboardActions(),
+) {
+    var isError by remember {
+        mutableStateOf(false)
+    }
+    isError = email.emailVerifier()
+    OutlinedTextField(
+        modifier = Modifier,
+        value = email,
+        onValueChange = {
+            onEmailValueChange(it, !email.emailVerifier())
+        },
+        textStyle = MaterialTheme.typography.bodyMedium,
+        label = { Text(text = stringResource(id= R.string.email_label), style = MaterialTheme.typography.bodySmall) },
+        isError = isError,
+        supportingText = {
+            if (isError) {
+                Text(text = stringResource(id= R.string.email_error), style = MaterialTheme.typography.bodySmall)
+            }
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+        keyboardActions = keyboardActions
+    )
+}

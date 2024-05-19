@@ -1,0 +1,187 @@
+package com.example.androidpangea.views.authentication.components
+
+import android.util.Log
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.androidpangea.navigation.NavigationItem
+import com.example.androidpangea.utils.Constants.EMPTY_STRING
+import com.example.androidpangea.utils.Constants.SIGN_UP_BUTTON
+import com.example.androidpangea.utils.Constants.SIGN_UP_SCREEN
+import com.example.androidpangea.utils.Constants.TAG
+import com.example.androidpangea.views.authentication.BackIcon
+import com.example.androidpangea.views.authentication.EmailField
+import com.example.androidpangea.views.authentication.PasswordField
+import com.example.androidpangea.views.authentication.Response
+import com.example.androidpangea.views.authentication.SignUpViewModel
+import com.example.androidpangea.views.authentication.SmallSpacer
+import com.example.androidpangea.views.authentication.ProgressBar
+import com.example.androidpangea.views.authentication.UsernameField
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
+
+
+@Composable
+fun SendEmailVerification(
+    viewModel: SignUpViewModel = hiltViewModel()
+) {
+    when(val sendEmailVerificationResponse = viewModel.sendEmailVerificationResponse) {
+        is Response.Loading -> ProgressBar()
+        is Response.Success -> Unit
+        is Response.Failure -> sendEmailVerificationResponse.apply {
+            LaunchedEffect(e) {
+                print(e)
+            }
+        }
+    }
+}
+
+@Composable
+fun SignUp(
+    viewModel: SignUpViewModel = hiltViewModel(),
+    sendEmailVerification: () -> Unit,
+    showVerifyEmailMessage: () -> Unit
+) {
+    when(val signUpResponse = viewModel.signUpResponse) {
+        is Response.Loading -> ProgressBar()
+        is Response.Success -> {
+            val isUserSignedUp = signUpResponse.data
+            val db = Firebase.firestore
+            val database = FirebaseFirestore.getInstance()
+
+            LaunchedEffect(isUserSignedUp) {
+                if (isUserSignedUp) {
+                    sendEmailVerification()
+                    showVerifyEmailMessage()
+                }
+            }
+        }
+        is Response.Failure -> signUpResponse.apply {
+            LaunchedEffect(e) {
+                print(e)
+            }
+        }
+    }
+}
+
+@Composable
+@ExperimentalComposeUiApi
+fun SignUpContent(
+    signUp: (username: String, email: String, password: String) -> Unit,
+    navController: NavController
+) {
+    var username by rememberSaveable(stateSaver = TextFieldValue.Saver,
+        init = {
+            mutableStateOf(
+                value = TextFieldValue(
+                    text = EMPTY_STRING
+                )
+            )
+        }
+    )
+    var email by rememberSaveable(stateSaver = TextFieldValue.Saver,
+        init = {
+            mutableStateOf(
+                value = TextFieldValue(
+                    text = EMPTY_STRING
+                )
+            )
+        }
+    )
+    var password by rememberSaveable(stateSaver = TextFieldValue.Saver,
+        init = {
+            mutableStateOf(
+                value = TextFieldValue(
+                    text = EMPTY_STRING
+                )
+            )
+        }
+    )
+    val keyboard = LocalSoftwareKeyboardController.current
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(6.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        UsernameField(
+            username = username,
+            onUsernameValueChange = { newValue ->
+                username = newValue
+            }
+        )
+        SmallSpacer()
+        EmailField(
+            email = email,
+            onEmailValueChange = { newValue ->
+                email = newValue
+            }
+        )
+        SmallSpacer()
+        PasswordField(
+            password = password,
+            onPasswordValueChange = { newValue ->
+                password = newValue
+            }
+        )
+        SmallSpacer()
+        Button(
+            onClick = {
+                keyboard?.hide()
+                signUp(username.text, email.text, password.text)
+                navController.navigate(NavigationItem.Main.route)
+//                myRef.setValue(signUp(email.text, password.text))
+            }
+        ) {
+            Text(
+                text = SIGN_UP_BUTTON,
+                fontSize = 15.sp
+            )
+        }
+        Text(
+            modifier = Modifier.clickable {
+                navController.navigate(NavigationItem.SignIn.route)
+            },
+            text = "Already have an account?",
+            fontSize = 15.sp
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SignUpTopBar() {
+    TopAppBar (
+        title = {
+            Text(
+                text = "Sign Up"
+            )
+        }
+    )
+}
