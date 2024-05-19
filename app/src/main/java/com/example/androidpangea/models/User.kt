@@ -13,7 +13,7 @@ data class User(
     val authProvider: AuthProvider? = null
 )
 
-fun FirebaseUser.toUser(authProvider: com.example.androidpangea.data.database.AuthProvider, createdAt: String? = null): User {
+fun FirebaseUser.toUser(authProvider: AuthProvider?, createdAt: String? = null): User {
     return User(
         id = uid,
         email = email,

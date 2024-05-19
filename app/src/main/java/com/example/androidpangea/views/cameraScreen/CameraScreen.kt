@@ -97,7 +97,7 @@ fun CameraScreen(navController: NavController) {
 
     fun takePhoto(controller: LifecycleCameraController, onPhotoTaken: (Bitmap) -> Unit) {
         controller.takePicture(ContextCompat.getMainExecutor(context),
-            object : ImageCapture.OnImageCapturedCallback() {
+            object: ImageCapture.OnImageCapturedCallback() {
                 override fun onCaptureSuccess(image: ImageProxy) {
                     super.onCaptureSuccess(image)
 

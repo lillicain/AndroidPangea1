@@ -15,7 +15,7 @@ fun addUserToFireStore(
     favCountries: Map<String, String>? = null,
 ) {
     auth.currentUser?.apply {
-        val user = toUser(authProvider, createdAt = createdAt)
+        val user = toUser(authProvider = authProvider, createdAt = createdAt)
         database.collection(Utils.USERS).document(uid).set(user)
     }
 }
