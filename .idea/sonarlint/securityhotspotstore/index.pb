@@ -95,8 +95,6 @@ j
 :app/src/main/java/com/example/androidpangea/models/User.kt,c/e/ce9733cb158f993366d6b96b60759fd3d4618112
 t
 Dapp/src/main/java/com/example/androidpangea/extensions/Extensions.kt,c/8/c871255179246174a5b91d730eea320436e0c45e
-|
-Lapp/src/main/java/com/example/androidpangea/views/cameraScreen/CreatePost.kt,1/7/171f8d48db49f09516669dbb2f2e6757ff2fed98
 t
 Dapp/src/main/java/com/example/androidpangea/views/subviews/Bitmap.kt,8/f/8fa574458e5b297dbd5ef811d7358b43279eb7ef
 ‚
@@ -121,8 +119,6 @@ z
 Japp/src/main/java/com/example/androidpangea/views/subviews/SplashScreen.kt,a/d/ad9756becdbbd82489607f2041195f69c8ed349e
 y
 Iapp/src/main/java/com/example/androidpangea/views/subviews/ImagePicker.kt,b/0/b021c213c237755c79d91425c3c0f70243d45216
-}
-Mapp/src/main/java/com/example/androidpangea/views/cameraScreen/PhotoScreen.kt,3/5/359ee42e57b60bb737deff58b4bd82821d1d1f21
 |
 Lapp/src/main/java/com/example/androidpangea/views/authentication/Response.kt,e/f/effd94b6bd7c4ec13ec37eafdd592915e022ed57
 n
@@ -157,11 +153,11 @@ v
 Fapp/src/main/java/com/example/androidpangea/repository/DataResponse.kt,2/c/2cd99d442b982bbb3915e7c7c35ea286aea16cae
 
 Oapp/src/main/java/com/example/androidpangea/repository/ProfileRepositoryImpl.kt,e/a/ead22d94b9a0f3565085b4744325bf464d21ecf6
-y
-Iapp/src/main/java/com/example/androidpangea/views/subviews/PhotoPicker.kt,1/8/18be1e562f018a78e657514f0a9238e8b6addc7f
 p
 @app/src/main/java/com/example/androidpangea/utils/StorageUtil.kt,f/1/f1a58d76a5a675c4eb1633d689de3eafe06e8dc6
 r
 Bapp/src/main/java/com/example/androidpangea/utils/DispatchGroup.kt,8/f/8f422e2a6f88f0203cb2bd0cc8ffb0c818aa095a
 t
 Dapp/src/main/java/com/example/androidpangea/ui/theme/ColorPalette.kt,7/3/738e7c9357f356f0929adac4680903009fee4912
+x
+Happ/src/main/java/com/example/androidpangea/views/postScreen/PostList.kt,4/e/4e7a9ae93de293a498920ac71b9be8a66a65f01a
